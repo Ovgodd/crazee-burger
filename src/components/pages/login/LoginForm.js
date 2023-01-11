@@ -10,7 +10,10 @@ export default function LoginForm() {
     setName("");
   };
   const handleChange = (event) => {
-    setName(event.target.value);
+    const regex = /^[A-Za-z]+$/;
+    if (event.target.value === "" || regex.test(event.target.value)) {
+      setName(event.target.value);
+    }
   };
 
   // affichage
