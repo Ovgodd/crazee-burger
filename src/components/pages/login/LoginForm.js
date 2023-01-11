@@ -7,12 +7,10 @@ export default function LoginForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     alert("bonjour " + name);
-    console.log("nom apres saisi " + name);
     setName("");
   };
   const handleChange = (event) => {
     setName(event.target.value);
-    console.log(name);
   };
 
   // affichage
