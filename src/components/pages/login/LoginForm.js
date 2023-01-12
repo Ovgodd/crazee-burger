@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { isValidName } from "./utils";
-
+import { useNavigate, redirect } from "react-router-dom";
 export default function LoginForm() {
   // state(état, données)
   const [name, setName] = useState("");
@@ -8,7 +8,6 @@ export default function LoginForm() {
   // comportements
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert("bonjour " + name);
     setName("");
   };
 
