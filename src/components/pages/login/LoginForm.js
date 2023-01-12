@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { isValidName } from "./utils";
-import { useNavigate, redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export default function LoginForm() {
   // state(état, données)
   const [name, setName] = useState("");
