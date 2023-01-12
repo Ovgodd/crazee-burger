@@ -1,19 +1,22 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { isValidName } from "./utils";
 export default function LoginForm() {
   // state(état, données)
-  const [name, setName] = useState("");
+  const [inputName, setInputName] = useState("");
+  const navigate = useNavigate();
 
   // comportements
   const handleSubmit = (event) => {
     event.preventDefault();
-    setName("");
+    setInputName("");
+    navigate(`order/${inputName}`);
   };
 
   const handleChange = (event) => {
     const inputUser = event.target.value;
-    if (inputUser === "" || isValidName.test(inputUser)) setName(inputUser);
+    if (inputUser === "" || isValidName.test(inputUser))
+      setInputName(inputUser);
   };
 
   // affichage
@@ -24,13 +27,12 @@ export default function LoginForm() {
       <h2>Connectez-vous</h2>
       <input
         type="text"
-        value={name}
+        value={inputName}
         placeholder="Entrez votre prénom..."
         onChange={handleChange}
         required
       />
       <button>Accédez à votre espace</button>
-      <Link to="/order">Vers OrderPage</Link>
     </form>
   );
 }
