@@ -71,29 +71,46 @@ const LoginFormStyled = styled.form`
   }
 
   .welcome-container {
-    margin: -4em;
+    margin: -3em;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: ${theme.colors.white};
+
     h2 {
       font-size: ${theme.fonts.P4};
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      border-bottom: 3px solid ${theme.colors.red};
+      padding-bottom: 30px;
+      width: 130%;
     }
+
     h3 {
-      margin-top: ${theme.spacing.md};
+      margin-top: ${theme.spacing.xxs};
       font-size: ${theme.fonts.P3};
     }
   }
   .identifier-container {
-    margin: ${theme.spacing.xl};
+    margin-top: ${theme.spacing.xl};
     display: flex;
     flex-direction: column;
-    margin-bottom: ${theme.spacing.xxs};
+    width: 40%;
     input {
       border-radius: ${theme.borderRadius.round};
+      border: none;
+      font-family: "Open Sans", sans-serif;
+      height: 50px;
     }
     button {
+      margin-top: ${theme.spacing.xs};
       border-radius: ${theme.borderRadius.round};
+      border: none;
+      background-color: ${theme.colors.primary_burger};
+      color: ${theme.colors.white};
+      font-family: "Open Sans", sans-serif;
+      height: 50px;
     }
   }
 `;
