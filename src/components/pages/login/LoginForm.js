@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { isValidName } from "./utils";
+
 export default function LoginForm() {
   // state(état, données)
   const [inputName, setInputName] = useState("");
@@ -20,6 +21,7 @@ export default function LoginForm() {
   };
 
   // affichage
+
   return (
     <form action="submit" onSubmit={handleSubmit}>
       <h1>Bienvenue chez nous</h1>
