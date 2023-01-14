@@ -4,6 +4,7 @@ import { isValidName } from "./utils";
 import styled from "styled-components";
 import { theme } from "../../../theme";
 import Logo from "../../../images/F03 logo-orange.png";
+import { BsPersonCircle } from "react-icons/bs";
 
 export default function LoginForm() {
   // state(état, données)
@@ -37,6 +38,7 @@ export default function LoginForm() {
         <h3>Connectez-vous</h3>
       </div>
       <div className="identifier-container">
+        <BsPersonCircle className="icon" />
         <input
           type="text"
           value={inputName}
@@ -49,7 +51,6 @@ export default function LoginForm() {
     </LoginFormStyled>
   );
 }
-
 const LoginFormStyled = styled.form`
   display: flex;
   flex-direction: column;
@@ -97,20 +98,35 @@ const LoginFormStyled = styled.form`
     display: flex;
     flex-direction: column;
     width: 40%;
-    input {
-      border-radius: ${theme.borderRadius.round};
-      border: none;
-      font-family: "Open Sans", sans-serif;
-      height: 50px;
+    position: relative;
+  }
+  input {
+    border-radius: ${theme.borderRadius.round};
+    border: none;
+    font-family: "Open Sans", sans-serif;
+    height: 50px;
+    text-align: center;
+    ::placeholder {
+      color: ${theme.colors.greySemiDark};
+      opacity: 1;
+      //add image peutêtre ici
     }
-    button {
-      margin-top: ${theme.spacing.xs};
-      border-radius: ${theme.borderRadius.round};
-      border: none;
-      background-color: ${theme.colors.primary_burger};
-      color: ${theme.colors.white};
-      font-family: "Open Sans", sans-serif;
-      height: 50px;
-    }
+  }
+
+  button {
+    margin-top: ${theme.spacing.xs};
+    border-radius: ${theme.borderRadius.round};
+    border: none;
+    background-color: ${theme.colors.primary_burger};
+    color: ${theme.colors.white};
+    font-family: "Open Sans", sans-serif;
+    height: 50px;
+  }
+  .icon {
+    color: ${theme.colors.greySemiDark};
+    height: 1rem;
+    width: 1rem;
+    transform: translateY(210%);
+    padding-left: 20px;
   }
 `;
