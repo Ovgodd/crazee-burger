@@ -32,11 +32,11 @@ export default function LoginForm() {
       <input
         type="text"
         value={inputName}
-        placeholder="Entrez votre prénom..."
+        placeholder="Entrez votre prénom"
         onChange={handleChange}
         required
       />
-      <button>Accédez à votre espace</button>
+      <button>Accédez à mon espace</button>
     </LoginFormStyled>
   );
 }
