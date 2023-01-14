@@ -11,24 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace, ;
 }
-@font-face {
-  font-family: bold;
-  src: url(./fonts/AmaticSC-Bold.ttf);
-}
-.bold{
-  font-family: bold;
-}
-@font-face {
-  font-family: regular;
-  src: url(./fonts/AmaticSC-Regular.ttf);
-}
-.regular{
-  font-family: regular;
-}
-@font-face {
-  font-family: medium;
-  src: url(./fonts/OpenSans-VariableFont_wdth\,wght.ttf);
-}
-.medium{
-  font-family: medium;
-}
