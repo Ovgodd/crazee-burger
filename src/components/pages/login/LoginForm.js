@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { isValidName } from "./utils";
 import styled from "styled-components";
-import { theme } from "../../../theme";
 
 export default function LoginForm() {
   // state(état, données)
@@ -26,7 +25,7 @@ export default function LoginForm() {
 
   return (
     <LoginFormStyled action="submit" onSubmit={handleSubmit}>
-      <h1 className="regular">Bienvenue chez nous</h1>
+      <h1>Bienvenue chez nous</h1>
       <br />
       <h2>Connectez-vous</h2>
       <input
@@ -41,4 +40,7 @@ export default function LoginForm() {
   );
 }
 
-const LoginFormStyled = styled.form``;
+const LoginFormStyled = styled.form`
+  background-color: brown; // a transformer en image
+  background-image 
+`;
