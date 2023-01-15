@@ -14,8 +14,8 @@ export default function LoginForm() {
   // comportements
   const handleSubmit = (event) => {
     event.preventDefault();
-    setInputName("");
     navigate(`order/${inputName}`);
+    setInputName("");
   };
 
   const handleChange = (event) => {
