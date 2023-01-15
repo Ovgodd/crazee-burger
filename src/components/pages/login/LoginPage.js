@@ -9,7 +9,7 @@ export default function LoginPage() {
     </LoginPageStyled>
   );
 }
-const LoginPageStyled = styled.form`
+const LoginPageStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
