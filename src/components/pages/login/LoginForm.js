@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { isValidName } from "./utils";
 import styled from "styled-components";
 import { theme } from "../../../theme";
-import Logo from "../../../images/F03 logo-orange.png";
 import { BsPersonCircle } from "react-icons/bs";
+import BurgerLogo from "../UI/BurgerLogo";
 
 export default function LoginForm() {
   // state(état, données)
@@ -28,11 +28,7 @@ export default function LoginForm() {
 
   return (
     <LoginFormStyled action="submit" onSubmit={handleSubmit}>
-      <div className="logo-container">
-        <h1 className="title">CRAZEE</h1>
-        <img className="logo" src={Logo} alt="Logo" />
-        <h1 className="title">BURGER</h1>
-      </div>
+      <BurgerLogo />
       <div className="welcome-container">
         <h2>Bienvenue chez nous !</h2>
         <h3>Connectez-vous</h3>
@@ -42,10 +38,11 @@ export default function LoginForm() {
         <input
           type="text"
           value={inputName}
-          placeholder="Entrez votre prénom"
+          placeholder="Entrez votre prénom..."
           onChange={handleChange}
           required
         />
+
         <button>Accédez à mon espace</button>
       </div>
     </LoginFormStyled>
@@ -56,20 +53,6 @@ const LoginFormStyled = styled.form`
   flex-direction: column;
   align-items: center;
   font-family: "Amatic SC", cursive;
-  .logo-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: ${theme.fonts.P6};
-    h1 {
-      font-size: ${theme.fonts.P6};
-      color: ${theme.colors.primary};
-    }
-    .logo {
-      height: 40%;
-      width: 40%;
-    }
-  }
 
   .welcome-container {
     margin: -3em;
