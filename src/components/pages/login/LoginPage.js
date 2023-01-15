@@ -15,7 +15,7 @@ const LoginPageStyled = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: ${theme.fonts.P6};
+  margin-top: ${theme.fonts.P7};
 
   ::before {
     content: "";

@@ -24,7 +24,7 @@ const BurgerLogoStyled = styled.div`
   .logo {
     margin-left: ${theme.spacing.sm};
     margin-right: ${theme.spacing.sm};
-    height: 50%;
-    width: 50%;
+    height: 25%;
+    width: 25%;
   }
 `;
