@@ -42,8 +42,7 @@ export default function LoginForm() {
           onChange={handleChange}
           required
         />
-
-        <button>Accédez à mon espace</button>
+        <button className="btn">Accédez à mon espace</button>
       </div>
     </LoginFormStyled>
   );
@@ -89,11 +88,6 @@ const LoginFormStyled = styled.form`
     font-family: "Open Sans", sans-serif;
     height: 50px;
     text-align: center;
-    ::placeholder {
-      color: ${theme.colors.greySemiDark};
-      opacity: 1;
-      //add image peutêtre ici
-    }
   }
 
   button {
@@ -105,6 +99,13 @@ const LoginFormStyled = styled.form`
     font-family: "Open Sans", sans-serif;
     height: 50px;
   }
+  button:active {
+    background-color: ${theme.colors.white};
+    border-color: ${theme.colors.primary_burger};
+    color: ${theme.colors.primary_burger};
+    border: 1px solid;
+  }
+
   .icon {
     color: ${theme.colors.greySemiDark};
     height: 1rem;
