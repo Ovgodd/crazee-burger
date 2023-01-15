@@ -6,6 +6,7 @@ const colors = {
   background_dark: "#292729",
   primary: "#ffa01b",
   primary_burger: "#ff9f1b",
+  orange_line: "#f56a2c",
   green: "green",
   success: "#60bd4f",
   red: "#e25549",
@@ -25,7 +26,8 @@ const spacing = {
   md: "20px",
   lg: "32px",
   xl: "52px",
-  xxl: "84px",
+  xxl: "70px",
+  xxxl: "84px",
 };
 
 const fonts = {
@@ -39,6 +41,8 @@ const fonts = {
   P4: "36px",
   P5: "48px",
   P6: "60px",
+  P7: "72px",
+  p8: "90px",
 };
 const gridUnit = 8;
 const borderRadius = {

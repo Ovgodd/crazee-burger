@@ -21,18 +21,19 @@ const WelcomeStyled = styled.div`
     color: ${theme.colors.white};
 
     h2 {
-      font-size: ${theme.fonts.P4};
+      font-size: ${theme.fonts.P6};
       align-items: center;
       display: flex;
       flex-direction: column;
-      border-bottom: 3px solid ${theme.colors.red};
-      padding-bottom: 30px;
-      width: 140%;
+      border-bottom: 5px solid ${theme.colors.orange_line};
+      padding-bottom: ${theme.spacing.xl};
+      width: 145%;
+      margin-top: ${theme.spacing.lg};
     }
 
     h3 {
       margin-top: ${theme.spacing.xxs};
-      font-size: ${theme.fonts.P3};
+      font-size: ${theme.fonts.P5};
     }
   }
 `;

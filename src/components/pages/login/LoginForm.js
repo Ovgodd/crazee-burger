@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { isValidName } from "./utils";
+
 import styled from "styled-components";
-import { theme } from "../../../theme";
-import { BsPersonCircle } from "react-icons/bs";
+
 import BurgerLogo from "../UI/BurgerLogo";
 import Welcome from "./Welcome";
 import Identifier from "../UI/Identifier";

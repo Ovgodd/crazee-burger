@@ -18,20 +18,20 @@ export default function Identifier() {
         <input
           type="text"
           value={inputName}
-          placeholder="Entrez votre prénom..."
+          placeholder="Entrez votre prénom"
           onChange={handleChange}
           required
         />
-        <button className="btn">Accédez à mon espace </button>
+        <button className="btn">Accédez à mon espace &#62;</button>
       </div>
     </IdentifierStyled>
   );
 }
 const IdentifierStyled = styled.div`
   justify-content: center;
-  width: 40%;
+  width: 50%;
   .identifier-container {
-    margin-top: ${theme.spacing.xl};
+    margin-top: ${theme.spacing.xxs};
     display: flex;
     flex-direction: column;
     position: relative;
@@ -42,7 +42,7 @@ const IdentifierStyled = styled.div`
     border: 0px solid;
     font-family: "Open Sans", sans-serif;
     font-weight: bold;
-    height: 50px;
+    height: ${theme.spacing.xxl};
     text-align: left;
     outline: none;
     padding-left: ${theme.spacing.xl};
@@ -54,13 +54,16 @@ const IdentifierStyled = styled.div`
   }
 
   button {
-    margin-top: ${theme.spacing.xs};
+    margin-top: ${theme.spacing.md};
     border-radius: ${theme.borderRadius.round};
     border: none;
     background-color: ${theme.colors.primary_burger};
     color: ${theme.colors.white};
     font-family: "Open Sans", sans-serif;
-    height: 50px;
+    font-weight: ${theme.weights.semiBold};
+    font-size: ${theme.spacing.md};
+    letter-spacing: 1px;
+    height: ${theme.spacing.xxl};
   }
   button:active {
     background-color: ${theme.colors.white};
@@ -71,9 +74,9 @@ const IdentifierStyled = styled.div`
 
   .icon {
     color: ${theme.colors.greySemiDark};
-    height: 1rem;
-    width: 1rem;
-    transform: translateY(210%);
-    padding-left: 20px;
+    transform: translateY(230%);
+    padding-left: ${theme.spacing.md};
+    width: ${theme.spacing.md};
+    height: ${theme.spacing.md};
   }
 `;

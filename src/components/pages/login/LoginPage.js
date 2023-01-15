@@ -1,6 +1,7 @@
 import LoginForm from "./LoginForm";
 import styled from "styled-components";
 import Background from "../../../images/F03-burger-background.jpg";
+import { theme } from "../../../theme";
 
 export default function LoginPage() {
   return (
@@ -15,6 +16,7 @@ const LoginPageStyled = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
+  margin-top: ${theme.fonts.P4};
 
   ::before {
     content: "";
@@ -28,5 +30,6 @@ const LoginPageStyled = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
     z-index: -1;
+    filter: brightness(30%);
   }
 `;
