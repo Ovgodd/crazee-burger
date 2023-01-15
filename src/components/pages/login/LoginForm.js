@@ -7,6 +7,8 @@ import Welcome from "./Welcome";
 import { theme } from "../../../theme";
 import { isValidName } from "../../../utils";
 import { BsPersonCircle } from "react-icons/bs";
+import TextInput from "../../reusable-ui/TextInput";
+import PrimaryButton from "../../reusable-ui/PrimaryButton";
 
 export default function LoginForm() {
   // state(état, données)
@@ -29,14 +31,8 @@ export default function LoginForm() {
       <BurgerLogo />
       <Welcome />
       <BsPersonCircle className="icon" />
-      <input
-        type="text"
-        value={inputName}
-        placeholder="Entrez votre prénom"
-        onChange={handleChange}
-        required
-      />
-      <button className="btn">Accédez à mon espace &#62;</button>
+      <TextInput inputInfo={inputName} onInputChange={handleChange} />
+      <PrimaryButton />
     </LoginFormStyled>
   );
 }
