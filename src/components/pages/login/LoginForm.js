@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import styled from "styled-components";
-
-import BurgerLogo from "../UI/BurgerLogo";
+import BurgerLogo from "../../reusable-ui/BurgerLogo";
 import Welcome from "./Welcome";
-import Identifier from "../UI/Identifier";
+import Identifier from "./Identifier";
 
 export default function LoginForm() {
   // state(état, données)

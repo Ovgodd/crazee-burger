@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Logo from "../../../images/F03 logo-orange.png";
-import { theme } from "../../../theme";
+import Logo from "../../images/F03 logo-orange.png";
+import { theme } from "../../theme";
 
 export default function BurgerLogo() {
   return (

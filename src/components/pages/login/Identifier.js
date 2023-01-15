@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BsPersonCircle } from "react-icons/bs";
 import styled from "styled-components";
 import { theme } from "../../../theme";
-import { isValidName } from "../login/utils";
+import { isValidName } from "../../../utils";
 
 export default function Identifier() {
   const [inputName, setInputName] = useState("");
