@@ -6,29 +6,25 @@ import { theme } from "../../../theme";
 export default function BurgerLogo() {
   return (
     <BurgerLogoStyled>
-      <div className="logo-container">
-        <h1 className="title">CRAZEE</h1>
-        <img className="logo" src={Logo} alt="Logo" />
-        <h1 className="title">BURGER</h1>
-      </div>
+      <h1 className="title">CRAZEE</h1>
+      <img className="logo" src={Logo} alt="Logo" />
+      <h1 className="title">BURGER</h1>
     </BurgerLogoStyled>
   );
 }
 const BurgerLogoStyled = styled.div`
-  .logo-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    h1 {
-      font-size: 130px;
-      color: ${theme.colors.primary};
-    }
-    .logo {
-      margin-left: ${theme.spacing.sm};
-      margin-right: ${theme.spacing.sm};
-      height: 25%;
-      width: 25%;
-    }
+  h1 {
+    font-size: 130px;
+    color: ${theme.colors.primary};
+  }
+  .logo {
+    margin-left: ${theme.spacing.sm};
+    margin-right: ${theme.spacing.sm};
+    height: 50%;
+    width: 50%;
   }
 `;

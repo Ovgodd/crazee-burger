@@ -13,30 +13,27 @@ export default function Identifier() {
   };
   return (
     <IdentifierStyled>
-      <div className="identifier-container">
-        <BsPersonCircle className="icon" />
-        <input
-          type="text"
-          value={inputName}
-          placeholder="Entrez votre prénom"
-          onChange={handleChange}
-          required
-        />
-        <button className="btn">Accédez à mon espace &#62;</button>
-      </div>
+      <BsPersonCircle className="icon" />
+      <input
+        type="text"
+        value={inputName}
+        placeholder="Entrez votre prénom"
+        onChange={handleChange}
+        required
+      />
+      <button className="btn">Accédez à mon espace &#62;</button>
     </IdentifierStyled>
   );
 }
 const IdentifierStyled = styled.div`
   justify-content: center;
   width: 50%;
-  .identifier-container {
-    margin-top: ${theme.spacing.xxs};
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    justify-content: center;
-  }
+  margin-top: ${theme.spacing.xxs};
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+
   input {
     border-radius: ${theme.borderRadius.round};
     border: 0px solid;
