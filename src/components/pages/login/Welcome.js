@@ -24,7 +24,7 @@ const WelcomeStyled = styled.div`
     flex-direction: column;
     border-bottom: 5px solid ${theme.colors.orange_line};
     padding-bottom: ${theme.spacing.xl};
-    width: 145%;
+    width: 130%;
     margin-top: ${theme.spacing.lg};
   }
 
