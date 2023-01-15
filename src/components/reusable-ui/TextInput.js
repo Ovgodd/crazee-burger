@@ -14,19 +14,17 @@ export default function TextInput(props) {
   );
 }
 const TextInputStyled = styled.input`
-  input {
-    border-radius: ${theme.borderRadius.round};
-    border: 0px solid;
-    font-family: "Open Sans", sans-serif;
-    font-weight: bold;
-    height: ${theme.spacing.xxl};
-    outline: none;
-    width: 40%;
-    padding-left: ${theme.spacing.xl};
+  border-radius: ${theme.borderRadius.round};
+  border: 0px solid;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  height: ${theme.spacing.xxl};
+  outline: none;
+  width: 40%;
+  padding-left: ${theme.spacing.xl};
 
-    ::placeholder {
-      color: ${theme.colors.greyLight};
-      font-weight: lighter;
-    }
+  ::placeholder {
+    color: ${theme.colors.greyLight};
+    font-weight: lighter;
   }
 `;

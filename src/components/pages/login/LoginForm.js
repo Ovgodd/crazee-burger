@@ -44,42 +44,6 @@ const LoginFormStyled = styled.form`
   font-family: "Amatic SC", cursive;
   margin-top: ${theme.spacing.xxs};
 
-  input {
-    border-radius: ${theme.borderRadius.round};
-    border: 0px solid;
-    font-family: "Open Sans", sans-serif;
-    font-weight: bold;
-    height: ${theme.spacing.xxl};
-    outline: none;
-    width: 40%;
-    padding-left: ${theme.spacing.xl};
-
-    ::placeholder {
-      color: ${theme.colors.greyLight};
-      font-weight: lighter;
-    }
-  }
-
-  button {
-    margin-top: ${theme.spacing.md};
-    border-radius: ${theme.borderRadius.round};
-    border: none;
-    background-color: ${theme.colors.primary_burger};
-    color: ${theme.colors.white};
-    font-family: "Open Sans", sans-serif;
-    font-weight: ${theme.weights.semiBold};
-    font-size: ${theme.spacing.md};
-    letter-spacing: 1px;
-    height: ${theme.spacing.xxl};
-    width: 45%;
-  }
-  button:active {
-    background-color: ${theme.colors.white};
-    border-color: ${theme.colors.primary_burger};
-    color: ${theme.colors.primary_burger};
-    border: 1px solid;
-  }
-
   .icon {
     color: ${theme.colors.greySemiDark};
     height: 20px;
