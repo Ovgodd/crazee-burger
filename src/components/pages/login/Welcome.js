@@ -17,14 +17,13 @@ const WelcomeStyled = styled.div`
   align-items: center;
   color: ${theme.colors.white};
   font-family: "Amatic SC", cursive;
-
   h1 {
     font-size: ${theme.fonts.P5};
-    margin-top: ${theme.spacing.xs};
+    margin-top: ${theme.spacing.xxs};
   }
   hr {
     border: 1.5px solid #f56a2c;
-    width: 400px;
+    width: 440px;
   }
   h2 {
     font-size: ${theme.fonts.P4};

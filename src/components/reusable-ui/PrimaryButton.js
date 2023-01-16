@@ -17,11 +17,11 @@ const PrimaryButtonStyled = styled.div`
     background-color: ${theme.colors.primary_burger};
     color: ${theme.colors.white};
     font-family: "Open Sans", sans-serif;
-    font-weight: ${theme.weights.semiBold};
+    font-weight: ${theme.weights.light};
     font-size: ${theme.fonts.P0};
     letter-spacing: 1px;
     padding: 18px 24px;
-    width: 400px;
+    width: 440px;
     &:active {
       background-color: ${theme.colors.white};
       border-color: ${theme.colors.primary_burger};

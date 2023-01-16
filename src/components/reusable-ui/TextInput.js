@@ -27,7 +27,7 @@ const TextInputStyled = styled.div`
   border-radius: ${theme.borderRadius.round};
   padding: 18px 24px;
   input {
-    width: 315px;
+    width: 355px;
     border-radius: ${theme.borderRadius.round};
     border: none;
     font-family: "Open Sans", sans-serif;
