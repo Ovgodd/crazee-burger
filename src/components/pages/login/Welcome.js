@@ -12,7 +12,6 @@ export default function Welcome() {
   );
 }
 const WelcomeStyled = styled.div`
-  margin: -2em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,14 +20,13 @@ const WelcomeStyled = styled.div`
 
   h1 {
     font-size: ${theme.fonts.P5};
-    margin-top: ${theme.spacing.md};
+    margin-top: ${theme.spacing.xs};
   }
   hr {
     border: 1.5px solid #f56a2c;
     width: 400px;
   }
   h2 {
-    margin-top: ${theme.spacing.md};
     font-size: ${theme.fonts.P4};
   }
 `;

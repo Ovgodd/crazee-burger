@@ -10,17 +10,17 @@ export default function PrimaryButton() {
   );
 }
 const PrimaryButtonStyled = styled.button`
-  margin-top: ${theme.spacing.md};
+  margin: ${theme.spacing.sm};
   border-radius: ${theme.borderRadius.round};
   border: none;
   background-color: ${theme.colors.primary_burger};
   color: ${theme.colors.white};
   font-family: "Open Sans", sans-serif;
   font-weight: ${theme.weights.semiBold};
-  font-size: ${theme.spacing.md};
+  font-size: ${theme.fonts.P0};
   letter-spacing: 1px;
-  height: ${theme.spacing.xl};
-  width: 405px;
+  padding: 18px 24px;
+  width: 400px;
 
   &:active {
     background-color: ${theme.colors.white};

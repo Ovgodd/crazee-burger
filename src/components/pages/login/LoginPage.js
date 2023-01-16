@@ -1,7 +1,6 @@
 import LoginForm from "./LoginForm";
 import styled from "styled-components";
 import Background from "../../../images/F03-burger-background.jpg";
-import { theme } from "../../../theme";
 
 export default function LoginPage() {
   return (
@@ -16,7 +15,6 @@ const LoginPageStyled = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
-
   ::before {
     content: "";
     position: absolute;
