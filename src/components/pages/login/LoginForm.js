@@ -13,18 +13,18 @@ import PrimaryButton from "../../reusable-ui/PrimaryButton";
 export default function LoginForm() {
   // state(état, données)
   const [inputName, setInputName] = useState("");
+
   const navigate = useNavigate();
+
   const handleChange = (event) => {
     const inputUser = event.target.value;
     if (inputUser === "" || isValidName.test(inputUser))
       setInputName(inputUser);
   };
-  // comportements
+
   const handleSubmit = () => {
     navigate(`order/${inputName}`);
   };
-
-  // affichage
 
   return (
     <LoginFormStyled action="submit" onSubmit={handleSubmit}>
