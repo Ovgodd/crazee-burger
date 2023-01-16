@@ -15,12 +15,10 @@ export default function BurgerLogo() {
 const BurgerLogoStyled = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-top: 70px;
-
   h1 {
     font-size: ${theme.fonts.p9};
     color: ${theme.colors.primary};
+    font-family: "Amatic SC", cursive;
   }
   .logo {
     object-fit: cover;
