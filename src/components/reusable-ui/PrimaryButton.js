@@ -6,7 +6,7 @@ import { IoChevronForward } from "react-icons/io5";
 export default function PrimaryButton() {
   return (
     <PrimaryButtonStyled>
-      <button className="btn">
+      <button>
         <span>Accédez à mon espace</span>
         <IoChevronForward className="icon" />
       </button>
@@ -15,15 +15,15 @@ export default function PrimaryButton() {
 }
 
 const PrimaryButtonStyled = styled.div`
-  .btn {
+  button {
     margin: ${theme.spacing.sm};
     border-radius: ${theme.borderRadius.round};
     border: none;
     background-color: ${theme.colors.primary_burger};
     color: ${theme.colors.white};
-    font-family: "Open Sans", sans-serif;
-    font-weight: ${theme.weights.light};
     font-size: ${theme.fonts.P0};
+    font-weight: ${theme.weights.light};
+    color: ${theme.colors.white};
     letter-spacing: 1px;
     padding: 18px 24px;
     width: 440px;
