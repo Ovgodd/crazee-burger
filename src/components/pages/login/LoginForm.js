@@ -42,13 +42,12 @@ const LoginFormStyled = styled.form`
   align-items: center;
   justify-content: center;
   font-family: "Amatic SC", cursive;
-  margin-top: ${theme.spacing.xxs};
-
+  text-align: center;
   .icon {
     color: ${theme.colors.greySemiDark};
     height: 20px;
     width: 20px;
-    transform: translateY(230%);
-    margin-right: 440px;
+    transform: translateY(190%);
+    margin-right: 350px;
   }
 `;

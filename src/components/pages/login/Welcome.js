@@ -18,18 +18,18 @@ const WelcomeStyled = styled.div`
   color: ${theme.colors.white};
 
   h2 {
-    font-size: ${theme.fonts.P6};
+    font-size: ${theme.fonts.P5};
     align-items: center;
     display: flex;
     flex-direction: column;
-    border-bottom: 5px solid ${theme.colors.orange_line};
+    border-bottom: 4px solid ${theme.colors.orange_line};
     padding-bottom: ${theme.spacing.xl};
     width: 130%;
-    margin-top: ${theme.spacing.lg};
+    margin-top: ${theme.spacing.md};
   }
 
   h3 {
-    margin-top: ${theme.spacing.xxs};
-    font-size: ${theme.fonts.P5};
+    margin-top: ${theme.spacing.md};
+    font-size: ${theme.fonts.P4};
   }
 `;

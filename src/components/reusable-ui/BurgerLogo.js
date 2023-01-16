@@ -16,15 +16,18 @@ const BurgerLogoStyled = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 70px;
 
   h1 {
-    font-size: 130px;
+    font-size: ${theme.fonts.p9};
     color: ${theme.colors.primary};
   }
   .logo {
+    object-fit: cover;
+    object-position: center;
     margin-left: ${theme.spacing.sm};
     margin-right: ${theme.spacing.sm};
-    height: 25%;
-    width: 25%;
+    height: 120px;
+    width: 200px;
   }
 `;

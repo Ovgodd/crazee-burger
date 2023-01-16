@@ -17,10 +17,11 @@ const TextInputStyled = styled.input`
   border-radius: ${theme.borderRadius.round};
   border: 0px solid;
   font-family: "Open Sans", sans-serif;
+  align-items: center;
   font-weight: bold;
-  height: ${theme.spacing.xxl};
+  height: ${theme.spacing.xl};
   outline: none;
-  width: 40%;
+  width: 350px;
   padding-left: ${theme.spacing.xl};
 
   ::placeholder {
