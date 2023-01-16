@@ -12,6 +12,7 @@ export default function BurgerLogo() {
     </BurgerLogoStyled>
   );
 }
+
 const BurgerLogoStyled = styled.div`
   display: flex;
   align-items: center;
@@ -21,6 +22,7 @@ const BurgerLogoStyled = styled.div`
     color: ${theme.colors.primary};
     font-family: "Amatic SC", cursive;
   }
+
   .logo {
     object-fit: cover;
     object-position: center;

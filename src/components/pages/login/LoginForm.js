@@ -37,6 +37,7 @@ export default function LoginForm() {
     </LoginFormStyled>
   );
 }
+
 const LoginFormStyled = styled.form`
   display: flex;
   flex-direction: column;

@@ -13,6 +13,7 @@ export default function PrimaryButton() {
     </PrimaryButtonStyled>
   );
 }
+
 const PrimaryButtonStyled = styled.div`
   .btn {
     margin: ${theme.spacing.sm};
@@ -29,12 +30,14 @@ const PrimaryButtonStyled = styled.div`
     text-align: center;
     justify-items: center;
     justify-content: center;
+
     &:active {
       background-color: ${theme.colors.white};
       border-color: ${theme.colors.primary_burger};
       color: ${theme.colors.primary_burger};
       border: 1px solid;
     }
+
     .icon {
       transform: translateY(20%);
     }

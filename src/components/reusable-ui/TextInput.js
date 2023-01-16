@@ -17,15 +17,16 @@ export default function TextInput({ text, value, placeholder, onChange }) {
     </TextInputStyled>
   );
 }
+
 const TextInputStyled = styled.div`
   align-items: center;
   font-weight: bold;
   outline: none;
   background-color: white;
   display: flex;
-
   border-radius: ${theme.borderRadius.round};
   padding: 18px 24px;
+
   input {
     width: 355px;
     border-radius: ${theme.borderRadius.round};
