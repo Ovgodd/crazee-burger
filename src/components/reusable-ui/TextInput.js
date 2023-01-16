@@ -27,17 +27,21 @@ const TextInputStyled = styled.div`
   border-radius: ${theme.borderRadius.round};
   padding: 18px 24px;
   input {
-    width: 330px;
+    width: 315px;
     border-radius: ${theme.borderRadius.round};
     border: none;
     font-family: "Open Sans", sans-serif;
-    font-weight: ${theme.weights.light};
     font-size: ${theme.fonts.P0};
+    ::placeholder {
+      font-size: ${theme.fonts.P0};
+      font-weight: ${theme.weights.light};
+      color: ${theme.colors.greyMedium};
+      left: 200px;
+    }
   }
-  ::placeholder {
-    font-size: 40px;
-  }
+
   .icon {
     color: ${theme.colors.greyMedium};
+    margin-right: 15px;
   }
 `;
