@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import BurgerLogo from "../../reusable-ui/BurgerLogo";
 import Welcome from "./Welcome";
 import { isValidName } from "../../../utils";
 import TextInput from "../../reusable-ui/TextInput";
@@ -25,7 +24,6 @@ export default function LoginForm() {
 
   return (
     <LoginFormStyled action="submit" onSubmit={handleSubmit}>
-      <BurgerLogo />
       <Welcome />
       <TextInput
         type={"text"}

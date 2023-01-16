@@ -1,10 +1,12 @@
 import LoginForm from "./LoginForm";
 import styled from "styled-components";
 import Background from "../../../images/F03-burger-background.jpg";
+import BurgerLogo from "../../reusable-ui/BurgerLogo";
 
 export default function LoginPage() {
   return (
     <LoginPageStyled>
+      <BurgerLogo />
       <LoginForm />
     </LoginPageStyled>
   );
