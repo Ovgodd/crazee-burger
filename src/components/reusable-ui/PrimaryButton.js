@@ -27,9 +27,6 @@ const PrimaryButtonStyled = styled.div`
     letter-spacing: 1px;
     padding: 18px 24px;
     width: 440px;
-    text-align: center;
-    justify-items: center;
-    justify-content: center;
 
     &:active {
       background-color: ${theme.colors.white};
