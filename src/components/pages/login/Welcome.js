@@ -5,30 +5,29 @@ import { theme } from "../../../theme";
 export default function Welcome() {
   return (
     <WelcomeStyled>
-      <h2>Bienvenue chez nous !</h2>
-      <h3>Connectez-vous</h3>
+      <h1>Bienvenue chez nous !</h1>
+      <hr />
+      <h2>Connectez-vous</h2>
     </WelcomeStyled>
   );
 }
 const WelcomeStyled = styled.div`
-  margin: -3em;
+  margin: -2em;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: ${theme.colors.white};
+  font-family: "Amatic SC", cursive;
 
-  h2 {
+  h1 {
     font-size: ${theme.fonts.P5};
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    border-bottom: 4px solid ${theme.colors.orange_line};
-    padding-bottom: ${theme.spacing.xl};
-    width: 130%;
     margin-top: ${theme.spacing.md};
   }
-
-  h3 {
+  hr {
+    border: 1.5px solid #f56a2c;
+    width: 400px;
+  }
+  h2 {
     margin-top: ${theme.spacing.md};
     font-size: ${theme.fonts.P4};
   }
