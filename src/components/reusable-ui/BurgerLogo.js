@@ -21,9 +21,17 @@ const BurgerLogoStyled = styled.div`
     font-size: ${theme.fonts.p9};
     color: ${theme.colors.primary};
     font-family: "Amatic SC", cursive;
+    ::selection {
+      color: none;
+      background: none;
+    }
   }
 
   .logo {
+    ::selection {
+      color: none;
+      background: none;
+    }
     object-fit: cover;
     object-position: center;
     margin-left: ${theme.spacing.sm};
