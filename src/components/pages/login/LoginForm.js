@@ -1,17 +1,16 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { isValidName } from "./utils";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import Welcome from "./Welcome";
+import { isValidName } from "../../../utils";
+import TextInput from "../../reusable-ui/TextInput";
+import PrimaryButton from "../../reusable-ui/PrimaryButton";
+
 export default function LoginForm() {
   // state(état, données)
   const [inputName, setInputName] = useState("");
-  const navigate = useNavigate();
 
-  // comportements
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setInputName("");
-    navigate(`order/${inputName}`);
-  };
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const inputUser = event.target.value;
@@ -19,20 +18,29 @@ export default function LoginForm() {
       setInputName(inputUser);
   };
 
-  // affichage
+  const handleSubmit = () => {
+    navigate(`order/${inputName}`);
+  };
+
   return (
-    <form action="submit" onSubmit={handleSubmit}>
-      <h1>Bienvenue chez nous</h1>
-      <br />
-      <h2>Connectez-vous</h2>
-      <input
-        type="text"
+    <LoginFormStyled action="submit" onSubmit={handleSubmit}>
+      <Welcome />
+      <TextInput
+        type={"text"}
         value={inputName}
-        placeholder="Entrez votre prénom..."
+        placeholder={"Entrez votre prénom"}
         onChange={handleChange}
-        required
       />
-      <button>Accédez à votre espace</button>
-    </form>
+      <PrimaryButton />
+    </LoginFormStyled>
   );
 }
+
+const LoginFormStyled = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Amatic SC", cursive;
+  text-align: center;
+`;
