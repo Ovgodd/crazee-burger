@@ -18,7 +18,7 @@ const PrimaryButtonStyled = styled.div`
     margin: ${theme.spacing.sm};
     border-radius: ${theme.borderRadius.round};
     border: none;
-    background-color: ${theme.colors.primary_burger};
+    background-color: ${theme.colors.primary};
     color: ${theme.colors.white};
     font-size: ${theme.fonts.P0};
     font-weight: ${theme.weights.light};
@@ -29,8 +29,8 @@ const PrimaryButtonStyled = styled.div`
 
     &:active {
       background-color: ${theme.colors.white};
-      border-color: ${theme.colors.primary_burger};
-      color: ${theme.colors.primary_burger};
+      border-color: ${theme.colors.primary};
+      color: ${theme.colors.primary};
       border: 1px solid;
     }
   }
