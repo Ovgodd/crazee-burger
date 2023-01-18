@@ -1,14 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
-import { IoChevronForward } from "react-icons/io5";
 
-export default function PrimaryButton() {
+export default function PrimaryButton({ label, Icon }) {
   return (
     <PrimaryButtonStyled>
       <button>
-        <span>Accédez à mon espace</span>
-        <IoChevronForward className="icon" />
+        {label}
+        {Icon && Icon}
       </button>
     </PrimaryButtonStyled>
   );
@@ -33,10 +32,6 @@ const PrimaryButtonStyled = styled.div`
       border-color: ${theme.colors.primary_burger};
       color: ${theme.colors.primary_burger};
       border: 1px solid;
-    }
-
-    .icon {
-      transform: translateY(20%);
     }
   }
 `;

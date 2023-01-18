@@ -6,6 +6,7 @@ import { isValidName } from "../../../utils";
 import TextInput from "../../reusable-ui/TextInput";
 import PrimaryButton from "../../reusable-ui/PrimaryButton";
 import { BsPersonCircle } from "react-icons/bs";
+import { IoChevronForward } from "react-icons/io5";
 
 export default function LoginForm() {
   // state(état, données)
@@ -33,7 +34,10 @@ export default function LoginForm() {
         required
         Icon={<BsPersonCircle className="icon" />}
       />
-      <PrimaryButton />
+      <PrimaryButton
+        label={"Accédez à mon espace"}
+        Icon={<IoChevronForward className="chevron-icon" />}
+      />
     </LoginFormStyled>
   );
 }
@@ -45,4 +49,8 @@ const LoginFormStyled = styled.form`
   justify-content: center;
   font-family: "Amatic SC", cursive;
   text-align: center;
+
+  .chevron-icon {
+    transform: translateY(20%);
+  }
 `;
