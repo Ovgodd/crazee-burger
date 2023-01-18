@@ -1,19 +1,19 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import styled from "styled-components";
+import { theme } from "../../../theme";
+import OrderContainer from "./OrderContainer";
+
 export default function OrderPage() {
-  //states
-  const { username } = useParams();
-
-  //comportements
-
-  //affichage
   return (
-    <div>
-      <h1>Bonjour {username}</h1>
-      <br />
-      <Link to="/">
-        <button>Déconnexion</button>
-      </Link>
-    </div>
+    <OrderPageStyled>
+      <OrderContainer />
+    </OrderPageStyled>
   );
 }
+const OrderPageStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: ${theme.colors.primary};
+`;
