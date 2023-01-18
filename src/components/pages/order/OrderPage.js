@@ -13,7 +13,7 @@ export default function OrderPage() {
 const OrderPageStyled = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   height: 100vh;
   background-color: ${theme.colors.primary};
 `;
