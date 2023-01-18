@@ -1,19 +1,12 @@
 import React from "react";
-import { BsPersonCircle } from "react-icons/bs";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function TextInput({ text, value, placeholder, onChange }) {
+export default function TextInput({ value, onChange, Icon, ...extraProps }) {
   return (
     <TextInputStyled>
-      <BsPersonCircle className="icon" />
-      <input
-        type={text}
-        value={value}
-        placeholder={placeholder}
-        onChange={onChange}
-        required
-      />
+      {Icon && Icon}
+      <input value={value} onChange={onChange} type="text" {...extraProps} />
     </TextInputStyled>
   );
 }
@@ -37,7 +30,6 @@ const TextInputStyled = styled.div`
       font-size: ${theme.fonts.P0};
       font-weight: ${theme.weights.light};
       color: ${theme.colors.greyMedium};
-      left: 200px;
     }
   }
 

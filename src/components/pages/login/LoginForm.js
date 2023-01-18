@@ -5,6 +5,7 @@ import Welcome from "./Welcome";
 import { isValidName } from "../../../utils";
 import TextInput from "../../reusable-ui/TextInput";
 import PrimaryButton from "../../reusable-ui/PrimaryButton";
+import { BsPersonCircle } from "react-icons/bs";
 
 export default function LoginForm() {
   // state(état, données)
@@ -26,10 +27,11 @@ export default function LoginForm() {
     <LoginFormStyled action="submit" onSubmit={handleSubmit}>
       <Welcome />
       <TextInput
-        type={"text"}
         value={inputName}
-        placeholder={"Entrez votre prénom"}
         onChange={handleChange}
+        placeholder={"Entrez votre prénom"}
+        required
+        Icon={<BsPersonCircle className="icon" />}
       />
       <PrimaryButton />
     </LoginFormStyled>
