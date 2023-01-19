@@ -1,18 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import BurgerLogo from "../../../reusable-ui/BurgerLogo";
+import LeftSide from "./LeftSide";
 import RightSide from "./RightSide";
 
 export default function NavBar({ username }) {
-  const refreshPage = () => {
-    console.log("refreshing");
-    window.location.reload();
-  };
   return (
     <NavBarStyled>
-      <div className="logo" onClick={refreshPage}>
-        <BurgerLogo />
-      </div>
+      <LeftSide />
       <RightSide usename={username} />
     </NavBarStyled>
   );
@@ -25,10 +19,4 @@ const NavBarStyled = styled.div`
   align-items: center;
   border-radius: 15px 15px 0px 0px;
   max-height: 94px;
-  .logo {
-    transform: scale(0.4);
-    transform-origin: center left;
-    margin-left: 30px;
-    cursor: pointer;
-  }
 `;
