@@ -7,7 +7,7 @@ export default function NavBar({ username }) {
   return (
     <NavBarStyled>
       <LeftSide />
-      <RightSide usename={username} />
+      <RightSide username={username} />
     </NavBarStyled>
   );
 }
