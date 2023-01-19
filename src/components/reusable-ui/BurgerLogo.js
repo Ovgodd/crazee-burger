@@ -3,11 +3,11 @@ import styled from "styled-components";
 import Logo from "../../images/F03 logo-orange.png";
 import { theme } from "../../theme";
 
-export default function BurgerLogo() {
+export default function BurgerLogo({ className }) {
   return (
-    <BurgerLogoStyled>
+    <BurgerLogoStyled className={className}>
       <h1 className="title">CRAZEE</h1>
-      <img className="logo" src={Logo} alt="Logo" />
+      <img src={Logo} alt="Logo" />
       <h1 className="title">BURGER</h1>
     </BurgerLogoStyled>
   );
@@ -27,7 +27,7 @@ const BurgerLogoStyled = styled.div`
     }
   }
 
-  .logo {
+  img {
     ::selection {
       color: none;
       background: none;
