@@ -1,24 +1,12 @@
 import React from "react";
-import { BsPersonCircle } from "react-icons/bs";
-import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { theme } from "../../../theme";
-import BurgerLogo from "../../reusable-ui/BurgerLogo";
+import { theme } from "../../../../theme";
+import BurgerLogo from "../../../reusable-ui/BurgerLogo";
 
 export default function NavBar() {
-  const { username } = useParams();
   return (
     <NavBarStyled>
       <BurgerLogo className="logo" />
-      <div className="right-side">
-        <div className="welcome-elements">
-          <h1 className="welcome-text">Hey, {username}</h1>
-          <a className="link" href="/">
-            Se déconnecter
-            <BsPersonCircle className="icon" />
-          </a>
-        </div>
-      </div>
     </NavBarStyled>
   );
 }
