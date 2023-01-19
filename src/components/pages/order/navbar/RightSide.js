@@ -9,7 +9,9 @@ export default function RightSide() {
   return (
     <RightSideStyled>
       <div className="welcome-container">
-        <h1 className="welcome-text">Hey, {username}</h1>
+        <h1 className="welcome-text">
+          Hey, <b>{username}</b>
+        </h1>
         <a className="link" href="/">
           Se déconnecter
         </a>
@@ -21,32 +23,36 @@ export default function RightSide() {
 const RightSideStyled = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  align-content: space-around;
   margin-right: 70px;
   .welcome-container {
-    display: block;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-
     margin-right: 10px;
-  }
-  .welcome-text {
-    line-height: 0px;
-    font-family: "Open Sans", sans-serif;
-    color: ${theme.colors.greyBlue};
-    font-size: ${theme.fonts.P1};
-    font-weight: ${theme.weights.medium};
-    text-align: right;
-  }
-  .link {
-    color: ${theme.colors.greyBlue};
-    font-size: ${theme.fonts.XS};
-    text-decoration: none;
+    object-fit: cover;
+    /* background: orange; */
+    b {
+      color: ${theme.colors.primary};
+    }
+    .welcome-text {
+      line-height: 0px;
+      font-family: "Open Sans", sans-serif;
+      color: ${theme.colors.greyBlue};
+      font-size: ${theme.fonts.P1};
+      font-weight: ${theme.weights.medium};
+      text-align: right;
+    }
+    .link {
+      color: ${theme.colors.greyBlue};
+      font-size: ${theme.fonts.XS};
+      text-decoration: none;
+    }
   }
 
   .icon {
     height: 36px;
     width: 36px;
     color: ${theme.colors.greyBlue};
+    /* background: green; */
   }
 `;
