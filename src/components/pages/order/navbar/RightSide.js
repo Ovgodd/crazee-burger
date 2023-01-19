@@ -1,12 +1,10 @@
 import React from "react";
 import { BsPersonCircle } from "react-icons/bs";
-import { useParams } from "react-router-dom";
 // import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 
-export default function RightSide() {
-  const { username } = useParams();
+export default function RightSide({ username }) {
   return (
     <RightSideStyled>
       <div className="welcome-container">
@@ -25,16 +23,17 @@ const RightSideStyled = styled.div`
   display: flex;
   align-items: center;
   margin-right: 70px;
+
   .welcome-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-right: 10px;
     object-fit: cover;
-    /* background: orange; */
     b {
       color: ${theme.colors.primary};
     }
+
     .welcome-text {
       line-height: 0px;
       font-family: "Open Sans", sans-serif;
@@ -43,6 +42,7 @@ const RightSideStyled = styled.div`
       font-weight: ${theme.weights.medium};
       text-align: right;
     }
+
     .link {
       color: ${theme.colors.greyBlue};
       font-size: ${theme.fonts.XS};
@@ -54,6 +54,5 @@ const RightSideStyled = styled.div`
     height: 36px;
     width: 36px;
     color: ${theme.colors.greyBlue};
-    /* background: green; */
   }
 `;

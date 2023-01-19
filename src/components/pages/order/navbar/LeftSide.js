@@ -4,9 +4,9 @@ import BurgerLogo from "../../../reusable-ui/BurgerLogo";
 
 export default function LeftSide() {
   const refreshPage = () => {
-    console.log("refreshing");
     window.location.reload();
   };
+
   return (
     <LeftSideStyled className="logo" onClick={refreshPage}>
       <BurgerLogo />
