@@ -20,25 +20,28 @@ export default function RightSide() {
 }
 const RightSideStyled = styled.div`
   display: flex;
-  flex-flow: column wrap;
   align-items: center;
   justify-content: space-around;
   align-content: space-around;
   margin-right: 70px;
-  background-color: purple;
   .welcome-container {
-    background: green;
+    display: block;
+    align-items: center;
+
+    margin-right: 10px;
   }
   .welcome-text {
+    line-height: 0px;
     font-family: "Open Sans", sans-serif;
     color: ${theme.colors.greyBlue};
-    font-size: ${theme.fonts.P0};
-    right: 0;
+    font-size: ${theme.fonts.P1};
+    font-weight: ${theme.weights.medium};
+    text-align: right;
   }
   .link {
     color: ${theme.colors.greyBlue};
-    font-size: ${theme.fonts.P0};
-    margin-bottom: 50px;
+    font-size: ${theme.fonts.XS};
+    text-decoration: none;
   }
 
   .icon {
