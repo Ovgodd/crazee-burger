@@ -3,7 +3,7 @@ import styled from "styled-components";
 import BurgerLogo from "../../../reusable-ui/BurgerLogo";
 import RightSide from "./RightSide";
 
-export default function NavBar() {
+export default function NavBar({ username }) {
   const refreshPage = () => {
     console.log("refreshing");
     window.location.reload();
@@ -13,7 +13,7 @@ export default function NavBar() {
       <div className="logo" onClick={refreshPage}>
         <BurgerLogo />
       </div>
-      <RightSide />
+      <RightSide usename={username} />
     </NavBarStyled>
   );
 }

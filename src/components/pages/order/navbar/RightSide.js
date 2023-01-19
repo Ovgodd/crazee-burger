@@ -1,6 +1,7 @@
 import React from "react";
 import { BsPersonCircle } from "react-icons/bs";
 import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 
