@@ -22,7 +22,6 @@ export default function RightSide({ username }) {
 const RightSideStyled = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 70px;
 
   .welcome-container {
     display: flex;

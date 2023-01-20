@@ -19,4 +19,6 @@ const NavBarStyled = styled.div`
   align-items: center;
   border-radius: 15px 15px 0px 0px;
   max-height: 94px;
+  padding-left: 20px;
+  padding-right: 70px;
 `;
