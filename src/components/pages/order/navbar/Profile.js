@@ -20,33 +20,38 @@ export default function Profile({ username }) {
   );
 }
 const ProfileStyled = styled.div`
-  .welcome-container {
-    display: flex;
-    flex-direction: column;
-    padding-right: 20px;
-    text-align: right;
-  }
   display: flex;
   align-items: center;
   margin-right: 10px;
   object-fit: cover;
-  b {
-    color: ${theme.colors.primary};
-  }
-
-  .welcome-text {
-    line-height: 0px;
-    font-family: "Open Sans", sans-serif;
-    color: ${theme.colors.greyBlue};
-    font-size: ${theme.fonts.P1};
-    font-weight: ${theme.weights.medium};
+  .welcome-container {
+    display: flex;
+    flex-direction: column;
+    padding-right: ${theme.spacing.md};
     text-align: right;
-  }
 
-  .link {
-    color: ${theme.colors.greyBlue};
-    font-size: ${theme.fonts.XS};
-    text-decoration: none;
+    .welcome-text {
+      line-height: 0px;
+      font-family: "Open Sans", sans-serif;
+      color: ${theme.colors.greyBlue};
+      font-size: ${theme.fonts.P1};
+      font-weight: ${theme.weights.medium};
+      text-align: right;
+      b {
+        color: ${theme.colors.primary};
+      }
+    }
+    a {
+      &:hover {
+        text-decoration: underline;
+        color: ${theme.colors.greyDark};
+      }
+    }
+    .link {
+      color: ${theme.colors.greyBlue};
+      font-size: ${theme.fonts.XS};
+      text-decoration: none;
+    }
   }
 
   .icon {
