@@ -6,7 +6,7 @@ import BurgerLogo from "../../reusable-ui/BurgerLogo";
 export default function LoginPage() {
   return (
     <LoginPageStyled>
-      <BurgerLogo />
+      <BurgerLogo className={"logo-login-page"} />
       <LoginForm />
     </LoginPageStyled>
   );
