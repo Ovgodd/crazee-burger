@@ -6,17 +6,17 @@ import { theme } from "../../theme";
 export default function BurgerLogo({ className }) {
   return (
     <BurgerLogoStyled className={className}>
-      <h1 className="title">CRAZEE</h1>
+      <h1>CRAZEE</h1>
       <img src={Logo} alt="Logo" />
-      <h1 className="title">BURGER</h1>
+      <h1>BURGER</h1>
     </BurgerLogoStyled>
   );
 }
 
 const BurgerLogoStyled = styled.div`
   display: flex;
-  align-items: center;
 
+  align-items: center;
   h1 {
     font-size: ${theme.fonts.p9};
     color: ${theme.colors.primary};

@@ -8,14 +8,15 @@ export default function LeftSide() {
   };
 
   return (
-    <LeftSideStyled className="logo" onClick={refreshPage}>
-      <BurgerLogo />
+    <LeftSideStyled onClick={refreshPage}>
+      <BurgerLogo className={"logo-order-page"} />
     </LeftSideStyled>
   );
 }
 const LeftSideStyled = styled.div`
-  transform: scale(0.4);
-  transform-origin: center left;
-  margin-left: 30px;
-  cursor: pointer;
+  .logo-order-page {
+    cursor: pointer;
+    transform: scale(0.4);
+    transform-origin: center left;
+  }
 `;
