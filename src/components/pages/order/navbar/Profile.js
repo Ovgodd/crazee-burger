@@ -27,12 +27,13 @@ const ProfileStyled = styled.div`
   .welcome-container {
     display: flex;
     flex-direction: column;
-    padding-right: ${theme.spacing.md};
+    padding-right: ${theme.spacing.sm};
     text-align: right;
+    padding-bottom: ${theme.spacing.xs};
     .welcome-text {
-      line-height: 0px;
+      line-height: ${theme.spacing.xs};
       color: ${theme.colors.greyBlue};
-      font-size: ${theme.fonts.P1};
+      font-size: ${theme.fonts.P0};
       font-weight: ${theme.weights.medium};
       text-align: right;
       b {
@@ -47,7 +48,7 @@ const ProfileStyled = styled.div`
     }
     .link {
       color: ${theme.colors.greyBlue};
-      font-size: ${theme.fonts.XS};
+      font-size: ${theme.fonts.XXS};
       text-decoration: none;
     }
   }

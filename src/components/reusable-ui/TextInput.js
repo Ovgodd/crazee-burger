@@ -32,9 +32,4 @@ const TextInputStyled = styled.div`
       color: ${theme.colors.greyMedium};
     }
   }
-
-  .icon {
-    color: ${theme.colors.greyMedium};
-    margin-right: 15px;
-  }
 `;

@@ -34,4 +34,7 @@ const PrimaryButtonStyled = styled.div`
       border: 1px solid;
     }
   }
+  .chevron-icon {
+    transform: translateY(20%);
+  }
 `;
