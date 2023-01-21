@@ -29,10 +29,8 @@ const ProfileStyled = styled.div`
     flex-direction: column;
     padding-right: ${theme.spacing.md};
     text-align: right;
-
     .welcome-text {
       line-height: 0px;
-      font-family: "Open Sans", sans-serif;
       color: ${theme.colors.greyBlue};
       font-size: ${theme.fonts.P1};
       font-weight: ${theme.weights.medium};
