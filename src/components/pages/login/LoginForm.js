@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Welcome from "./Welcome";
-import { isValidName } from "../../../utils";
+import { isValidName } from "../../../utils/Regex";
 import TextInput from "../../reusable-ui/TextInput";
 import PrimaryButton from "../../reusable-ui/PrimaryButton";
 import { BsPersonCircle } from "react-icons/bs";

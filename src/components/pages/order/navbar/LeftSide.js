@@ -1,12 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import { refreshPage } from "../../../../utils/Window";
 import BurgerLogo from "../../../reusable-ui/BurgerLogo";
 
 export default function LeftSide() {
-  const refreshPage = () => {
-    window.location.reload();
-  };
-
   return (
     <LeftSideStyled onClick={refreshPage}>
       <BurgerLogo className={"logo-order-page"} />
