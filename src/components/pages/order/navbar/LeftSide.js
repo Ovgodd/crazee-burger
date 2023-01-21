@@ -13,10 +13,6 @@ export default function LeftSide() {
 const LeftSideStyled = styled.div`
   .logo-order-page {
     cursor: pointer;
-    width: 80%;
-    height: 80%;
-    transform: scale(0.5);
-    transform-origin: center left;
     object-fit: cover;
   }
 `;

@@ -33,4 +33,8 @@ const LoginPageStyled = styled.div`
     z-index: -1;
     filter: brightness(30%);
   }
+  .logo-login-page {
+    margin-bottom: 50px;
+    transform: scale(2.5);
+  }
 `;

@@ -15,10 +15,9 @@ export default function BurgerLogo({ className }) {
 
 const BurgerLogoStyled = styled.div`
   display: flex;
-
   align-items: center;
   h1 {
-    font-size: ${theme.fonts.p9};
+    font-size: ${theme.fonts.P4};
     color: ${theme.colors.primary};
     font-family: "Amatic SC", cursive;
     ::selection {
@@ -32,11 +31,11 @@ const BurgerLogoStyled = styled.div`
       color: none;
       background: none;
     }
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
-    margin-left: ${theme.spacing.sm};
-    margin-right: ${theme.spacing.sm};
-    height: 120px;
-    width: 200px;
+    margin-left: ${theme.spacing.xxs};
+    margin-right: ${theme.spacing.xxs};
+    height: 60px;
+    width: 80px;
   }
 `;
