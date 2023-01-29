@@ -25,7 +25,7 @@ const WelcomeStyled = styled.div`
   }
 
   hr {
-    border: 1.5px solid #f56a2c;
+    border: 1.5px solid ${theme.colors.loginLine};
     width: 440px;
   }
 

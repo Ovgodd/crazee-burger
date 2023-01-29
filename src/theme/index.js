@@ -5,7 +5,6 @@ const colors = {
   background_white: "#f5f5f7",
   background_dark: "#292729",
   primary: "#ffa01b",
-  primary_burger: "#ff9f1b",
   orange_line: "#f56a2c",
   green: "green",
   success: "#60bd4f",
@@ -17,6 +16,7 @@ const colors = {
   greySemiDark: "#93a2b1",
   greyDark: "#6f737e",
   greyBlue: "#747b91",
+  loginLine: "#f56a2c",
 };
 
 const spacing = {

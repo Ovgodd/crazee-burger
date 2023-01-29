@@ -6,7 +6,7 @@ import BurgerLogo from "../../reusable-ui/BurgerLogo";
 export default function LoginPage() {
   return (
     <LoginPageStyled>
-      <BurgerLogo />
+      <BurgerLogo className={"logo-login-page"} />
       <LoginForm />
     </LoginPageStyled>
   );
@@ -32,5 +32,9 @@ const LoginPageStyled = styled.div`
     background-repeat: no-repeat;
     z-index: -1;
     filter: brightness(30%);
+  }
+  .logo-login-page {
+    margin-bottom: 50px;
+    transform: scale(2.5);
   }
 `;
