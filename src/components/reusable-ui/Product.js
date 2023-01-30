@@ -5,7 +5,14 @@ import { theme } from "../../theme";
 export default function Product() {
   return (
     <ProductStyled>
-      <span>Product</span>
+      <img src="../../images/burger3.png" alt="burger" />
+      <div>
+        <h1>meal name</h1>
+        <div className="interact-container">
+          <span>price</span>
+          <button>Ajouter</button>
+        </div>
+      </div>
     </ProductStyled>
   );
 }
@@ -17,7 +24,16 @@ const ProductStyled = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: ${theme.borderRadius.extraRound};
-  span {
-    color: orange;
+  display: flex;
+  flex-direction: column;
+  img {
+    background: red;
+    width: 200px;
+    height: 145px;
+  }
+  .interact-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 `;
