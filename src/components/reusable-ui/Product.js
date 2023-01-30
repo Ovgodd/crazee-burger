@@ -7,9 +7,11 @@ export default function Product() {
     <ProductStyled>
       <img src="../../images/burger3.png" alt="burger" />
       <div>
-        <h1>meal name</h1>
+        <h1 className="overflow">meal name sal</h1>
         <div className="interact-container">
-          <span>price</span>
+          <div className="price">
+            <span>price</span>
+          </div>
           <button>Ajouter</button>
         </div>
       </div>
@@ -30,6 +32,13 @@ const ProductStyled = styled.div`
     background: red;
     width: 200px;
     height: 145px;
+  }
+  h1 {
+    white-space: nowrap;
+    overflow: hidden;
+    border: 1px solid yellow;
+    width: 200px;
+    text-overflow: ellipsis;
   }
   .interact-container {
     display: flex;
