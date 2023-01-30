@@ -43,8 +43,8 @@ const ProductStyled = styled.div`
     h1 {
       white-space: nowrap;
       overflow: hidden;
-      width: 200px;
-      margin-bottom: 5px;
+      width: 190px;
+      margin-bottom: ${theme.spacing.xxs};
       text-overflow: ellipsis;
       font-family: "Amatic SC", cursive;
     }
