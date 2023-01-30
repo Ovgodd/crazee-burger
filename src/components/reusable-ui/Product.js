@@ -40,7 +40,7 @@ const ProductStyled = styled.div`
     white-space: nowrap;
     overflow: hidden;
     width: 200px;
-    margin: 15px;
+    margin-bottom: 5px;
     text-overflow: ellipsis;
     font-family: "Amatic SC", cursive;
   }
@@ -49,14 +49,14 @@ const ProductStyled = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 5px 5px;
     width: 200px;
     height: 110px;
+
     .interacter {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 200px;
+      width: 190px;
     }
   }
   span {
@@ -73,6 +73,7 @@ const ProductStyled = styled.div`
     color: ${theme.colors.white};
     width: 95px;
     height: 38px;
+
     &:active {
       background-color: ${theme.colors.white};
       border-color: ${theme.colors.primary};
