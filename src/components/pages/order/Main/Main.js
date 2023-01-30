@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../../theme";
+import { theme } from "../../../../theme";
 
-import MenuStyled from "../../pages/order/navbar/Menu";
+import MenuStyled from "./Menu";
 export default function Main() {
   return (
     <MainStyled>
