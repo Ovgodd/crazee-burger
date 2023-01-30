@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
-export default function Product() {
+export default function Product({ title, image, price }) {
   return (
     <ProductStyled>
-      <img src="../../images/burger3.png" alt="burger" />
+      <img src={image} alt="burger" />
       <div className="interact-container">
-        <h1>Vegan Burger dqdqdzqd</h1>
+        <h1>{title}</h1>
         <div className="interacter">
           <div className="price">
-            <span>9000</span>
+            <span>{price}</span>
           </div>
           <button>Ajouter</button>
         </div>
