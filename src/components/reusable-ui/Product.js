@@ -27,6 +27,7 @@ const ProductStyled = styled.div`
   background: ${theme.colors.white};
 
   img {
+    margin-top: 15px;
     width: 200px;
     height: 145px;
     object-fit: contain;
@@ -40,6 +41,7 @@ const ProductStyled = styled.div`
     justify-content: space-between;
     width: 200px;
     height: 110px;
+
     h1 {
       white-space: nowrap;
       overflow: hidden;
@@ -47,6 +49,8 @@ const ProductStyled = styled.div`
       margin-bottom: ${theme.spacing.xxs};
       text-overflow: ellipsis;
       font-family: "Amatic SC", cursive;
+      font-size: ${theme.fonts.P4};
+      padding-bottom: 50px;
     }
     .interacter {
       display: flex;
