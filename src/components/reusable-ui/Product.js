@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { theme } from "../../theme";
 
 export default function Product() {
   return (
@@ -9,13 +10,13 @@ export default function Product() {
   );
 }
 const ProductStyled = styled.div`
-  background: green;
-  border: 1px solid red;
+  box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
   width: 240px;
   height: 330px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: ${theme.borderRadius.extraRound};
   span {
     color: orange;
   }
