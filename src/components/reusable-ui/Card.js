@@ -60,7 +60,7 @@ const CardStyled = styled.div`
       }
       button {
         border-radius: ${theme.borderRadius.round};
-        border: none;
+        border: 1px solid;
         background-color: ${theme.colors.primary};
         color: ${theme.colors.white};
         font-size: ${theme.fonts.XS};
@@ -81,8 +81,8 @@ const CardStyled = styled.div`
           background-color: ${theme.colors.primary};
           border-color: ${theme.colors.white};
           color: ${theme.colors.white};
-          border: 1px solid;
           transition: 0.3s;
+
           cursor: pointer;
         }
       }
