@@ -16,18 +16,19 @@ export default function Product({ title, image, price }) {
 }
 const ProductStyled = styled.div`
   box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
-  width: 240px;
-  height: 330px;
+  width: 200px;
+  height: 300px;
+  padding: 20px;
+  padding-bottom: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: ${theme.borderRadius.extraRound};
-  display: flex;
-  flex-direction: column;
   background: ${theme.colors.white};
 
   img {
-    margin-top: 15px;
+    margin-top: 20px;
     width: 200px;
     height: 145px;
     object-fit: contain;
@@ -39,8 +40,6 @@ const ProductStyled = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 200px;
-    height: 110px;
 
     h1 {
       white-space: nowrap;
@@ -50,7 +49,6 @@ const ProductStyled = styled.div`
       text-overflow: ellipsis;
       font-family: "Amatic SC", cursive;
       font-size: ${theme.fonts.P4};
-      padding-bottom: 50px;
     }
     .description {
       display: flex;
