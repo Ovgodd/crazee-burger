@@ -28,10 +28,6 @@ const ProductStyled = styled.div`
   background: ${theme.colors.white};
 
   img {
-<<<<<<< HEAD
-=======
-    margin-top: 20px;
->>>>>>> 1da540542a2a8b8d0c410e0f62086d259249136c
     width: 200px;
     height: 145px;
     object-fit: contain;
