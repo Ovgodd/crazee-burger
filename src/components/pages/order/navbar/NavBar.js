@@ -24,4 +24,5 @@ const NavBarStyled = styled.div`
   max-height: 94px;
   padding-left: 20px;
   padding-right: 70px;
+  border-bottom: 1px solid ${theme.colors.greyLight};
 `;
