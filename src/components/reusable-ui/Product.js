@@ -6,7 +6,7 @@ export default function Product({ title, image, price }) {
       <img src={image} alt="burger" />
       <div className="interact-container">
         <h1>{title}</h1>
-        <div className="interacter">
+        <div className="description">
           <span>{price}</span>
           <button>Ajouter</button>
         </div>
@@ -52,7 +52,7 @@ const ProductStyled = styled.div`
       font-size: ${theme.fonts.P4};
       padding-bottom: 50px;
     }
-    .interacter {
+    .description {
       display: flex;
       justify-content: space-between;
       align-items: center;
