@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { theme } from "../../../../theme";
 export default function Product({ title, image, price }) {
   return (
-    <ProductStyled>
+    <CardStyled>
       <img src={image} alt="burger" />
       <div className="interact-container">
         <h1>{title}</h1>
@@ -11,10 +11,10 @@ export default function Product({ title, image, price }) {
           <button>Ajouter</button>
         </div>
       </div>
-    </ProductStyled>
+    </CardStyled>
   );
 }
-const ProductStyled = styled.div`
+const CardStyled = styled.div`
   box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
   width: 200px;
   height: 300px;
