@@ -16,8 +16,10 @@ export default function Product({ title, image, price }) {
 }
 const ProductStyled = styled.div`
   box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
-  width: 240px;
-  height: 330px;
+  width: 200px;
+  height: 300px;
+  padding: 20px;
+  padding-bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +29,6 @@ const ProductStyled = styled.div`
   background: ${theme.colors.white};
 
   img {
-    margin-top: 15px;
     width: 200px;
     height: 145px;
     object-fit: contain;
