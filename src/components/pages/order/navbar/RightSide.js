@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ProfileStyled from "../navbar/Profile";
+import ProfileStyled from "./Profile";
 export default function RightSide({ username }) {
   return (
     <RightSideStyled>
