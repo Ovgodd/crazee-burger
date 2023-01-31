@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Product from "../../../reusable-ui/Product";
+import Product from "./Product";
 import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
 import { formatPrice } from "../../../../utils/maths";
 import { theme } from "../../../../theme";
@@ -11,7 +11,6 @@ export default function Menu() {
     <MenuStyled>
       {menu.map((element) => (
         <Product
-          key={element.id}
           title={element.title}
           image={element.imageSource}
           price={formatPrice(element.price)}
