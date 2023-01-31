@@ -9,12 +9,8 @@ export default function Menu() {
   const [menu, setMenu] = useState(fakeMenu2);
   return (
     <MenuStyled>
-      {menu.map((element) => (
-        <Product
-          title={element.title}
-          image={element.imageSource}
-          price={formatPrice(element.price)}
-        />
+      {menu.map(({ title, imageSource, price }) => (
+        <Product title={title} image={imageSource} price={formatPrice(price)} />
       ))}
     </MenuStyled>
   );
