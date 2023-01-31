@@ -21,8 +21,8 @@ const NavBarStyled = styled.div`
   border-radius: 15px 15px 0px 0px;
   border-top-left-radius: ${theme.borderRadius.extraRound};
   border-top-right-radius: ${theme.borderRadius.extraRound};
+  border-bottom: 1px solid ${theme.colors.greyLight};
   max-height: 94px;
   padding-left: 20px;
   padding-right: 70px;
-  border-bottom: 1px solid ${theme.colors.greyLight};
 `;
