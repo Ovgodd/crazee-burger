@@ -5,7 +5,12 @@ import ProfileStyled from "./Profile";
 export default function RightSide({ username }) {
   return (
     <RightSideStyled>
-      <ToggleButton />
+      <div className="toggle">
+        <ToggleButton
+          labelIfUnchecked="ACTIVER LE MODE ADMIN"
+          labelIfChecked="DÉSACTIVER LE MODE ADMIN"
+        />
+      </div>
       <ProfileStyled username={username} />
     </RightSideStyled>
   );
@@ -13,7 +18,7 @@ export default function RightSide({ username }) {
 const RightSideStyled = styled.div`
   display: flex;
   align-items: center;
-  /* background: pink;
-  width: 500px;
-  justify-content: space-between; */
+  .toggle {
+    margin-right: 50px;
+  }
 `;
