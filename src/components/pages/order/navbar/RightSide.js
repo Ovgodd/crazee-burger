@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import NavbarRightSideIncomplet from "./NavbarRightSideIncomplet";
 import ToggleButton from "../../../reusable-ui/ToggleButton";
 import ProfileStyled from "./Profile";
 import { toast } from "react-toastify";
+import ToastStyled from "./Toast";
 export default function RightSide({ username }) {
   const [isAdmin, setIsAdmin] = useState();
 
@@ -34,13 +34,14 @@ export default function RightSide({ username }) {
         />
       </div>
       <ProfileStyled username={username} />
-      <NavbarRightSideIncomplet />
+      <ToastStyled />
     </RightSideStyled>
   );
 }
 const RightSideStyled = styled.div`
   display: flex;
   align-items: center;
+
   .toggle {
     margin-right: 50px;
   }
