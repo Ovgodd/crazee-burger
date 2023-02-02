@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ToggleButton from "../../../reusable-ui/ToggleButton";
 import ProfileStyled from "./Profile";
 import { toast } from "react-toastify";
-import ToastStyled from "../../../reusable-ui/Toast";
+import Toast from "../../../reusable-ui/Toast";
 export default function RightSide({ username }) {
   const [isAdmin, setIsAdmin] = useState();
 
@@ -34,7 +34,7 @@ export default function RightSide({ username }) {
         />
       </div>
       <ProfileStyled username={username} />
-      <ToastStyled />
+      <Toast />
     </RightSideStyled>
   );
 }
