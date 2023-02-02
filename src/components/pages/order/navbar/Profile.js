@@ -6,7 +6,6 @@ import { theme } from "../../../../theme";
 export default function Profile({ username }) {
   return (
     <ProfileStyled>
-      {/* <div className="admin-button"> Admin button</div> */}
       <div className="welcome-container">
         <h1 className="welcome-text">
           Hey, <b>{username}</b>
@@ -58,8 +57,4 @@ const ProfileStyled = styled.div`
     width: 36px;
     color: ${theme.colors.greyBlue};
   }
-
-  /* .admin-button {
-    background: purple;
-  } */
 `;
