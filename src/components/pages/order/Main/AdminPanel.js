@@ -1,11 +1,15 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import AdminContext from "../../../../context/AdminContext";
 import { theme } from "../../../../theme";
 import Tabs from "./Tabs";
 
-export default function AdminPanel() {
+export default function AdminPanel(heithWhenAdmin) {
+  const { isToggle, setIsToggle } = useContext(AdminContext);
+
   return (
     <AdminPanelStyled>
-      <Tabs />
+      <Tabs height={heithWhenAdmin} />
       <div className="add-product">
         <p>Ajouter un produit</p>
       </div>
@@ -15,7 +19,7 @@ export default function AdminPanel() {
 
 const AdminPanelStyled = styled.div`
   position: absolute;
-  height: 300px;
+  height: ${(props) => (props.isToggle ? "0px" : "300px")};
   width: 1400px;
   bottom: 20px;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
