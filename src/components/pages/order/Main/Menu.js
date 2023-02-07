@@ -4,7 +4,6 @@ import CardStyled from "../../../reusable-ui/Card";
 import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
 import { formatPrice } from "../../../../utils/maths";
 import { theme } from "../../../../theme";
-import AdminPanel from "./AdminPanel";
 
 export default function Menu() {
   const [menu, setMenu] = useState(fakeMenu2);
