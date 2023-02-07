@@ -8,13 +8,22 @@ import { FiChevronUp } from "react-icons/fi";
 import { theme } from "../../../../theme";
 import AdminContext from "../../../../context/AdminContext";
 export default function Tabs() {
-  const toggleAdmin = useContext(AdminContext);
+  const { isToggle, setIsToggle } = useContext(AdminContext);
 
+  //création fonction who handle when set toggle or untoggle
+  const toggleTab = () => {
+    setIsToggle(!isToggle);
+  };
   return (
     <TabsStyled>
-      <TabButton Icon=<FiChevronDown /> className={"tab1"} text={""} />
       <TabButton
-        className={"tab2"}
+        onClick={toggleTab}
+        className={"tab1"}
+        Icon={isToggle ? <FiChevronDown /> : <FiChevronUp />}
+        text={""}
+      />
+      <TabButton
+        className={isToggle ? "tab2" : "tab2-close"}
         Icon={<AiOutlinePlus />}
         text={"Ajouter un produit"}
       />
