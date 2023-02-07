@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import TabButton from "../../../reusable-ui/TabButton";
 import { FiChevronDown } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
-
+import { FiChevronUp } from "react-icons/fi";
+import { theme } from "../../../../theme";
 export default function Tabs() {
+  // const [isOpen, setIsOpen] = useState();
+
+  // const handleClick = (Icon) => {
+  //   isOpen ? (Icon = <FiChevronDown />) : (Icon = <FiChevronUp />);
+  //   setIsOpen(!isOpen);
+  // };Icon = <FiChevronDown />
+
   return (
     <TabsStyled>
-      <TabButton className={"tab1"} Icon={<FiChevronDown />} text={""} />
+      <TabButton Icon=<FiChevronDown /> className={"tab1"} text={""} />
       <TabButton
         className={"tab2"}
         Icon={<AiOutlinePlus />}
@@ -38,6 +46,12 @@ const TabsStyled = styled.div`
     grid-column-end: 6;
     background-color: black;
     color: white;
+  }
+  .tab2-close {
+    grid-column-start: 3;
+    grid-column-end: 6;
+    background-color: white;
+    color: ${theme.colors.greySemiDark};
   }
   .tab3 {
     grid-column-start: 6;
