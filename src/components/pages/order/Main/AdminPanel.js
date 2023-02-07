@@ -41,16 +41,22 @@ const AdminPanelStyled = styled.div`
     height: 44px;
 
     .tab1 {
+      z-index: 2;
       grid-column-start: 2;
       grid-column-end: 3;
+      border: none;
     }
     .tab2 {
+      z-index: 2;
       grid-column-start: 3;
       grid-column-end: 6;
+      border: none;
     }
     .tab3 {
+      z-index: 2;
       grid-column-start: 6;
       grid-column-end: 9;
+      border: none;
     }
   }
 `;
