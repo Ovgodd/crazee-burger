@@ -11,6 +11,7 @@ export default function Product({ title, image, price }) {
           <button>Ajouter</button>
         </div>
       </div>
+      {/* <div className="admin-panel">ajouter un produit</div> */}
     </CardStyled>
   );
 }
