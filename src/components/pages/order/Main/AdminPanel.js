@@ -8,7 +8,7 @@ export default function AdminPanel() {
     <AdminPanelStyled>
       <Tabs />
       <div className="add-product">
-        <p>ajouter un produit</p>
+        <p>Ajouter un produit</p>
       </div>
     </AdminPanelStyled>
   );
@@ -23,8 +23,10 @@ const AdminPanelStyled = styled.div`
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   box-sizing: border-box;
   overflow: hidden;
+
   .add-product {
-    background: ${theme.colors.background_white};
+    padding-left: 20px;
+    background: ${theme.colors.white};
     position: absolute;
     height: 300px;
     width: 1400px;
