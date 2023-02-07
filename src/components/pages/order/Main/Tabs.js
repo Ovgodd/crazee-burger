@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import TabButton from "../../../reusable-ui/TabButton";
 import { FiChevronDown } from "react-icons/fi";
@@ -6,13 +6,9 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
 import { FiChevronUp } from "react-icons/fi";
 import { theme } from "../../../../theme";
+import AdminContext from "../../../../context/AdminContext";
 export default function Tabs() {
-  // const [isOpen, setIsOpen] = useState();
-
-  // const handleClick = (Icon) => {
-  //   isOpen ? (Icon = <FiChevronDown />) : (Icon = <FiChevronUp />);
-  //   setIsOpen(!isOpen);
-  // };Icon = <FiChevronDown />
+  const toggleAdmin = useContext(AdminContext);
 
   return (
     <TabsStyled>

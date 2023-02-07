@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function TabButton({ className, text, Icon }) {
+export default function TabButton({ className, text, Icon, onClick }) {
   return (
-    <TabButtonStyled className={className}>
+    <TabButtonStyled className={className} onClick={onClick}>
       {Icon && Icon}
       {text}
     </TabButtonStyled>
