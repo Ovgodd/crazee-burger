@@ -27,23 +27,24 @@ const AdminPanelStyled = styled.div`
     background: green;
     display: grid;
     grid-gap: 1px;
-    grid-template-columns: repeat(12, 4fr);
+    grid-template-columns: repeat(16, 1fr);
     border: 1px solid yellow;
     height: 44px;
+
     .tab1 {
       border: 1px solid blue;
-      margin-left: 70px;
-      width: 70px;
+      grid-column-start: 2;
+      grid-column-end: 3;
     }
     .tab2 {
       border: 1px solid blue;
-      margin-left: 70px;
-      width: 150px;
+      grid-column-start: 3;
+      grid-column-end: 6;
     }
     .tab3 {
       border: 1px solid blue;
-      margin-left: 70px;
-      width: 150px;
+      grid-column-start: 6;
+      grid-column-end: 9;
     }
   }
 `;
