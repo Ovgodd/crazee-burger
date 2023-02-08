@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import ToggleButton from "../../../reusable-ui/ToggleButton";
 import ProfileStyled from "./Profile";
@@ -20,6 +20,7 @@ export default function RightSide({ username }) {
         draggable: true,
         progress: undefined,
       });
+      //openAdminPanel
     }
     setIsAdmin(!isAdmin);
   };

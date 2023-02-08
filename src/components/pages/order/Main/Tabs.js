@@ -9,7 +9,6 @@ import { theme } from "../../../../theme";
 import AdminContext from "../../../../context/AdminContext";
 export default function Tabs() {
   const { isToggle, setIsToggle } = useContext(AdminContext);
-
   const [adminTab, setTAdminTab] = useState(2);
 
   const toggleTab = (index) => {
@@ -59,32 +58,47 @@ const TabsStyled = styled.div`
     grid-column-start: 2;
     grid-column-end: 3;
     justify-content: center;
-    background-color: black;
+    background-color: ${theme.colors.background_dark};
     color: ${theme.colors.white};
   }
   .tab2 {
     grid-column-start: 3;
     grid-column-end: 6;
-
-    background-color: black;
-    color: white;
+    background-color: ${theme.colors.background_dark};
+    color: ${theme.colors.white};
+    &:hover {
+      text-decoration: underline;
+      color: ${theme.colors.white};
+    }
   }
   .tab2-close {
     grid-column-start: 3;
     grid-column-end: 6;
-    background-color: white;
-    color: black;
+    background-color: ${theme.colors.white};
+    color: ${theme.colors.greySemiDark};
+    &:hover {
+      text-decoration: underline;
+      color: ${theme.colors.greySemiDark};
+    }
   }
   .tab3 {
     grid-column-start: 6;
     grid-column-end: 9;
-    background-color: black;
-    color: white;
+    background-color: ${theme.colors.background_dark};
+    color: ${theme.colors.white};
+    &:hover {
+      text-decoration: underline;
+      color: ${theme.colors.white};
+    }
   }
   .tab3-close {
     grid-column-start: 6;
     grid-column-end: 9;
-    background-color: white;
-    color: black;
+    background-color: ${theme.colors.white};
+    color: ${theme.colors.greySemiDark};
+    &:hover {
+      text-decoration: underline;
+      color: ${theme.colors.greySemiDark};
+    }
   }
 `;
