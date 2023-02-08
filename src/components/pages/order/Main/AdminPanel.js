@@ -1,27 +1,17 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import styled from "styled-components";
 import AdminContext from "../../../../context/AdminContext";
 import { theme } from "../../../../theme";
-import Tabs from "./Tabs";
+import PanelAdminContent from "./PanelAdminContent";
+import PanelAdminTabs from "./PanelAdminTabs";
 
-export default function AdminPanel() {
+export default function AdminPanel({ text }) {
   const { isToggle, setIsToggle } = useContext(AdminContext);
 
-  const openPanelHeight = {
-    height: "300px",
-  };
-  const closePanelHeight = {
-    height: "0px",
-  };
   return (
     <AdminPanelStyled>
-      <Tabs />
-      <div
-        className="product-container"
-        {...(isToggle ? openPanelHeight : closePanelHeight)}
-      >
-        <p>Ajouter un produit</p>
-      </div>
+      <PanelAdminTabs />
+      <PanelAdminContent />
     </AdminPanelStyled>
   );
 }
