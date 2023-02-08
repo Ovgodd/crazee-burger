@@ -61,12 +61,14 @@ const TabsStyled = styled.div`
     justify-content: center;
     background-color: ${theme.colors.background_dark};
     color: ${theme.colors.white};
+    border-color: ${theme.colors.background_dark};
   }
   .tab2 {
     grid-column-start: 3;
     grid-column-end: 6;
     background-color: ${theme.colors.background_dark};
     color: ${theme.colors.white};
+    border-color: ${theme.colors.background_dark};
     &:hover {
       text-decoration: underline;
       color: ${theme.colors.white};
@@ -87,6 +89,7 @@ const TabsStyled = styled.div`
     grid-column-end: 9;
     background-color: ${theme.colors.background_dark};
     color: ${theme.colors.white};
+    border-color: ${theme.colors.background_dark};
     &:hover {
       text-decoration: underline;
       color: ${theme.colors.white};
