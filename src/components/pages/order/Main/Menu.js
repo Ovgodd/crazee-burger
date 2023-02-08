@@ -21,7 +21,7 @@ export default function Menu() {
   );
 }
 const MenuStyled = styled.div`
-  height: 100%;
+  height: 100vh;
   justify-items: center;
   display: grid;
   padding: 50px 50px 150px;

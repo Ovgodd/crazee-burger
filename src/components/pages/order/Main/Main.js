@@ -13,7 +13,7 @@ export default function Main() {
   );
 }
 const MainStyled = styled.div`
-  height: 100%;
+  height: 100vh;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   overflow-y: scroll;
