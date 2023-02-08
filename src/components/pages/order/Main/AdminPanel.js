@@ -6,7 +6,6 @@ import PanelAdminContent from "./PanelAdminContent";
 import PanelAdminTabs from "./PanelAdminTabs";
 
 export default function AdminPanel({ text }) {
-  const { isToggle, setIsToggle } = useContext(AdminContext);
   const { isAdmin, setIsAdmin } = useContext(AdminContext);
   return (
     <AdminPanelStyled>
@@ -41,6 +40,6 @@ const AdminPanelStyled = styled.div`
     display: block;
   }
   .close-panel {
-    visibility: hidden;
+    display: none;
   }
 `;

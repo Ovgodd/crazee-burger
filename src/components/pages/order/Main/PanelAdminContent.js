@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 
-export default function PanelAdminContent() {
+export default function PanelAdminContent({ productText }) {
   return (
     <PanelAdminContentStyled className="product-container">
-      <span>Ajouter un produit</span>
+      <span>{productText}</span>
     </PanelAdminContentStyled>
   );
 }
