@@ -19,7 +19,7 @@ export default function PanelAdminTabs() {
   };
   const toggleAdminTabPanel = () => {
     setIsToggle(!isToggle);
-    console.log("opening panel");
+    console.log("panel behaviour");
   };
   return (
     <TabsStyled>
