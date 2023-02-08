@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import AdminContext from "../../../../context/AdminContext";
 import { theme } from "../../../../theme";
 
-export default function PanelAdminContent({ productText }) {
+export default function PanelAdminContent() {
+  const { adminTab, setAdminTab } = useContext(AdminContext);
   return (
     <PanelAdminContentStyled className="product-container">
-      <span>{productText}</span>
+      <span>
+        {adminTab === 2 ? "Ajouter un produit" : "Modifier un produit"}
+      </span>
     </PanelAdminContentStyled>
   );
 }
