@@ -37,6 +37,6 @@ const AdminPanelStyled = styled.div`
     /* display: block; */
 
     //ne marche pas
-    height: 300px;
+    height: 260px;
   }
 `;
