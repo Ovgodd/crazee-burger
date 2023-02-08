@@ -7,42 +7,39 @@ import { MdModeEditOutline } from "react-icons/md";
 import { FiChevronUp } from "react-icons/fi";
 import { theme } from "../../../../theme";
 import AdminContext from "../../../../context/AdminContext";
-import { tab } from "@testing-library/user-event/dist/tab";
 export default function Tabs() {
   const { isToggle, setIsToggle } = useContext(AdminContext);
 
-  const [toggleAdminTab, setToggleAdminTab] = useState(true);
+  const [adminTab, setTAdminTab] = useState(2);
 
-  const [isAdminToggled, setIsAdminToggled] = useState(2);
-  //création fonction who handle when set toggle or untoggle
   const toggleTab = (index) => {
-    setToggleAdminTab(index);
-    if (!isAdminToggled) setIsAdminToggled(true);
+    setTAdminTab(index);
+    if (isToggle) setIsToggle(false);
     console.log(index);
   };
   const toggleAdminTabPanel = () => {
-    setIsAdminToggled(!isAdminToggled);
+    setIsToggle(!isToggle);
     console.log("opening panel");
   };
   return (
     <TabsStyled>
       <TabButton
-        onClick={toggleAdminTabPanel}
-        className={isToggle ? "tab1" : "tab1-close"}
+        className={isToggle ? "tab1-close" : "tab1"}
         Icon={isToggle ? <FiChevronDown /> : <FiChevronUp />}
         text={""}
+        onClick={toggleAdminTabPanel}
       />
       <TabButton
-        onClick={() => toggleTab(2)}
-        className={isToggle ? "tab2" : "tab2-close"}
+        className={adminTab === 2 ? "tab2" : "tab2-close"}
         Icon={<AiOutlinePlus />}
         text={"Ajouter un produit"}
+        onClick={() => toggleTab(2)}
       />
       <TabButton
-        onClick={() => toggleTab(3)}
-        className={"tab3"}
+        className={adminTab === 3 ? "tab3" : "tab3-close"}
         Icon={<MdModeEditOutline />}
         text={"Modifier un produit"}
+        onClick={() => toggleTab(3)}
       />
     </TabsStyled>
   );
@@ -68,6 +65,7 @@ const TabsStyled = styled.div`
   .tab2 {
     grid-column-start: 3;
     grid-column-end: 6;
+
     background-color: black;
     color: white;
   }
@@ -80,6 +78,8 @@ const TabsStyled = styled.div`
   .tab3 {
     grid-column-start: 6;
     grid-column-end: 9;
+    background-color: black;
+    color: white;
   }
   .tab3-close {
     grid-column-start: 6;
