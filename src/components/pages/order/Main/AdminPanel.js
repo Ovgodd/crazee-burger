@@ -20,19 +20,23 @@ export default function AdminPanel({ text }) {
 
 const AdminPanelStyled = styled.div`
   position: absolute;
-  height: 300px;
   width: 1400px;
   bottom: 0px;
   margin-bottom: 25px;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
-  box-sizing: border-box;
   overflow: hidden;
 
   .close-content {
-    display: none;
+    /* display: none; */
 
     //ne marche pas
-    height: 40px;
+    height: 0px;
+  }
+  .open-content {
+    /* display: block; */
+
+    //ne marche pas
+    height: 300px;
   }
 `;
