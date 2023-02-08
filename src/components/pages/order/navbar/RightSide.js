@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import ToggleButton from "../../../reusable-ui/ToggleButton";
 import ProfileStyled from "./Profile";
 import { toast } from "react-toastify";
 import Toast from "../../../reusable-ui/Toast";
+import AdminContext from "../../../../context/AdminContext";
 export default function RightSide({ username }) {
-  const [isAdmin, setIsAdmin] = useState();
-
+  const { isAdmin, setIsAdmin } = useContext(AdminContext);
   const enableToast = () => {
     if (!isAdmin) {
       toast.info("Mode admin activé", {

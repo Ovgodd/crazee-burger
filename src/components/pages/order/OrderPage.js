@@ -10,10 +10,14 @@ export default function OrderPage() {
   const { username } = useParams();
 
   const [isToggle, setIsToggle] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const adminContextValue = {
     isToggle,
     setIsToggle,
+
+    isAdmin,
+    setIsAdmin,
   };
   return (
     <OrderPageStyled>
