@@ -11,6 +11,7 @@ export default function OrderPage() {
 
   const [isToggle, setIsToggle] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [adminTab, setAdminTab] = useState(2);
 
   const adminContextValue = {
     isToggle,
@@ -18,6 +19,9 @@ export default function OrderPage() {
 
     isAdmin,
     setIsAdmin,
+
+    adminTab,
+    setAdminTab,
   };
   return (
     <OrderPageStyled>

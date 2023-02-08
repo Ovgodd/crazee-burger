@@ -10,10 +10,10 @@ import AdminContext from "../../../../context/AdminContext";
 export default function PanelAdminTabs() {
   const { isToggle, setIsToggle } = useContext(AdminContext);
 
-  const [adminTab, setTAdminTab] = useState(2);
+  const { adminTab, setAdminTab } = useContext(AdminContext);
 
   const toggleTab = (index) => {
-    setTAdminTab(index);
+    setAdminTab(index);
     if (isToggle) setIsToggle(false);
     console.log(index);
   };

@@ -11,4 +11,7 @@ export default createContext({
   //pour le bouton admin
   isAdmin: false,
   setIsAdmin: () => {},
+
+  adminTab: 2,
+  setAdminTab: () => {},
 });
