@@ -21,7 +21,6 @@ export default function Menu() {
   );
 }
 const MenuStyled = styled.div`
-  height: 100vh;
   justify-items: center;
   display: grid;
   padding: 50px 50px 150px;
@@ -29,4 +28,7 @@ const MenuStyled = styled.div`
   grid-row-gap: 60px;
   box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
   background: ${theme.colors.background_white};
+  overflow-y: auto;
+  border-bottom-left-radius: ${theme.borderRadius.extraRound};
+  border-bottom-right-radius: ${theme.borderRadius.extraRound};
 `;

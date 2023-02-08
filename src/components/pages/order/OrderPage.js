@@ -43,7 +43,8 @@ const OrderPageStyled = styled.div`
 
   .container {
     height: 95vh;
-    width: 1400px;
+    max-width: 1400px;
+    width: 100%;
     display: flex;
     flex-direction: column;
   }

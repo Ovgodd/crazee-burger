@@ -20,9 +20,8 @@ export default function AdminPanel({ text }) {
 
 const AdminPanelStyled = styled.div`
   position: absolute;
-  width: 1400px;
+  width: 100%;
   bottom: 0px;
-  margin-bottom: 25px;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   overflow: hidden;
