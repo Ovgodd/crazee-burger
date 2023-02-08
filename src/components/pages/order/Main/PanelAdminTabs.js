@@ -7,8 +7,9 @@ import { MdModeEditOutline } from "react-icons/md";
 import { FiChevronUp } from "react-icons/fi";
 import { theme } from "../../../../theme";
 import AdminContext from "../../../../context/AdminContext";
-export default function Tabs() {
+export default function PanelAdminTabs() {
   const { isToggle, setIsToggle } = useContext(AdminContext);
+
   const [adminTab, setTAdminTab] = useState(2);
 
   const toggleTab = (index) => {
