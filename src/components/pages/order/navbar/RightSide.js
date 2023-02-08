@@ -7,6 +7,7 @@ import Toast from "../../../reusable-ui/Toast";
 import AdminContext from "../../../../context/AdminContext";
 export default function RightSide({ username }) {
   const { isAdmin, setIsAdmin } = useContext(AdminContext);
+
   const enableToast = () => {
     if (!isAdmin) {
       toast.info("Mode admin activé", {
