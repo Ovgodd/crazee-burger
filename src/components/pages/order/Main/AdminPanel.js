@@ -1,12 +1,8 @@
-import { useContext } from "react";
 import styled from "styled-components";
-import AdminContext from "../../../../context/AdminContext";
 import { theme } from "../../../../theme";
 import Tabs from "./Tabs";
 
 export default function AdminPanel(heithWhenAdmin) {
-  const { isToggle, setIsToggle } = useContext(AdminContext);
-
   return (
     <AdminPanelStyled>
       <Tabs height={heithWhenAdmin} />
