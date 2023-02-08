@@ -1,17 +1,18 @@
 import { createContext } from "react";
 
 export default createContext({
-  //panel admin
+  //panel admin est ouvert ?
   isToggle: false,
   setIsToggle: () => {},
 
   //pas sur de l'utilitée
   toggleAdminTabPanel: () => {},
 
-  //pour le bouton admin
+  //bouton admin enclenché ?
   isAdmin: false,
   setIsAdmin: () => {},
 
+  //tab choisie
   adminTab: 2,
   setAdminTab: () => {},
 });
