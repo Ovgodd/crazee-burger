@@ -5,7 +5,7 @@ import { theme } from "../../../../theme";
 import PanelAdminContent from "./PanelAdminContent";
 import PanelAdminTabs from "./PanelAdminTabs";
 
-export default function AdminPanel({ text }) {
+export default function AdminPanel() {
   const { isToggle, setIsToggle } = useContext(AdminContext);
 
   return (

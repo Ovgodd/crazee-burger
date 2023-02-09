@@ -21,7 +21,6 @@ export default function RightSide({ username }) {
         draggable: true,
         progress: undefined,
       });
-      //openAdminPanel
     }
     setIsAdmin(!isAdmin);
   };
