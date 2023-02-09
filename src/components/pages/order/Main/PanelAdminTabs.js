@@ -17,10 +17,12 @@ export default function PanelAdminTabs() {
     if (isToggle) setIsToggle(false);
     console.log(index);
   };
+
   const toggleAdminTabPanel = () => {
     setIsToggle(!isToggle);
     console.log("panel behaviour");
   };
+
   return (
     <TabsStyled>
       <TabButton
@@ -50,6 +52,7 @@ const TabsStyled = styled.div`
   grid-template-columns: repeat(18, 1fr);
   height: 44px;
   box-shadow: 0px -6px 8px -2px rgba(0, 0, 0, 0.1);
+
   .tab1 {
     grid-column-start: 2;
     grid-column-end: 3;
@@ -63,6 +66,7 @@ const TabsStyled = styled.div`
     color: ${theme.colors.white};
     border-color: ${theme.colors.background_dark};
   }
+
   .tab2 {
     grid-column-start: 3;
     grid-column-end: 6;
@@ -84,6 +88,7 @@ const TabsStyled = styled.div`
       color: ${theme.colors.greySemiDark};
     }
   }
+
   .tab3 {
     grid-column-start: 6;
     grid-column-end: 9;

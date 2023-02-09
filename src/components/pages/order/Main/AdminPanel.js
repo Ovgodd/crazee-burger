@@ -27,15 +27,9 @@ const AdminPanelStyled = styled.div`
   overflow: hidden;
 
   .close-content {
-    /* display: none; */
-
-    //ne marche pas
     height: 0px;
   }
   .open-content {
-    /* display: block; */
-
-    //ne marche pas
     height: 260px;
   }
 `;

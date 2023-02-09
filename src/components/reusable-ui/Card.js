@@ -59,6 +59,7 @@ const CardStyled = styled.div`
         color: ${theme.colors.primary};
         font-weight: ${theme.weights.regular};
       }
+
       button {
         border-radius: ${theme.borderRadius.round};
         border: 1px solid;
