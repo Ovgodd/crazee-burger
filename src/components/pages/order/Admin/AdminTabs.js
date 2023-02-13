@@ -52,11 +52,11 @@ const TabsStyled = styled.div`
   .tab1 {
     grid-column-start: 2;
     grid-column-end: 3;
+  }
+  .tab1-close {
     background-color: ${theme.colors.background_dark};
     color: ${theme.colors.white};
     border-color: ${theme.colors.background_dark};
-  }
-  .tab1-close {
     grid-column-start: 2;
     grid-column-end: 3;
   }
