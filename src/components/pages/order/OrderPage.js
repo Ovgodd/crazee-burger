@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import AdminContext from "../../../context/AdminContext";
+import OrderContext from "../../../context/OrderContext";
 import { theme } from "../../../theme";
 import Main from "./Main/Main";
 import NavBar from "./Navbar/NavBar";
@@ -9,13 +9,13 @@ import NavBar from "./Navbar/NavBar";
 export default function OrderPage() {
   const { username } = useParams();
 
-  const [isToggle, setIsToggle] = useState(false);
+  const [isCollapse, setIsCollapse] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [adminTab, setAdminTab] = useState(2);
 
   const adminContextValue = {
-    isToggle,
-    setIsToggle,
+    isCollapse,
+    setIsCollapse,
 
     isAdmin,
     setIsAdmin,
@@ -25,12 +25,12 @@ export default function OrderPage() {
   };
   return (
     <OrderPageStyled>
-      <AdminContext.Provider value={adminContextValue}>
+      <OrderContext.Provider value={adminContextValue}>
         <div className="container">
           <NavBar username={username} />
           <Main />
         </div>
-      </AdminContext.Provider>
+      </OrderContext.Provider>
     </OrderPageStyled>
   );
 }

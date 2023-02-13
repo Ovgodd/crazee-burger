@@ -1,17 +1,17 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import AdminContext from "../../../../context/AdminContext";
+import OrderContext from "../../../../context/OrderContext";
 import { theme } from "../../../../theme";
 import PanelAdminContent from "./PanelAdminContent";
-import PanelAdminTabs from "./PanelAdminTabs";
+import PanelAdminTabs from "./AdminTabs";
 
 export default function AdminPanel() {
-  const { isToggle, setIsToggle } = useContext(AdminContext);
+  const { isCollapse, setIsCollapse } = useContext(OrderContext);
 
   return (
     <AdminPanelStyled>
       <PanelAdminTabs />
-      <div className={isToggle ? "close-content" : "open-content"}>
+      <div className={isCollapse ? "close-content" : "open-content"}>
         <PanelAdminContent />
       </div>
     </AdminPanelStyled>

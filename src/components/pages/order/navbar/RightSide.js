@@ -4,9 +4,9 @@ import ToggleButton from "../../../reusable-ui/ToggleButton";
 import ProfileStyled from "./Profile";
 import { toast } from "react-toastify";
 import Toast from "../../../reusable-ui/Toast";
-import AdminContext from "../../../../context/AdminContext";
+import OrderContext from "../../../../context/OrderContext";
 export default function RightSide({ username }) {
-  const { isAdmin, setIsAdmin } = useContext(AdminContext);
+  const { isAdmin, setIsAdmin } = useContext(OrderContext);
 
   const enableToast = () => {
     if (!isAdmin) {

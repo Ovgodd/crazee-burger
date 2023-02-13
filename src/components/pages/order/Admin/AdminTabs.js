@@ -1,47 +1,47 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import TabButton from "../../../reusable-ui/TabButton";
+import TabButton from "../../../reusable-ui/Tabs";
 import { FiChevronDown } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
 import { FiChevronUp } from "react-icons/fi";
 import { theme } from "../../../../theme";
-import AdminContext from "../../../../context/AdminContext";
+import OrderContext from "../../../../context/OrderContext";
 export default function PanelAdminTabs() {
-  const { isToggle, setIsToggle } = useContext(AdminContext);
+  const { isCollapse, setIsCollapse } = useContext(OrderContext);
 
-  const { adminTab, setAdminTab } = useContext(AdminContext);
+  const { adminTab, setAdminTab } = useContext(OrderContext);
 
-  const toggleTab = (index) => {
+  const selectTab = (index) => {
     setAdminTab(index);
-    if (isToggle) setIsToggle(false);
+    if (isCollapse) setIsCollapse(false);
     console.log(index);
   };
 
-  const toggleAdminTabPanel = () => {
-    setIsToggle(!isToggle);
+  const openAdminTabPanel = () => {
+    setIsCollapse(!isCollapse);
     console.log("panel behaviour");
   };
 
   return (
     <TabsStyled>
       <TabButton
-        className={isToggle ? "tab1-close" : "tab1"}
-        Icon={isToggle ? <FiChevronDown /> : <FiChevronUp />}
+        className={isCollapse ? "tab1" : "tab1-close"}
+        Icon={isCollapse ? <FiChevronDown /> : <FiChevronUp />}
         text={""}
-        onClick={toggleAdminTabPanel}
+        onClick={openAdminTabPanel}
       />
       <TabButton
         className={adminTab === 2 ? "tab2" : "tab2-close"}
         Icon={<AiOutlinePlus />}
         text={"Ajouter un produit"}
-        onClick={() => toggleTab(2)}
+        onClick={() => selectTab(2)}
       />
       <TabButton
         className={adminTab === 3 ? "tab3" : "tab3-close"}
         Icon={<MdModeEditOutline />}
         text={"Modifier un produit"}
-        onClick={() => toggleTab(3)}
+        onClick={() => selectTab(3)}
       />
     </TabsStyled>
   );
@@ -57,14 +57,14 @@ const TabsStyled = styled.div`
     grid-column-start: 2;
     grid-column-end: 3;
     justify-content: center;
+    background-color: ${theme.colors.background_dark};
+    color: ${theme.colors.white};
+    border-color: ${theme.colors.background_dark};
   }
   .tab1-close {
     grid-column-start: 2;
     grid-column-end: 3;
     justify-content: center;
-    background-color: ${theme.colors.background_dark};
-    color: ${theme.colors.white};
-    border-color: ${theme.colors.background_dark};
   }
 
   .tab2 {

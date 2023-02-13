@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import AdminContext from "../../../../context/AdminContext";
+import OrderContext from "../../../../context/OrderContext";
 import { theme } from "../../../../theme";
 
 export default function PanelAdminContent() {
-  const { adminTab, setAdminTab } = useContext(AdminContext);
+  const { adminTab, setAdminTab } = useContext(OrderContext);
   return (
     <PanelAdminContentStyled className="product-container">
       <span>
