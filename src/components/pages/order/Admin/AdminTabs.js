@@ -8,19 +8,16 @@ import { FiChevronUp } from "react-icons/fi";
 import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
 export default function PanelAdminTabs() {
-  const { isCollapse, setIsCollapse } = useContext(OrderContext);
-
-  const { adminTab, setAdminTab } = useContext(OrderContext);
+  const { isCollapse, setIsCollapse, adminTab, setAdminTab } =
+    useContext(OrderContext);
 
   const selectTab = (index) => {
     setAdminTab(index);
     if (isCollapse) setIsCollapse(false);
-    console.log(index);
   };
 
   const openAdminTabPanel = () => {
     setIsCollapse(!isCollapse);
-    console.log("panel behaviour");
   };
 
   return (
