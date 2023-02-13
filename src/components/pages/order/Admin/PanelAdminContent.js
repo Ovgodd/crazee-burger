@@ -19,5 +19,5 @@ const PanelAdminContentStyled = styled.div`
   position: absolute;
   height: 300px;
   width: 1400px;
-  box-shadow: 0px -6px 8px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: ${theme.shadows.subtle};
 `;

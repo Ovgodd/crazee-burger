@@ -20,8 +20,8 @@ const PrimaryButtonStyled = styled.div`
     border: none;
     background-color: ${theme.colors.primary};
     color: ${theme.colors.white};
-    font-size: ${theme.fonts.P0};
-    font-weight: ${theme.weights.light};
+    font-size: ${theme.fonts.size.SM};
+    font-weight: ${theme.fonts.weights.light};
     color: ${theme.colors.white};
     letter-spacing: 1px;
     padding: 18px 24px;

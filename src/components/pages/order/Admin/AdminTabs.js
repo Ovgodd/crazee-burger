@@ -48,12 +48,10 @@ const TabsStyled = styled.div`
   grid-gap: 1px;
   grid-template-columns: repeat(18, 1fr);
   height: 44px;
-  box-shadow: 0px -6px 8px -2px rgba(0, 0, 0, 0.1);
-
+  box-shadow: ${theme.shadows.subtle};
   .tab1 {
     grid-column-start: 2;
     grid-column-end: 3;
-    justify-content: center;
     background-color: ${theme.colors.background_dark};
     color: ${theme.colors.white};
     border-color: ${theme.colors.background_dark};
@@ -61,7 +59,6 @@ const TabsStyled = styled.div`
   .tab1-close {
     grid-column-start: 2;
     grid-column-end: 3;
-    justify-content: center;
   }
 
   .tab2 {

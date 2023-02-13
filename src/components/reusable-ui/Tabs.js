@@ -22,7 +22,7 @@ const TabButtonStyled = styled.div`
   border-bottom: 2px;
   border-style: solid;
   border-color: ${theme.colors.greyLight};
-  font-weight: ${theme.weights.regular};
+  font-weight: ${theme.fonts.weights.regular};
   color: ${theme.colors.greySemiDark};
   background: ${theme.colors.white};
   box-sizing: border-box;

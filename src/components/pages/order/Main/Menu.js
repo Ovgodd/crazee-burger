@@ -26,7 +26,7 @@ const MenuStyled = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-row-gap: 60px;
-  box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: ${theme.shadows.strong};
   background: ${theme.colors.background_white};
   overflow-y: auto;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};

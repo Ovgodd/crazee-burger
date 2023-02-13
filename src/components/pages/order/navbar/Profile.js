@@ -32,8 +32,8 @@ const ProfileStyled = styled.div`
     .welcome-text {
       line-height: ${theme.spacing.xs};
       color: ${theme.colors.greyBlue};
-      font-size: ${theme.fonts.P0};
-      font-weight: ${theme.weights.medium};
+      font-size: ${theme.fonts.size.SM};
+      font-weight: ${theme.fonts.weights.medium};
       text-align: right;
       b {
         color: ${theme.colors.primary};
@@ -47,7 +47,7 @@ const ProfileStyled = styled.div`
     }
     .link {
       color: ${theme.colors.greyBlue};
-      font-size: ${theme.fonts.XXS};
+      font-size: ${theme.fonts.size.XXS};
       text-decoration: none;
     }
   }
