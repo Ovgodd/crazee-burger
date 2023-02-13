@@ -26,7 +26,7 @@ export default function PanelAdminTabs() {
   return (
     <TabsStyled>
       <TabButton
-        className={isCollapse ? "tab1" : "tab1-close"}
+        className={isCollapse ? "tab1-close" : "tab1"}
         Icon={isCollapse ? <FiChevronDown /> : <FiChevronUp />}
         text={""}
         onClick={openAdminTabPanel}
