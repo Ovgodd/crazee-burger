@@ -11,7 +11,7 @@ export default function OrderPage() {
 
   const [isCollapsed, setisCollapsed] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [selectedTab, setselectedTab] = useState(2);
+  const [selectedTab, setselectedTab] = useState("add");
 
   const adminContextValue = {
     isCollapsed,

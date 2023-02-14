@@ -23,7 +23,7 @@ export default function AdminTabs() {
   return (
     <AdminTabsStyled>
       <Tab
-        className={isCollapsed ? "tab1-close" : "tab1"}
+        className={isCollapsed ? "tab1" : ""}
         Icon={isCollapsed ? <FiChevronDown /> : <FiChevronUp />}
         text={""}
         onClick={openPanel}
@@ -47,15 +47,9 @@ const AdminTabsStyled = styled.div`
   display: flex;
   box-shadow: ${theme.shadows.subtle};
   .tab1 {
-    grid-column-start: 2;
-    grid-column-end: 3;
-  }
-  .tab1-close {
     background-color: ${theme.colors.background_dark};
     color: ${theme.colors.white};
     border-color: ${theme.colors.background_dark};
-    grid-column-start: 2;
-    grid-column-end: 3;
   }
 
   .tab2 {
