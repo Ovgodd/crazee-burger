@@ -3,14 +3,14 @@ import styled from "styled-components";
 import OrderContext from "../../../../context/OrderContext";
 import { theme } from "../../../../theme";
 import AdminPanel from "./AdminPanel";
-import PanelAdminTabs from "./AdminTabs";
+import AdminTabs from "./AdminTabs";
 
 export default function Admin() {
   const { isCollapsed, setisCollapsed } = useContext(OrderContext);
 
   return (
     <AdminPanelStyled>
-      <PanelAdminTabs />
+      <AdminTabs />
       <div className={isCollapsed ? "close-content" : "open-content"}>
         <AdminPanel />
       </div>

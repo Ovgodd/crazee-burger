@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import TabButton from "../../../reusable-ui/Tab";
 import { FiChevronDown } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
@@ -8,7 +7,7 @@ import { FiChevronUp } from "react-icons/fi";
 import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
 import Tab from "../../../reusable-ui/Tab";
-export default function PanelAdminTabs() {
+export default function AdminTabs() {
   const { isCollapsed, setisCollapsed, adminTab, setAdminTab } =
     useContext(OrderContext);
 
