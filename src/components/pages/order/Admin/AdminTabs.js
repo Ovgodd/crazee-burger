@@ -8,11 +8,11 @@ import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
 import Tab from "../../../reusable-ui/Tab";
 export default function AdminTabs() {
-  const { isCollapsed, setisCollapsed, adminTab, setAdminTab } =
+  const { isCollapsed, setisCollapsed, selectedTab, setselectedTab } =
     useContext(OrderContext);
 
   const selectTab = (index) => {
-    setAdminTab(index);
+    setselectedTab(index);
     if (isCollapsed) setisCollapsed(false);
   };
 
@@ -29,13 +29,13 @@ export default function AdminTabs() {
         onClick={openPanel}
       />
       <Tab
-        className={adminTab === 2 ? "tab2" : "tab2-close"}
+        className={selectedTab === 2 ? "tab2" : "tab2-close"}
         Icon={<AiOutlinePlus />}
         text={"Ajouter un produit"}
         onClick={() => selectTab(2)}
       />
       <Tab
-        className={adminTab === 3 ? "tab3" : "tab3-close"}
+        className={selectedTab === 3 ? "tab3" : "tab3-close"}
         Icon={<MdModeEditOutline />}
         text={"Modifier un produit"}
         onClick={() => selectTab(3)}
