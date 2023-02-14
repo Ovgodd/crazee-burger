@@ -11,9 +11,7 @@ export default function Main() {
     <MainStyled>
       {/* <div className="basket">Basket</div> */}
       <MenuStyled />
-      <div className={isAdmin ? "open-panel" : "close-panel"}>
-        <Admin />
-      </div>
+      {isAdmin && <Admin />}
     </MainStyled>
   );
 }
@@ -27,10 +25,4 @@ const MainStyled = styled.div`
   .basket {
     background: pink;
   } */
-  .open-panel {
-    display: block;
-  }
-  .close-panel {
-    display: none;
-  }
 `;
