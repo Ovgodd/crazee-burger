@@ -23,19 +23,19 @@ export default function AdminTabs() {
   return (
     <AdminTabsStyled>
       <Tab
-        className={isCollapsed ? "tab1" : ""}
+        className={isCollapsed ? "is-selected" : ""}
         Icon={isCollapsed ? <FiChevronDown /> : <FiChevronUp />}
         text={""}
         onClick={openPanel}
       />
       <Tab
-        className={selectedTab === "add" ? "tab2" : "tab2-close"}
+        className={selectedTab === "add" ? "is-selected" : ""}
         Icon={<AiOutlinePlus />}
         label={"Ajouter un produit"}
         onClick={() => selectTab("add")}
       />
       <Tab
-        className={selectedTab === "edit" ? "tab3" : "tab3-close"}
+        className={selectedTab === "edit" ? "is-selected" : ""}
         Icon={<MdModeEditOutline />}
         label={"Modifier un produit"}
         onClick={() => selectTab("edit")}
@@ -46,53 +46,9 @@ export default function AdminTabs() {
 const AdminTabsStyled = styled.div`
   display: flex;
   box-shadow: ${theme.shadows.subtle};
-  .tab1 {
+  .is-selected {
     background-color: ${theme.colors.background_dark};
     color: ${theme.colors.white};
     border-color: ${theme.colors.background_dark};
-  }
-
-  .tab2 {
-    grid-column-start: 3;
-    grid-column-end: 6;
-    background-color: ${theme.colors.background_dark};
-    color: ${theme.colors.white};
-    border-color: ${theme.colors.background_dark};
-    &:hover {
-      text-decoration: underline;
-      color: ${theme.colors.white};
-    }
-  }
-  .tab2-close {
-    grid-column-start: 3;
-    grid-column-end: 6;
-    background-color: ${theme.colors.white};
-    color: ${theme.colors.greySemiDark};
-    &:hover {
-      text-decoration: underline;
-      color: ${theme.colors.greySemiDark};
-    }
-  }
-
-  .tab3 {
-    grid-column-start: 6;
-    grid-column-end: 9;
-    background-color: ${theme.colors.background_dark};
-    color: ${theme.colors.white};
-    border-color: ${theme.colors.background_dark};
-    &:hover {
-      text-decoration: underline;
-      color: ${theme.colors.white};
-    }
-  }
-  .tab3-close {
-    grid-column-start: 6;
-    grid-column-end: 9;
-    background-color: ${theme.colors.white};
-    color: ${theme.colors.greySemiDark};
-    &:hover {
-      text-decoration: underline;
-      color: ${theme.colors.greySemiDark};
-    }
   }
 `;
