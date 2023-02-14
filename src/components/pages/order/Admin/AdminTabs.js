@@ -47,5 +47,6 @@ const AdminTabsStyled = styled.div`
     background-color: ${theme.colors.background_dark};
     color: ${theme.colors.white};
     border-color: ${theme.colors.background_dark};
+    border-bottom: 2px solid ${theme.colors.background_dark};
   }
 `;
