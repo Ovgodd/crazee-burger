@@ -21,7 +21,7 @@ export default function AdminTabs() {
   };
 
   return (
-    <TabsStyled>
+    <AdminTabsStyled>
       <Tab
         className={isCollapsed ? "tab1-close" : "tab1"}
         Icon={isCollapsed ? <FiChevronDown /> : <FiChevronUp />}
@@ -31,23 +31,20 @@ export default function AdminTabs() {
       <Tab
         className={selectedTab === 2 ? "tab2" : "tab2-close"}
         Icon={<AiOutlinePlus />}
-        text={"Ajouter un produit"}
+        label={"Ajouter un produit"}
         onClick={() => selectTab(2)}
       />
       <Tab
         className={selectedTab === 3 ? "tab3" : "tab3-close"}
         Icon={<MdModeEditOutline />}
-        text={"Modifier un produit"}
+        label={"Modifier un produit"}
         onClick={() => selectTab(3)}
       />
-    </TabsStyled>
+    </AdminTabsStyled>
   );
 }
-const TabsStyled = styled.div`
-  display: grid;
-  grid-gap: 1px;
-  grid-template-columns: repeat(18, 1fr);
-  height: 44px;
+const AdminTabsStyled = styled.div`
+  display: flex;
   box-shadow: ${theme.shadows.subtle};
   .tab1 {
     grid-column-start: 2;
