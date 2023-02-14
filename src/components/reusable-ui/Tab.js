@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
@@ -16,7 +15,6 @@ const TabStyled = styled.button`
   text-align: center;
   justify-content: center;
   padding: 0 22px;
-  z-index: 2;
   height: 43px;
   left: 5%;
   top: 1px;
@@ -34,9 +32,11 @@ const TabStyled = styled.button`
   background: ${theme.colors.white};
   cursor: pointer;
   margin-left: 1px;
+
   .label {
     margin-left: 13px;
   }
+
   &:hover {
     border-bottom: 2px solid ${theme.colors.white};
     text-decoration: underline;
