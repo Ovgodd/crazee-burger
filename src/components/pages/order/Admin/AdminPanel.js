@@ -1,35 +1,23 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../context/OrderContext";
 import { theme } from "../../../../theme";
-import PanelAdminContent from "./PanelAdminContent";
-import PanelAdminTabs from "./AdminTabs";
 
 export default function AdminPanel() {
-  const { isCollapse, setIsCollapse } = useContext(OrderContext);
-
+  const { adminTab, setAdminTab } = useContext(OrderContext);
   return (
-    <AdminPanelStyled>
-      <PanelAdminTabs />
-      <div className={isCollapse ? "close-content" : "open-content"}>
-        <PanelAdminContent />
-      </div>
+    <AdminPanelStyled className="product-container">
+      <span>
+        {adminTab === 2 ? "Ajouter un produit" : "Modifier un produit"}
+      </span>
     </AdminPanelStyled>
   );
 }
-
 const AdminPanelStyled = styled.div`
+  padding: 10px;
+  background: ${theme.colors.white};
   position: absolute;
-  width: 100%;
-  bottom: 0px;
-  border-bottom-left-radius: ${theme.borderRadius.extraRound};
-  border-bottom-right-radius: ${theme.borderRadius.extraRound};
-  overflow: hidden;
-
-  .close-content {
-    height: 0px;
-  }
-  .open-content {
-    height: 260px;
-  }
+  height: 300px;
+  width: 1400px;
+  box-shadow: ${theme.shadows.subtle};
 `;

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../context/OrderContext";
 import { theme } from "../../../../theme";
-import AdminPanel from "../Admin/AdminPanel";
+import Admin from "../Admin/Admin";
 import MenuStyled from "./Menu";
 export default function Main() {
   const { isAdmin, setIsAdmin } = useContext(OrderContext);
@@ -12,7 +12,7 @@ export default function Main() {
       {/* <div className="basket">Basket</div> */}
       <MenuStyled />
       <div className={isAdmin ? "open-panel" : "close-panel"}>
-        <AdminPanel />
+        <Admin />
       </div>
     </MainStyled>
   );
