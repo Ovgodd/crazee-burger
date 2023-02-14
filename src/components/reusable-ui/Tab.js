@@ -2,15 +2,15 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function TabButton({ className, text, Icon, onClick }) {
+export default function Tab({ className, text, Icon, onClick }) {
   return (
-    <TabButtonStyled className={className} onClick={onClick}>
+    <TabStyled className={className} onClick={onClick}>
       {Icon && Icon}
       {text}
-    </TabButtonStyled>
+    </TabStyled>
   );
 }
-const TabButtonStyled = styled.div`
+const TabStyled = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;

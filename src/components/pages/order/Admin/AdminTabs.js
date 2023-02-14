@@ -1,40 +1,41 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import TabButton from "../../../reusable-ui/Tabs";
+import TabButton from "../../../reusable-ui/Tab";
 import { FiChevronDown } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
 import { FiChevronUp } from "react-icons/fi";
 import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
+import Tab from "../../../reusable-ui/Tab";
 export default function PanelAdminTabs() {
-  const { isCollapse, setIsCollapse, adminTab, setAdminTab } =
+  const { isCollapsed, setisCollapsed, adminTab, setAdminTab } =
     useContext(OrderContext);
 
   const selectTab = (index) => {
     setAdminTab(index);
-    if (isCollapse) setIsCollapse(false);
+    if (isCollapsed) setisCollapsed(false);
   };
 
-  const openAdminTabPanel = () => {
-    setIsCollapse(!isCollapse);
+  const openPanel = () => {
+    setisCollapsed(!isCollapsed);
   };
 
   return (
     <TabsStyled>
-      <TabButton
-        className={isCollapse ? "tab1-close" : "tab1"}
-        Icon={isCollapse ? <FiChevronDown /> : <FiChevronUp />}
+      <Tab
+        className={isCollapsed ? "tab1-close" : "tab1"}
+        Icon={isCollapsed ? <FiChevronDown /> : <FiChevronUp />}
         text={""}
-        onClick={openAdminTabPanel}
+        onClick={openPanel}
       />
-      <TabButton
+      <Tab
         className={adminTab === 2 ? "tab2" : "tab2-close"}
         Icon={<AiOutlinePlus />}
         text={"Ajouter un produit"}
         onClick={() => selectTab(2)}
       />
-      <TabButton
+      <Tab
         className={adminTab === 3 ? "tab3" : "tab3-close"}
         Icon={<MdModeEditOutline />}
         text={"Modifier un produit"}

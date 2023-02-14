@@ -6,12 +6,12 @@ import AdminPanel from "./AdminPanel";
 import PanelAdminTabs from "./AdminTabs";
 
 export default function Admin() {
-  const { isCollapse, setIsCollapse } = useContext(OrderContext);
+  const { isCollapsed, setisCollapsed } = useContext(OrderContext);
 
   return (
     <AdminPanelStyled>
       <PanelAdminTabs />
-      <div className={isCollapse ? "close-content" : "open-content"}>
+      <div className={isCollapsed ? "close-content" : "open-content"}>
         <AdminPanel />
       </div>
     </AdminPanelStyled>

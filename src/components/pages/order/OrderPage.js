@@ -9,17 +9,15 @@ import NavBar from "./Navbar/NavBar";
 export default function OrderPage() {
   const { username } = useParams();
 
-  const [isCollapse, setIsCollapse] = useState(false);
+  const [isCollapsed, setisCollapsed] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [adminTab, setAdminTab] = useState(2);
 
   const adminContextValue = {
-    isCollapse,
-    setIsCollapse,
-
+    isCollapsed,
+    setisCollapsed,
     isAdmin,
     setIsAdmin,
-
     adminTab,
     setAdminTab,
   };

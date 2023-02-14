@@ -6,7 +6,7 @@ import { theme } from "../../../../theme";
 export default function AdminPanel() {
   const { adminTab, setAdminTab } = useContext(OrderContext);
   return (
-    <AdminPanelStyled className="product-container">
+    <AdminPanelStyled>
       <span>
         {adminTab === 2 ? "Ajouter un produit" : "Modifier un produit"}
       </span>
