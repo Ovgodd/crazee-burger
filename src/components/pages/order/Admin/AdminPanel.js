@@ -14,10 +14,8 @@ export default function AdminPanel() {
   );
 }
 const AdminPanelStyled = styled.div`
-  padding: 10px;
+  height: 251px;
+  box-sizing: border-box;
   background: ${theme.colors.white};
-  position: absolute;
-  height: 300px;
-  width: 1400px;
   box-shadow: ${theme.shadows.subtle};
 `;

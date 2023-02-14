@@ -6,14 +6,12 @@ import AdminPanel from "./AdminPanel";
 import AdminTabs from "./AdminTabs";
 
 export default function Admin() {
-  const { isCollapsed, setisCollapsed } = useContext(OrderContext);
+  const { isCollapsed } = useContext(OrderContext);
 
   return (
     <AdminPanelStyled>
       <AdminTabs />
-      <div className={isCollapsed ? "close-content" : "open-content"}>
-        <AdminPanel />
-      </div>
+      {isCollapsed && <AdminPanel />}
     </AdminPanelStyled>
   );
 }
@@ -21,15 +19,8 @@ export default function Admin() {
 const AdminPanelStyled = styled.div`
   position: absolute;
   width: 100%;
-  bottom: 0px;
+  bottom: 0;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   overflow: hidden;
-
-  .close-content {
-    height: 0px;
-  }
-  .open-content {
-    height: 260px;
-  }
 `;
