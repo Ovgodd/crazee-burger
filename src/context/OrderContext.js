@@ -5,6 +5,6 @@ export default createContext({
   setIsCollapsed: () => {},
   isAdmin: false,
   setIsAdmin: () => {},
-  selectedTab: 2,
+  selectedTab: "add",
   setSelectedTab: () => {},
 });

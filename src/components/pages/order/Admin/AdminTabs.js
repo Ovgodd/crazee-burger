@@ -29,16 +29,16 @@ export default function AdminTabs() {
         onClick={openPanel}
       />
       <Tab
-        className={selectedTab === 2 ? "tab2" : "tab2-close"}
+        className={selectedTab === "add" ? "tab2" : "tab2-close"}
         Icon={<AiOutlinePlus />}
         label={"Ajouter un produit"}
-        onClick={() => selectTab(2)}
+        onClick={() => selectTab("add")}
       />
       <Tab
-        className={selectedTab === 3 ? "tab3" : "tab3-close"}
+        className={selectedTab === "edit" ? "tab3" : "tab3-close"}
         Icon={<MdModeEditOutline />}
         label={"Modifier un produit"}
-        onClick={() => selectTab(3)}
+        onClick={() => selectTab("edit")}
       />
     </AdminTabsStyled>
   );

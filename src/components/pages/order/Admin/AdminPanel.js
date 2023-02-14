@@ -8,7 +8,7 @@ export default function AdminPanel() {
   return (
     <AdminPanelStyled>
       <span>
-        {selectedTab === 2 ? "Ajouter un produit" : "Modifier un produit"}
+        {selectedTab === "add" ? "Ajouter un produit" : "Modifier un produit"}
       </span>
     </AdminPanelStyled>
   );
