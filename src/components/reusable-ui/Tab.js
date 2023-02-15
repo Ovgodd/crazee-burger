@@ -17,7 +17,7 @@ const TabStyled = styled.button`
   padding: 0 22px;
   height: 43px;
   left: 5%;
-  top: 1px;
+
   position: relative;
 
   border-width: 1px 1px 0px 1px;

@@ -24,7 +24,7 @@ export default function AdminTabs() {
     <AdminTabsStyled>
       <Tab
         className={isCollapsed ? "is-selected" : ""}
-        Icon={isCollapsed ? <FiChevronDown /> : <FiChevronUp />}
+        Icon={isCollapsed ? <FiChevronUp /> : <FiChevronDown />}
         text={""}
         onClick={openPanel}
       />
