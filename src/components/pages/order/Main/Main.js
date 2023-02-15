@@ -10,8 +10,10 @@ export default function Main() {
   return (
     <MainStyled>
       {/* <div className="basket">Basket</div> */}
-      <MenuStyled />
-      {isAdmin && <Admin />}
+      <div className="menu-and-admin">
+        <MenuStyled />
+        {isAdmin && <Admin />}
+      </div>
     </MainStyled>
   );
 }
@@ -21,8 +23,13 @@ const MainStyled = styled.div`
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   position: relative;
   display: grid;
-  /*grid-template-columns: 25% 1fr;
+  /* grid-template-columns: 25% 1fr;
   .basket {
     background: pink;
   } */
+  .menu-and-admin {
+    position: relative;
+    display: grid;
+    overflow-y: hidden;
+  }
 `;
