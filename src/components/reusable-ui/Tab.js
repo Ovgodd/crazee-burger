@@ -35,6 +35,10 @@ const TabStyled = styled.button`
 
   .label {
     margin-left: 13px;
+    margin-top: 1px;
+  }
+  .icon {
+    display: flex;
   }
 
   &:hover {
