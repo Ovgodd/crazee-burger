@@ -11,11 +11,12 @@ export default function Product({ title, image, price }) {
           <button>Ajouter</button>
         </div>
       </div>
+      {/* <div className="admin-panel">ajouter un produit</div> */}
     </CardStyled>
   );
 }
 const CardStyled = styled.div`
-  box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
+  box-shadow: ${theme.shadows.medium};
   width: 200px;
   height: 300px;
   padding: 20px;
@@ -47,7 +48,7 @@ const CardStyled = styled.div`
       margin-bottom: ${theme.spacing.xxs};
       text-overflow: ellipsis;
       font-family: "Amatic SC", cursive;
-      font-size: ${theme.fonts.P4};
+      font-size: ${theme.fonts.size.P4};
     }
     .description {
       display: flex;
@@ -56,15 +57,16 @@ const CardStyled = styled.div`
       width: 190px;
       span {
         color: ${theme.colors.primary};
-        font-weight: ${theme.weights.regular};
+        font-weight: ${theme.fonts.weights.regular};
       }
+
       button {
         border-radius: ${theme.borderRadius.round};
         border: 1px solid;
         background-color: ${theme.colors.primary};
         color: ${theme.colors.white};
-        font-size: ${theme.fonts.XS};
-        font-weight: ${theme.weights.bold};
+        font-size: ${theme.fonts.size.XS};
+        font-weight: ${theme.fonts.weights.bold};
         color: ${theme.colors.white};
         width: 95px;
         height: 38px;

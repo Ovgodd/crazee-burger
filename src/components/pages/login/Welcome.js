@@ -20,7 +20,7 @@ const WelcomeStyled = styled.div`
   font-family: "Amatic SC", cursive;
 
   h1 {
-    font-size: ${theme.fonts.P5};
+    font-size: ${theme.fonts.size.P5};
     margin-top: ${theme.spacing.xxs};
   }
 
@@ -30,6 +30,6 @@ const WelcomeStyled = styled.div`
   }
 
   h2 {
-    font-size: ${theme.fonts.P4};
+    font-size: ${theme.fonts.size.P4};
   }
 `;

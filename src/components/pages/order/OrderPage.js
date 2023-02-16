@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import OrderContext from "../../../context/OrderContext";
 import { theme } from "../../../theme";
 import Main from "./Main/Main";
 import NavBar from "./Navbar/NavBar";
@@ -8,12 +9,26 @@ import NavBar from "./Navbar/NavBar";
 export default function OrderPage() {
   const { username } = useParams();
 
+  const [isCollapsed, setisCollapsed] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [selectedTab, setselectedTab] = useState("add");
+
+  const adminContextValue = {
+    isCollapsed,
+    setisCollapsed,
+    isAdmin,
+    setIsAdmin,
+    selectedTab,
+    setselectedTab,
+  };
   return (
     <OrderPageStyled>
-      <div className="container">
-        <NavBar username={username} />
-        <Main />
-      </div>
+      <OrderContext.Provider value={adminContextValue}>
+        <div className="container">
+          <NavBar username={username} />
+          <Main />
+        </div>
+      </OrderContext.Provider>
     </OrderPageStyled>
   );
 }
@@ -26,7 +41,8 @@ const OrderPageStyled = styled.div`
 
   .container {
     height: 95vh;
-    width: 1400px;
+    max-width: 1400px;
+    width: 100%;
     display: flex;
     flex-direction: column;
   }

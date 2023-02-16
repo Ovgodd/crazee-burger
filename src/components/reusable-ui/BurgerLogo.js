@@ -17,7 +17,7 @@ const BurgerLogoStyled = styled.div`
   display: flex;
   align-items: center;
   h1 {
-    font-size: ${theme.fonts.P4};
+    font-size: ${theme.fonts.size.P4};
     color: ${theme.colors.primary};
     font-family: "Amatic SC", cursive;
     ::selection {

@@ -22,10 +22,13 @@ export default function Menu() {
 }
 const MenuStyled = styled.div`
   justify-items: center;
-  display: grid;
   padding: 50px 50px 150px;
-  grid-template-columns: repeat(4, 1fr);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-row-gap: 60px;
-  box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: ${theme.shadows.strong};
   background: ${theme.colors.background_white};
+  overflow-y: auto;
+  border-bottom-left-radius: ${theme.borderRadius.extraRound};
+  border-bottom-right-radius: ${theme.borderRadius.extraRound};
 `;

@@ -25,10 +25,10 @@ const TextInputStyled = styled.div`
     border-radius: ${theme.borderRadius.round};
     border: none;
     font-family: "Open Sans", sans-serif;
-    font-size: ${theme.fonts.P0};
+    font-size: ${theme.fonts.size.SM};
     ::placeholder {
-      font-size: ${theme.fonts.P0};
-      font-weight: ${theme.weights.light};
+      font-size: ${theme.fonts.size.SM};
+      font-weight: ${theme.fonts.weights.light};
       color: ${theme.colors.greyMedium};
     }
   }
