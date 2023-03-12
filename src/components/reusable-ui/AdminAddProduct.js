@@ -9,10 +9,6 @@ export default function AdminAddProduct() {
   );
 }
 const AdminAddProductStyled = styled.button`
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
   padding: 10px 29px 9px 29px;
   position: absolute;
   background: #60bd4f;
@@ -26,6 +22,4 @@ const AdminAddProductStyled = styled.button`
   font-family: "Arial";
   font-style: normal;
   font-weight: 700;
-  align-items: center;
-  text-align: center;
 `;
