@@ -1,14 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import AdminAddProduct from "../../../reusable-ui/AdminAddProduct";
+import { getInputConfig } from "./getInputConfig";
 import Input from "./Input";
 
 export default function AdminInputs() {
+  const inputs = getInputConfig();
   return (
     <AdminInputsStyled>
-      <Input />
-      <Input />
-      <Input />
+      {inputs.map((input) => (
+        <Input icon={input.Icon} label={input.label} />
+      ))}
       <AdminAddProduct />
     </AdminInputsStyled>
   );
