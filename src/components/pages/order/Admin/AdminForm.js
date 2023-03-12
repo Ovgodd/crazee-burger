@@ -20,7 +20,6 @@ const AdminFormStyled = styled.div`
   left: 71px;
   height: 160px;
   width: 880px;
-  background: red;
 
   .image-container {
     height: 120px;
@@ -30,11 +29,13 @@ const AdminFormStyled = styled.div`
     border-radius: 5px;
     border: 1px solid #e4e5e9;
     padding: 48px, 55px, 48px, 54px;
-    background: yellow;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    span {
+      color: #93a2b1;
+    }
   }
 `;

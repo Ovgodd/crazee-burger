@@ -9,14 +9,13 @@ export default function AdminInputs() {
   return (
     <AdminInputsStyled>
       {inputs.map((input) => (
-        <Input icon={input.Icon} label={input.label} />
+        <Input type={input.type} Icon={input.Icon} label={input.label} />
       ))}
       <AdminAddProduct />
     </AdminInputsStyled>
   );
 }
 const AdminInputsStyled = styled.div`
-  background: green;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

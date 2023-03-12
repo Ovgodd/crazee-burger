@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Input() {
+export default function Input({ Icon, label, type }) {
   return (
     <InputStyled>
-      <input placeholder="nom du produit" />
+      {Icon && <div className="icon">{Icon}</div>}
+      <input type={type} placeholder={label} />
     </InputStyled>
   );
 }
@@ -19,7 +20,6 @@ const InputStyled = styled.div`
   height: 35px;
   background: #f5f5f7;
   border-radius: 5px;
-
   input {
     width: 577px;
     height: 19px;
@@ -30,5 +30,12 @@ const InputStyled = styled.div`
       font-size: 15px;
       color: #a7a8ad;
     }
+  }
+  .icon {
+    display: flex;
+    color: #747b91;
+  }
+  .label {
+    color: #a7a8ad;
   }
 `;
