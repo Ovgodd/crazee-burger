@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import AdminInputs from "./AdminInputs";
 
 export default function AdminForm() {
   return (
@@ -8,11 +9,7 @@ export default function AdminForm() {
         {/* <img src="" alt="image" /> */}
         <span>Aucune image</span>
       </div>
-      <div className="input-container">
-        <div className="input-component">
-          <input placeholder="nom du produit" />
-        </div>
-      </div>
+      <AdminInputs />
     </AdminFormStyled>
   );
 }
@@ -39,19 +36,5 @@ const AdminFormStyled = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-  .input-container {
-    background: green;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    width: 645px;
-    height: 121px;
-    margin-left: 20px;
-  }
-  .input-component {
-    background: blue;
-    width: 645px;
   }
 `;
