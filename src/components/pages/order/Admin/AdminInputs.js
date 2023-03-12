@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import AdminAddProduct from "../../../reusable-ui/AdminAddProduct";
 import { getInputConfig } from "./getInputConfig";
-import Input from "./Input";
+import Input from "../../../reusable-ui/Input";
 
 export default function AdminInputs() {
   const inputs = getInputConfig();
