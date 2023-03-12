@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import AdminInputs from "./AdminInputs";
 
 export default function AdminForm() {
+  const [newProduct, setNewProduct] = useState([]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("handleSubmit");
+  };
+
   return (
-    <AdminFormStyled className="form-container">
+    <AdminFormStyled onSubmit={handleSubmit}>
       <div className="image-container">
         {/* <img src="" alt="image" /> */}
         <span>Aucune image</span>
@@ -13,7 +20,7 @@ export default function AdminForm() {
     </AdminFormStyled>
   );
 }
-const AdminFormStyled = styled.div`
+const AdminFormStyled = styled.form`
   position: relative;
   display: flex;
   top: 31px;
