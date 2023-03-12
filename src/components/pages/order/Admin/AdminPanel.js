@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../context/OrderContext";
 import { theme } from "../../../../theme";
+import AdminForm from "./AdminForm";
 import { getTabsConfig, getTabSelected } from "./getTabsConfig";
 
 export default function AdminPanel() {
@@ -10,7 +11,10 @@ export default function AdminPanel() {
   const tabs = getTabsConfig(selectedTab);
   const tabSelected = getTabSelected(tabs, selectedTab);
   return (
-    <AdminPanelStyled>{tabSelected && tabSelected.label}</AdminPanelStyled>
+    <AdminPanelStyled>
+      {/* {tabSelected && tabSelected.label} && form component */}
+      <AdminForm />
+    </AdminPanelStyled>
   );
 }
 const AdminPanelStyled = styled.div`
