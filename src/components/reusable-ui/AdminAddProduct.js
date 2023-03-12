@@ -22,4 +22,5 @@ const AdminAddProductStyled = styled.button`
   font-family: "Arial";
   font-style: normal;
   font-weight: 700;
+  left: 235px;
 `;

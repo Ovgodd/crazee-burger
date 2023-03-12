@@ -7,6 +7,7 @@ import { theme } from "../../../../theme";
 
 export default function Menu() {
   const [menu, setMenu] = useState(fakeMenu2);
+
   return (
     <MenuStyled>
       {menu.map(({ id, title, imageSource, price }) => (
