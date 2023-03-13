@@ -7,4 +7,6 @@ export default createContext({
   setIsAdmin: () => {},
   selectedTab: "add",
   setSelectedTab: () => {},
+  fakeMenus: {},
+  setFakeMenus: () => {},
 });
