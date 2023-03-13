@@ -2,30 +2,26 @@ import styled from "styled-components";
 import AdminInputs from "./AdminInputs";
 import AdminAddProduct from "../../../reusable-ui/AdminAddProduct";
 import { useState } from "react";
-import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
 export default function AdminForm() {
-  const [menu, setMenu] = useState(fakeMenu2);
+  const [image, setImage] = useState();
+  const [isImage, setisImage] = useState(false);
 
-  const createProduct = (title, imageSource, price) => {
-    const updatedProduct = [
-      ...menu,
-      { id: Math.round(Math.random() * 9999), title, imageSource, price },
-    ];
-    setMenu(updatedProduct);
-    console.log("Product Created");
+  const handleChange = (event) => {
+    const userUrl = event.target.value;
+    setImage(userUrl);
+    console.log("handleChange");
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    createProduct(menu);
     console.log("handleSubmit");
+
+    // updateProductImage(event);
   };
 
   return (
-    <AdminFormStyled onSubmit={handleSubmit}>
+    <AdminFormStyled onSubmit={handleSubmit} onChange={handleChange}>
       <div className="image-container">
-        <img src="" alt="images" />
-        <span>Aucune image</span>
+        {isImage ? <img src={image} alt="images" /> : <span>Aucune Image</span>}
       </div>
       <AdminInputs />
       <AdminAddProduct />
