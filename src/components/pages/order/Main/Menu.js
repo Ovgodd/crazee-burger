@@ -4,6 +4,7 @@ import CardStyled from "../../../reusable-ui/Card";
 import { formatPrice } from "../../../../utils/maths";
 import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
+import { LARGE, SMALL } from "../../../../fakeData/fakeMenu";
 
 export default function Menu() {
   const { fakeMenus, setFakeMenus } = useContext(OrderContext);
@@ -14,13 +15,16 @@ export default function Menu() {
     });
     setFakeMenus(updatedMenu);
   };
+
   if (fakeMenus.length === 0) {
     return (
       <div>
         <span>le menu est vide ? </span>
         <span>cliquez ci dessous pour le réinitialiser</span>
         <div>
-          <button>Générer de nouveaux produits</button>
+          <button onClick={() => setFakeMenus(SMALL)}>
+            Générer de nouveaux produits
+          </button>
         </div>
       </div>
     );
