@@ -1,7 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import CardStyled from "../../../reusable-ui/Card";
-import { LARGE } from "../../../../fakeData/fakeMenu";
 import { formatPrice } from "../../../../utils/maths";
 import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
@@ -15,7 +14,17 @@ export default function Menu() {
     });
     setFakeMenus(updatedMenu);
   };
-
+  if (fakeMenus.length === 0) {
+    return (
+      <div>
+        <span>le menu est vide ? </span>
+        <span>cliquez ci dessous pour le réinitialiser</span>
+        <div>
+          <button>Générer de nouveaux produits</button>
+        </div>
+      </div>
+    );
+  }
   return (
     <MenuStyled>
       {fakeMenus.map(({ id, title, imageSource, price }) => (
