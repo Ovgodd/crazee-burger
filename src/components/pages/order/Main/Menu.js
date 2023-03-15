@@ -7,16 +7,25 @@ import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
 
 export default function Menu() {
-  const { fakeMenus } = useContext(OrderContext);
+  const { fakeMenus, setFakeMenus } = useContext(OrderContext);
+
+  const handleDelete = (id) => {
+    const updatedMenu = fakeMenus.filter((menu) => {
+      return menu.id !== id;
+    });
+    setFakeMenus(updatedMenu);
+  };
 
   return (
     <MenuStyled>
       {fakeMenus.map(({ id, title, imageSource, price }) => (
         <CardStyled
           key={id}
+          id={id}
           title={title}
           image={imageSource}
           price={formatPrice(price)}
+          onProductDelete={handleDelete}
         />
       ))}
     </MenuStyled>
