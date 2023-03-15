@@ -1,29 +1,64 @@
 import styled from "styled-components";
-import AdminInputs from "./AdminInputs";
 import AdminAddProduct from "../../../reusable-ui/AdminAddProduct";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import OrderContext from "../../../../context/OrderContext";
+import Input from "../../../reusable-ui/Input";
+import { getInputConfig } from "./getInputConfig";
 export default function AdminForm() {
-  const [image, setImage] = useState();
-  const [isImage, setisImage] = useState(false);
+  const { fakeMenus, setFakeMenus } = useContext(OrderContext);
+  const [productInfo, setProductInfo] = useState({
+    id: "",
+    imageSource: "",
+    title: "",
+    price: "",
+  });
+  const [imageUrl, setImageUrl] = useState();
 
-  const handleChange = (event) => {
-    const userUrl = event.target.value;
-    setImage(userUrl);
-    console.log("handleChange");
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setProductInfo({ ...productInfo, [name]: value });
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("handleSubmit");
-
-    // updateProductImage(event);
+    const newProduct = {
+      id: productInfo.id,
+      imageSource: productInfo.imageSource,
+      title: productInfo.title,
+      price: productInfo.price,
+    };
+    setFakeMenus([newProduct, ...fakeMenus]);
+    setProductInfo({
+      id: "",
+      imageSource: "",
+      title: "",
+      price: "",
+    });
   };
 
+  const inputs = getInputConfig();
+
   return (
-    <AdminFormStyled onSubmit={handleSubmit} onChange={handleChange}>
+    <AdminFormStyled onSubmit={handleSubmit}>
       <div className="image-container">
-        {isImage ? <img src={image} alt="images" /> : <span>Aucune Image</span>}
+        {imageUrl ? (
+          <img src={imageUrl} alt="images" />
+        ) : (
+          <span>Aucune Image</span>
+        )}
       </div>
-      <AdminInputs />
+      <div className="input-container">
+        {inputs.map((input) => (
+          <Input
+            key={input.id}
+            type={input.type}
+            Icon={input.Icon}
+            label={input.label}
+            name={input.name}
+            onChange={handleInputChange}
+          />
+        ))}
+      </div>
       <AdminAddProduct />
     </AdminFormStyled>
   );
@@ -36,6 +71,18 @@ const AdminFormStyled = styled.form`
   height: 160px;
   width: 880px;
 
+  span {
+    color: #93a2b1;
+  }
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 645px;
+    height: 121px;
+    margin-left: 20px;
+  }
   .image-container {
     height: 120px;
     width: 215px;
@@ -49,8 +96,5 @@ const AdminFormStyled = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    span {
-      color: #93a2b1;
-    }
   }
 `;
