@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import OrderContext from "../../../../context/OrderContext";
 import Input from "../../../reusable-ui/Input";
 import { getInputConfig } from "./getInputConfig";
+import comingSoon from "../../../../images/coming-soon.png";
 export default function AdminForm() {
   const { fakeMenus, setFakeMenus } = useContext(OrderContext);
   const [productInfo, setProductInfo] = useState({
@@ -22,18 +23,14 @@ export default function AdminForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const newProduct = {
-      id: productInfo.id,
-      imageSource: productInfo.imageSource,
+      id: new Date().getTime(),
+      imageSource:
+        productInfo.imageSource === "" ? comingSoon : productInfo.imageSource,
       title: productInfo.title,
       price: productInfo.price,
     };
     setFakeMenus([newProduct, ...fakeMenus]);
-    setProductInfo({
-      id: "",
-      imageSource: "",
-      title: "",
-      price: "",
-    });
+    setProductInfo({ id: "", imageSource: "", title: "", price: "" });
   };
 
   const inputs = getInputConfig();
