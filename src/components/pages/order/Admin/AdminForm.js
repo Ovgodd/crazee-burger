@@ -6,6 +6,7 @@ import { getInputConfig } from "./getInputConfig";
 import comingSoon from "../../../../images/coming-soon.png";
 import SecondaryAddButton from "../../../reusable-ui/SecondaryAddButton";
 import { theme } from "../../../../theme";
+import { FiCheck } from "react-icons/fi";
 export default function AdminForm() {
   const { fakeMenus, setFakeMenus } = useContext(OrderContext);
   const [productInfo, setProductInfo] = useState({
@@ -15,7 +16,7 @@ export default function AdminForm() {
     price: "",
   });
   const [imageUrl, setImageUrl] = useState();
-
+  const [isProductAdd, setIsProductAdd] = useState(false);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setProductInfo({ ...productInfo, [name]: value });
@@ -32,6 +33,13 @@ export default function AdminForm() {
     };
     setFakeMenus([newProduct, ...fakeMenus]);
     setProductInfo({ id: "", imageSource: "", title: "", price: "" });
+  };
+
+  const displaySuccess = () => {
+    setIsProductAdd(true);
+    setTimeout(() => {
+      setIsProductAdd(false);
+    }, 2000);
   };
 
   const inputs = getInputConfig();
@@ -58,10 +66,21 @@ export default function AdminForm() {
         ))}
       </div>
 
-      <SecondaryAddButton
-        className={"add-new-product"}
-        label={"Ajouter un nouveau produit au menu"}
-      />
+      <div className="button-success">
+        <SecondaryAddButton
+          className={"add-new-product"}
+          label={"Ajouter un nouveau produit au menu"}
+          onClick={() => displaySuccess()}
+        />
+        {isProductAdd ? (
+          <div className="success-span">
+            <FiCheck />
+            <span>Ajouté avec succès !</span>
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
     </AdminFormStyled>
   );
 }
@@ -122,12 +141,30 @@ const AdminFormStyled = styled.form`
       cursor: pointer;
     }
     &:active {
-      background-color: ${theme.colors.primary};
+      background-color: ${theme.colors.success};
       border-color: ${theme.colors.white};
       color: ${theme.colors.white};
       transition: 0.3s;
 
       cursor: pointer;
+    }
+  }
+
+  .success-span {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    color: #60bd4f;
+    position: absolute;
+    bottom: 0px;
+    width: 275px;
+    height: 34px;
+    right: 75px;
+    span {
+      color: #60bd4f;
+      margin-left: 5px;
+      font-size: 15px;
     }
   }
 `;
