@@ -1,5 +1,4 @@
 import React from "react";
-import { BsSdCard } from "react-icons/bs";
 import styled from "styled-components";
 import Input from "../../../reusable-ui/Input";
 import { getInputConfig } from "./getInputConfig";
