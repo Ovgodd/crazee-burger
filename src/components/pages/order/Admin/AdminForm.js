@@ -19,6 +19,9 @@ export default function AdminForm() {
     const { name, value } = event.target;
     setProductInfo({ ...productInfo, [name]: value });
   };
+  const handleImageInputChange = (event) => {
+    setProductInfo({ ...productInfo, imageSource: event.target.value });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -49,7 +52,10 @@ export default function AdminForm() {
           <img src={productInfo.imageSource} alt="images" />
         )}
       </div>
-      <AdminInputs onChange={handleInputChange} />
+      <AdminInputs
+        onChange={handleInputChange}
+        onImageChange={handleImageInputChange}
+      />
       <AdminAddProduct onClick={displaySuccess} />
     </AdminFormStyled>
   );
@@ -65,15 +71,7 @@ const AdminFormStyled = styled.form`
   span {
     color: #93a2b1;
   }
-  .input-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    width: 645px;
-    height: 121px;
-    margin-left: 20px;
-  }
+
   .image-container {
     height: 120px;
     width: 215px;
@@ -87,37 +85,6 @@ const AdminFormStyled = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-  .add-new-product {
-    padding: 10px 29px 9px 29px;
-    position: absolute;
-    background: #60bd4f;
-    border: 1px solid #60bd4f;
-    border-radius: 5px;
-    width: 275px;
-    height: 34px;
-    bottom: 0;
-    font-size: 12px;
-    font-family: "Arial";
-    font-style: normal;
-    font-weight: 700;
-    left: 235px;
-    &:hover {
-      background-color: ${theme.colors.white};
-      border-color: ${theme.colors.success};
-      color: ${theme.colors.success};
-      border: 1px solid;
-      transition: 0.3s;
-      cursor: pointer;
-    }
-    &:active {
-      background-color: ${theme.colors.success};
-      border-color: ${theme.colors.white};
-      color: ${theme.colors.white};
-      transition: 0.3s;
-
-      cursor: pointer;
-    }
   }
 
   .success-span {

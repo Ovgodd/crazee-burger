@@ -1,7 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Input({ Icon, label, type, value, onChange, name }) {
+export default function Input({
+  Icon,
+  label,
+  type,
+  value,
+  onChange,
+  onImageChange,
+  name,
+}) {
   return (
     <InputStyled>
       {Icon && <div className="icon">{Icon}</div>}
@@ -10,6 +18,7 @@ export default function Input({ Icon, label, type, value, onChange, name }) {
         placeholder={label}
         value={value}
         onChange={onChange}
+        onImageChange={onImageChange}
         name={name}
       />
     </InputStyled>
