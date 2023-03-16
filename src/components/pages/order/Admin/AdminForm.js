@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import AdminAddProduct from "../../../reusable-ui/AdminAddProduct";
 import { useContext, useState } from "react";
 import OrderContext from "../../../../context/OrderContext";
 import Input from "../../../reusable-ui/Input";
 import { getInputConfig } from "./getInputConfig";
 import comingSoon from "../../../../images/coming-soon.png";
+import SecondaryAddButton from "../../../reusable-ui/SecondaryAddButton";
+import { theme } from "../../../../theme";
 export default function AdminForm() {
   const { fakeMenus, setFakeMenus } = useContext(OrderContext);
   const [productInfo, setProductInfo] = useState({
@@ -56,7 +57,11 @@ export default function AdminForm() {
           />
         ))}
       </div>
-      <AdminAddProduct />
+
+      <SecondaryAddButton
+        className={"add-new-product"}
+        label={"Ajouter un nouveau produit au menu"}
+      />
     </AdminFormStyled>
   );
 }
@@ -93,5 +98,36 @@ const AdminFormStyled = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+  .add-new-product {
+    padding: 10px 29px 9px 29px;
+    position: absolute;
+    background: #60bd4f;
+    border: 1px solid #60bd4f;
+    border-radius: 5px;
+    width: 275px;
+    height: 34px;
+    bottom: 0;
+    font-size: 12px;
+    font-family: "Arial";
+    font-style: normal;
+    font-weight: 700;
+    left: 235px;
+    &:hover {
+      background-color: ${theme.colors.white};
+      border-color: ${theme.colors.success};
+      color: ${theme.colors.success};
+      border: 1px solid;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    &:active {
+      background-color: ${theme.colors.primary};
+      border-color: ${theme.colors.white};
+      color: ${theme.colors.white};
+      transition: 0.3s;
+
+      cursor: pointer;
+    }
   }
 `;
