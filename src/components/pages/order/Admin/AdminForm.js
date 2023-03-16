@@ -6,9 +6,10 @@ import { getInputConfig } from "./getInputConfig";
 import comingSoon from "../../../../images/coming-soon.png";
 import SecondaryAddButton from "../../../reusable-ui/SecondaryAddButton";
 import { theme } from "../../../../theme";
-import { FiCheck } from "react-icons/fi";
+import { AiOutlineCheckCircle } from "react-icons/ai";
 export default function AdminForm() {
   const { fakeMenus, setFakeMenus } = useContext(OrderContext);
+
   const [productInfo, setProductInfo] = useState({
     id: "",
     imageSource: "",
@@ -16,7 +17,9 @@ export default function AdminForm() {
     price: "",
   });
   const [imageUrl, setImageUrl] = useState();
+
   const [isProductAdd, setIsProductAdd] = useState(false);
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setProductInfo({ ...productInfo, [name]: value });
@@ -47,10 +50,10 @@ export default function AdminForm() {
   return (
     <AdminFormStyled onSubmit={handleSubmit}>
       <div className="image-container">
-        {imageUrl ? (
-          <img src={imageUrl} alt="images" />
-        ) : (
+        {productInfo.imageSource === "" ? (
           <span>Aucune Image</span>
+        ) : (
+          <img src={productInfo.imageSource} alt="images" />
         )}
       </div>
       <div className="input-container">
@@ -74,7 +77,7 @@ export default function AdminForm() {
         />
         {isProductAdd ? (
           <div className="success-span">
-            <FiCheck />
+            <AiOutlineCheckCircle className="icon" />
             <span>Ajouté avec succès !</span>
           </div>
         ) : (
@@ -160,7 +163,11 @@ const AdminFormStyled = styled.form`
     bottom: 0px;
     width: 275px;
     height: 34px;
-    right: 75px;
+    right: 80px;
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
     span {
       color: #60bd4f;
       margin-left: 5px;
