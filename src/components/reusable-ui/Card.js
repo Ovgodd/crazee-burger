@@ -4,14 +4,13 @@ import OrderContext from "../../context/OrderContext";
 import { theme } from "../../theme";
 import { TiDelete } from "react-icons/ti";
 import SecondaryAddButton from "./SecondaryAddButton";
-export default function Product({ id, title, image, price, onProductDelete }) {
+import DeleteButton from "./DeleteButton";
+export default function Product({ id, title, image, price, handleDelete }) {
   const { isAdmin } = useContext(OrderContext);
 
   return (
     <CardStyled>
-      <button onClick={() => onProductDelete(id)} className="icon-container">
-        {isAdmin && <TiDelete className="icon" />}
-      </button>
+      <DeleteButton handleDelete={() => handleDelete(id)} />
       <img src={image} alt="burger" />
       <div className="interact-container">
         <h1>{title}</h1>

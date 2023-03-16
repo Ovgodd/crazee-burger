@@ -32,7 +32,7 @@ export default function Menu() {
           title={title}
           image={imageSource}
           price={formatPrice(price)}
-          onProductDelete={handleDelete}
+          handleDelete={handleDelete}
         />
       ))}
     </MenuStyled>
