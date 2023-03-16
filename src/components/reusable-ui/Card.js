@@ -3,7 +3,7 @@ import styled from "styled-components";
 import OrderContext from "../../context/OrderContext";
 import { theme } from "../../theme";
 import { TiDelete } from "react-icons/ti";
-import CardAddButton from "./CardAddButton";
+import SecondaryAddButton from "./SecondaryAddButton";
 export default function Product({ id, title, image, price, onProductDelete }) {
   const { isAdmin } = useContext(OrderContext);
 
@@ -17,7 +17,7 @@ export default function Product({ id, title, image, price, onProductDelete }) {
         <h1>{title}</h1>
         <div className="description">
           <span>{price}</span>
-          <CardAddButton label="Ajouter" />
+          <SecondaryAddButton label="Ajouter" />
         </div>
       </div>
       {/* <div className="admin-panel">ajouter un produit</div> */}

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
-import CardAddButton from "../../../reusable-ui/CardAddButton";
+import SecondaryAddButton from "../../../reusable-ui/SecondaryAddButton";
 
 export default function EmptyMenu({ onClick }) {
   return (
@@ -9,7 +9,7 @@ export default function EmptyMenu({ onClick }) {
       <div className="empty-menu">
         <span className="question">le menu est vide ? </span>
         <span className="action">cliquez ci dessous pour le réinitialiser</span>
-        <CardAddButton
+        <SecondaryAddButton
           className="generate"
           onClick={onClick}
           label="Générer de nouveaux produits"
