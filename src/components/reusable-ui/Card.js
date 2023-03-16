@@ -10,7 +10,7 @@ export default function Product({ id, title, image, price, handleDelete }) {
 
   return (
     <CardStyled>
-      <DeleteButton handleDelete={() => handleDelete(id)} />
+      {isAdmin && <DeleteButton handleDelete={() => handleDelete(id)} />}
       <img src={image} alt="burger" />
       <div className="interact-container">
         <h1>{title}</h1>
