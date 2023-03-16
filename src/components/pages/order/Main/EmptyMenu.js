@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
+import CardAddButton from "../../../reusable-ui/CardAddButton";
 
 export default function EmptyMenu({ onClick }) {
   return (
@@ -8,9 +9,11 @@ export default function EmptyMenu({ onClick }) {
       <div className="empty-menu">
         <span className="question">le menu est vide ? </span>
         <span className="action">cliquez ci dessous pour le réinitialiser</span>
-        <button className="generate" onClick={onClick}>
-          Générer de nouveaux produits
-        </button>
+        <CardAddButton
+          className="generate"
+          onClick={onClick}
+          label="Générer de nouveaux produits"
+        />
       </div>
     </EmptyMenuStyled>
   );
@@ -24,21 +27,51 @@ const EmptyMenuStyled = styled.div`
   align-items: center;
   justify-content: center;
   font-family: "Amatic SC";
+  font-style: normal;
+  color: #747b91;
   .empty-menu {
-    background: orange;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: orange;
     .question {
-      background: blue;
+      font-weight: 700;
+      font-size: 36px;
     }
     .action {
-      background: yellow;
+      margin-top: 21px;
+      margin-bottom: 31px;
+      font-weight: 400;
+      font-size: 36px;
     }
     .generate {
-      background: pink;
+      font-family: "Arial";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 12px;
+      color: white;
+      background: #ff9f1b;
+      border: 1px solid #ff9f1b;
+      border-radius: 5px;
+      width: 224px;
+      height: 50px;
+
+      &:hover {
+        background-color: ${theme.colors.white};
+        border-color: ${theme.colors.primary};
+        color: ${theme.colors.primary};
+        border: 1px solid;
+        transition: 0.3s;
+        cursor: pointer;
+      }
+      &:active {
+        background-color: ${theme.colors.primary};
+        border-color: ${theme.colors.white};
+        color: ${theme.colors.white};
+        transition: 0.3s;
+
+        cursor: pointer;
+      }
     }
   }
 `;

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import OrderContext from "../../context/OrderContext";
 import { theme } from "../../theme";
 import { TiDelete } from "react-icons/ti";
+import CardAddButton from "./CardAddButton";
 export default function Product({ id, title, image, price, onProductDelete }) {
   const { isAdmin } = useContext(OrderContext);
 
@@ -16,7 +17,7 @@ export default function Product({ id, title, image, price, onProductDelete }) {
         <h1>{title}</h1>
         <div className="description">
           <span>{price}</span>
-          <button>Ajouter</button>
+          <CardAddButton label="Ajouter" />
         </div>
       </div>
       {/* <div className="admin-panel">ajouter un produit</div> */}
@@ -80,35 +81,6 @@ const CardStyled = styled.div`
       span {
         color: ${theme.colors.primary};
         font-weight: ${theme.fonts.weights.regular};
-      }
-
-      button {
-        border-radius: ${theme.borderRadius.round};
-        border: 1px solid;
-        background-color: ${theme.colors.primary};
-        color: ${theme.colors.white};
-        font-size: ${theme.fonts.size.XS};
-        font-weight: ${theme.fonts.weights.bold};
-        color: ${theme.colors.white};
-        width: 95px;
-        height: 38px;
-
-        &:hover {
-          background-color: ${theme.colors.white};
-          border-color: ${theme.colors.primary};
-          color: ${theme.colors.primary};
-          border: 1px solid;
-          transition: 0.3s;
-          cursor: pointer;
-        }
-        &:active {
-          background-color: ${theme.colors.primary};
-          border-color: ${theme.colors.white};
-          color: ${theme.colors.white};
-          transition: 0.3s;
-
-          cursor: pointer;
-        }
       }
     }
   }
