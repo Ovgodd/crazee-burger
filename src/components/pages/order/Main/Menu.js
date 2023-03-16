@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import CardStyled from "../../../reusable-ui/Card";
 import { formatPrice } from "../../../../utils/maths";
 import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
-import { LARGE, SMALL } from "../../../../fakeData/fakeMenu";
+import { EMPTY, LARGE, MEDIUM } from "../../../../fakeData/fakeMenu";
+import EmptyMenu from "./EmptyMenu";
 
 export default function Menu() {
   const { fakeMenus, setFakeMenus } = useContext(OrderContext);
@@ -15,19 +16,12 @@ export default function Menu() {
     });
     setFakeMenus(updatedMenu);
   };
+  const handleClick = () => {
+    setFakeMenus(MEDIUM);
+  };
 
   if (fakeMenus.length === 0) {
-    return (
-      <div>
-        <span>le menu est vide ? </span>
-        <span>cliquez ci dessous pour le réinitialiser</span>
-        <div>
-          <button onClick={() => setFakeMenus(SMALL)}>
-            Générer de nouveaux produits
-          </button>
-        </div>
-      </div>
-    );
+    return <EmptyMenu onClick={handleClick} />;
   }
   return (
     <MenuStyled>
