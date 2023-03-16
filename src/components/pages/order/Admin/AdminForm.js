@@ -1,14 +1,12 @@
 import styled from "styled-components";
 import { useContext, useState } from "react";
 import OrderContext from "../../../../context/OrderContext";
-import Input from "../../../reusable-ui/Input";
-import { getInputConfig } from "./getInputConfig";
 import comingSoon from "../../../../images/coming-soon.png";
-import SecondaryAddButton from "../../../reusable-ui/SecondaryAddButton";
 import { theme } from "../../../../theme";
-import { AiOutlineCheckCircle } from "react-icons/ai";
+import AdminAddProduct from "./AdminAddProduct";
+import AdminInputs from "./AdminInputs";
 export default function AdminForm() {
-  const { fakeMenus, setFakeMenus } = useContext(OrderContext);
+  const { fakeMenus, setFakeMenus, setIsProductAdd } = useContext(OrderContext);
 
   const [productInfo, setProductInfo] = useState({
     id: "",
@@ -16,9 +14,6 @@ export default function AdminForm() {
     title: "",
     price: "",
   });
-  const [imageUrl, setImageUrl] = useState();
-
-  const [isProductAdd, setIsProductAdd] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -45,8 +40,6 @@ export default function AdminForm() {
     }, 2000);
   };
 
-  const inputs = getInputConfig();
-
   return (
     <AdminFormStyled onSubmit={handleSubmit}>
       <div className="image-container">
@@ -56,34 +49,8 @@ export default function AdminForm() {
           <img src={productInfo.imageSource} alt="images" />
         )}
       </div>
-      <div className="input-container">
-        {inputs.map((input) => (
-          <Input
-            key={input.id}
-            type={input.type}
-            Icon={input.Icon}
-            label={input.label}
-            name={input.name}
-            onChange={handleInputChange}
-          />
-        ))}
-      </div>
-
-      <div className="button-success">
-        <SecondaryAddButton
-          className={"add-new-product"}
-          label={"Ajouter un nouveau produit au menu"}
-          onClick={() => displaySuccess()}
-        />
-        {isProductAdd ? (
-          <div className="success-span">
-            <AiOutlineCheckCircle className="icon" />
-            <span>Ajouté avec succès !</span>
-          </div>
-        ) : (
-          ""
-        )}
-      </div>
+      <AdminInputs onChange={handleInputChange} />
+      <AdminAddProduct onClick={displaySuccess} />
     </AdminFormStyled>
   );
 }
@@ -163,7 +130,7 @@ const AdminFormStyled = styled.form`
     bottom: 0px;
     width: 275px;
     height: 34px;
-    right: 80px;
+    right: 60px;
     .icon {
       width: 20px;
       height: 20px;
