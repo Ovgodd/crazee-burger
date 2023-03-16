@@ -14,6 +14,7 @@ export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedTab, setselectedTab] = useState("add");
   const [fakeMenus, setFakeMenus] = useState(SMALL);
+  const [isProductAdd, setIsProductAdd] = useState(false);
 
   const adminContextValue = {
     isCollapsed,
@@ -24,6 +25,8 @@ export default function OrderPage() {
     setselectedTab,
     fakeMenus,
     setFakeMenus,
+    isProductAdd,
+    setIsProductAdd,
   };
   return (
     <OrderPageStyled>

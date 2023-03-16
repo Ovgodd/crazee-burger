@@ -9,4 +9,6 @@ export default createContext({
   setSelectedTab: () => {},
   fakeMenus: {},
   setFakeMenus: () => {},
+  isProductAdd: false,
+  setIsProductAdd: () => {},
 });
