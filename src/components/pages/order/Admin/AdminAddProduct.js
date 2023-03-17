@@ -29,16 +29,16 @@ const AdminAddProductStyled = styled.div`
   .add-new-product {
     padding: 10px 29px 9px 29px;
     position: absolute;
-    background: #60bd4f;
-    border: 1px solid #60bd4f;
-    border-radius: 5px;
+    background: ${theme.colors.success};
+    border: 1px solid ${theme.colors.success};
+    border-radius: ${theme.borderRadius.round};
     width: 275px;
     height: 34px;
     bottom: 0;
-    font-size: 12px;
+    font-size: ${theme.fonts.size.XS};
     font-family: "Arial";
     font-style: normal;
-    font-weight: 700;
+    font-weight: ${theme.fonts.weights.bold};
     left: 235px;
     &:hover {
       background-color: ${theme.colors.white};
@@ -62,7 +62,7 @@ const AdminAddProductStyled = styled.div`
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    color: #60bd4f;
+    color: ${theme.colors.success};
     position: absolute;
     bottom: 0px;
     width: 275px;
@@ -73,9 +73,8 @@ const AdminAddProductStyled = styled.div`
       height: 20px;
     }
     span {
-      color: #60bd4f;
-      margin-left: 5px;
-      font-size: 15px;
+      color: ${theme.colors.success};
+      font-size: ${theme.fonts.size.SM};
     }
   }
 `;

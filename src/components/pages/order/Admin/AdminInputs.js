@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { theme } from "../../../../theme";
 import Input from "../../../reusable-ui/Input";
 import { getInputConfig } from "./getInputConfig";
 
@@ -25,8 +26,8 @@ const AdminInputsStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
+  gap: ${theme.spacing.xs};
   width: 645px;
   height: 121px;
-  margin-left: 20px;
+  margin-left: ${theme.spacing.md};
 `;

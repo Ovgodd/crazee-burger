@@ -27,7 +27,7 @@ const CardStyled = styled.div`
   box-shadow: ${theme.shadows.medium};
   width: 200px;
   height: 300px;
-  padding: 20px;
+  padding: ${theme.spacing.md};
   padding-bottom: 10px;
   display: flex;
   flex-direction: column;
@@ -41,7 +41,7 @@ const CardStyled = styled.div`
     right: 10px;
     background: none;
     border: none;
-    color: #ffa01b;
+    color: ${theme.colors.primary};
     position: absolute;
     cursor: pointer;
     .icon {

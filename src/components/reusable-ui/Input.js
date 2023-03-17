@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { theme } from "../../theme";
 
 export default function Input({ Icon, label, type, value, onChange, name }) {
   return (
@@ -24,24 +25,24 @@ const InputStyled = styled.div`
   gap: 13px;
   width: 645px;
   height: 35px;
-  background: #f5f5f7;
-  border-radius: 5px;
+  background: ${theme.colors.background_white};
+  border-radius: ${theme.borderRadius.round};
   input {
     width: 577px;
     height: 19px;
-    background: #f5f5f7;
+    background: ${theme.colors.background_white};
     border: none;
     ::placeholder {
-      font-weight: 400;
-      font-size: 15px;
-      color: #a7a8ad;
+      font-weight: ${theme.fonts.weights.regular};
+      font-size: ${theme.fonts.size.SM};
+      background: ${theme.fonts.size.SM};
     }
   }
   .icon {
     display: flex;
-    color: #747b91;
+    color: ${theme.colors.greyBlue};
   }
   .label {
-    color: #a7a8ad;
+    color: ${theme.colors.greyMedium};
   }
 `;

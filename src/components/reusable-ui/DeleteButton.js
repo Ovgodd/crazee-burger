@@ -1,6 +1,7 @@
 import React from "react";
 import { TiDelete } from "react-icons/ti";
 import styled from "styled-components";
+import { theme } from "../../theme";
 
 export default function DeleteButton({ handleDelete }) {
   return (
@@ -14,7 +15,7 @@ const DeleteButtonStyled = styled.button`
   right: 10px;
   background: none;
   border: none;
-  color: #ffa01b;
+  color: ${theme.colors.primary};
   position: absolute;
   cursor: pointer;
   .icon {

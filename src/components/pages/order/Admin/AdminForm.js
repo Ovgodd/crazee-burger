@@ -5,6 +5,7 @@ import comingSoon from "../../../../images/coming-soon.png";
 import AdminAddProduct from "./AdminAddProduct";
 import AdminInputs from "./AdminInputs";
 import AdminProductImage from "./AdminProductImage";
+import { theme } from "../../../../theme";
 export default function AdminForm() {
   const { fakeMenus, setFakeMenus, setIsProductAdd } = useContext(OrderContext);
 
@@ -59,7 +60,7 @@ const AdminFormStyled = styled.form`
   width: 880px;
 
   span {
-    color: #93a2b1;
+    color: ${theme.colors.greySemiDark};
   }
 
   .image-container {
@@ -67,8 +68,8 @@ const AdminFormStyled = styled.form`
     width: 215px;
     left: 0px;
     top: -1px;
-    border-radius: 5px;
-    border: 1px solid #e4e5e9;
+    border-radius: ${theme.borderRadius.round};
+    border: 1px solid ${theme.colors.greyLight};
     padding: 48px, 55px, 48px, 54px;
     box-sizing: border-box;
     display: flex;
@@ -87,7 +88,7 @@ const AdminFormStyled = styled.form`
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    color: #60bd4f;
+    color: ${theme.colors.success};
     position: absolute;
     bottom: 0px;
     width: 275px;
@@ -98,9 +99,9 @@ const AdminFormStyled = styled.form`
       height: 20px;
     }
     span {
-      color: #60bd4f;
-      margin-left: 5px;
-      font-size: 15px;
+      color: ${theme.colors.success};
+      margin-left: ${theme.spacing.xxs};
+      font-size: ${theme.fonts.size.SM};
     }
   }
 `;
