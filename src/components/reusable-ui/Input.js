@@ -36,6 +36,9 @@ const InputStyled = styled.div`
       font-weight: ${theme.fonts.weights.regular};
       font-size: ${theme.fonts.size.SM};
       background: ${theme.fonts.size.SM};
+      color: ${theme.colors.greyMedium};
+      font-family: "Arial";
+      font-style: normal;
     }
   }
   .icon {
