@@ -3,9 +3,8 @@ import styled from "styled-components";
 import Input from "../../../reusable-ui/Input";
 import { getInputConfig } from "./getInputConfig";
 
-export default function AdminInputs({ onChange, onImageChange, productInfo }) {
+export default function AdminInputs({ onChange, productInfo }) {
   const inputs = getInputConfig();
-  console.log(productInfo.value);
   return (
     <AdminInputsStyled>
       {inputs.map((input) => (
@@ -16,10 +15,7 @@ export default function AdminInputs({ onChange, onImageChange, productInfo }) {
           label={input.label}
           name={input.name}
           onChange={onChange}
-          // value={productInfo.title}
           value={productInfo[input.name]}
-
-          // onImageChange={onImageChange}
         />
       ))}
     </AdminInputsStyled>

@@ -4,6 +4,7 @@ import OrderContext from "../../../../context/OrderContext";
 import comingSoon from "../../../../images/coming-soon.png";
 import AdminAddProduct from "./AdminAddProduct";
 import AdminInputs from "./AdminInputs";
+import AdminProductImage from "./AdminProductImage";
 export default function AdminForm() {
   const { fakeMenus, setFakeMenus, setIsProductAdd } = useContext(OrderContext);
 
@@ -19,11 +20,7 @@ export default function AdminForm() {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setProductInfo({ ...productInfo, [name]: value });
-    console.log("handleInputChange");
   };
-  // const handleImageInputChange = (event) => {
-  //   setProductInfo({ ...productInfo, imageSource: event.target.value });
-  // };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -36,7 +33,6 @@ export default function AdminForm() {
     };
     setFakeMenus([newProduct, ...fakeMenus]);
     setProductInfo(DEFAULT_PRODUCT_INFO);
-    console.log("handleSubmit");
   };
 
   const displaySuccess = () => {
@@ -48,18 +44,8 @@ export default function AdminForm() {
 
   return (
     <AdminFormStyled onSubmit={handleSubmit}>
-      <div className="image-container">
-        {productInfo.imageSource === "" ? (
-          <span>Aucune Image</span>
-        ) : (
-          <img src={productInfo.imageSource} alt="images" />
-        )}
-      </div>
-      <AdminInputs
-        productInfo={productInfo}
-        onChange={handleInputChange}
-        // onImageChange={handleImageInputChange}
-      />
+      <AdminProductImage productInfo={productInfo} />
+      <AdminInputs productInfo={productInfo} onChange={handleInputChange} />
       <AdminAddProduct onClick={displaySuccess} />
     </AdminFormStyled>
   );
@@ -89,6 +75,11 @@ const AdminFormStyled = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    img {
+      object-fit: contain;
+      height: 100px;
+      width: 100px;
+    }
   }
 
   .success-span {
