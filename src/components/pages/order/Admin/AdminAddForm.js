@@ -6,7 +6,7 @@ import AdminAddProduct from "./AdminAddProduct";
 import AdminInputs from "./AdminInputs";
 import AdminProductImage from "./AdminProductImage";
 import { theme } from "../../../../theme";
-export default function AdminForm() {
+export default function AdminAddForm() {
   const { fakeMenus, setFakeMenus, setIsProductAdd } = useContext(OrderContext);
 
   const DEFAULT_PRODUCT_INFO = {
@@ -44,14 +44,14 @@ export default function AdminForm() {
   };
 
   return (
-    <AdminFormStyled onSubmit={handleSubmit}>
+    <AdminAddFormStyled onSubmit={handleSubmit}>
       <AdminProductImage productInfo={productInfo} />
       <AdminInputs productInfo={productInfo} onChange={handleInputChange} />
       <AdminAddProduct onClick={displaySuccess} />
-    </AdminFormStyled>
+    </AdminAddFormStyled>
   );
 }
-const AdminFormStyled = styled.form`
+const AdminAddFormStyled = styled.form`
   position: relative;
   display: flex;
   top: 31px;
