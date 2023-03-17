@@ -67,7 +67,7 @@ const AdminAddProductStyled = styled.div`
     bottom: 0px;
     width: 275px;
     height: 34px;
-    right: 75px;
+    right: 80px;
     .icon {
       width: 20px;
       height: 20px;

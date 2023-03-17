@@ -13,7 +13,7 @@ export default function AdminAddForm() {
     id: "",
     imageSource: "",
     title: "",
-    price: 0,
+    price: "",
   };
 
   const [productInfo, setProductInfo] = useState(DEFAULT_PRODUCT_INFO);
@@ -62,27 +62,6 @@ const AdminAddFormStyled = styled.form`
   span {
     color: ${theme.colors.greySemiDark};
   }
-
-  .image-container {
-    height: 120px;
-    width: 215px;
-    left: 0px;
-    top: -1px;
-    border-radius: ${theme.borderRadius.round};
-    border: 1px solid ${theme.colors.greyLight};
-    padding: 48px, 55px, 48px, 54px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    img {
-      object-fit: contain;
-      height: 100px;
-      width: 100px;
-    }
-  }
-
   .success-span {
     display: flex;
     flex-direction: row;

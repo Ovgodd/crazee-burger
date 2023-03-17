@@ -19,7 +19,6 @@ const AdminProductImageStyled = styled.div`
   left: 0px;
   top: -1px;
   border-radius: ${theme.borderRadius.round};
-  border: 1px solid ${theme.colors.greyLight};
   padding: 48px, 55px, 48px, 54px;
   box-sizing: border-box;
   display: flex;
