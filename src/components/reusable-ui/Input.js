@@ -7,7 +7,7 @@ export default function Input({
   type,
   value,
   onChange,
-  onImageChange,
+  // onImageChange,
   name,
 }) {
   return (
@@ -18,7 +18,7 @@ export default function Input({
         placeholder={label}
         value={value}
         onChange={onChange}
-        onImageChange={onImageChange}
+        // onImageChange={onImageChange}
         name={name}
       />
     </InputStyled>

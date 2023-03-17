@@ -2,26 +2,28 @@ import styled from "styled-components";
 import { useContext, useState } from "react";
 import OrderContext from "../../../../context/OrderContext";
 import comingSoon from "../../../../images/coming-soon.png";
-import { theme } from "../../../../theme";
 import AdminAddProduct from "./AdminAddProduct";
 import AdminInputs from "./AdminInputs";
 export default function AdminForm() {
   const { fakeMenus, setFakeMenus, setIsProductAdd } = useContext(OrderContext);
 
-  const [productInfo, setProductInfo] = useState({
+  const DEFAULT_PRODUCT_INFO = {
     id: "",
     imageSource: "",
     title: "",
-    price: "",
-  });
+    price: 0,
+  };
+
+  const [productInfo, setProductInfo] = useState(DEFAULT_PRODUCT_INFO);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setProductInfo({ ...productInfo, [name]: value });
+    console.log("handleInputChange");
   };
-  const handleImageInputChange = (event) => {
-    setProductInfo({ ...productInfo, imageSource: event.target.value });
-  };
+  // const handleImageInputChange = (event) => {
+  //   setProductInfo({ ...productInfo, imageSource: event.target.value });
+  // };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -33,7 +35,8 @@ export default function AdminForm() {
       price: productInfo.price,
     };
     setFakeMenus([newProduct, ...fakeMenus]);
-    setProductInfo({ id: "", imageSource: "", title: "", price: "" });
+    setProductInfo(DEFAULT_PRODUCT_INFO);
+    console.log("handleSubmit");
   };
 
   const displaySuccess = () => {
@@ -53,8 +56,9 @@ export default function AdminForm() {
         )}
       </div>
       <AdminInputs
+        productInfo={productInfo}
         onChange={handleInputChange}
-        onImageChange={handleImageInputChange}
+        // onImageChange={handleImageInputChange}
       />
       <AdminAddProduct onClick={displaySuccess} />
     </AdminFormStyled>
