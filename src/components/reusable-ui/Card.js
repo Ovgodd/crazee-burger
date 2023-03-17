@@ -11,7 +11,7 @@ export default function Product({ id, title, image, price, handleDelete }) {
   return (
     <CardStyled>
       {isAdmin && <DeleteButton handleDelete={() => handleDelete(id)} />}
-      <img src={image} alt="burger" />
+      <img src={image} alt="product" />
       <div className="interact-container">
         <h1>{title}</h1>
         <div className="description">
@@ -36,19 +36,6 @@ const CardStyled = styled.div`
   border-radius: ${theme.borderRadius.extraRound};
   background: ${theme.colors.white};
   position: relative;
-  .icon-container {
-    top: 15px;
-    right: 10px;
-    background: none;
-    border: none;
-    color: ${theme.colors.primary};
-    position: absolute;
-    cursor: pointer;
-    .icon {
-      width: 30px;
-      height: 30px;
-    }
-  }
 
   img {
     width: 200px;

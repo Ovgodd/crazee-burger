@@ -62,25 +62,4 @@ const AdminAddFormStyled = styled.form`
   span {
     color: ${theme.colors.greySemiDark};
   }
-  .success-span {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    color: ${theme.colors.success};
-    position: absolute;
-    bottom: 0px;
-    width: 275px;
-    height: 34px;
-    right: 60px;
-    .icon {
-      width: 20px;
-      height: 20px;
-    }
-    span {
-      color: ${theme.colors.success};
-      margin-left: ${theme.spacing.xxs};
-      font-size: ${theme.fonts.size.SM};
-    }
-  }
 `;

@@ -63,6 +63,7 @@ const AdminAddProductStyled = styled.div`
     justify-content: flex-start;
     align-items: center;
     color: ${theme.colors.success};
+    position: absolute;
     bottom: 0px;
     width: 275px;
     height: 34px;
@@ -74,6 +75,8 @@ const AdminAddProductStyled = styled.div`
     span {
       color: ${theme.colors.success};
       font-size: ${theme.fonts.size.SM};
+      font-weight: ${theme.fonts.weights.regular};
+      margin-left: 3px;
     }
   }
 `;
