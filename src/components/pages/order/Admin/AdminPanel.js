@@ -10,12 +10,7 @@ export default function AdminPanel() {
 
   const tabs = getTabsConfig(selectedTab);
   const tabSelected = getTabSelected(tabs, selectedTab);
-  return (
-    <AdminPanelStyled>
-      {/* {tabSelected && tabSelected.label} && form component */}
-      <AdminForm />
-    </AdminPanelStyled>
-  );
+  return <AdminPanelStyled>{tabSelected.panel}</AdminPanelStyled>;
 }
 const AdminPanelStyled = styled.div`
   height: 251px;
