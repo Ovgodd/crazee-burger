@@ -63,7 +63,6 @@ const AdminAddProductStyled = styled.div`
     justify-content: flex-start;
     align-items: center;
     color: ${theme.colors.success};
-    position: absolute;
     bottom: 0px;
     width: 275px;
     height: 34px;
