@@ -6,7 +6,9 @@ export default function AdminProductImage({ productInfo }) {
   return (
     <AdminProductImageStyled>
       {productInfo.imageSource === "" ? (
-        <span>Aucune Image</span>
+        <div className="empty-image">
+          <span>Aucune Image</span>
+        </div>
       ) : (
         <img src={productInfo.imageSource} alt="images" />
       )}
@@ -14,17 +16,27 @@ export default function AdminProductImage({ productInfo }) {
   );
 }
 const AdminProductImageStyled = styled.div`
-  height: 120px;
-  width: 215px;
   left: 0px;
   top: -1px;
-  border-radius: ${theme.borderRadius.round};
+  height: 120px;
+  width: 215px;
   padding: 48px, 55px, 48px, 54px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  .empty-image {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    width: 215px;
+    border: 1px solid ${theme.colors.greyLight};
+    border-radius: ${theme.borderRadius.round};
+  }
   img {
     object-fit: contain;
     height: 100px;
