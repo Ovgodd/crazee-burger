@@ -13,7 +13,7 @@ export default function AdminAddForm() {
     id: "",
     imageSource: "",
     title: "",
-    price: "",
+    price: 0,
   };
 
   const [productInfo, setProductInfo] = useState(DEFAULT_PRODUCT_INFO);

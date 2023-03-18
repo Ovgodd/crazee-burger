@@ -5,7 +5,7 @@ import Input from "../../../reusable-ui/Input";
 import { getInputConfig } from "./getInputConfig";
 
 export default function AdminInputs({ onChange, productInfo }) {
-  const inputs = getInputConfig();
+  const inputs = getInputConfig(productInfo);
   return (
     <AdminInputsStyled>
       {inputs.map((input) => (
@@ -16,7 +16,7 @@ export default function AdminInputs({ onChange, productInfo }) {
           label={input.label}
           name={input.name}
           onChange={onChange}
-          value={productInfo[input.name]}
+          value={input.value}
         />
       ))}
     </AdminInputsStyled>
