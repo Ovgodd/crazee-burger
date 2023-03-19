@@ -54,7 +54,7 @@ const LoginFormStyled = styled.form`
     transform: translateY(20%);
   }
   .icon {
-    color: ${theme.colors.greyMedium};
+    color: ${theme.colors.greyBlue};
     margin-right: 15px;
   }
 `;
