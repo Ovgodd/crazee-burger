@@ -8,16 +8,8 @@ export default function AdminInputs({ onChange, productInfo }) {
   const inputs = getInputConfig(productInfo);
   return (
     <AdminInputsStyled>
-      {inputs.map((input) => (
-        <Input
-          key={input.id}
-          type={input.type}
-          Icon={input.Icon}
-          label={input.label}
-          name={input.name}
-          onChange={onChange}
-          value={input.value}
-        />
+      {inputs.map(({ ...input }) => (
+        <Input {...input} onChange={onChange} />
       ))}
     </AdminInputsStyled>
   );
