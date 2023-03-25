@@ -6,6 +6,7 @@ import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
 import Tab from "../../../reusable-ui/Tab";
 import { getTabsConfig } from "./getTabsConfig";
+
 export default function AdminTabs() {
   const { isCollapsed, setisCollapsed, selectedTab, setselectedTab } =
     useContext(OrderContext);

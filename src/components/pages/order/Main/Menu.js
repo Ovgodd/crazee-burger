@@ -4,12 +4,10 @@ import Card from "../../../reusable-ui/Card";
 import { formatPrice } from "../../../../utils/maths";
 import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
-import { fakeMenu } from "../../../../fakeData/fakeMenu";
 import EmptyMenu from "./EmptyMenu";
 
 export default function Menu() {
-  const { menuProducts, setMenuProducts, handleDelete, handleClick } =
-    useContext(OrderContext);
+  const { menuProducts, handleDelete, handleClick } = useContext(OrderContext);
 
   if (menuProducts.length === 0) return <EmptyMenu onClick={handleClick} />;
 

@@ -1,12 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../context/OrderContext";
-import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
 import { theme } from "../../../../theme";
 import Admin from "../Admin/Admin";
 import MenuStyled from "./Menu";
+
 export default function Main() {
-  const { isAdmin, setIsAdmin } = useContext(OrderContext);
+  const { isAdmin } = useContext(OrderContext);
 
   return (
     <MainStyled>
