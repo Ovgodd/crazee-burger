@@ -10,6 +10,16 @@ import NavBar from "./Navbar/NavBar";
 export default function OrderPage() {
   const { username } = useParams();
 
+  const handleDelete = (id) => {
+    const updatedMenu = menuProducts.filter((menu) => {
+      return menu.id !== id;
+    });
+    setMenuProducts(updatedMenu);
+  };
+  const handleClick = () => {
+    setMenuProducts(fakeMenu.MEDIUM);
+  };
+
   const [isCollapsed, setisCollapsed] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedTab, setselectedTab] = useState("add");
@@ -27,6 +37,8 @@ export default function OrderPage() {
     setMenuProducts,
     isProductAdd,
     setIsProductAdd,
+    handleDelete,
+    handleClick,
   };
   return (
     <OrderPageStyled>

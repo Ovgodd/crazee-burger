@@ -8,17 +8,8 @@ import { fakeMenu } from "../../../../fakeData/fakeMenu";
 import EmptyMenu from "./EmptyMenu";
 
 export default function Menu() {
-  const { menuProducts, setMenuProducts } = useContext(OrderContext);
-
-  const handleDelete = (id) => {
-    const updatedMenu = menuProducts.filter((menu) => {
-      return menu.id !== id;
-    });
-    setMenuProducts(updatedMenu);
-  };
-  const handleClick = () => {
-    setMenuProducts(fakeMenu.MEDIUM);
-  };
+  const { menuProducts, setMenuProducts, handleDelete, handleClick } =
+    useContext(OrderContext);
 
   if (menuProducts.length === 0) return <EmptyMenu onClick={handleClick} />;
 
@@ -31,7 +22,7 @@ export default function Menu() {
           title={title}
           image={imageSource}
           price={formatPrice(price)}
-          handleDelete={handleDelete}
+          onDelete={() => handleDelete(id)}
         />
       ))}
     </MenuStyled>
