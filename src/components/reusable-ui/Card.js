@@ -5,7 +5,7 @@ import { theme } from "../../theme";
 import SecondaryButton from "./SecondaryButton";
 import DeleteButton from "./DeleteButton";
 
-export default function Product({ id, title, image, price, onDelete }) {
+export default function Card({ id, title, image, price, onDelete }) {
   const { isAdmin } = useContext(OrderContext);
 
   return (

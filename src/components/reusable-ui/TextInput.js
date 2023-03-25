@@ -22,21 +22,21 @@ const TextInputStyled = styled.div`
   display: flex;
   background-color: white;
   border-radius: ${theme.borderRadius.round};
+
   .icon {
     font-size: ${theme.fonts.size.SM};
     margin: 0 8px 0 1px;
     display: flex;
+    color: ${theme.colors.greyBlue};
   }
+
   input {
-    /* width: 330px; */
     width: 100%;
     border-radius: ${theme.borderRadius.round};
     border: none;
     font-family: "Open Sans", sans-serif;
     font-size: ${theme.fonts.size.SM};
     ::placeholder {
-      /* font-size: ${theme.fonts.size.SM};
-      font-weight: ${theme.fonts.weights.light}; */
       color: ${theme.colors.greyMedium};
     }
   }
@@ -57,6 +57,7 @@ const normalStyle = css`
     }
   }
 `;
+
 const minimalistStyle = css`
   display: flex;
   flex-direction: row;
@@ -68,6 +69,7 @@ const minimalistStyle = css`
   height: 35px;
   background: ${theme.colors.background_white};
   border-radius: ${theme.borderRadius.round};
+
   input {
     background: ${theme.colors.background_white};
     border: none;
@@ -80,9 +82,7 @@ const minimalistStyle = css`
       font-style: normal;
     }
   }
-  .icon {
-    color: ${theme.colors.greyBlue};
-  }
+
   .label {
     color: ${theme.colors.greyMedium};
   }

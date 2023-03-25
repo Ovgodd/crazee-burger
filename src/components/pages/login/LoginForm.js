@@ -52,8 +52,4 @@ const LoginFormStyled = styled.form`
   .chevron-icon {
     transform: translateY(20%);
   }
-  .icon {
-    color: ${theme.colors.greyBlue};
-    margin-right: 15px;
-  }
 `;
