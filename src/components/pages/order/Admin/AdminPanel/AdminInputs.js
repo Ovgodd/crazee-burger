@@ -1,15 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
-import Input from "../../../../reusable-ui/Input";
+import TextInput from "../../../../reusable-ui/TextInput";
 import { getInputsConfig } from "./getInputsConfig";
 
 export default function AdminInputs({ onChange, productInfo }) {
   const inputs = getInputsConfig(productInfo);
   return (
     <AdminInputsStyled>
-      {inputs.map(({ ...input }) => (
-        <Input {...input} onChange={onChange} />
+      {inputs.map(({ id, name, placeholder, Icon, value }) => (
+        <TextInput
+          key={id}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          name={name}
+          Icon={Icon}
+          variant="minimalist"
+        />
       ))}
     </AdminInputsStyled>
   );

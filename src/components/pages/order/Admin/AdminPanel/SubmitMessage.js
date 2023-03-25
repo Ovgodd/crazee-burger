@@ -30,7 +30,7 @@ const SubmitMessageStyled = styled.div`
     border: 1px solid ${theme.colors.success};
     border-radius: ${theme.borderRadius.round};
     width: 275px;
-    height: 34px;
+    height: 35px;
     bottom: 0;
     font-size: ${theme.fonts.size.XS};
     font-family: "Arial";

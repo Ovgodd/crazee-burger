@@ -20,7 +20,7 @@ export default function AddForm() {
 
   const [productInfo, setProductInfo] = useState(DEFAULT_PRODUCT_INFO);
 
-  const handleInputChange = (event) => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
     setProductInfo({ ...productInfo, [name]: value });
   };
@@ -48,7 +48,7 @@ export default function AddForm() {
   return (
     <AddFormStyled onSubmit={handleSubmit}>
       <ProductImage imageSource={productInfo.imageSource} />
-      <AdminInputs productInfo={productInfo} onChange={handleInputChange} />
+      <AdminInputs productInfo={productInfo} onChange={handleChange} />
       <SubmitMessage onClick={displaySuccess} isProductAdd={isProductAdd} />
     </AddFormStyled>
   );
@@ -58,7 +58,7 @@ const AddFormStyled = styled.form`
   display: flex;
   top: 31px;
   left: 71px;
-  height: 160px;
+  height: 164px;
   width: 880px;
 
   span {

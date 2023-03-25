@@ -5,7 +5,7 @@ export const getInputsConfig = (productInfo) => [
   {
     id: 1,
     name: "title",
-    label: "Nom du produit(ex:Super Burger)",
+    placeholder: "Nom du produit(ex:Super Burger)",
     Icon: <FaHamburger />,
     type: "text",
     value: productInfo.title,
@@ -13,7 +13,8 @@ export const getInputsConfig = (productInfo) => [
   {
     id: 2,
     name: "imageSource",
-    label: "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)",
+    placeholder:
+      "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)",
     Icon: <BsFillCameraFill />,
     type: "url",
     value: productInfo.imageSource,
@@ -21,7 +22,7 @@ export const getInputsConfig = (productInfo) => [
   {
     name: "price",
     id: 3,
-    label: "Prix",
+    placeholder: "Prix",
     Icon: <MdOutlineEuro />,
     type: "text",
     value: productInfo.price ? productInfo.price : "",

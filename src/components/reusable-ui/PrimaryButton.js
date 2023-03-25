@@ -22,8 +22,9 @@ const PrimaryButtonStyled = styled.button`
   line-height: 15px;
   color: ${theme.colors.white};
   padding: 18px 24px;
-  width: 440px;
+  width: 100%;
   font-size: 15px;
+  align-self: center;
   cursor: pointer;
   &:active {
     background-color: ${theme.colors.white};
