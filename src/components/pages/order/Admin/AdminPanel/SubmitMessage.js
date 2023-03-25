@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
@@ -9,7 +8,7 @@ export default function SubmitMessage({ onClick, isProductAdd }) {
     <SubmitMessageStyled>
       <SecondaryAddButton
         className={"add-new-product"}
-        label={"Ajouter un nouveau produit au menu"}
+        label="Ajouter un nouveau produit au menu"
         onClick={onClick}
       />
       {isProductAdd ? (

@@ -8,7 +8,7 @@ export const getTabsConfig = () => [
     index: "add",
     label: "Ajouter un produit",
     Icon: <AiOutlinePlus />,
-    panel: <AddForm />,
+    Panel: <AddForm />,
   },
   {
     id: 2,
