@@ -2,12 +2,13 @@ import styled from "styled-components";
 import { useContext, useState } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import comingSoon from "../../../../../images/coming-soon.png";
-import AdminAddProduct from "./AdminAddProduct";
+import SubmitMessage from "./SubmitMessage";
 import AdminInputs from "./AdminInputs";
 import AdminProductImage from "./AdminProductImage";
 import { theme } from "../../../../../theme";
 export default function AdminAddForm() {
-  const { fakeMenus, setFakeMenus, setIsProductAdd } = useContext(OrderContext);
+  const { fakeMenus, setFakeMenus, setIsProductAdd, isProductAdd } =
+    useContext(OrderContext);
 
   const DEFAULT_PRODUCT_INFO = {
     id: "",
@@ -47,7 +48,7 @@ export default function AdminAddForm() {
     <AdminAddFormStyled onSubmit={handleSubmit}>
       <AdminProductImage productInfo={productInfo} />
       <AdminInputs productInfo={productInfo} onChange={handleInputChange} />
-      <AdminAddProduct onClick={displaySuccess} />
+      <SubmitMessage onClick={displaySuccess} />
     </AdminAddFormStyled>
   );
 }
