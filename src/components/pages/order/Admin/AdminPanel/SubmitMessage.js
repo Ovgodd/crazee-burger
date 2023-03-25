@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
-import SecondaryAddButton from "../../../../reusable-ui/SecondaryAddButton";
+import SecondaryAddButton from "../../../../reusable-ui/SecondaryButton";
 
 export default function SubmitMessage({ onClick, isProductAdd }) {
   return (

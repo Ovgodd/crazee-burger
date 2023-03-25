@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function SecondaryAddButton({ label, className, onClick }) {
+export default function SecondaryButton({ label, className, onClick }) {
   return (
-    <SecondaryAddButtonStyled onClick={onClick} className={className}>
+    <SecondaryButtonStyled onClick={onClick} className={className}>
       {label}
-    </SecondaryAddButtonStyled>
+    </SecondaryButtonStyled>
   );
 }
-const SecondaryAddButtonStyled = styled.button`
+const SecondaryButtonStyled = styled.button`
   border-radius: ${theme.borderRadius.round};
   border: 1px solid;
   background-color: ${theme.colors.primary};

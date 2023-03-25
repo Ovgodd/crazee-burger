@@ -2,8 +2,7 @@ import { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../context/OrderContext";
 import { theme } from "../../theme";
-import { TiDelete } from "react-icons/ti";
-import SecondaryAddButton from "./SecondaryAddButton";
+import SecondaryButton from "./SecondaryButton";
 import DeleteButton from "./DeleteButton";
 export default function Product({ id, title, image, price, handleDelete }) {
   const { isAdmin } = useContext(OrderContext);
@@ -16,7 +15,7 @@ export default function Product({ id, title, image, price, handleDelete }) {
         <h1>{title}</h1>
         <div className="description">
           <span>{price}</span>
-          <SecondaryAddButton label="Ajouter" />
+          <SecondaryButton label="Ajouter" />
         </div>
       </div>
       {/* <div className="admin-panel">ajouter un produit</div> */}
