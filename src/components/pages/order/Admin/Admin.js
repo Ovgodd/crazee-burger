@@ -22,5 +22,4 @@ const AdminPanelStyled = styled.div`
   bottom: 0;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
-  overflow: hidden;
 `;

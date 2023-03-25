@@ -43,8 +43,9 @@ export default function AdminTabs() {
 }
 const AdminTabsStyled = styled.div`
   display: flex;
-  box-shadow: ${theme.shadows.subtle};
-
+  position: absolute;
+  top: -43px;
+  left: 5%;
   .is-selected {
     background-color: ${theme.colors.background_dark};
     color: ${theme.colors.white};
