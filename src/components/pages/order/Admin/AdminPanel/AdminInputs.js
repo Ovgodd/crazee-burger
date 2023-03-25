@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../../../theme";
-import Input from "../../../reusable-ui/Input";
+import { theme } from "../../../../../theme";
+import Input from "../../../../reusable-ui/Input";
 import { getInputConfig } from "./getInputConfig";
 
 export default function AdminInputs({ onChange, productInfo }) {

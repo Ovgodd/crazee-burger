@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { useContext, useState } from "react";
-import OrderContext from "../../../../context/OrderContext";
-import comingSoon from "../../../../images/coming-soon.png";
+import OrderContext from "../../../../../context/OrderContext";
+import comingSoon from "../../../../../images/coming-soon.png";
 import AdminAddProduct from "./AdminAddProduct";
 import AdminInputs from "./AdminInputs";
 import AdminProductImage from "./AdminProductImage";
-import { theme } from "../../../../theme";
+import { theme } from "../../../../../theme";
 export default function AdminAddForm() {
   const { fakeMenus, setFakeMenus, setIsProductAdd } = useContext(OrderContext);
 

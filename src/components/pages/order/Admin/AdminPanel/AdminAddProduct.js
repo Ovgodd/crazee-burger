@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import styled from "styled-components";
-import OrderContext from "../../../../context/OrderContext";
-import { theme } from "../../../../theme";
-import SecondaryAddButton from "../../../reusable-ui/SecondaryAddButton";
+import OrderContext from "../../../../../context/OrderContext";
+import { theme } from "../../../../../theme";
+import SecondaryAddButton from "../../../../reusable-ui/SecondaryAddButton";
 
 export default function AdminAddProduct({ onClick }) {
   const { isProductAdd } = useContext(OrderContext);
