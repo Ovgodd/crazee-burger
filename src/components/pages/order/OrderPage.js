@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import OrderContext from "../../../context/OrderContext";
-import { LARGE, SMALL } from "../../../fakeData/fakeMenu";
+import { fakeMenu } from "../../../fakeData/fakeMenu";
 import { theme } from "../../../theme";
 import Main from "./Main/Main";
 import NavBar from "./Navbar/NavBar";
@@ -13,7 +13,7 @@ export default function OrderPage() {
   const [isCollapsed, setisCollapsed] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedTab, setselectedTab] = useState("add");
-  const [fakeMenus, setFakeMenus] = useState(SMALL);
+  const [menuProducts, setMenuProducts] = useState(fakeMenu.SMALL);
   const [isProductAdd, setIsProductAdd] = useState(false);
 
   const adminContextValue = {
@@ -23,8 +23,8 @@ export default function OrderPage() {
     setIsAdmin,
     selectedTab,
     setselectedTab,
-    fakeMenus,
-    setFakeMenus,
+    menuProducts,
+    setMenuProducts,
     isProductAdd,
     setIsProductAdd,
   };

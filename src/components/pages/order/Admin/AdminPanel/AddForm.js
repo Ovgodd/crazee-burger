@@ -7,7 +7,7 @@ import AdminInputs from "./AdminInputs";
 import ProductImage from "./ProductImage";
 import { theme } from "../../../../../theme";
 export default function AddForm() {
-  const { fakeMenus, setFakeMenus, setIsProductAdd, isProductAdd } =
+  const { menuProducts, setMenuProducts, setIsProductAdd, isProductAdd } =
     useContext(OrderContext);
 
   const DEFAULT_PRODUCT_INFO = {
@@ -33,7 +33,7 @@ export default function AddForm() {
       title: productInfo.title,
       price: productInfo.price,
     };
-    setFakeMenus([newProduct, ...fakeMenus]);
+    setMenuProducts([newProduct, ...menuProducts]);
     setProductInfo(DEFAULT_PRODUCT_INFO);
   };
 

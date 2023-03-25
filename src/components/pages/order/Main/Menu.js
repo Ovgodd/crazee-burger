@@ -1,32 +1,31 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import CardStyled from "../../../reusable-ui/Card";
+import Card from "../../../reusable-ui/Card";
 import { formatPrice } from "../../../../utils/maths";
 import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
-import { EMPTY, LARGE, MEDIUM } from "../../../../fakeData/fakeMenu";
+import { fakeMenu } from "../../../../fakeData/fakeMenu";
 import EmptyMenu from "./EmptyMenu";
 
 export default function Menu() {
-  const { fakeMenus, setFakeMenus } = useContext(OrderContext);
+  const { menuProducts, setMenuProducts } = useContext(OrderContext);
 
   const handleDelete = (id) => {
-    const updatedMenu = fakeMenus.filter((menu) => {
+    const updatedMenu = menuProducts.filter((menu) => {
       return menu.id !== id;
     });
-    setFakeMenus(updatedMenu);
+    setMenuProducts(updatedMenu);
   };
   const handleClick = () => {
-    setFakeMenus(MEDIUM);
+    setMenuProducts(fakeMenu.MEDIUM);
   };
 
-  if (fakeMenus.length === 0) {
-    return <EmptyMenu onClick={handleClick} />;
-  }
+  if (menuProducts.length === 0) return <EmptyMenu onClick={handleClick} />;
+
   return (
     <MenuStyled>
-      {fakeMenus.map(({ id, title, imageSource, price }) => (
-        <CardStyled
+      {menuProducts.map(({ id, title, imageSource, price }) => (
+        <Card
           key={id}
           id={id}
           title={title}
