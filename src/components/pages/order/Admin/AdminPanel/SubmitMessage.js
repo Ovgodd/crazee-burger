@@ -1,14 +1,12 @@
 import React, { useContext } from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import styled from "styled-components";
-import OrderContext from "../../../../../context/OrderContext";
 import { theme } from "../../../../../theme";
 import SecondaryAddButton from "../../../../reusable-ui/SecondaryAddButton";
 
-export default function AdminAddProduct({ onClick }) {
-  const { isProductAdd } = useContext(OrderContext);
+export default function SubmitMessage({ onClick, isProductAdd }) {
   return (
-    <AdminAddProductStyled>
+    <SubmitMessageStyled>
       <SecondaryAddButton
         className={"add-new-product"}
         label={"Ajouter un nouveau produit au menu"}
@@ -22,10 +20,10 @@ export default function AdminAddProduct({ onClick }) {
       ) : (
         ""
       )}
-    </AdminAddProductStyled>
+    </SubmitMessageStyled>
   );
 }
-const AdminAddProductStyled = styled.div`
+const SubmitMessageStyled = styled.div`
   .add-new-product {
     padding: 10px 29px 9px 29px;
     position: absolute;
