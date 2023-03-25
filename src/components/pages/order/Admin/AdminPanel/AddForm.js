@@ -4,7 +4,7 @@ import OrderContext from "../../../../../context/OrderContext";
 import comingSoon from "../../../../../images/coming-soon.png";
 import SubmitMessage from "./SubmitMessage";
 import AdminInputs from "./AdminInputs";
-import AdminProductImage from "./AdminProductImage";
+import ProductImage from "./ProductImage";
 import { theme } from "../../../../../theme";
 export default function AddForm() {
   const { fakeMenus, setFakeMenus, setIsProductAdd, isProductAdd } =
@@ -46,7 +46,7 @@ export default function AddForm() {
 
   return (
     <AddFormStyled onSubmit={handleSubmit}>
-      <AdminProductImage productInfo={productInfo} />
+      <ProductImage imageSource={productInfo.imageSource} />
       <AdminInputs productInfo={productInfo} onChange={handleInputChange} />
       <SubmitMessage onClick={displaySuccess} isProductAdd={isProductAdd} />
     </AddFormStyled>

@@ -2,15 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 
-export default function AdminProductImage({ productInfo }) {
+export default function AdminProductImage({ imageSource }) {
   return (
     <AdminProductImageStyled>
-      {productInfo.imageSource === "" ? (
+      {imageSource === "" ? (
         <div className="empty-image">
           <span>Aucune Image</span>
         </div>
       ) : (
-        <img src={productInfo.imageSource} alt="images" />
+        <img src={imageSource} alt="images" />
       )}
     </AdminProductImageStyled>
   );
