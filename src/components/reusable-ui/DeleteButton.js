@@ -3,9 +3,9 @@ import { TiDelete } from "react-icons/ti";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function DeleteButton({ handleDelete }) {
+export default function DeleteButton({ onClick }) {
   return (
-    <DeleteButtonStyled onClick={handleDelete}>
+    <DeleteButtonStyled onClick={onClick}>
       <TiDelete className="icon" />
     </DeleteButtonStyled>
   );

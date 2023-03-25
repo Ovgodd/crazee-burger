@@ -4,12 +4,13 @@ import OrderContext from "../../context/OrderContext";
 import { theme } from "../../theme";
 import SecondaryButton from "./SecondaryButton";
 import DeleteButton from "./DeleteButton";
-export default function Product({ id, title, image, price, handleDelete }) {
+
+export default function Product({ id, title, image, price, onDelete }) {
   const { isAdmin } = useContext(OrderContext);
 
   return (
     <CardStyled>
-      {isAdmin && <DeleteButton handleDelete={() => handleDelete(id)} />}
+      {isAdmin && <DeleteButton onClick={onDelete} />}
       <img src={image} alt="product" />
       <div className="interact-container">
         <h1>{title}</h1>
