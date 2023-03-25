@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import Input from "../../../../reusable-ui/Input";
-import { getInputConfig } from "./getInputConfig";
+import { getInputsConfig } from "./getInputsConfig";
 
 export default function AdminInputs({ onChange, productInfo }) {
-  const inputs = getInputConfig(productInfo);
+  const inputs = getInputsConfig(productInfo);
   return (
     <AdminInputsStyled>
       {inputs.map(({ ...input }) => (
