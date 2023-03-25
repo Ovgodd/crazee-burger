@@ -6,7 +6,7 @@ import SubmitMessage from "./SubmitMessage";
 import AdminInputs from "./AdminInputs";
 import AdminProductImage from "./AdminProductImage";
 import { theme } from "../../../../../theme";
-export default function AdminAddForm() {
+export default function AddForm() {
   const { fakeMenus, setFakeMenus, setIsProductAdd, isProductAdd } =
     useContext(OrderContext);
 
@@ -45,14 +45,14 @@ export default function AdminAddForm() {
   };
 
   return (
-    <AdminAddFormStyled onSubmit={handleSubmit}>
+    <AddFormStyled onSubmit={handleSubmit}>
       <AdminProductImage productInfo={productInfo} />
       <AdminInputs productInfo={productInfo} onChange={handleInputChange} />
-      <SubmitMessage onClick={displaySuccess} />
-    </AdminAddFormStyled>
+      <SubmitMessage onClick={displaySuccess} isProductAdd={isProductAdd} />
+    </AddFormStyled>
   );
 }
-const AdminAddFormStyled = styled.form`
+const AddFormStyled = styled.form`
   position: relative;
   display: flex;
   top: 31px;
