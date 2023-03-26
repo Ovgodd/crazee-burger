@@ -59,24 +59,16 @@ const normalStyle = css`
 `;
 
 const minimalistStyle = css`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   padding: 8px 16px 8px 24px;
   box-sizing: border-box;
   gap: 5px;
   width: 100%;
   height: 35px;
   background: ${theme.colors.background_white};
-  border-radius: ${theme.borderRadius.round};
 
   input {
     background: ${theme.colors.background_white};
-    border: none;
     ::placeholder {
-      font-weight: ${theme.fonts.weights.regular};
-      font-size: ${theme.fonts.size.SM};
-      background: ${theme.fonts.size.SM};
       color: ${theme.colors.greyMedium};
       font-family: "Arial";
       font-style: normal;
