@@ -46,7 +46,6 @@ const TextInputStyled = styled.div`
 const normalStyle = css`
   padding: 18px 24px;
   background-color: ${theme.colors.white};
-
   color: ${theme.colors.greySemiDark};
 
   input {

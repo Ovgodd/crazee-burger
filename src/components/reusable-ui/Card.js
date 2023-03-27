@@ -23,6 +23,7 @@ export default function Card({ title, image, price, onDelete }) {
     </CardStyled>
   );
 }
+
 const CardStyled = styled.div`
   box-shadow: ${theme.shadows.medium};
   width: 200px;

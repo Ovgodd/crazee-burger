@@ -9,6 +9,7 @@ export default function SecondaryButton({ label, className, onClick }) {
     </SecondaryButtonStyled>
   );
 }
+
 const SecondaryButtonStyled = styled.button`
   border-radius: ${theme.borderRadius.round};
   border: 1px solid;

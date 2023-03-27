@@ -15,6 +15,7 @@ export default function AdminProductImage({ imageSource }) {
     </AdminProductImageStyled>
   );
 }
+
 const AdminProductImageStyled = styled.div`
   left: 0px;
   top: -1px;
@@ -26,6 +27,7 @@ const AdminProductImageStyled = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   .empty-image {
     box-sizing: border-box;
     display: flex;
@@ -37,6 +39,7 @@ const AdminProductImageStyled = styled.div`
     border: 1px solid ${theme.colors.greyLight};
     border-radius: ${theme.borderRadius.round};
   }
+
   img {
     object-fit: contain;
     height: 100px;

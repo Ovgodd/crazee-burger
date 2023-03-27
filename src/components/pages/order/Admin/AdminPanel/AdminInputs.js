@@ -6,6 +6,7 @@ import { getInputsConfig } from "./getInputsConfig";
 
 export default function AdminInputs({ onChange, productInfo }) {
   const inputs = getInputsConfig(productInfo);
+
   return (
     <AdminInputsStyled>
       {inputs.map((input) => (
@@ -19,6 +20,7 @@ export default function AdminInputs({ onChange, productInfo }) {
     </AdminInputsStyled>
   );
 }
+
 const AdminInputsStyled = styled.div`
   display: flex;
   flex-direction: column;

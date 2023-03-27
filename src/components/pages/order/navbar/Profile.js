@@ -18,6 +18,7 @@ export default function Profile({ username }) {
     </ProfileStyled>
   );
 }
+
 const ProfileStyled = styled.div`
   display: flex;
   align-items: center;

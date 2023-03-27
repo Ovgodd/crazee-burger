@@ -53,6 +53,7 @@ export default function AddForm() {
     </AddFormStyled>
   );
 }
+
 const AddFormStyled = styled.form`
   position: relative;
   display: flex;

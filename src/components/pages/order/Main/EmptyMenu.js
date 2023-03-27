@@ -29,17 +29,20 @@ const EmptyMenuStyled = styled.div`
   justify-content: center;
   font-family: "Amatic SC";
   font-style: normal;
-  color: #747b91;
+  color: ${theme.colors.greyBlue};
+
   .question {
     font-weight: 700;
     font-size: 36px;
   }
+
   .generate-message {
     margin-top: 21px;
     margin-bottom: 31px;
     font-weight: 400;
     font-size: 36px;
   }
+
   .generate-button {
     font-family: "Arial";
     font-style: normal;
@@ -60,6 +63,7 @@ const EmptyMenuStyled = styled.div`
       transition: 0.3s;
       cursor: pointer;
     }
+
     &:active {
       background-color: ${theme.colors.primary};
       border-color: ${theme.colors.white};

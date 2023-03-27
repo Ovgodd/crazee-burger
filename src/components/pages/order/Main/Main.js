@@ -18,6 +18,7 @@ export default function Main() {
     </MainStyled>
   );
 }
+
 const MainStyled = styled.div`
   height: 85vh;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};

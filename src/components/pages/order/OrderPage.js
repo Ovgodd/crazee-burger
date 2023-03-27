@@ -40,6 +40,7 @@ export default function OrderPage() {
     handleDelete,
     handleClick,
   };
+
   return (
     <OrderPageStyled>
       <OrderContext.Provider value={adminContextValue}>
@@ -51,6 +52,7 @@ export default function OrderPage() {
     </OrderPageStyled>
   );
 }
+
 const OrderPageStyled = styled.div`
   display: flex;
   justify-content: center;

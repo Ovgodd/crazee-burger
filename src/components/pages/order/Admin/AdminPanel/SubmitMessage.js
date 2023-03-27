@@ -50,10 +50,10 @@ const SubmitMessageStyled = styled.div`
       border-color: ${theme.colors.white};
       color: ${theme.colors.white};
       transition: 0.3s;
-
       cursor: pointer;
     }
   }
+
   .success-span {
     display: flex;
     flex-direction: row;
@@ -69,6 +69,7 @@ const SubmitMessageStyled = styled.div`
       width: 20px;
       height: 20px;
     }
+
     span {
       color: ${theme.colors.success};
       font-size: ${theme.fonts.size.SM};

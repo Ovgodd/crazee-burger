@@ -26,6 +26,7 @@ export default function Menu() {
     </MenuStyled>
   );
 }
+
 const MenuStyled = styled.div`
   justify-items: center;
   padding: 50px 50px 150px;

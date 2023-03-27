@@ -10,6 +10,7 @@ export default function DeleteButton({ onClick }) {
     </DeleteButtonStyled>
   );
 }
+
 const DeleteButtonStyled = styled.button`
   top: 15px;
   right: 10px;
