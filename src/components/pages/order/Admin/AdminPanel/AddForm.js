@@ -7,8 +7,7 @@ import ProductImage from "./ProductImage";
 import { theme } from "../../../../../theme";
 
 export default function AddForm() {
-  const { handleAdd, setIsProductAdded, isProductAdded } =
-    useContext(OrderContext);
+  const { handleAdd } = useContext(OrderContext);
 
   const DEFAULT_PRODUCT_INFO = {
     id: "",
@@ -18,6 +17,7 @@ export default function AddForm() {
   };
 
   const [productInfo, setProductInfo] = useState(DEFAULT_PRODUCT_INFO);
+  const [isProductAdded, setIsProductAdded] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;

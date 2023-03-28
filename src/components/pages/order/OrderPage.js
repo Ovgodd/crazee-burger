@@ -12,7 +12,6 @@ export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedTab, setselectedTab] = useState("add");
   const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
-  const [isProductAdded, setIsProductAdded] = useState(false);
 
   const { username } = useParams();
 
@@ -43,8 +42,6 @@ export default function OrderPage() {
     selectedTab,
     setselectedTab,
     menuProducts,
-    isProductAdded,
-    setIsProductAdded,
     handleAdd,
     handleDelete,
     handleReset,
