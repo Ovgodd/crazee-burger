@@ -5,6 +5,7 @@ import { formatPrice } from "../../../../utils/maths";
 import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
+import ComingSoon from "../../../../images/coming-soon.png";
 
 export default function Menu() {
   const { menuProducts, handleDelete, handleClick } = useContext(OrderContext);
@@ -18,7 +19,7 @@ export default function Menu() {
           key={id}
           id={id}
           title={title}
-          image={imageSource}
+          image={imageSource ? imageSource : ComingSoon}
           price={formatPrice(price)}
           onDelete={() => handleDelete(id)}
         />
