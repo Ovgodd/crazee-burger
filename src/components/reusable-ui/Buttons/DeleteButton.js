@@ -19,8 +19,13 @@ const DeleteButtonStyled = styled.button`
   color: ${theme.colors.primary};
   position: absolute;
   cursor: pointer;
+
   .icon {
     width: 30px;
     height: 30px;
+  }
+
+  &:hover {
+    color: ${theme.colors.deleteRed};
   }
 `;

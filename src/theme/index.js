@@ -9,6 +9,7 @@ const colors = {
   success: "#60bd4f",
   red: "#e25549",
   redSecondary: "#c4151c",
+  deleteRed: "#E74C3C;",
   blue: "#51a7e1",
   greyLight: "#e4e5e9",
   greyMedium: "#a7a8ad",
