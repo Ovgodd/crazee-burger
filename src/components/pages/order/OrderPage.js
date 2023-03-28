@@ -16,7 +16,7 @@ export default function OrderPage() {
 
   const { username } = useParams();
 
-  const handleReset = (id) => {
+  const handleDelete = (id) => {
     const updatedMenu = menuProducts.filter((menu) => {
       return menu.id !== id;
     });
@@ -31,7 +31,7 @@ export default function OrderPage() {
     setMenuProducts(updatedMenu);
   };
 
-  const handleClick = () => {
+  const handleReset = () => {
     setMenuProducts(fakeMenu.MEDIUM);
   };
 
@@ -46,8 +46,8 @@ export default function OrderPage() {
     isProductAdded,
     setIsProductAdded,
     handleAdd,
+    handleDelete,
     handleReset,
-    handleClick,
   };
 
   return (
