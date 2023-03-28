@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
-import SecondaryButton from "../../../reusable-ui/SecondaryButton";
+import SecondaryButton from "../../../reusable-ui/Buttons/SecondaryButton";
 
 export default function EmptyMenu({ onClick }) {
   return (

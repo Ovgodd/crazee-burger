@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Welcome from "./Welcome";
 import { isValidName } from "../../../utils/Regex";
 import TextInput from "../../reusable-ui/TextInput";
-import PrimaryButton from "../../reusable-ui/PrimaryButton";
+import PrimaryButton from "../../reusable-ui/Buttons/PrimaryButton";
 import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForward } from "react-icons/io5";
 

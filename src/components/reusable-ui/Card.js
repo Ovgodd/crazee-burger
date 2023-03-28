@@ -2,8 +2,8 @@ import { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../context/OrderContext";
 import { theme } from "../../theme";
-import SecondaryButton from "./SecondaryButton";
-import DeleteButton from "./DeleteButton";
+import SecondaryButton from "./Buttons/SecondaryButton";
+import DeleteButton from "./Buttons/DeleteButton";
 
 export default function Card({ title, image, price, onDelete }) {
   const { isAdmin } = useContext(OrderContext);
