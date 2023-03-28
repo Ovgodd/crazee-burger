@@ -8,6 +8,12 @@ import Main from "./Main/Main";
 import NavBar from "./Navbar/NavBar";
 
 export default function OrderPage() {
+  const [isCollapsed, setisCollapsed] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [selectedTab, setselectedTab] = useState("add");
+  const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
+  const [isProductAdded, setIsProductAdded] = useState(false);
+
   const { username } = useParams();
 
   const handleDelete = (id) => {
@@ -16,15 +22,18 @@ export default function OrderPage() {
     });
     setMenuProducts(updatedMenu);
   };
+
+  const handleAdd = (productToAdd) => {
+    const menuCopy = [...menuProducts];
+
+    const updatedMenu = [productToAdd, ...menuCopy];
+
+    setMenuProducts(updatedMenu);
+  };
+
   const handleClick = () => {
     setMenuProducts(fakeMenu.MEDIUM);
   };
-
-  const [isCollapsed, setisCollapsed] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [selectedTab, setselectedTab] = useState("add");
-  const [menuProducts, setMenuProducts] = useState(fakeMenu.SMALL);
-  const [isProductAdd, setIsProductAdd] = useState(false);
 
   const adminContextValue = {
     isCollapsed,
@@ -34,9 +43,9 @@ export default function OrderPage() {
     selectedTab,
     setselectedTab,
     menuProducts,
-    setMenuProducts,
-    isProductAdd,
-    setIsProductAdd,
+    isProductAdded,
+    setIsProductAdded,
+    handleAdd,
     handleDelete,
     handleClick,
   };

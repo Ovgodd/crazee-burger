@@ -10,5 +10,5 @@ export default createContext({
   fakeMenus: {},
   setFakeMenus: () => {},
   isProductAdded: false,
-  setIsProductAdd: () => {},
+  setIsProductAdded: () => {},
 });

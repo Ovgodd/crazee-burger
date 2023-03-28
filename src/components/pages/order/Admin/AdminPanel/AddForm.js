@@ -8,7 +8,7 @@ import ProductImage from "./ProductImage";
 import { theme } from "../../../../../theme";
 
 export default function AddForm() {
-  const { menuProducts, setMenuProducts, setIsProductAdd, isProductAdd } =
+  const { handleAdd, setIsProductAdded, isProductAdded } =
     useContext(OrderContext);
 
   const DEFAULT_PRODUCT_INFO = {
@@ -27,21 +27,14 @@ export default function AddForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const newProduct = {
-      id: new Date().getTime(),
-      imageSource:
-        productInfo.imageSource === "" ? comingSoon : productInfo.imageSource,
-      title: productInfo.title,
-      price: productInfo.price,
-    };
-    setMenuProducts([newProduct, ...menuProducts]);
-    setProductInfo(DEFAULT_PRODUCT_INFO);
+    handleAdd({ ...productInfo, id: new Date().getTime() });
+    setProductInfo(DEFAULT_PRODUCT_INFO); // reset form
   };
 
   const displaySuccess = () => {
-    setIsProductAdd(true);
+    setIsProductAdded(true);
     setTimeout(() => {
-      setIsProductAdd(false);
+      setIsProductAdded(false);
     }, 2000);
   };
 
@@ -49,7 +42,7 @@ export default function AddForm() {
     <AddFormStyled onSubmit={handleSubmit}>
       <ProductImage imageSource={productInfo.imageSource} />
       <AdminInputs productInfo={productInfo} onChange={handleChange} />
-      <SubmitMessage onClick={displaySuccess} isProductAdd={isProductAdd} />
+      <SubmitMessage onClick={displaySuccess} isProductAdded={isProductAdded} />
     </AddFormStyled>
   );
 }
