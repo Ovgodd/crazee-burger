@@ -39,6 +39,7 @@ const CardStyled = styled.div`
   position: relative;
 
   img {
+    margin-top: 10px;
     width: 200px;
     height: 145px;
     object-fit: contain;
@@ -50,6 +51,7 @@ const CardStyled = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    min-height: 110px;
 
     h1 {
       white-space: nowrap;
