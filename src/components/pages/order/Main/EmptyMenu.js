@@ -49,8 +49,8 @@ const EmptyMenuStyled = styled.div`
     font-weight: 700;
     font-size: 12px;
     color: white;
-    background: #ff9f1b;
-    border: 1px solid #ff9f1b;
+    background: #${theme.colors.primary};
+    border: 1px solid #${theme.colors.primary};
     border-radius: 5px;
     width: 224px;
     height: 50px;

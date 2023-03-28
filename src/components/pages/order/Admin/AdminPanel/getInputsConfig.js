@@ -6,7 +6,7 @@ export const getInputsConfig = (productInfo) => [
   {
     id: 1,
     name: "title",
-    placeholder: "Nom du produit(ex:Super Burger)",
+    placeholder: "Nom du produit (ex:Super Burger)",
     Icon: <FaHamburger />,
     type: "text",
     value: productInfo.title,

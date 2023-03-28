@@ -3,7 +3,7 @@ import styled from "styled-components";
 import OrderContext from "../../../../context/OrderContext";
 import { theme } from "../../../../theme";
 import Admin from "../Admin/Admin";
-import MenuStyled from "./Menu";
+import Menu from "./Menu";
 
 export default function Main() {
   const { isAdmin } = useContext(OrderContext);
@@ -12,7 +12,7 @@ export default function Main() {
     <MainStyled>
       {/* <div className="basket">Basket</div> */}
       <div className="menu-and-admin">
-        <MenuStyled />
+        <Menu />
         {isAdmin && <Admin />}
       </div>
     </MainStyled>
