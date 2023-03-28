@@ -8,7 +8,7 @@ import EmptyMenu from "./EmptyMenu";
 import ComingSoon from "../../../../images/coming-soon.png";
 
 export default function Menu() {
-  const { menuProducts, handleDelete, handleClick } = useContext(OrderContext);
+  const { menuProducts, handleReset, handleClick } = useContext(OrderContext);
 
   if (menuProducts.length === 0) return <EmptyMenu onClick={handleClick} />;
 
@@ -21,7 +21,7 @@ export default function Menu() {
           title={title}
           image={imageSource ? imageSource : ComingSoon}
           price={formatPrice(price)}
-          onDelete={() => handleDelete(id)}
+          onDelete={() => handleReset(id)}
         />
       ))}
     </MenuStyled>
