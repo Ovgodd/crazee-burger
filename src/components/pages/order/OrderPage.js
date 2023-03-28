@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import OrderContext from "../../../context/OrderContext";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
@@ -12,8 +11,6 @@ export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedTab, setselectedTab] = useState("add");
   const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
-
-  const { username } = useParams();
 
   const handleDelete = (id) => {
     const updatedMenu = menuProducts.filter((menu) => {
@@ -51,7 +48,7 @@ export default function OrderPage() {
     <OrderPageStyled>
       <OrderContext.Provider value={adminContextValue}>
         <div className="container">
-          <NavBar username={username} />
+          <NavBar />
           <Main />
         </div>
       </OrderContext.Provider>

@@ -1,9 +1,12 @@
 import React from "react";
 import { BsPersonCircle } from "react-icons/bs";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 
-export default function Profile({ username }) {
+export default function Profile() {
+  const { username } = useParams();
+
   return (
     <ProfileStyled>
       <div className="welcome-container">

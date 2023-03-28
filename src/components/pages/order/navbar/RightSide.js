@@ -6,7 +6,7 @@ import Toast from "../../../reusable-ui/Toast";
 import OrderContext from "../../../../context/OrderContext";
 import Profile from "./Profile";
 
-export default function RightSide({ username }) {
+export default function RightSide() {
   const { isAdmin, setIsAdmin } = useContext(OrderContext);
 
   const enableToast = () => {
@@ -35,7 +35,7 @@ export default function RightSide({ username }) {
           labelIfChecked="DÉSACTIVER LE MODE ADMIN"
         />
       </div>
-      <Profile username={username} />
+      <Profile />
       <Toast />
     </RightSideStyled>
   );
