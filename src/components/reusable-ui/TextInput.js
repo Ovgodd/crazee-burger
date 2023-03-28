@@ -22,12 +22,11 @@ const TextInputStyled = styled.div`
   display: flex;
   background-color: white;
   border-radius: ${theme.borderRadius.round};
-
   .icon {
     font-size: ${theme.fonts.size.SM};
-    margin: 0 8px 0 1px;
+    margin: 0 5px 0 5px;
     display: flex;
-    color: ${theme.colors.greyBlue};
+    color: ${theme.colors.greySemiDark};
   }
 
   input {
