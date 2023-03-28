@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { useContext, useState } from "react";
 import OrderContext from "../../../../../context/OrderContext";
-import comingSoon from "../../../../../images/coming-soon.png";
 import SubmitMessage from "./SubmitMessage";
 import AdminInputs from "./AdminInputs";
 import ProductImage from "./ProductImage";
@@ -40,7 +39,10 @@ export default function AddForm() {
 
   return (
     <AddFormStyled onSubmit={handleSubmit}>
-      <ProductImage imageSource={productInfo.imageSource} />
+      <ProductImage
+        imageSource={productInfo.imageSource}
+        title={productInfo.title}
+      />
       <AdminInputs productInfo={productInfo} onChange={handleChange} />
       <SubmitMessage onClick={displaySuccess} isProductAdded={isProductAdded} />
     </AddFormStyled>

@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 
-export default function AdminProductImage({ imageSource, title }) {
+export default function ProductImage({ imageSource, title }) {
   return (
-    <AdminProductImageStyled>
+    <ProductImageStyled>
       {imageSource === "" ? (
         <div className="empty-image">
           <span>Aucune Image</span>
@@ -12,11 +12,11 @@ export default function AdminProductImage({ imageSource, title }) {
       ) : (
         <img src={imageSource} alt={title} />
       )}
-    </AdminProductImageStyled>
+    </ProductImageStyled>
   );
 }
 
-const AdminProductImageStyled = styled.div`
+const ProductImageStyled = styled.div`
   left: 0px;
   top: -1px;
   height: 120px;
