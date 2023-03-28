@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 
-export default function AdminProductImage({ imageSource }) {
+export default function AdminProductImage({ imageSource, title }) {
   return (
     <AdminProductImageStyled>
       {imageSource === "" ? (
@@ -10,7 +10,7 @@ export default function AdminProductImage({ imageSource }) {
           <span>Aucune Image</span>
         </div>
       ) : (
-        <img src={imageSource} alt="images" />
+        <img src={imageSource} alt={title} />
       )}
     </AdminProductImageStyled>
   );
