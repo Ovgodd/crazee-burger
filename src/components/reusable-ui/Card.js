@@ -2,8 +2,8 @@ import { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../context/OrderContext";
 import { theme } from "../../theme";
-import SecondaryButton from "./Buttons/SecondaryButton";
 import DeleteButton from "./Buttons/DeleteButton";
+import PrimaryButton from "./Buttons/PrimaryButton";
 
 export default function Card({ title, image, price, onDelete }) {
   const { isAdmin } = useContext(OrderContext);
@@ -16,7 +16,7 @@ export default function Card({ title, image, price, onDelete }) {
         <h1>{title}</h1>
         <div className="description">
           <span>{price}</span>
-          <SecondaryButton label="Ajouter" />
+          <PrimaryButton label="Ajouter" className="primary-button" />
         </div>
       </div>
       {/* <div className="admin-panel">ajouter un produit</div> */}
@@ -71,6 +71,12 @@ const CardStyled = styled.div`
       span {
         color: ${theme.colors.primary};
         font-weight: ${theme.fonts.weights.regular};
+      }
+      .primary-button {
+        width: 95px;
+        height: 38px;
+        font-size: ${theme.fonts.size.XS};
+        font-weight: ${theme.fonts.weights.bold};
       }
     }
   }
