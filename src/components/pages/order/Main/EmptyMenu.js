@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
-import SecondaryButton from "../../../reusable-ui/Buttons/SecondaryButton";
+import PrimaryButton from "../../../reusable-ui/Buttons/PrimaryButton";
 
 export default function EmptyMenu({ onClick }) {
   return (
@@ -10,10 +10,10 @@ export default function EmptyMenu({ onClick }) {
       <span className="generate-message">
         cliquez-ci dessous pour le réinitialiser
       </span>
-      <SecondaryButton
+      <PrimaryButton
         className="generate-button"
-        onClick={onClick}
         label="Générer de nouveaux produits"
+        onClick={onClick}
       />
     </EmptyMenuStyled>
   );
@@ -44,33 +44,9 @@ const EmptyMenuStyled = styled.div`
   }
 
   .generate-button {
-    font-family: "Arial";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    color: white;
-    background: #${theme.colors.primary};
-    border: 1px solid #${theme.colors.primary};
-    border-radius: 5px;
+    font-size: ${theme.fonts.size.XS};
     width: 224px;
     height: 50px;
-
-    &:hover {
-      background-color: ${theme.colors.white};
-      border-color: ${theme.colors.primary};
-      color: ${theme.colors.primary};
-      border: 1px solid;
-      transition: 0.3s;
-      cursor: pointer;
-    }
-
-    &:active {
-      background-color: ${theme.colors.primary};
-      border-color: ${theme.colors.white};
-      color: ${theme.colors.white};
-      transition: 0.3s;
-
-      cursor: pointer;
-    }
+    white-space: nowrap;
   }
 `;
