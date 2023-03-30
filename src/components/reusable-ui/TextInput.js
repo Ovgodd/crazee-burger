@@ -24,9 +24,9 @@ const TextInputStyled = styled.div`
   border-radius: ${theme.borderRadius.round};
   .icon {
     font-size: ${theme.fonts.size.SM};
-    margin: 0 5px 0 5px;
+    margin: 0 13px 0 8px;
     display: flex;
-    color: ${theme.colors.greySemiDark};
+    color: ${theme.colors.greyBlue};
   }
 
   input {
@@ -57,9 +57,8 @@ const normalStyle = css`
 `;
 
 const minimalistStyle = css`
-  padding: 8px 16px 8px 24px;
+  padding: 8px 16px;
   box-sizing: border-box;
-  gap: 5px;
   width: 100%;
   height: 35px;
   background: ${theme.colors.background_white};
