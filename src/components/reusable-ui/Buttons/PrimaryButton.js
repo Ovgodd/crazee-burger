@@ -32,7 +32,14 @@ const PrimaryButtonStyled = styled.button`
     color: ${theme.colors.primary};
     border: 1px solid;
   }
-
+  &:hover {
+    background-color: ${theme.colors.white};
+    border-color: ${theme.colors.primary};
+    color: ${theme.colors.primary};
+    border: 1px solid;
+    transition: 0.3s;
+    cursor: pointer;
+  }
   .chevron-icon {
     transform: translateY(20%);
   }
