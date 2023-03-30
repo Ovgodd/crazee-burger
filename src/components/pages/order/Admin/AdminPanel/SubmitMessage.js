@@ -3,21 +3,18 @@ import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import SecondaryAddButton from "../../../../reusable-ui/Buttons/SecondaryButton";
 
-export default function SubmitMessage({ onClick, isProductAdded }) {
+export default function SubmitMessage({ isProductAdded }) {
   return (
     <SubmitMessageStyled>
       <SecondaryAddButton
         className={"add-new-product"}
         label="Ajouter un nouveau produit au menu"
-        onClick={onClick}
       />
-      {isProductAdded ? (
+      {isProductAdded && (
         <div className="success-span">
           <AiOutlineCheckCircle className="icon" />
           <span>Ajouté avec succès !</span>
         </div>
-      ) : (
-        ""
       )}
     </SubmitMessageStyled>
   );
