@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useContext, useState } from "react";
 import OrderContext from "../../../../../context/OrderContext";
-import SubmitMessage from "./SubmitMessage";
+import Submit from "./Submit";
 import AdminInputs from "./AdminInputs";
 import ProductImage from "./ProductImage";
 import { theme } from "../../../../../theme";
@@ -45,7 +45,7 @@ export default function AddForm() {
         title={productInfo.title}
       />
       <AdminInputs productInfo={productInfo} onChange={handleChange} />
-      <SubmitMessage isProductAdded={isProductAdded} />
+      <Submit isProductAdded={isProductAdded} />
     </AddFormStyled>
   );
 }

@@ -1,13 +1,13 @@
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
-import SecondaryAddButton from "../../../../reusable-ui/Buttons/SecondaryButton";
+import PrimaryButton from "../../../../reusable-ui/Buttons/PrimaryButton";
 
 export default function SubmitMessage({ isProductAdded }) {
   return (
-    <SubmitMessageStyled>
-      <SecondaryAddButton
-        className={"add-new-product"}
+    <SubmitStyled>
+      <PrimaryButton
+        variant="success"
         label="Ajouter un nouveau produit au menu"
       />
       {isProductAdded && (
@@ -16,10 +16,10 @@ export default function SubmitMessage({ isProductAdded }) {
           <span>Ajouté avec succès !</span>
         </div>
       )}
-    </SubmitMessageStyled>
+    </SubmitStyled>
   );
 }
-const SubmitMessageStyled = styled.div`
+const SubmitStyled = styled.div`
   .add-new-product {
     padding: 10px 29px 9px 29px;
     position: absolute;
