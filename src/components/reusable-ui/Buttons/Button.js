@@ -2,7 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../../theme";
 
-export default function PrimaryButton({
+export default function Button({
   variant = "normal",
   className,
   label,
@@ -10,18 +10,14 @@ export default function PrimaryButton({
   onClick,
 }) {
   return (
-    <PrimaryButtonStyled
-      variant={variant}
-      className={className}
-      onClick={onClick}
-    >
+    <ButtonStyled variant={variant} className={className} onClick={onClick}>
       {label}
       {Icon && Icon}
-    </PrimaryButtonStyled>
+    </ButtonStyled>
   );
 }
 
-const PrimaryButtonStyled = styled.button`
+const ButtonStyled = styled.button`
   width: 100%;
   padding: 18px 24px;
   font-size: 15px;

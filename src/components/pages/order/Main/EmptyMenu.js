@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
-import PrimaryButton from "../../../reusable-ui/Buttons/PrimaryButton";
+import Button from "../../../reusable-ui/Buttons/Button";
 
 export default function EmptyMenu({ onClick }) {
   return (
@@ -10,7 +10,7 @@ export default function EmptyMenu({ onClick }) {
       <span className="generate-message">
         cliquez-ci dessous pour le réinitialiser
       </span>
-      <PrimaryButton
+      <Button
         className="generate-button"
         label="Générer de nouveaux produits"
         onClick={onClick}

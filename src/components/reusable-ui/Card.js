@@ -3,7 +3,7 @@ import styled from "styled-components";
 import OrderContext from "../../context/OrderContext";
 import { theme } from "../../theme";
 import DeleteButton from "./Buttons/DeleteButton";
-import PrimaryButton from "./Buttons/PrimaryButton";
+import Button from "./Buttons/Button";
 
 export default function Card({ title, image, price, onDelete }) {
   const { isAdmin } = useContext(OrderContext);
@@ -16,7 +16,7 @@ export default function Card({ title, image, price, onDelete }) {
         <h1>{title}</h1>
         <div className="description">
           <span>{price}</span>
-          <PrimaryButton label="Ajouter" className="primary-button" />
+          <Button label="Ajouter" className="primary-button" />
         </div>
       </div>
       {/* <div className="admin-panel">ajouter un produit</div> */}

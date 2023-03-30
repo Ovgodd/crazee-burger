@@ -1,15 +1,12 @@
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
-import PrimaryButton from "../../../../reusable-ui/Buttons/PrimaryButton";
+import Button from "../../../../reusable-ui/Buttons/Button";
 
 export default function SubmitMessage({ isProductAdded }) {
   return (
     <SubmitStyled>
-      <PrimaryButton
-        variant="success"
-        label="Ajouter un nouveau produit au menu"
-      />
+      <Button variant="success" label="Ajouter un nouveau produit au menu" />
       {isProductAdded && (
         <div className="success-span">
           <AiOutlineCheckCircle className="icon" />
