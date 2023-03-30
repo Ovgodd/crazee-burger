@@ -26,6 +26,6 @@ const DeleteButtonStyled = styled.button`
   }
 
   &:hover {
-    color: ${theme.colors.deleteRed};
+    color: ${theme.colors.red};
   }
 `;
