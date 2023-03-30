@@ -54,13 +54,14 @@ const CardStyled = styled.div`
     min-height: 110px;
 
     h1 {
-      white-space: nowrap;
+      white-space: normal;
       overflow: hidden;
       width: 190px;
       margin-bottom: ${theme.spacing.xxs};
       text-overflow: ellipsis;
       font-family: "Amatic SC", cursive;
       font-size: ${theme.fonts.size.P4};
+      margin: auto;
     }
     .description {
       display: flex;
