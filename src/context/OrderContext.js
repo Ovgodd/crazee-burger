@@ -9,4 +9,7 @@ export default createContext({
   setSelectedTab: () => {},
   fakeMenus: {},
   setFakeMenus: () => {},
+  handleAdd: () => {},
+  handleDelete: () => {},
+  handleReset: () => {},
 });
