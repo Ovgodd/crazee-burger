@@ -12,6 +12,13 @@ export default function PrimaryButton({ label, Icon }) {
 }
 
 const PrimaryButtonStyled = styled.button`
+  width: 100%;
+  padding: 18px 24px;
+  font-size: 15px;
+  align-self: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   margin: ${theme.spacing.sm};
   border-radius: ${theme.borderRadius.round};
   border: none;
@@ -19,12 +26,9 @@ const PrimaryButtonStyled = styled.button`
   color: ${theme.colors.white};
   font-size: ${theme.fonts.size.SM};
   font-weight: ${theme.fonts.weights.bold};
-  line-height: 15px;
+  line-height: 1;
   color: ${theme.colors.white};
-  padding: 18px 24px;
-  width: 100%;
-  font-size: 15px;
-  align-self: center;
+  border: 1px solid ${theme.colors.primary};
   cursor: pointer;
   &:active {
     background-color: ${theme.colors.white};
@@ -39,8 +43,5 @@ const PrimaryButtonStyled = styled.button`
     border: 1px solid;
     transition: 0.3s;
     cursor: pointer;
-  }
-  .chevron-icon {
-    transform: translateY(20%);
   }
 `;
