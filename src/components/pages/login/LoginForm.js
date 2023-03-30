@@ -9,7 +9,7 @@ import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForward } from "react-icons/io5";
 
 export default function LoginForm() {
-  const [inputName, setInputName] = useState("");
+  const [inputName, setInputName] = useState("Cyril");
 
   const navigate = useNavigate();
 

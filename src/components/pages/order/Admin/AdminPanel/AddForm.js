@@ -28,6 +28,7 @@ export default function AddForm() {
     event.preventDefault();
     handleAdd({ ...productInfo, id: new Date().getTime() });
     setProductInfo(DEFAULT_PRODUCT_INFO); // reset form
+    displaySuccess();
   };
 
   const displaySuccess = () => {
@@ -44,7 +45,7 @@ export default function AddForm() {
         title={productInfo.title}
       />
       <AdminInputs productInfo={productInfo} onChange={handleChange} />
-      <SubmitMessage onClick={displaySuccess} isProductAdded={isProductAdded} />
+      <SubmitMessage isProductAdded={isProductAdded} />
     </AddFormStyled>
   );
 }
