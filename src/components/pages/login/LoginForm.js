@@ -26,17 +26,20 @@ export default function LoginForm() {
   return (
     <LoginFormStyled action="submit" onSubmit={handleSubmit}>
       <Welcome />
-      <TextInput
-        value={inputName}
-        onChange={handleChange}
-        placeholder={"Entrez votre prénom"}
-        required
-        Icon={<BsPersonCircle />}
-      />
-      <PrimaryButton
-        label={"Accédez à mon espace"}
-        Icon={<IoChevronForward />}
-      />
+      <div className="input-login">
+        <TextInput
+          value={inputName}
+          onChange={handleChange}
+          placeholder={"Entrez votre prénom"}
+          required
+          Icon={<BsPersonCircle />}
+          variant="normal"
+        />
+        <PrimaryButton
+          label={"Accédez à mon espace"}
+          Icon={<IoChevronForward />}
+        />
+      </div>
     </LoginFormStyled>
   );
 }
@@ -46,6 +49,12 @@ const LoginFormStyled = styled.form`
   flex-direction: column;
   justify-content: center;
   font-family: "Amatic SC", cursive;
-  max-width: 440px;
+  max-width: 500px;
   margin: 0px auto;
+  .input-login {
+    min-height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 `;

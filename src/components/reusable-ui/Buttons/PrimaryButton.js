@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../theme";
 
-export default function PrimaryButton({ label, Icon }) {
+export default function PrimaryButton({ className, label, Icon }) {
   return (
-    <PrimaryButtonStyled>
+    <PrimaryButtonStyled className={className}>
       {label}
       {Icon && Icon}
     </PrimaryButtonStyled>
@@ -19,7 +19,6 @@ const PrimaryButtonStyled = styled.button`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  margin: ${theme.spacing.sm};
   border-radius: ${theme.borderRadius.round};
   border: none;
   background-color: ${theme.colors.primary};
