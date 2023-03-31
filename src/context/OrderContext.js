@@ -8,7 +8,6 @@ export default createContext({
   selectedTab: "add",
   setSelectedTab: () => {},
   fakeMenus: {},
-  setFakeMenus: () => {},
   handleAdd: () => {},
   handleDelete: () => {},
   handleReset: () => {},
