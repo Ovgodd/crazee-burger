@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { useContext, useState } from "react";
 import OrderContext from "../../../../../context/OrderContext";
-import Submit from "./Submit";
 import AdminInputs from "./AdminInputs";
 import ProductImage from "./ProductImage";
 import { theme } from "../../../../../theme";
+import Button from "../../../../reusable-ui/Buttons/Button";
+import { AiOutlineCheckCircle } from "react-icons/ai";
 
 export default function AddForm() {
   const { handleAdd } = useContext(OrderContext);
@@ -45,7 +46,13 @@ export default function AddForm() {
         title={productInfo.title}
       />
       <AdminInputs productInfo={productInfo} onChange={handleChange} />
-      <Submit isProductAdded={isProductAdded} />
+      <Button variant="success" label="Ajouter un nouveau produit au menu" />
+      {isProductAdded && (
+        <div className="success-span">
+          <AiOutlineCheckCircle className="icon" />
+          <span>Ajouté avec succès !</span>
+        </div>
+      )}
     </AddFormStyled>
   );
 }
@@ -60,5 +67,28 @@ const AddFormStyled = styled.form`
 
   span {
     color: ${theme.colors.greySemiDark};
+  }
+  .success-span {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    color: ${theme.colors.success};
+    position: absolute;
+    bottom: 0px;
+    width: 275px;
+    height: 34px;
+    right: 80px;
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    span {
+      color: ${theme.colors.success};
+      font-size: ${theme.fonts.size.SM};
+      font-weight: ${theme.fonts.weights.regular};
+      margin-left: 3px;
+    }
   }
 `;
