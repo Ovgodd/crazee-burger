@@ -6,6 +6,7 @@ import ProductImage from "./ProductImage";
 import { theme } from "../../../../../theme";
 import Button from "../../../../reusable-ui/Buttons/Button";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import SubmitMessage from "./SubmitMessage";
 
 export default function AddForm() {
   const { handleAdd } = useContext(OrderContext);
@@ -47,12 +48,7 @@ export default function AddForm() {
       />
       <AdminInputs productInfo={productInfo} onChange={handleChange} />
       <Button variant="success" label="Ajouter un nouveau produit au menu" />
-      {isProductAdded && (
-        <div className="success-span">
-          <AiOutlineCheckCircle className="icon" />
-          <span>Ajouté avec succès !</span>
-        </div>
-      )}
+      {isProductAdded && <SubmitMessage />}
     </AddFormStyled>
   );
 }
@@ -67,28 +63,5 @@ const AddFormStyled = styled.form`
 
   span {
     color: ${theme.colors.greySemiDark};
-  }
-  .success-span {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    color: ${theme.colors.success};
-    position: absolute;
-    bottom: 0px;
-    width: 275px;
-    height: 34px;
-    right: 80px;
-    .icon {
-      width: 20px;
-      height: 20px;
-    }
-
-    span {
-      color: ${theme.colors.success};
-      font-size: ${theme.fonts.size.SM};
-      font-weight: ${theme.fonts.weights.regular};
-      margin-left: 3px;
-    }
   }
 `;
