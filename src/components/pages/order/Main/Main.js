@@ -3,20 +3,22 @@ import styled from "styled-components";
 import OrderContext from "../../../../context/OrderContext";
 import { theme } from "../../../../theme";
 import Admin from "../Admin/Admin";
-import MenuStyled from "./Menu";
+import Menu from "./Menu";
+
 export default function Main() {
-  const { isAdmin, setIsAdmin } = useContext(OrderContext);
+  const { isAdmin } = useContext(OrderContext);
 
   return (
     <MainStyled>
       {/* <div className="basket">Basket</div> */}
       <div className="menu-and-admin">
-        <MenuStyled />
+        <Menu />
         {isAdmin && <Admin />}
       </div>
     </MainStyled>
   );
 }
+
 const MainStyled = styled.div`
   height: 85vh;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};

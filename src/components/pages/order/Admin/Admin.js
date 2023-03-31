@@ -2,7 +2,7 @@ import { useContext } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../../context/OrderContext";
 import { theme } from "../../../../theme";
-import AdminPanel from "./AdminPanel";
+import AdminPanel from "./AdminPanel/AdminPanel";
 import AdminTabs from "./AdminTabs";
 
 export default function Admin() {
@@ -22,5 +22,4 @@ const AdminPanelStyled = styled.div`
   bottom: 0;
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
-  overflow: hidden;
 `;

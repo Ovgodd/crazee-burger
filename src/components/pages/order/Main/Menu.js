@@ -1,25 +1,33 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import CardStyled from "../../../reusable-ui/Card";
-import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
+import Card from "../../../reusable-ui/Card";
 import { formatPrice } from "../../../../utils/maths";
 import { theme } from "../../../../theme";
+import OrderContext from "../../../../context/OrderContext";
+import EmptyMenu from "./EmptyMenu";
+import ComingSoon from "../../../../images/coming-soon.png";
 
 export default function Menu() {
-  const [menu, setMenu] = useState(fakeMenu2);
+  const { menuProducts, handleDelete, handleReset } = useContext(OrderContext);
+
+  if (menuProducts.length === 0) return <EmptyMenu onClick={handleReset} />;
+
   return (
     <MenuStyled>
-      {menu.map(({ id, title, imageSource, price }) => (
-        <CardStyled
+      {menuProducts.map(({ id, title, imageSource, price }) => (
+        <Card
           key={id}
+          id={id}
           title={title}
-          image={imageSource}
+          image={imageSource ? imageSource : ComingSoon}
           price={formatPrice(price)}
+          onDelete={() => handleDelete(id)}
         />
       ))}
     </MenuStyled>
   );
 }
+
 const MenuStyled = styled.div`
   justify-items: center;
   padding: 50px 50px 150px;

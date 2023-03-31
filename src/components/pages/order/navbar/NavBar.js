@@ -12,6 +12,7 @@ export default function NavBar({ username }) {
     </NavBarStyled>
   );
 }
+
 const NavBarStyled = styled.div`
   display: flex;
   flex-direction: row;

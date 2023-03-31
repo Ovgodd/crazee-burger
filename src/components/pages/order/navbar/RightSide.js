@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import ToggleButton from "../../../reusable-ui/ToggleButton";
-import ProfileStyled from "./Profile";
+import ToggleButton from "../../../reusable-ui/Buttons/ToggleButton";
 import { toast } from "react-toastify";
 import Toast from "../../../reusable-ui/Toast";
 import OrderContext from "../../../../context/OrderContext";
-export default function RightSide({ username }) {
+import Profile from "./Profile";
+
+export default function RightSide() {
   const { isAdmin, setIsAdmin } = useContext(OrderContext);
 
   const enableToast = () => {
@@ -34,11 +35,12 @@ export default function RightSide({ username }) {
           labelIfChecked="DÉSACTIVER LE MODE ADMIN"
         />
       </div>
-      <ProfileStyled username={username} />
+      <Profile />
       <Toast />
     </RightSideStyled>
   );
 }
+
 const RightSideStyled = styled.div`
   display: flex;
   align-items: center;

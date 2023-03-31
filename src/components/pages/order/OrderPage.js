@@ -1,17 +1,35 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import OrderContext from "../../../context/OrderContext";
+import { fakeMenu } from "../../../fakeData/fakeMenu";
 import { theme } from "../../../theme";
 import Main from "./Main/Main";
 import NavBar from "./Navbar/NavBar";
 
 export default function OrderPage() {
-  const { username } = useParams();
-
   const [isCollapsed, setisCollapsed] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedTab, setselectedTab] = useState("add");
+  const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
+
+  const handleDelete = (id) => {
+    const updatedMenu = menuProducts.filter((menu) => {
+      return menu.id !== id;
+    });
+    setMenuProducts(updatedMenu);
+  };
+
+  const handleAdd = (productToAdd) => {
+    const menuCopy = [...menuProducts];
+
+    const updatedMenu = [productToAdd, ...menuCopy];
+
+    setMenuProducts(updatedMenu);
+  };
+
+  const handleReset = () => {
+    setMenuProducts(fakeMenu.MEDIUM);
+  };
 
   const adminContextValue = {
     isCollapsed,
@@ -20,18 +38,24 @@ export default function OrderPage() {
     setIsAdmin,
     selectedTab,
     setselectedTab,
+    menuProducts,
+    handleAdd,
+    handleDelete,
+    handleReset,
   };
+
   return (
     <OrderPageStyled>
       <OrderContext.Provider value={adminContextValue}>
         <div className="container">
-          <NavBar username={username} />
+          <NavBar />
           <Main />
         </div>
       </OrderContext.Provider>
     </OrderPageStyled>
   );
 }
+
 const OrderPageStyled = styled.div`
   display: flex;
   justify-content: center;

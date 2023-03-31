@@ -9,6 +9,7 @@ export default function Tab({ className, label, Icon, onClick }) {
     </TabStyled>
   );
 }
+
 const TabStyled = styled.button`
   display: flex;
   align-items: center;

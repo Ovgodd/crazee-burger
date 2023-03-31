@@ -1,25 +1,34 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import OrderContext from "../../context/OrderContext";
 import { theme } from "../../theme";
-export default function Product({ title, image, price }) {
+import DeleteButton from "./Buttons/DeleteButton";
+import Button from "./Buttons/Button";
+
+export default function Card({ title, image, price, onDelete }) {
+  const { isAdmin } = useContext(OrderContext);
+
   return (
     <CardStyled>
-      <img src={image} alt="burger" />
+      {isAdmin && <DeleteButton onClick={onDelete} />}
+      <img src={image} alt="product" />
       <div className="interact-container">
         <h1>{title}</h1>
         <div className="description">
           <span>{price}</span>
-          <button>Ajouter</button>
+          <Button label="Ajouter" className="primary-button" />
         </div>
       </div>
       {/* <div className="admin-panel">ajouter un produit</div> */}
     </CardStyled>
   );
 }
+
 const CardStyled = styled.div`
   box-shadow: ${theme.shadows.medium};
   width: 200px;
   height: 300px;
-  padding: 20px;
+  padding: ${theme.spacing.md};
   padding-bottom: 10px;
   display: flex;
   flex-direction: column;
@@ -27,8 +36,10 @@ const CardStyled = styled.div`
   align-items: center;
   border-radius: ${theme.borderRadius.extraRound};
   background: ${theme.colors.white};
+  position: relative;
 
   img {
+    margin-top: 10px;
     width: 200px;
     height: 145px;
     object-fit: contain;
@@ -40,15 +51,17 @@ const CardStyled = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    min-height: 110px;
 
     h1 {
-      white-space: nowrap;
+      white-space: normal;
       overflow: hidden;
       width: 190px;
       margin-bottom: ${theme.spacing.xxs};
       text-overflow: ellipsis;
       font-family: "Amatic SC", cursive;
       font-size: ${theme.fonts.size.P4};
+      margin: auto;
     }
     .description {
       display: flex;
@@ -59,34 +72,11 @@ const CardStyled = styled.div`
         color: ${theme.colors.primary};
         font-weight: ${theme.fonts.weights.regular};
       }
-
-      button {
-        border-radius: ${theme.borderRadius.round};
-        border: 1px solid;
-        background-color: ${theme.colors.primary};
-        color: ${theme.colors.white};
-        font-size: ${theme.fonts.size.XS};
-        font-weight: ${theme.fonts.weights.bold};
-        color: ${theme.colors.white};
+      .primary-button {
         width: 95px;
         height: 38px;
-
-        &:hover {
-          background-color: ${theme.colors.white};
-          border-color: ${theme.colors.primary};
-          color: ${theme.colors.primary};
-          border: 1px solid;
-          transition: 0.3s;
-          cursor: pointer;
-        }
-        &:active {
-          background-color: ${theme.colors.primary};
-          border-color: ${theme.colors.white};
-          color: ${theme.colors.white};
-          transition: 0.3s;
-
-          cursor: pointer;
-        }
+        font-size: ${theme.fonts.size.XS};
+        font-weight: ${theme.fonts.weights.bold};
       }
     }
   }

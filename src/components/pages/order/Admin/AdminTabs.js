@@ -6,6 +6,7 @@ import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
 import Tab from "../../../reusable-ui/Tab";
 import { getTabsConfig } from "./getTabsConfig";
+
 export default function AdminTabs() {
   const { isCollapsed, setisCollapsed, selectedTab, setselectedTab } =
     useContext(OrderContext);
@@ -30,6 +31,7 @@ export default function AdminTabs() {
       />
       {tabs.map((tab) => (
         <Tab
+          key={tab.id}
           label={tab.label}
           Icon={tab.Icon}
           onClick={() => selectTab(tab.index)}
@@ -41,8 +43,9 @@ export default function AdminTabs() {
 }
 const AdminTabsStyled = styled.div`
   display: flex;
-  box-shadow: ${theme.shadows.subtle};
-
+  position: absolute;
+  top: -43px;
+  left: 5%;
   .is-selected {
     background-color: ${theme.colors.background_dark};
     color: ${theme.colors.white};

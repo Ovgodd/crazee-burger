@@ -10,6 +10,7 @@ export default function LeftSide() {
     </LeftSideStyled>
   );
 }
+
 const LeftSideStyled = styled.div`
   .logo-order-page {
     cursor: pointer;
