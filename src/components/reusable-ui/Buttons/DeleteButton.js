@@ -28,4 +28,8 @@ const DeleteButtonStyled = styled.button`
   &:hover {
     color: ${theme.colors.red};
   }
+  &:active {
+    color: ${theme.colors.primary};
+    transition: 0.3s;
+  }
 `;
