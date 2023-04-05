@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import OrderContext from "../../context/OrderContext";
 import { theme } from "../../theme";
@@ -12,7 +12,6 @@ export default function Card({ title, image, price, onDelete }) {
   const handleClick = () => {
     if (isAdmin) {
       setIsSelected(!isSelected);
-      console.log(isSelected);
     }
   };
 
@@ -53,24 +52,7 @@ const CardStyled = styled.div`
     ${({ isAdmin }) => isAdmin && cardStyled.hover};
   }
   &.selected {
-    background-color: ${theme.colors.primary};
-    .primary-selected {
-      background-color: ${theme.colors.white};
-      color: ${theme.colors.primary};
-    }
-    .description .price {
-      color: ${theme.colors.white};
-    }
-    .delete-button {
-      color: ${theme.colors.white};
-      &:hover {
-        color: ${theme.colors.red};
-      }
-      &:active {
-        color: ${theme.colors.white};
-        transition: 0.3s;
-      }
-    }
+    ${({ isAdmin }) => isAdmin && cardStyled.selected};
   }
   img {
     margin-top: 10px;
@@ -122,7 +104,27 @@ const hoverStyle = css`
   border-radius: 15px;
   background: ${theme.colors.white};
 `;
-
+const selectedStyle = css`
+  background-color: ${theme.colors.primary};
+  .primary-selected {
+    background-color: ${theme.colors.white};
+    color: ${theme.colors.primary};
+  }
+  .description .price {
+    color: ${theme.colors.white};
+  }
+  .delete-button {
+    color: ${theme.colors.white};
+    &:hover {
+      color: ${theme.colors.red};
+    }
+    &:active {
+      color: ${theme.colors.white};
+      transition: 0.3s;
+    }
+  }
+`;
 const cardStyled = {
   hover: hoverStyle,
+  selected: selectedStyle,
 };
