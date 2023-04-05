@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import OrderContext from "../../context/OrderContext";
 import { theme } from "../../theme";
 import DeleteButton from "./Buttons/DeleteButton";
@@ -9,14 +9,14 @@ export default function Card({ title, image, price, onDelete }) {
   const { isAdmin } = useContext(OrderContext);
 
   return (
-    <CardStyled>
-      {isAdmin && <DeleteButton onClick={onDelete} />}
+    <CardStyled isAdmin={isAdmin}>
+      {isAdmin && <DeleteButton onClick={onDelete} className="delete" />}
       <img src={image} alt="product" />
       <div className="interact-container">
         <h1>{title}</h1>
         <div className="description">
-          <span>{price}</span>
-          <Button label="Ajouter" className="primary-button" />
+          <span className="price">{price}</span>
+          <Button label="Ajouter" className="primary-button primary-hover" />
         </div>
       </div>
       {/* <div className="admin-panel">ajouter un produit</div> */}
@@ -37,6 +37,26 @@ const CardStyled = styled.div`
   border-radius: ${theme.borderRadius.extraRound};
   background: ${theme.colors.white};
   position: relative;
+  &:hover {
+    ${({ isAdmin }) => isAdmin && cardStyled.hover};
+    /* .primary-hover {
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.primary};
+    }
+    .description .price {
+      color: ${theme.colors.white};
+    }
+    .delete {
+      color: ${theme.colors.white};
+      &:hover {
+        color: ${theme.colors.red};
+      }
+      &:active {
+        color: ${theme.colors.white};
+        transition: 0.3s;
+      }
+    } */
+  }
 
   img {
     margin-top: 10px;
@@ -81,3 +101,14 @@ const CardStyled = styled.div`
     }
   }
 `;
+
+const hoverStyle = css`
+  background: rgba(255, 255, 255, 0.002);
+  box-shadow: 0px 0px 8px #ff9a23, ${theme.shadows.medium};
+  border-radius: 15px;
+  background: ${theme.colors.white};
+`;
+
+const cardStyled = {
+  hover: hoverStyle,
+};
