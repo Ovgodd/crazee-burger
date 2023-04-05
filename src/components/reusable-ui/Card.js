@@ -10,19 +10,25 @@ export default function Card({ title, image, price, onDelete }) {
   const [isSelected, setIsSelected] = useState(false);
 
   const handleClick = () => {
-    setIsSelected(!isSelected);
-    console.log(isSelected);
+    if (isAdmin) {
+      setIsSelected(!isSelected);
+      console.log(isSelected);
+    }
   };
 
   return (
-    <CardStyled isAdmin={isAdmin} onClick={handleClick}>
-      {isAdmin && <DeleteButton onClick={onDelete} className="delete" />}
+    <CardStyled
+      isAdmin={isAdmin}
+      onClick={handleClick}
+      className={isSelected ? "selected" : ""}
+    >
+      {isAdmin && <DeleteButton onClick={onDelete} className="delete-button" />}
       <img src={image} alt="product" />
       <div className="interact-container">
         <h1>{title}</h1>
         <div className="description">
           <span className="price">{price}</span>
-          <Button label="Ajouter" className="primary-button primary-hover" />
+          <Button label="Ajouter" className="primary-button primary-selected" />
         </div>
       </div>
       {/* <div className="admin-panel">ajouter un produit</div> */}
@@ -45,14 +51,17 @@ const CardStyled = styled.div`
   position: relative;
   &:hover {
     ${({ isAdmin }) => isAdmin && cardStyled.hover};
-    /* .primary-hover {
+  }
+  &.selected {
+    background-color: ${theme.colors.primary};
+    .primary-selected {
       background-color: ${theme.colors.white};
       color: ${theme.colors.primary};
     }
     .description .price {
       color: ${theme.colors.white};
     }
-    .delete {
+    .delete-button {
       color: ${theme.colors.white};
       &:hover {
         color: ${theme.colors.red};
@@ -61,9 +70,8 @@ const CardStyled = styled.div`
         color: ${theme.colors.white};
         transition: 0.3s;
       }
-    } */
+    }
   }
-
   img {
     margin-top: 10px;
     width: 200px;
