@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import styled, { css } from "styled-components";
 import OrderContext from "../../context/OrderContext";
 import { theme } from "../../theme";
@@ -7,9 +7,15 @@ import Button from "./Buttons/Button";
 
 export default function Card({ title, image, price, onDelete }) {
   const { isAdmin } = useContext(OrderContext);
+  const [isSelected, setIsSelected] = useState(false);
+
+  const handleClick = () => {
+    setIsSelected(!isSelected);
+    console.log(isSelected);
+  };
 
   return (
-    <CardStyled isAdmin={isAdmin}>
+    <CardStyled isAdmin={isAdmin} onClick={handleClick}>
       {isAdmin && <DeleteButton onClick={onDelete} className="delete" />}
       <img src={image} alt="product" />
       <div className="interact-container">
