@@ -5,7 +5,6 @@ import AdminInputs from "./AdminInputs";
 import ProductImage from "./ProductImage";
 import { theme } from "../../../../../theme";
 import Button from "../../../../reusable-ui/Buttons/Button";
-import { AiOutlineCheckCircle } from "react-icons/ai";
 import SubmitMessage from "./SubmitMessage";
 
 export default function AddForm() {
