@@ -11,6 +11,8 @@ export default createContext({
   setIsCardSelected: () => {},
   productInfo: [],
   setProductInfo: () => {},
+  selectedProduct: null,
+  setSelectedProduct: () => {},
   fakeMenus: {},
   handleAdd: () => {},
   handleDelete: () => {},

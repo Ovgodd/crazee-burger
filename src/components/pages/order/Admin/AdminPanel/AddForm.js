@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import AdminInputs from "./AdminInputs";
 import ProductImage from "./ProductImage";
@@ -8,7 +8,7 @@ import Button from "../../../../reusable-ui/Buttons/Button";
 import SubmitMessage from "./SubmitMessage";
 
 export default function AddForm() {
-  const { isCardSelected, productInfo, setProductInfo, handleAdd } =
+  const { selectedProduct, isCardSelected, handleAdd } =
     useContext(OrderContext);
 
   const DEFAULT_PRODUCT_INFO = {
@@ -17,6 +17,7 @@ export default function AddForm() {
     title: "",
     price: 0,
   };
+  const [productInfo, setProductInfo] = useState(DEFAULT_PRODUCT_INFO);
 
   const [isProductAdded, setIsProductAdded] = useState(false);
 
@@ -38,6 +39,15 @@ export default function AddForm() {
       setIsProductAdded(false);
     }, 2000);
   };
+
+  useEffect(() => {
+    if (isCardSelected) {
+      setProductInfo(selectedProduct);
+    } else {
+      setProductInfo(DEFAULT_PRODUCT_INFO);
+    }
+  }, [isCardSelected, selectedProduct]);
+
   const addButton = (
     <Button variant="success" label="Ajouter un nouveau produit au menu" />
   );
@@ -48,7 +58,11 @@ export default function AddForm() {
         imageSource={productInfo.imageSource}
         title={productInfo.title}
       />
-      <AdminInputs productInfo={productInfo} onChange={handleChange} />
+      <AdminInputs
+        productInfo={productInfo}
+        onChange={handleChange}
+        isCardSelected={isCardSelected}
+      />
       {!isCardSelected ? (
         addButton
       ) : (

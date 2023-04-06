@@ -12,7 +12,7 @@ export default function OrderPage() {
   const [selectedTab, setSelectedTab] = useState("add");
   const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
   const [isCardSelected, setIsCardSelected] = useState(null);
-  const [productInfo, setProductInfo] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const handleDelete = (id) => {
     const updatedMenu = menuProducts.filter((menu) => {
@@ -27,17 +27,20 @@ export default function OrderPage() {
 
     setMenuProducts(updatedMenu);
   };
-  const handleEdit = (index, newProduct) => {
-    //copie du state
-    const updatedProduct = [...productInfo];
-    //manipulation du state
-    updatedProduct[index] = newProduct;
-    //modification du state
-    setProductInfo(updatedProduct);
-  };
 
   const handleReset = () => {
     setMenuProducts(fakeMenu.MEDIUM);
+  };
+
+  const handleEdit = (productToEdit) => {
+    const menuCopy = [...menuProducts];
+    const updatedMenu = menuCopy.map((product) => {
+      if (product.id === productToEdit.id) {
+        return product.id === productToEdit.id;
+      }
+      return product;
+    });
+    setMenuProducts(updatedMenu);
   };
 
   const adminContextValue = {
@@ -49,14 +52,12 @@ export default function OrderPage() {
     setSelectedTab,
     isCardSelected,
     setIsCardSelected,
-
-    productInfo,
-    setProductInfo,
+    selectedProduct,
+    setSelectedProduct,
     menuProducts,
     handleAdd,
     handleDelete,
     handleReset,
-    handleEdit,
   };
 
   return (

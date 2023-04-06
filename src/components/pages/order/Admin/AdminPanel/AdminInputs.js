@@ -4,7 +4,7 @@ import { theme } from "../../../../../theme";
 import TextInput from "../../../../reusable-ui/TextInput";
 import { getInputsConfig } from "./getInputsConfig";
 
-export default function AdminInputs({ onChange, productInfo }) {
+export default function AdminInputs({ isCardSelected, onChange, productInfo }) {
   const inputs = getInputsConfig(productInfo);
 
   return (
@@ -15,6 +15,7 @@ export default function AdminInputs({ onChange, productInfo }) {
           {...input}
           onChange={onChange}
           variant="minimalist"
+          value={isCardSelected ? productInfo[input.name] : ""}
         />
       ))}
     </AdminInputsStyled>
