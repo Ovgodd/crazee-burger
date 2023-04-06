@@ -6,10 +6,12 @@ import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
 import Tab from "../../../reusable-ui/Tab";
 import { getTabsConfig } from "./getTabsConfig";
+import AddForm from "./AdminPanel/AddForm";
 
 export default function AdminTabs() {
   const {
     setIsCardSelected,
+    isCardSelected,
     isCollapsed,
     setIsCollapsed,
     selectedTab,
