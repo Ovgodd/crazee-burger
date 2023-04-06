@@ -9,8 +9,9 @@ import NavBar from "./Navbar/NavBar";
 export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [selectedTab, setselectedTab] = useState("add");
+  const [selectedTab, setSelectedTab] = useState("add");
   const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
+  const [cardSelected, setCardSelected] = useState(null);
 
   const handleDelete = (id) => {
     const updatedMenu = menuProducts.filter((menu) => {
@@ -37,7 +38,9 @@ export default function OrderPage() {
     isAdmin,
     setIsAdmin,
     selectedTab,
-    setselectedTab,
+    setSelectedTab,
+    cardSelected,
+    setCardSelected,
     menuProducts,
     handleAdd,
     handleDelete,

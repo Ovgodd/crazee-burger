@@ -8,11 +8,11 @@ import Tab from "../../../reusable-ui/Tab";
 import { getTabsConfig } from "./getTabsConfig";
 
 export default function AdminTabs() {
-  const { isCollapsed, setIsCollapsed, selectedTab, setselectedTab } =
+  const { isCollapsed, setIsCollapsed, selectedTab, setSelectedTab } =
     useContext(OrderContext);
 
   const selectTab = (tabSelected) => {
-    setselectedTab(tabSelected);
+    setSelectedTab(tabSelected);
     if (isCollapsed) setIsCollapsed(false);
   };
 

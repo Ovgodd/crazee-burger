@@ -7,6 +7,8 @@ export default createContext({
   setIsAdmin: () => {},
   selectedTab: "add",
   setSelectedTab: () => {},
+  cardSelected: false,
+  setCardSelected: () => {},
   fakeMenus: {},
   handleAdd: () => {},
   handleDelete: () => {},

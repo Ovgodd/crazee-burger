@@ -13,16 +13,16 @@ export default function Menu() {
     menuProducts,
     handleDelete,
     handleReset,
-    setselectedTab,
-    isCollapsed,
+    setSelectedTab,
+    cardSelected,
+    setCardSelected,
   } = useContext(OrderContext);
-  const [isActive, setIsActive] = useState(null);
 
   if (menuProducts.length === 0) return <EmptyMenu onClick={handleReset} />;
 
   const handleCardClick = (id) => {
-    setIsActive(id === isActive ? null : id);
-    setselectedTab("edit");
+    setCardSelected(id === cardSelected ? null : id);
+    setSelectedTab("edit");
     setIsCollapsed(false);
   };
 
@@ -35,7 +35,7 @@ export default function Menu() {
           title={title}
           image={imageSource ? imageSource : ComingSoon}
           price={formatPrice(price)}
-          isActive={id === isActive}
+          cardSelected={id === cardSelected}
           onDelete={() => handleDelete(id)}
           onClick={handleCardClick}
         />
