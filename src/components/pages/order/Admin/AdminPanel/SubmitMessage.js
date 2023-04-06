@@ -7,7 +7,7 @@ export default function SubmitMessage() {
   return (
     <SubmitMessageStyled>
       <AiOutlineCheckCircle className="icon" />
-      <span>Ajouté avec succès !</span>
+      <span className="success">Ajouté avec succès !</span>
     </SubmitMessageStyled>
   );
 }
@@ -26,7 +26,7 @@ const SubmitMessageStyled = styled.div`
     width: 20px;
     height: 20px;
   }
-  span {
+  .success {
     color: ${theme.colors.success};
     font-size: ${theme.fonts.size.SM};
     font-weight: ${theme.fonts.weights.regular};
