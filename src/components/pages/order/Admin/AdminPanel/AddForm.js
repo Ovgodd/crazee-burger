@@ -8,7 +8,7 @@ import Button from "../../../../reusable-ui/Buttons/Button";
 import SubmitMessage from "./SubmitMessage";
 
 export default function AddForm() {
-  const { handleAdd } = useContext(OrderContext);
+  const { productInfo, setProductInfo, handleAdd } = useContext(OrderContext);
 
   const DEFAULT_PRODUCT_INFO = {
     id: "",
@@ -17,7 +17,6 @@ export default function AddForm() {
     price: 0,
   };
 
-  const [productInfo, setProductInfo] = useState(DEFAULT_PRODUCT_INFO);
   const [isProductAdded, setIsProductAdded] = useState(false);
 
   const handleChange = (event) => {

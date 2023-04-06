@@ -9,6 +9,8 @@ export default createContext({
   setSelectedTab: () => {},
   isCardSelected: false,
   setIsCardSelected: () => {},
+  productInfo: [],
+  setProductInfo: () => {},
   fakeMenus: {},
   handleAdd: () => {},
   handleDelete: () => {},
