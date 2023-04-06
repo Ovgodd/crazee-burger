@@ -11,7 +11,7 @@ export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedTab, setSelectedTab] = useState("add");
   const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
-  const [cardSelected, setCardSelected] = useState(null);
+  const [isCardSelected, setIsCardSelected] = useState(null);
 
   const handleDelete = (id) => {
     const updatedMenu = menuProducts.filter((menu) => {
@@ -39,8 +39,8 @@ export default function OrderPage() {
     setIsAdmin,
     selectedTab,
     setSelectedTab,
-    cardSelected,
-    setCardSelected,
+    isCardSelected,
+    setIsCardSelected,
     menuProducts,
     handleAdd,
     handleDelete,

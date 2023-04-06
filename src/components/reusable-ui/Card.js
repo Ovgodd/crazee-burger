@@ -6,7 +6,7 @@ import DeleteButton from "./Buttons/DeleteButton";
 import Button from "./Buttons/Button";
 
 export default function Card({
-  cardSelected,
+  isCardSelected,
   onClick,
   id,
   title,
@@ -24,7 +24,7 @@ export default function Card({
     <CardStyled
       isAdmin={isAdmin}
       onClick={handleClick}
-      className={cardSelected ? "selected" : ""}
+      className={isCardSelected ? "selected" : ""}
     >
       {isAdmin && <DeleteButton onClick={onDelete} className="delete-button" />}
       <img src={image} alt="product" />
