@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import Card from "../../../reusable-ui/Card";
 import { formatPrice } from "../../../../utils/maths";
@@ -8,9 +8,23 @@ import EmptyMenu from "./EmptyMenu";
 import ComingSoon from "../../../../images/coming-soon.png";
 
 export default function Menu() {
-  const { menuProducts, handleDelete, handleReset } = useContext(OrderContext);
+  const {
+    setIsCollapsed,
+    menuProducts,
+    handleDelete,
+    handleReset,
+    setselectedTab,
+    isCollapsed,
+  } = useContext(OrderContext);
+  const [isActive, setIsActive] = useState(null);
 
   if (menuProducts.length === 0) return <EmptyMenu onClick={handleReset} />;
+
+  const handleCardClick = (id) => {
+    setIsActive(id === isActive ? null : id);
+    setselectedTab("edit");
+    setIsCollapsed(false);
+  };
 
   return (
     <MenuStyled>
@@ -21,7 +35,9 @@ export default function Menu() {
           title={title}
           image={imageSource ? imageSource : ComingSoon}
           price={formatPrice(price)}
+          isActive={id === isActive}
           onDelete={() => handleDelete(id)}
+          onClick={handleCardClick}
         />
       ))}
     </MenuStyled>

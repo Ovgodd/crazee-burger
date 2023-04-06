@@ -1,25 +1,30 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import styled, { css } from "styled-components";
 import OrderContext from "../../context/OrderContext";
 import { theme } from "../../theme";
 import DeleteButton from "./Buttons/DeleteButton";
 import Button from "./Buttons/Button";
 
-export default function Card({ title, image, price, onDelete }) {
+export default function Card({
+  isActive,
+  onClick,
+  id,
+  title,
+  image,
+  price,
+  onDelete,
+}) {
   const { isAdmin } = useContext(OrderContext);
-  const [isSelected, setIsSelected] = useState(false);
 
   const handleClick = () => {
-    if (isAdmin) {
-      setIsSelected(!isSelected);
-    }
+    onClick(id);
   };
 
   return (
     <CardStyled
       isAdmin={isAdmin}
       onClick={handleClick}
-      className={isSelected ? "selected" : ""}
+      className={isActive ? "selected" : ""}
     >
       {isAdmin && <DeleteButton onClick={onDelete} className="delete-button" />}
       <img src={image} alt="product" />
