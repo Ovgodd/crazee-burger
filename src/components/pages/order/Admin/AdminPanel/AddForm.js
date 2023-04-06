@@ -8,7 +8,7 @@ import Button from "../../../../reusable-ui/Buttons/Button";
 import SubmitMessage from "./SubmitMessage";
 
 export default function AddForm() {
-  const { handleEdit, productInfo, setProductInfo, handleAdd } =
+  const { isCardSelected, productInfo, setProductInfo, handleAdd } =
     useContext(OrderContext);
 
   const DEFAULT_PRODUCT_INFO = {
@@ -38,6 +38,9 @@ export default function AddForm() {
       setIsProductAdded(false);
     }, 2000);
   };
+  const addButton = (
+    <Button variant="success" label="Ajouter un nouveau produit au menu" />
+  );
 
   return (
     <AddFormStyled onSubmit={handleSubmit}>
@@ -46,7 +49,13 @@ export default function AddForm() {
         title={productInfo.title}
       />
       <AdminInputs productInfo={productInfo} onChange={handleChange} />
-      <Button variant="success" label="Ajouter un nouveau produit au menu" />
+      {!isCardSelected ? (
+        addButton
+      ) : (
+        <span className="modify-text">
+          Cliquer sur un produit du menu pour le modifier en temps réel
+        </span>
+      )}
       {isProductAdded && <SubmitMessage />}
     </AddFormStyled>
   );
@@ -59,8 +68,18 @@ const AddFormStyled = styled.form`
   left: 71px;
   height: 164px;
   width: 880px;
-
-  span {
+  .modify-text {
     color: ${theme.colors.greySemiDark};
+    position: absolute;
+    bottom: 10px;
+    left: 235px;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: ${theme.fonts.weights.regular};
+    font-size: ${theme.fonts.size.SM};
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    color: ${theme.colors.primary};
   }
 `;
