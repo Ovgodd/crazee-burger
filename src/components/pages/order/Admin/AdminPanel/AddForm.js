@@ -8,7 +8,8 @@ import Button from "../../../../reusable-ui/Buttons/Button";
 import SubmitMessage from "./SubmitMessage";
 
 export default function AddForm() {
-  const { productInfo, setProductInfo, handleAdd } = useContext(OrderContext);
+  const { handleEdit, productInfo, setProductInfo, handleAdd } =
+    useContext(OrderContext);
 
   const DEFAULT_PRODUCT_INFO = {
     id: "",

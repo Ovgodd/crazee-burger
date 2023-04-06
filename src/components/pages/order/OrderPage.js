@@ -23,10 +23,17 @@ export default function OrderPage() {
 
   const handleAdd = (productToAdd) => {
     const menuCopy = [...menuProducts];
-
     const updatedMenu = [productToAdd, ...menuCopy];
 
     setMenuProducts(updatedMenu);
+  };
+  const handleEdit = (index, newProduct) => {
+    //copie du state
+    const updatedProduct = [...productInfo];
+    //manipulation du state
+    updatedProduct[index] = newProduct;
+    //modification du state
+    setProductInfo(updatedProduct);
   };
 
   const handleReset = () => {
@@ -48,6 +55,7 @@ export default function OrderPage() {
     handleAdd,
     handleDelete,
     handleReset,
+    handleEdit,
   };
 
   return (

@@ -15,4 +15,5 @@ export default createContext({
   handleAdd: () => {},
   handleDelete: () => {},
   handleReset: () => {},
+  handleEdit: () => {},
 });
