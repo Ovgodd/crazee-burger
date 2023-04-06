@@ -8,16 +8,16 @@ import Tab from "../../../reusable-ui/Tab";
 import { getTabsConfig } from "./getTabsConfig";
 
 export default function AdminTabs() {
-  const { isCollapsed, setisCollapsed, selectedTab, setselectedTab } =
+  const { isCollapsed, setIsCollapsed, selectedTab, setselectedTab } =
     useContext(OrderContext);
 
   const selectTab = (tabSelected) => {
     setselectedTab(tabSelected);
-    if (isCollapsed) setisCollapsed(false);
+    if (isCollapsed) setIsCollapsed(false);
   };
 
   const openPanel = () => {
-    setisCollapsed(!isCollapsed);
+    setIsCollapsed(!isCollapsed);
   };
   const tabs = getTabsConfig();
 

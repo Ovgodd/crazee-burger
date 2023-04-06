@@ -7,7 +7,7 @@ import Main from "./Main/Main";
 import NavBar from "./Navbar/NavBar";
 
 export default function OrderPage() {
-  const [isCollapsed, setisCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedTab, setselectedTab] = useState("add");
   const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
@@ -33,7 +33,7 @@ export default function OrderPage() {
 
   const adminContextValue = {
     isCollapsed,
-    setisCollapsed,
+    setIsCollapsed,
     isAdmin,
     setIsAdmin,
     selectedTab,
