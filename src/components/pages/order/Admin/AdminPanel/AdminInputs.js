@@ -1,21 +1,14 @@
-import React, { useRef } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import TextInput from "../../../../reusable-ui/TextInput";
 import { getInputsConfig } from "./getInputsConfig";
 import { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
+import React from "react";
 
-export default function AdminInputs({ onChange, productInfo }) {
+const AdminInputs = React.forwardRef(({ productInfo, onChange }, ref) => {
   const { isCardSelected } = useContext(OrderContext);
   const inputs = getInputsConfig(productInfo);
-  // const inputRef = useRef();
-
-  // useEffect(() => {
-  //   if (isCardSelected && inputRef.current) {
-  //     inputRef.current.focus();
-  //   }
-  // }, [isCardSelected]);
 
   return (
     <AdminInputsStyled>
@@ -25,12 +18,14 @@ export default function AdminInputs({ onChange, productInfo }) {
           {...input}
           onChange={onChange}
           variant="minimalist"
-          autoFocus={index === 0 && isCardSelected}
+          isCardSelected={isCardSelected}
+          inputIndex={index}
+          ref={index === 0 ? ref : null}
         />
       ))}
     </AdminInputsStyled>
   );
-}
+});
 
 const AdminInputsStyled = styled.div`
   display: flex;
@@ -41,3 +36,4 @@ const AdminInputsStyled = styled.div`
   height: 121px;
   margin-left: ${theme.spacing.md};
 `;
+export default AdminInputs;

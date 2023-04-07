@@ -3,14 +3,19 @@ import { useContext, useEffect, useState } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import AdminInputs from "./AdminInputs";
 import ProductImage from "./ProductImage";
-import { theme } from "../../../../../theme";
 import Button from "../../../../reusable-ui/Buttons/Button";
 import SubmitMessage from "./SubmitMessage";
 import ModifyMessage from "./ModifyMessage";
+import { useRef } from "react";
 
 export default function AddForm() {
-  const { handleEdit, selectedProduct, isCardSelected, handleAdd } =
-    useContext(OrderContext);
+  const {
+    handleEdit,
+    selectedProduct,
+
+    isCardSelected,
+    handleAdd,
+  } = useContext(OrderContext);
 
   const DEFAULT_PRODUCT_INFO = {
     id: "",
@@ -45,7 +50,7 @@ export default function AddForm() {
       setIsProductAdded(false);
     }, 2000);
   };
-
+  const userRef = useRef(null);
   useEffect(() => {
     if (isCardSelected) {
       setProductInfo(selectedProduct);
@@ -57,6 +62,7 @@ export default function AddForm() {
   const addButton = (
     <Button variant="success" label="Ajouter un nouveau produit au menu" />
   );
+
   const modifyMsg = <ModifyMessage />;
 
   return (
@@ -65,7 +71,11 @@ export default function AddForm() {
         imageSource={productInfo.imageSource}
         title={productInfo.title}
       />
-      <AdminInputs productInfo={productInfo} onChange={handleChange} />
+      <AdminInputs
+        ref={userRef}
+        productInfo={productInfo}
+        onChange={handleChange}
+      />
       {!isCardSelected ? addButton : modifyMsg}
       {isProductAdded && <SubmitMessage />}
     </AddFormStyled>
