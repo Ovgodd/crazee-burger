@@ -17,7 +17,7 @@ export default function Card({
   const { isAdmin } = useContext(OrderContext);
 
   const handleCardClick = () => {
-    onClick(id);
+    if (isAdmin) return onClick(id);
   };
 
   return (
