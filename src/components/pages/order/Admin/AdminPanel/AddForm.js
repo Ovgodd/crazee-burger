@@ -63,11 +63,7 @@ export default function AddForm() {
         imageSource={productInfo.imageSource}
         title={productInfo.title}
       />
-      <AdminInputs
-        productInfo={productInfo}
-        onChange={handleChange}
-        isCardSelected={isCardSelected}
-      />
+      <AdminInputs productInfo={productInfo} onChange={handleChange} />
       {!isCardSelected ? (
         addButton
       ) : (
