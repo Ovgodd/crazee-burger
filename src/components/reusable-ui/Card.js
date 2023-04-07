@@ -108,6 +108,9 @@ const hoverStyle = css`
   box-shadow: 0px 0px 8px #ff9a23, ${theme.shadows.medium};
   border-radius: 15px;
   background: ${theme.colors.white};
+  transition: transform 0.3s ease-in-out;
+  transform: scale(1.05);
+  cursor: pointer;
 `;
 const selectedStyle = css`
   background-color: ${theme.colors.primary};
