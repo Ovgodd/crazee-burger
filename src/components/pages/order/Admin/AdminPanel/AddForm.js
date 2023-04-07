@@ -68,10 +68,8 @@ export default function AddForm() {
         addButton
       ) : (
         <span className="modify-text">
-          <p>
-            Cliquer sur un produit du menu pour le modifier&nbsp;
-            <u>en temps réel</u>
-          </p>
+          Cliquer sur un produit du menu pour le modifier&nbsp;
+          <u>en temps réel</u>
         </span>
       )}
       {isProductAdded && <SubmitMessage />}
