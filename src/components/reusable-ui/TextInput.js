@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 import { useEffect } from "react";
+
 const TextInput = React.forwardRef(
   (
     {
@@ -20,6 +21,7 @@ const TextInput = React.forwardRef(
         ref.current.focus();
       }
     }, [isCardSelected, inputIndex, ref]);
+
     return (
       <TextInputStyled variant={variant}>
         {Icon && <div className="icon">{Icon}</div>}
@@ -46,6 +48,7 @@ const TextInputStyled = styled.div`
     display: flex;
     color: ${theme.colors.greyBlue};
   }
+
   input {
     width: 100%;
     border-radius: ${theme.borderRadius.round};

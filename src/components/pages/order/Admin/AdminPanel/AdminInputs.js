@@ -36,4 +36,5 @@ const AdminInputsStyled = styled.div`
   height: 121px;
   margin-left: ${theme.spacing.md};
 `;
+
 export default AdminInputs;

@@ -38,6 +38,7 @@ const TabStyled = styled.button`
     margin-left: 13px;
     margin-top: 1px;
   }
+
   .icon {
     display: flex;
   }

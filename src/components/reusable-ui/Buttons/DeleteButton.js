@@ -24,9 +24,11 @@ const DeleteButtonStyled = styled.button`
     width: 30px;
     height: 30px;
   }
+
   &:hover {
     color: ${theme.colors.red};
   }
+
   &:active {
     color: ${theme.colors.primary};
     transition: 0.3s;

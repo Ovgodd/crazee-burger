@@ -18,6 +18,7 @@ export default function EmptyMenu({ onClick }) {
     </EmptyMenuStyled>
   );
 }
+
 const EmptyMenuStyled = styled.div`
   box-shadow: ${theme.shadows.strong};
   background: ${theme.colors.background_white};

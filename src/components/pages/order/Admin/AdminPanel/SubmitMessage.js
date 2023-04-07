@@ -22,6 +22,7 @@ const SubmitMessageStyled = styled.div`
   width: 275px;
   height: 34px;
   right: 80px;
+
   .icon {
     width: 20px;
     height: 20px;

@@ -10,6 +10,7 @@ export default function ModifyMessage() {
     </ModifyMessageStyled>
   );
 }
+
 const ModifyMessageStyled = styled.div`
   color: ${theme.colors.greySemiDark};
   position: absolute;

@@ -27,28 +27,33 @@ const ProfileStyled = styled.div`
   align-items: center;
   margin-right: 10px;
   object-fit: cover;
+
   .welcome-container {
     display: flex;
     flex-direction: column;
     padding-right: ${theme.spacing.sm};
     text-align: right;
     padding-bottom: ${theme.spacing.xs};
+
     .welcome-text {
       line-height: ${theme.spacing.xs};
       color: ${theme.colors.greyBlue};
       font-size: ${theme.fonts.size.SM};
       font-weight: ${theme.fonts.weights.medium};
       text-align: right;
+
       b {
         color: ${theme.colors.primary};
       }
     }
+
     a {
       &:hover {
         text-decoration: underline;
         color: ${theme.colors.greyDark};
       }
     }
+
     .link {
       color: ${theme.colors.greyBlue};
       font-size: ${theme.fonts.size.XXS};

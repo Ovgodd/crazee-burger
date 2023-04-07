@@ -32,13 +32,16 @@ const ButtonStyled = styled.button`
   font-weight: ${theme.fonts.weights.bold};
   line-height: 1;
   cursor: pointer;
+
   &:active {
     border: 1px solid;
   }
+
   &:hover {
     border: 1px solid;
     cursor: pointer;
   }
+
   ${({ variant }) => buttonStyle[variant]}
 `;
 
@@ -54,6 +57,7 @@ const normalStyle = css`
     color: ${theme.colors.primary};
     cursor: pointer;
   }
+
   &:active {
     background-color: ${theme.colors.primary};
     border-color: ${theme.colors.white};
@@ -72,11 +76,13 @@ const successStyle = css`
   color: ${theme.colors.white};
   font-size: ${theme.fonts.size.XS};
   left: 235px;
+
   &:hover {
     background-color: ${theme.colors.white};
     border-color: ${theme.colors.success};
     color: ${theme.colors.success};
   }
+
   &:active {
     background-color: ${theme.colors.success};
     border-color: ${theme.colors.white};
@@ -84,6 +90,7 @@ const successStyle = css`
     transition: 0.3s;
   }
 `;
+
 const buttonStyle = {
   normal: normalStyle,
   success: successStyle,

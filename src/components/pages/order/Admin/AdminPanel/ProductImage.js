@@ -45,6 +45,7 @@ const ProductImageStyled = styled.div`
     height: 100px;
     width: 100px;
   }
+
   .empty {
     color: ${theme.colors.greySemiDark};
   }

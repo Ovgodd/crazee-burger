@@ -1,16 +1,10 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
-import AddForm from "./AddForm";
+import AdminForm from "./AdminForm";
 import EditText from "../../../../reusable-ui/EditText";
 
 export default function EditPanel() {
   const { isCardSelected } = useContext(OrderContext);
 
-  return (
-    <EditPanelStyled>
-      {isCardSelected ? <AddForm /> : <EditText />}
-    </EditPanelStyled>
-  );
+  return <div>{isCardSelected ? <AdminForm /> : <EditText />}</div>;
 }
-const EditPanelStyled = styled.div``;

@@ -53,12 +53,15 @@ const CardStyled = styled.div`
   border-radius: ${theme.borderRadius.extraRound};
   background: ${theme.colors.white};
   position: relative;
+
   &:hover {
     ${({ isAdmin }) => isAdmin && cardStyled.hover};
   }
+
   &.selected {
     ${({ isAdmin }) => isAdmin && cardStyled.selected};
   }
+
   img {
     margin-top: 10px;
     width: 200px;
@@ -84,15 +87,18 @@ const CardStyled = styled.div`
       font-size: ${theme.fonts.size.P4};
       margin: auto;
     }
+
     .description {
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 190px;
+
       span {
         color: ${theme.colors.primary};
         font-weight: ${theme.fonts.weights.regular};
       }
+
       .primary-button {
         width: 95px;
         height: 38px;
@@ -112,26 +118,33 @@ const hoverStyle = css`
   transform: scale(1.05);
   cursor: pointer;
 `;
+
 const selectedStyle = css`
   background-color: ${theme.colors.primary};
+
   .primary-selected {
     background-color: ${theme.colors.white};
     color: ${theme.colors.primary};
   }
+
   .description .price {
     color: ${theme.colors.white};
   }
+
   .delete-button {
     color: ${theme.colors.white};
+
     &:hover {
       color: ${theme.colors.red};
     }
+
     &:active {
       color: ${theme.colors.white};
       transition: 0.3s;
     }
   }
 `;
+
 const cardStyled = {
   hover: hoverStyle,
   selected: selectedStyle,

@@ -24,11 +24,11 @@ const EditTextStyled = styled.div`
   flex-direction: row;
   align-items: center;
   color: ${theme.colors.greyBlue};
+
   .icon {
     width: 20.2px;
     height: 20.2px;
     margin-left: 10px;
-
     color: ${theme.colors.greyBlue};
   }
 `;

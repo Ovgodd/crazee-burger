@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Card from "../../../reusable-ui/Card";
 import { formatPrice } from "../../../../utils/maths";
@@ -24,7 +24,6 @@ export default function Menu() {
   const handleCardClick = (id) => {
     const selectedProduct = menuProducts.find((product) => product.id === id);
     setSelectedProduct(selectedProduct);
-
     setIsCardSelected(id === isCardSelected ? null : id);
     setSelectedTab("edit");
     setIsCollapsed(false);

@@ -8,14 +8,9 @@ import SubmitMessage from "./SubmitMessage";
 import ModifyMessage from "./ModifyMessage";
 import { useRef } from "react";
 
-export default function AddForm() {
-  const {
-    handleEdit,
-    selectedProduct,
-
-    isCardSelected,
-    handleAdd,
-  } = useContext(OrderContext);
+export default function AdminForm() {
+  const { handleEdit, selectedProduct, isCardSelected, handleAdd } =
+    useContext(OrderContext);
 
   const DEFAULT_PRODUCT_INFO = {
     id: "",
@@ -23,8 +18,8 @@ export default function AddForm() {
     title: "",
     price: 0,
   };
-  const [productInfo, setProductInfo] = useState(DEFAULT_PRODUCT_INFO);
 
+  const [productInfo, setProductInfo] = useState(DEFAULT_PRODUCT_INFO);
   const [isProductAdded, setIsProductAdded] = useState(false);
 
   const handleChange = (event) => {
@@ -50,6 +45,7 @@ export default function AddForm() {
       setIsProductAdded(false);
     }, 2000);
   };
+
   const userRef = useRef(null);
   useEffect(() => {
     if (isCardSelected) {
@@ -66,7 +62,7 @@ export default function AddForm() {
   const modifyMsg = <ModifyMessage />;
 
   return (
-    <AddFormStyled onSubmit={handleSubmit}>
+    <AdminFormStyled onSubmit={handleSubmit}>
       <ProductImage
         imageSource={productInfo.imageSource}
         title={productInfo.title}
@@ -78,11 +74,11 @@ export default function AddForm() {
       />
       {!isCardSelected ? addButton : modifyMsg}
       {isProductAdded && <SubmitMessage />}
-    </AddFormStyled>
+    </AdminFormStyled>
   );
 }
 
-const AddFormStyled = styled.form`
+const AdminFormStyled = styled.form`
   position: relative;
   display: flex;
   top: 31px;

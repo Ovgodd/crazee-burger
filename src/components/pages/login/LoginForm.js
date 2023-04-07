@@ -48,6 +48,7 @@ const LoginFormStyled = styled.form`
   font-family: "Amatic SC", cursive;
   max-width: 500px;
   margin: 0px auto;
+
   .input-login {
     min-height: 130px;
     display: flex;
