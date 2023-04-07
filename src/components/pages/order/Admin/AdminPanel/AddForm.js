@@ -68,7 +68,10 @@ export default function AddForm() {
         addButton
       ) : (
         <span className="modify-text">
-          Cliquer sur un produit du menu pour le modifier en temps réel
+          <p>
+            Cliquer sur un produit du menu pour le modifier&nbsp;
+            <u>en temps réel</u>
+          </p>
         </span>
       )}
       {isProductAdded && <SubmitMessage />}
@@ -83,6 +86,7 @@ const AddFormStyled = styled.form`
   left: 71px;
   height: 164px;
   width: 880px;
+
   .modify-text {
     color: ${theme.colors.greySemiDark};
     position: absolute;
