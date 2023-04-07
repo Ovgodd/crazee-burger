@@ -6,6 +6,7 @@ import ProductImage from "./ProductImage";
 import { theme } from "../../../../../theme";
 import Button from "../../../../reusable-ui/Buttons/Button";
 import SubmitMessage from "./SubmitMessage";
+import ModifyMessage from "./ModifyMessage";
 
 export default function AddForm() {
   const { handleEdit, selectedProduct, isCardSelected, handleAdd } =
@@ -56,6 +57,7 @@ export default function AddForm() {
   const addButton = (
     <Button variant="success" label="Ajouter un nouveau produit au menu" />
   );
+  const modifyMsg = <ModifyMessage />;
 
   return (
     <AddFormStyled onSubmit={handleSubmit}>
@@ -64,14 +66,7 @@ export default function AddForm() {
         title={productInfo.title}
       />
       <AdminInputs productInfo={productInfo} onChange={handleChange} />
-      {!isCardSelected ? (
-        addButton
-      ) : (
-        <span className="modify-text">
-          Cliquer sur un produit du menu pour le modifier&nbsp;
-          <u>en temps réel</u>
-        </span>
-      )}
+      {!isCardSelected ? addButton : modifyMsg}
       {isProductAdded && <SubmitMessage />}
     </AddFormStyled>
   );
@@ -84,19 +79,4 @@ const AddFormStyled = styled.form`
   left: 71px;
   height: 164px;
   width: 880px;
-
-  .modify-text {
-    color: ${theme.colors.greySemiDark};
-    position: absolute;
-    bottom: 10px;
-    left: 235px;
-    font-family: "Open Sans";
-    font-style: normal;
-    font-weight: ${theme.fonts.weights.regular};
-    font-size: ${theme.fonts.size.SM};
-    line-height: 20px;
-    display: flex;
-    align-items: center;
-    color: ${theme.colors.primary};
-  }
 `;
