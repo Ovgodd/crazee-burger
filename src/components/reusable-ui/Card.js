@@ -16,14 +16,14 @@ export default function Card({
 }) {
   const { isAdmin } = useContext(OrderContext);
 
-  const handleClick = () => {
+  const handleCardClick = () => {
     onClick(id);
   };
 
   return (
     <CardStyled
       isAdmin={isAdmin}
-      onClick={handleClick}
+      onClick={handleCardClick}
       className={isCardSelected ? "selected" : ""}
     >
       {isAdmin && <DeleteButton onClick={onDelete} className="delete-button" />}
