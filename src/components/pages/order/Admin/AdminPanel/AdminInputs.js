@@ -15,7 +15,6 @@ export default function AdminInputs({ isCardSelected, onChange, productInfo }) {
           {...input}
           onChange={onChange}
           variant="minimalist"
-          value={isCardSelected ? productInfo[input.name] : ""}
         />
       ))}
     </AdminInputsStyled>

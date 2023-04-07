@@ -8,7 +8,7 @@ import Button from "../../../../reusable-ui/Buttons/Button";
 import SubmitMessage from "./SubmitMessage";
 
 export default function AddForm() {
-  const { selectedProduct, isCardSelected, handleAdd } =
+  const { handleEdit, selectedProduct, isCardSelected, handleAdd } =
     useContext(OrderContext);
 
   const DEFAULT_PRODUCT_INFO = {
@@ -23,7 +23,12 @@ export default function AddForm() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setProductInfo({ ...productInfo, [name]: value });
+    const updatedProductInfo = { ...productInfo, [name]: value };
+    setProductInfo(updatedProductInfo);
+
+    if (isCardSelected) {
+      handleEdit(productInfo.id, { [name]: value });
+    }
   };
 
   const handleSubmit = (event) => {

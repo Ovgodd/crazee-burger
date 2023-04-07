@@ -32,17 +32,15 @@ export default function OrderPage() {
     setMenuProducts(fakeMenu.MEDIUM);
   };
 
-  const handleEdit = (productToEdit) => {
-    const menuCopy = [...menuProducts];
-    const updatedMenu = menuCopy.map((product) => {
-      if (product.id === productToEdit.id) {
-        return product.id === productToEdit.id;
+  const handleEdit = (id, updatedProductInfo) => {
+    const updatedProduct = menuProducts.map((product) => {
+      if (product.id === id) {
+        return { ...product, ...updatedProductInfo };
       }
       return product;
     });
-    setMenuProducts(updatedMenu);
+    setMenuProducts(updatedProduct);
   };
-
   const adminContextValue = {
     isCollapsed,
     setIsCollapsed,
@@ -58,6 +56,7 @@ export default function OrderPage() {
     handleAdd,
     handleDelete,
     handleReset,
+    handleEdit,
   };
 
   return (
