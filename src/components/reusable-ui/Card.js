@@ -21,7 +21,7 @@ export default function Card({
   };
 
   const handlePropagation = (e) => {
-    e.stopPropagation();
+    if (!isCardSelected) return e.stopPropagation();
   };
 
   return (
