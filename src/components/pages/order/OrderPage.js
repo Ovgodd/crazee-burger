@@ -19,6 +19,7 @@ export default function OrderPage() {
       return menu.id !== id;
     });
     setMenuProducts(updatedMenu);
+    setSelectedTab("edit");
   };
 
   const handleAdd = (productToAdd) => {
