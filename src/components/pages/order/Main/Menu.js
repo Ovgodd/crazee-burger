@@ -17,9 +17,20 @@ export default function Menu() {
     setSelectedTab,
     isCardSelected,
     setIsCardSelected,
+    isAdmin,
   } = useContext(OrderContext);
 
-  if (menuProducts.length === 0) return <EmptyMenu onClick={handleReset} />;
+  const label = {
+    question: isAdmin ? "Le menu est vide ?" : "Victime de notre succès ! :D",
+    message: isAdmin
+      ? "Cliquez ci-dessous pour le réinitialiser"
+      : "De nouvelles recettes sont en cours de préparation.",
+    button: "Générer de nouveaux produits",
+    seeYou: "À très vite",
+  };
+
+  if (menuProducts.length === 0)
+    return <EmptyMenu onClick={handleReset} label={label} />;
 
   const handleCardClick = (id) => {
     const selectedProduct = menuProducts.find((product) => product.id === id);

@@ -4,27 +4,21 @@ import { theme } from "../../../../theme";
 import Button from "../../../reusable-ui/Buttons/Button";
 import OrderContext from "../../../../context/OrderContext";
 
-export default function EmptyMenu({ onClick }) {
+export default function EmptyMenu({ onClick, label }) {
   const { isAdmin } = useContext(OrderContext);
 
   return (
     <EmptyMenuStyled>
-      <span className="question">
-        {isAdmin ? "le menu est vide ?" : "Victime de notre succès ! :D"}
-      </span>
-      <span className="generate-message">
-        {isAdmin
-          ? "Cliquez ci-dessous pour le réinitialiser"
-          : "De nouvelles recettes sont en cours de préparation."}
-      </span>
-      {!isAdmin ? (
-        <span className="see-you">À très vite</span>
-      ) : (
+      <span className="question">{label.question}</span>
+      <span className="generate-message">{label.message}</span>
+      {isAdmin ? (
         <Button
           className="generate-button"
           label="Générer de nouveaux produits"
           onClick={onClick}
         />
+      ) : (
+        <span className="see-you">{label.seeYou}</span>
       )}
     </EmptyMenuStyled>
   );
