@@ -21,7 +21,9 @@ export default function Card({
   };
 
   const handlePropagation = (e) => {
-    if (!isCardSelected) return e.stopPropagation();
+    if (!isCardSelected) {
+      e.stopPropagation();
+    }
   };
 
   return (
@@ -45,7 +47,9 @@ export default function Card({
         <div className="description">
           <span className="price">{price}</span>
           <Button
-            onClick={handlePropagation}
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
             label="Ajouter"
             className="primary-button primary-selected"
           />
