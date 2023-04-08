@@ -18,7 +18,7 @@ export default function EmptyMenu({ onClick }) {
           : "De nouvelles recettes sont en cours de préparation."}
       </span>
       {!isAdmin ? (
-        <span className="see-you">"À très vite"</span>
+        <span className="see-you">À très vite</span>
       ) : (
         <Button
           className="generate-button"
