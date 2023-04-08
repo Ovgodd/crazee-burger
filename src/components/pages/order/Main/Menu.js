@@ -26,7 +26,7 @@ export default function Menu() {
       ? "Cliquez ci-dessous pour le réinitialiser"
       : "De nouvelles recettes sont en cours de préparation.",
     button: "Générer de nouveaux produits",
-    seeYou: "À très vite",
+    bottomMessage: "À très vite",
   };
 
   if (menuProducts.length === 0)

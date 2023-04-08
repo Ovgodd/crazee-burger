@@ -18,7 +18,7 @@ export default function EmptyMenu({ onClick, label }) {
           onClick={onClick}
         />
       ) : (
-        <span className="see-you">{label.seeYou}</span>
+        <span className="see-you">{label.bottomMessage}</span>
       )}
     </EmptyMenuStyled>
   );
