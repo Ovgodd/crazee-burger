@@ -42,6 +42,7 @@ export default function OrderPage() {
     });
     setMenuProducts(updatedProduct);
   };
+
   const adminContextValue = {
     isCollapsed,
     setIsCollapsed,

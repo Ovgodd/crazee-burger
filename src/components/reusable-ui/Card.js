@@ -30,7 +30,15 @@ export default function Card({
       onClick={handleCardClick}
       className={isCardSelected ? "selected" : ""}
     >
-      {isAdmin && <DeleteButton onClick={onDelete} className="delete-button" />}
+      {isAdmin && (
+        <DeleteButton
+          onClick={(e) => {
+            handlePropagation(e);
+            onDelete();
+          }}
+          className="delete-button"
+        />
+      )}
       <img src={image} alt="product" />
       <div className="interact-container">
         <h1>{title}</h1>
