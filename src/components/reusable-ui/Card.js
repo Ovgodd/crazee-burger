@@ -20,6 +20,10 @@ export default function Card({
     if (isAdmin) return onClick(id);
   };
 
+  const handlePropagation = (e) => {
+    e.stopPropagation();
+  };
+
   return (
     <CardStyled
       isAdmin={isAdmin}
@@ -32,7 +36,11 @@ export default function Card({
         <h1>{title}</h1>
         <div className="description">
           <span className="price">{price}</span>
-          <Button label="Ajouter" className="primary-button primary-selected" />
+          <Button
+            onClick={handlePropagation}
+            label="Ajouter"
+            className="primary-button primary-selected"
+          />
         </div>
       </div>
       {/* <div className="admin-panel">ajouter un produit</div> */}
@@ -125,6 +133,17 @@ const selectedStyle = css`
   .primary-selected {
     background-color: ${theme.colors.white};
     color: ${theme.colors.primary};
+    &:hover {
+      color: ${theme.colors.white};
+      background: ${theme.colors.primary};
+      border-color: ${theme.colors.white};
+    }
+    &:active {
+      color: ${theme.colors.primary};
+      background: ${theme.colors.white};
+      border-color: ${theme.colors.primary};
+      transition: 0.3s;
+    }
   }
 
   .description .price {
