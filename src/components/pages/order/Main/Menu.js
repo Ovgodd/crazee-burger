@@ -35,7 +35,7 @@ export default function Menu() {
   const handleCardClick = (id) => {
     const selectedProduct = menuProducts.find((product) => product.id === id);
     setSelectedProduct(selectedProduct);
-    setIsCardSelected(id === isCardSelected ? null : id);
+    setIsCardSelected(id === isCardSelected ? false : id);
     setSelectedTab("edit");
     setIsCollapsed(false);
   };

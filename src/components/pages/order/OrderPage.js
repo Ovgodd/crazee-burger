@@ -12,7 +12,7 @@ export default function OrderPage() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedTab, setSelectedTab] = useState("add");
   const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
-  const [isCardSelected, setIsCardSelected] = useState(null);
+  const [isCardSelected, setIsCardSelected] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const inputRef = useRef();
 
@@ -37,7 +37,7 @@ export default function OrderPage() {
 
   const handleReset = () => {
     setMenuProducts(fakeMenu.MEDIUM);
-    setIsCardSelected(null);
+    setIsCardSelected(false);
   };
 
   const handleEdit = (id, updatedProductInfo) => {
