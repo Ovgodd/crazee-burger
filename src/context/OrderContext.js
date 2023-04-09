@@ -12,6 +12,8 @@ export default createContext({
   selectedProduct: null,
   setSelectedProduct: () => {},
   fakeMenus: {},
+  inputRef: null,
+  handleRef: () => {},
   handleAdd: () => {},
   handleDelete: () => {},
   handleReset: () => {},

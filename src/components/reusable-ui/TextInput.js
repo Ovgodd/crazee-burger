@@ -1,7 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
-import { useEffect } from "react";
 
 const TextInput = React.forwardRef(
   (
@@ -12,16 +11,11 @@ const TextInput = React.forwardRef(
       Icon,
       isCardSelected,
       inputIndex,
+      handleRef,
       ...extraProps
     },
     ref
   ) => {
-    useEffect(() => {
-      if (isCardSelected && inputIndex === 0 && ref.current) {
-        ref.current.focus();
-      }
-    }, [isCardSelected, inputIndex, ref]);
-
     return (
       <TextInputStyled variant={variant}>
         {Icon && <div className="icon">{Icon}</div>}

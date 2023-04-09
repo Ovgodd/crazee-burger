@@ -5,6 +5,7 @@ import { fakeMenu } from "../../../fakeData/fakeMenu";
 import { theme } from "../../../theme";
 import Main from "./Main/Main";
 import NavBar from "./Navbar/NavBar";
+import { useRef } from "react";
 
 export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -13,6 +14,11 @@ export default function OrderPage() {
   const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
   const [isCardSelected, setIsCardSelected] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const inputRef = useRef();
+
+  const handleRef = () => {
+    inputRef.current.focus();
+  };
 
   const handleDelete = (id) => {
     const updatedMenu = menuProducts.filter((menu) => {
@@ -60,6 +66,8 @@ export default function OrderPage() {
     handleDelete,
     handleReset,
     handleEdit,
+    handleRef,
+    inputRef,
   };
 
   return (

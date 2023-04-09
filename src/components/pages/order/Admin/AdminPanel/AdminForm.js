@@ -6,11 +6,16 @@ import ProductImage from "./ProductImage";
 import Button from "../../../../reusable-ui/Buttons/Button";
 import SubmitMessage from "./SubmitMessage";
 import ModifyMessage from "./ModifyMessage";
-import { useRef } from "react";
 
 export default function AdminForm() {
-  const { handleEdit, selectedProduct, isCardSelected, handleAdd } =
-    useContext(OrderContext);
+  const {
+    inputRef,
+    handleRef,
+    handleEdit,
+    selectedProduct,
+    isCardSelected,
+    handleAdd,
+  } = useContext(OrderContext);
 
   const DEFAULT_PRODUCT_INFO = {
     id: "",
@@ -46,11 +51,10 @@ export default function AdminForm() {
     }, 2000);
   };
 
-  const userRef = useRef(null);
-
   useEffect(() => {
     if (isCardSelected) {
       setProductInfo(selectedProduct);
+      handleRef();
     } else {
       setProductInfo(DEFAULT_PRODUCT_INFO);
     }
@@ -69,7 +73,7 @@ export default function AdminForm() {
         title={productInfo.title}
       />
       <AdminInputs
-        ref={userRef}
+        ref={inputRef}
         productInfo={productInfo}
         onChange={handleChange}
       />
