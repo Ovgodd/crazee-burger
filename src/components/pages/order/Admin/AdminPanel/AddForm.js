@@ -2,7 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import { useState } from "react";
-import AdminForm from "./AdminForm";
+import AdminForm from "../../../../reusable-ui/AdminForm";
 import styled from "styled-components";
 
 export default function AddForm() {
@@ -42,11 +42,12 @@ export default function AddForm() {
       setIsProductAdded(false);
     }, 2000);
   };
+  console.log(productInfo + "add form");
 
   return (
     <AddFormStyled>
       <AdminForm
-        productInfo={productInfo}
+        product={productInfo}
         inputRef={inputRef}
         selectedProduct={selectedProduct}
         onChange={handleChange}

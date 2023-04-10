@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
-import AdminForm from "../AdminForm";
 import EditText from "./EditText";
+import AddForm from "../AddForm";
 
 export default function EditPanel() {
   const { selectedProduct } = useContext(OrderContext);
 
-  return <div>{selectedProduct ? <AdminForm /> : <EditText />}</div>;
+  return <div>{selectedProduct ? <AddForm /> : <EditText />}</div>;
 }
