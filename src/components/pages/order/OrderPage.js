@@ -40,7 +40,7 @@ export default function OrderPage() {
 
   const handleReset = () => {
     setMenuProducts(fakeMenu.MEDIUM);
-    setIsCardSelected(false);
+    setSelectedProduct(null);
   };
 
   const handleEdit = (id, updatedProductInfo) => {

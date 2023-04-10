@@ -17,6 +17,7 @@ export default function Menu() {
     isCardSelected,
     isAdmin,
     inputRef,
+    productInfo,
     setProductInfo,
     DEFAULT_PRODUCT_INFO,
     setSelectedProduct,
@@ -50,7 +51,9 @@ export default function Menu() {
 
   const handleCardDelete = (id) => {
     handleDelete(id);
-    setProductInfo(DEFAULT_PRODUCT_INFO);
+    if (productInfo.id === id) {
+      setProductInfo(DEFAULT_PRODUCT_INFO);
+    }
   };
 
   return (
