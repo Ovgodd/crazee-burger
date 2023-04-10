@@ -34,25 +34,13 @@ export default function Menu() {
   if (menuProducts.length === 0)
     return <EmptyMenu onClick={handleReset} label={label} />;
 
-  const handleCardClick = (id) => {
+  const handleCardClick = async (id) => {
     const selectedProduct = menuProducts.find((product) => product.id === id);
-    setSelectedProduct(selectedProduct);
-    setIsCardSelected(id === isCardSelected ? false : id);
-    setSelectedTab("edit");
-    setIsCollapsed(false);
-    setProductInfo(selectedProduct);
-    // inputRef.current.focus(); // si je laisse comme ça, le premier focus ne fonctionne pas
-    setTimeout(() => {
-      const inputElement = inputRef.current;
-      if (inputElement) {
-        inputElement.focus();
-      }
-
-      if (inputElement instanceof HTMLInputElement) {
-        const focusPos = inputElement.value.length;
-        inputElement.setSelectionRange(focusPos, focusPos);
-      }
-    }, 0);
+    await setIsCardSelected(id === isCardSelected ? false : id);
+    await setSelectedTab("edit");
+    await setIsCollapsed(false);
+    await setProductInfo(selectedProduct);
+    inputRef.current.focus();
   };
 
   return (
