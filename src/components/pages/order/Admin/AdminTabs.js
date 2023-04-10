@@ -9,7 +9,6 @@ import { getTabsConfig } from "./getTabsConfig";
 
 export default function AdminTabs() {
   const {
-    setIsCardSelected,
     isCollapsed,
     setIsCollapsed,
     selectedTab,
