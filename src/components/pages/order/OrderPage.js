@@ -14,6 +14,14 @@ export default function OrderPage() {
   const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
   const [isCardSelected, setIsCardSelected] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const DEFAULT_PRODUCT_INFO = {
+    id: "",
+    imageSource: "",
+    title: "",
+    price: 0,
+  };
+  const [productInfo, setProductInfo] = useState(DEFAULT_PRODUCT_INFO);
+
   const inputRef = useRef();
 
   const handleRef = () => {
@@ -61,6 +69,9 @@ export default function OrderPage() {
     setIsCardSelected,
     selectedProduct,
     setSelectedProduct,
+    productInfo,
+    setProductInfo,
+    DEFAULT_PRODUCT_INFO,
     menuProducts,
     handleAdd,
     handleDelete,

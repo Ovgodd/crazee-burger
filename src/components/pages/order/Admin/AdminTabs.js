@@ -14,12 +14,17 @@ export default function AdminTabs() {
     setIsCollapsed,
     selectedTab,
     setSelectedTab,
+    setProductInfo,
+    DEFAULT_PRODUCT_INFO,
   } = useContext(OrderContext);
 
   const selectTab = (tabSelected) => {
     setSelectedTab(tabSelected);
     if (isCollapsed) setIsCollapsed(false);
-    if (tabSelected === "add") return setIsCardSelected(false);
+    if (tabSelected === "add") {
+      setIsCardSelected(false);
+      setProductInfo(DEFAULT_PRODUCT_INFO);
+    }
   };
 
   const openPanel = () => {

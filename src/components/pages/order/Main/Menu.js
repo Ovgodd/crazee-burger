@@ -18,6 +18,8 @@ export default function Menu() {
     isCardSelected,
     setIsCardSelected,
     isAdmin,
+    handleRef,
+    setProductInfo,
   } = useContext(OrderContext);
 
   const label = {
@@ -38,6 +40,10 @@ export default function Menu() {
     setIsCardSelected(id === isCardSelected ? false : id);
     setSelectedTab("edit");
     setIsCollapsed(false);
+    setProductInfo(selectedProduct);
+    setTimeout(() => {
+      handleRef();
+    }, 0);
   };
 
   return (

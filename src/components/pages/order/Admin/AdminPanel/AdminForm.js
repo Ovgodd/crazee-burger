@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import AdminInputs from "./AdminInputs";
 import ProductImage from "./ProductImage";
@@ -9,22 +9,15 @@ import ModifyMessage from "./ModifyMessage";
 
 export default function AdminForm() {
   const {
+    setProductInfo,
+    productInfo,
     inputRef,
-    handleRef,
     handleEdit,
-    selectedProduct,
+    DEFAULT_PRODUCT_INFO,
     isCardSelected,
     handleAdd,
   } = useContext(OrderContext);
 
-  const DEFAULT_PRODUCT_INFO = {
-    id: "",
-    imageSource: "",
-    title: "",
-    price: 0,
-  };
-
-  const [productInfo, setProductInfo] = useState(DEFAULT_PRODUCT_INFO);
   const [isProductAdded, setIsProductAdded] = useState(false);
 
   const handleChange = (event) => {
@@ -51,14 +44,14 @@ export default function AdminForm() {
     }, 2000);
   };
 
-  useEffect(() => {
-    if (isCardSelected) {
-      setProductInfo(selectedProduct);
-      handleRef();
-    } else {
-      setProductInfo(DEFAULT_PRODUCT_INFO);
-    }
-  }, [isCardSelected, selectedProduct]);
+  // useEffect(() => {
+  //   if (isCardSelected) {
+  //     setProductInfo(selectedProduct);
+  //     // handleRef();
+  //   } else {
+  //     setProductInfo(DEFAULT_PRODUCT_INFO);
+  //   }
+  // }, [isCardSelected, selectedProduct]);
 
   const addButton = (
     <Button variant="success" label="Ajouter un nouveau produit au menu" />
