@@ -9,7 +9,7 @@ import { useRef } from "react";
 
 export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(true);
   const [selectedTab, setSelectedTab] = useState("add");
   const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
   const [isCardSelected, setIsCardSelected] = useState(false);
@@ -29,7 +29,6 @@ export default function OrderPage() {
       return menu.id !== id;
     });
     setMenuProducts(updatedMenu);
-    setSelectedTab("edit");
   };
 
   const handleAdd = (productToAdd) => {

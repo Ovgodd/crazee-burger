@@ -13,29 +13,23 @@ export default function Card({
   image,
   price,
   onDelete,
+  hasButton,
 }) {
-  const { isAdmin } = useContext(OrderContext);
+  //state (vide)
 
-  const handleCardClick = () => {
-    if (isAdmin) return onClick(id);
-  };
+  //comportements (vide)
 
-  const handlePropagation = (e) => {
-    if (!isCardSelected) {
-      e.stopPropagation();
-    }
-  };
-
+  //affichage
   return (
     <CardStyled
-      isAdmin={isAdmin}
-      onClick={handleCardClick}
+      hasButton={hasButton}
+      onClick={onClick}
       className={isCardSelected ? "selected" : ""}
     >
-      {isAdmin && (
+      {hasButton && (
         <DeleteButton
           onClick={(e) => {
-            handlePropagation(e);
+            e.stopPropagation();
             onDelete();
           }}
           className="delete-button"
@@ -75,11 +69,11 @@ const CardStyled = styled.div`
   position: relative;
 
   &:hover {
-    ${({ isAdmin }) => isAdmin && cardStyled.hover};
+    ${({ hasButton }) => hasButton && cardStyled.hover};
   }
 
   &.selected {
-    ${({ isAdmin }) => isAdmin && cardStyled.selected};
+    ${({ hasButton }) => hasButton && cardStyled.selected};
   }
 
   img {

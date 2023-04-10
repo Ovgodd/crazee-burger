@@ -20,6 +20,7 @@ export default function Menu() {
     isAdmin,
     inputRef,
     setProductInfo,
+    DEFAULT_PRODUCT_INFO,
   } = useContext(OrderContext);
 
   const label = {
@@ -35,13 +36,21 @@ export default function Menu() {
     return <EmptyMenu onClick={handleReset} label={label} />;
 
   const handleCardClick = async (id) => {
+    if (!isAdmin) return;
     const selectedProduct = menuProducts.find((product) => product.id === id);
     // await setSelectedProduct(selectedProduct);
-    await setIsCardSelected(id === isCardSelected ? false : id);
     await setSelectedTab("edit");
+    // await setIsCardSelected(id === isCardSelected ? false : id);
     await setIsCollapsed(false);
-    await setProductInfo(selectedProduct);
+    // await setProductInfo(selectedProduct);
     inputRef.current.focus();
+    console.log(inputRef);
+  };
+
+  const handleCardDelete = (id) => {
+    handleDelete(id);
+    setProductInfo(DEFAULT_PRODUCT_INFO);
+    // setSelectedTab("edit");
   };
 
   return (
@@ -54,8 +63,9 @@ export default function Menu() {
           image={imageSource ? imageSource : ComingSoon}
           price={formatPrice(price)}
           isCardSelected={id === isCardSelected}
-          onDelete={() => handleDelete(id)}
+          onDelete={() => handleCardDelete(id)}
           onClick={handleCardClick}
+          hasButton={isAdmin}
         />
       ))}
     </MenuStyled>

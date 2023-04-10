@@ -44,15 +44,6 @@ export default function AdminForm() {
     }, 2000);
   };
 
-  // useEffect(() => {
-  //   if (isCardSelected) {
-  //     setProductInfo(selectedProduct);
-  //     // handleRef();
-  //   } else {
-  //     setProductInfo(DEFAULT_PRODUCT_INFO);
-  //   }
-  // }, [isCardSelected, selectedProduct]);
-
   const addButton = (
     <Button variant="success" label="Ajouter un nouveau produit au menu" />
   );
