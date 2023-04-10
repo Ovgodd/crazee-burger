@@ -65,6 +65,7 @@ export default function AdminForm() {
         imageSource={productInfo.imageSource}
         title={productInfo.title}
       />
+      <label htmlFor={productInfo.name}></label>
       <AdminInputs
         ref={inputRef}
         productInfo={productInfo}

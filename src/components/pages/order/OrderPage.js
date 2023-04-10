@@ -24,9 +24,9 @@ export default function OrderPage() {
 
   const inputRef = useRef();
 
-  const handleRef = () => {
-    inputRef.current.focus();
-  };
+  // const handleRef = () => {
+  //   inputRef.current.focus();
+  // };
 
   const handleDelete = (id) => {
     const updatedMenu = menuProducts.filter((menu) => {
@@ -77,7 +77,7 @@ export default function OrderPage() {
     handleDelete,
     handleReset,
     handleEdit,
-    handleRef,
+    // handleRef,
     inputRef,
   };
 

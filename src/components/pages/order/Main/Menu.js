@@ -18,7 +18,7 @@ export default function Menu() {
     isCardSelected,
     setIsCardSelected,
     isAdmin,
-    handleRef,
+    inputRef,
     setProductInfo,
   } = useContext(OrderContext);
 
@@ -41,8 +41,15 @@ export default function Menu() {
     setSelectedTab("edit");
     setIsCollapsed(false);
     setProductInfo(selectedProduct);
+    // inputRef.current.focus(); // si je laisse comme ça, le premier focus ne fonctionne pas
     setTimeout(() => {
-      handleRef();
+      const inputElement = inputRef.current;
+      if (inputElement) return inputElement.focus();
+
+      if (inputElement instanceof HTMLInputElement) {
+        const focusPos = inputElement.value.length;
+        inputElement.setSelectionRange(focusPos, focusPos);
+      }
     }, 0);
   };
 

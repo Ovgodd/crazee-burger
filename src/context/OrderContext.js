@@ -15,7 +15,7 @@ export default createContext({
   setProductInfo: () => {},
   DEFAULT_PRODUCT_INFO: null,
   fakeMenus: {},
-  inputRef: null,
+  inputRef: () => {},
   handleRef: () => {},
   handleAdd: () => {},
   handleDelete: () => {},
