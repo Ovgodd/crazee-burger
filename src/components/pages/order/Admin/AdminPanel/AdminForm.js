@@ -15,6 +15,7 @@ export default function AdminForm() {
     handleEdit,
     DEFAULT_PRODUCT_INFO,
     isCardSelected,
+    selectedProduct,
     handleAdd,
   } = useContext(OrderContext);
 
@@ -62,7 +63,7 @@ export default function AdminForm() {
         productInfo={productInfo}
         onChange={handleChange}
       />
-      {!isCardSelected ? addButton : modifyMsg}
+      {!selectedProduct ? addButton : modifyMsg}
       {isProductAdded && <SubmitMessage />}
     </AdminFormStyled>
   );

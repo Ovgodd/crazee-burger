@@ -6,7 +6,6 @@ import DeleteButton from "./Buttons/DeleteButton";
 import Button from "./Buttons/Button";
 
 export default function Card({
-  isCardSelected,
   onClick,
   id,
   title,
@@ -14,6 +13,7 @@ export default function Card({
   price,
   onDelete,
   hasButton,
+  selectedProduct,
 }) {
   //state (vide)
 
@@ -24,7 +24,7 @@ export default function Card({
     <CardStyled
       hasButton={hasButton}
       onClick={onClick}
-      className={isCardSelected ? "selected" : ""}
+      className={selectedProduct ? "selected" : ""}
     >
       {hasButton && (
         <DeleteButton

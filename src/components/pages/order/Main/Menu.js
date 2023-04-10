@@ -8,7 +8,6 @@ import EmptyMenu from "./EmptyMenu";
 import ComingSoon from "../../../../images/coming-soon.png";
 
 export default function Menu() {
-  const { setSelectedProduct } = useContext(OrderContext);
   const {
     setIsCollapsed,
     menuProducts,
@@ -16,11 +15,13 @@ export default function Menu() {
     handleReset,
     setSelectedTab,
     isCardSelected,
-    setIsCardSelected,
     isAdmin,
     inputRef,
     setProductInfo,
     DEFAULT_PRODUCT_INFO,
+    setSelectedProduct,
+    setIsCardSelected,
+    selectedProduct,
   } = useContext(OrderContext);
 
   const label = {
@@ -37,20 +38,19 @@ export default function Menu() {
 
   const handleCardClick = async (id) => {
     if (!isAdmin) return;
-    const selectedProduct = menuProducts.find((product) => product.id === id);
-    // await setSelectedProduct(selectedProduct);
+    const productSelected = menuProducts.find((product) => product.id === id);
+    console.log(productSelected);
+    await setSelectedProduct(productSelected);
     await setSelectedTab("edit");
-    // await setIsCardSelected(id === isCardSelected ? false : id);
+    await setIsCardSelected(id === isCardSelected ? false : id);
     await setIsCollapsed(false);
-    // await setProductInfo(selectedProduct);
+    await setProductInfo(productSelected);
     inputRef.current.focus();
-    console.log(inputRef);
   };
 
   const handleCardDelete = (id) => {
     handleDelete(id);
     setProductInfo(DEFAULT_PRODUCT_INFO);
-    // setSelectedTab("edit");
   };
 
   return (
@@ -62,9 +62,13 @@ export default function Menu() {
           title={title}
           image={imageSource ? imageSource : ComingSoon}
           price={formatPrice(price)}
-          isCardSelected={id === isCardSelected}
+          selectedProduct={
+            selectedProduct && selectedProduct.id === id
+              ? selectedProduct
+              : null
+          }
           onDelete={() => handleCardDelete(id)}
-          onClick={handleCardClick}
+          onClick={() => handleCardClick(id)}
           hasButton={isAdmin}
         />
       ))}

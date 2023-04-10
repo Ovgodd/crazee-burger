@@ -15,6 +15,7 @@ export default function AdminTabs() {
     selectedTab,
     setSelectedTab,
     setProductInfo,
+    setSelectedProduct,
     DEFAULT_PRODUCT_INFO,
   } = useContext(OrderContext);
 
@@ -22,7 +23,7 @@ export default function AdminTabs() {
     setSelectedTab(tabSelected);
     if (isCollapsed) setIsCollapsed(false);
     if (tabSelected === "add") {
-      setIsCardSelected(false);
+      setSelectedProduct(false);
       setProductInfo(DEFAULT_PRODUCT_INFO);
     }
   };

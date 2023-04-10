@@ -4,11 +4,7 @@ import AdminForm from "../AdminForm";
 import EditText from "./EditText";
 
 export default function EditPanel() {
-  const { productInfo, DEFAULT_PRODUCT_INFO } = useContext(OrderContext);
+  const { selectedProduct } = useContext(OrderContext);
 
-  return (
-    <div>
-      {productInfo === DEFAULT_PRODUCT_INFO ? <EditText /> : <AdminForm />}
-    </div>
-  );
+  return <div>{selectedProduct === false ? <EditText /> : <AdminForm />}</div>;
 }
