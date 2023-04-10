@@ -6,5 +6,5 @@ import EditText from "./EditText";
 export default function EditPanel() {
   const { selectedProduct } = useContext(OrderContext);
 
-  return <div>{!selectedProduct ? <EditText /> : <AdminForm />}</div>;
+  return <div>{selectedProduct ? <AdminForm /> : <EditText />}</div>;
 }
