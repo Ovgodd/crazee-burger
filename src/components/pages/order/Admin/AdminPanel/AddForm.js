@@ -4,7 +4,7 @@ import OrderContext from "../../../../../context/OrderContext";
 import { useState } from "react";
 import AdminForm from "../../../../reusable-ui/AdminForm";
 import styled from "styled-components";
-
+//A DIVISER EVENTUELLEMENT AVEC UN EDIT OU LE RENOMMER
 export default function AddForm() {
   const {
     setProductInfo,
