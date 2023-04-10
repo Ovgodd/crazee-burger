@@ -1,6 +1,4 @@
-import { useContext } from "react";
 import styled, { css } from "styled-components";
-import OrderContext from "../../context/OrderContext";
 import { theme } from "../../theme";
 import DeleteButton from "./Buttons/DeleteButton";
 import Button from "./Buttons/Button";
