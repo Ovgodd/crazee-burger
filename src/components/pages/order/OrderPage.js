@@ -21,6 +21,7 @@ export default function OrderPage() {
     price: 0,
   };
   const [productInfo, setProductInfo] = useState(DEFAULT_PRODUCT_INFO);
+  const [isProductAdded, setIsProductAdded] = useState(false);
 
   const inputRef = useRef();
 
@@ -41,6 +42,29 @@ export default function OrderPage() {
   const handleReset = () => {
     setMenuProducts(fakeMenu.MEDIUM);
     setSelectedProduct(null);
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    const updatedProductInfo = { ...productInfo, [name]: value };
+    setProductInfo(updatedProductInfo);
+
+    if (isCardSelected) {
+      handleEdit(productInfo.id, { [name]: value });
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleAdd({ ...productInfo, id: new Date().getTime() });
+    setProductInfo(DEFAULT_PRODUCT_INFO); // reset form
+    displaySuccess();
+  };
+  const displaySuccess = () => {
+    setIsProductAdded(true);
+    setTimeout(() => {
+      setIsProductAdded(false);
+    }, 2000);
   };
 
   const handleEdit = (id, updatedProductInfo) => {
@@ -73,6 +97,11 @@ export default function OrderPage() {
     handleReset,
     handleEdit,
     inputRef,
+    isProductAdded,
+    handleChange,
+    handleSubmit,
+    isProductAdded,
+    setIsProductAdded,
   };
 
   return (
