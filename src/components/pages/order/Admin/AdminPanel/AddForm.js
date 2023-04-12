@@ -8,11 +8,32 @@ export default function AddForm() {
     productInfo,
     selectedProduct,
     inputRef,
-    handleChange,
-    handleSubmit,
     isProductAdded,
+    handleAdd,
+    setProductInfo,
+    DEFAULT_PRODUCT_INFO,
+    setIsProductAdded,
   } = useContext(OrderContext);
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    const updatedProductInfo = { ...productInfo, [name]: value };
+    setProductInfo(updatedProductInfo);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleAdd({ ...productInfo, id: new Date().getTime() });
+    setProductInfo(DEFAULT_PRODUCT_INFO); // reset form
+    displaySuccess();
+  };
+
+  const displaySuccess = () => {
+    setIsProductAdded(true);
+    setTimeout(() => {
+      setIsProductAdded(false);
+    }, 2000);
+  };
   return (
     <div>
       <AdminForm

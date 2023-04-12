@@ -44,29 +44,6 @@ export default function OrderPage() {
     setSelectedProduct(null);
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    const updatedProductInfo = { ...productInfo, [name]: value };
-    setProductInfo(updatedProductInfo);
-
-    if (isCardSelected) {
-      handleEdit(productInfo.id, { [name]: value });
-    }
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    handleAdd({ ...productInfo, id: new Date().getTime() });
-    setProductInfo(DEFAULT_PRODUCT_INFO); // reset form
-    displaySuccess();
-  };
-  const displaySuccess = () => {
-    setIsProductAdded(true);
-    setTimeout(() => {
-      setIsProductAdded(false);
-    }, 2000);
-  };
-
   const handleEdit = (id, updatedProductInfo) => {
     const updatedProduct = menuProducts.map((product) => {
       if (product.id === id) {
@@ -97,9 +74,6 @@ export default function OrderPage() {
     handleReset,
     handleEdit,
     inputRef,
-    isProductAdded,
-    handleChange,
-    handleSubmit,
     isProductAdded,
     setIsProductAdded,
   };

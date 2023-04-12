@@ -10,7 +10,6 @@ export default function AdminForm({
   inputRef,
   isProductAdded,
   selectedProduct,
-  selectedTab,
 }) {
   return (
     <AdminFormStyled onSubmit={onSubmit}>

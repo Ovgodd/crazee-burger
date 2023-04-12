@@ -21,6 +21,4 @@ export default createContext({
   handleDelete: () => {},
   handleReset: () => {},
   handleEdit: () => {},
-  handleChange: () => {},
-  handleSubmit: () => {},
 });
