@@ -9,13 +9,19 @@ export default function AdminForm({
   product,
   inputRef,
   isProductAdded,
+  selectedProduct,
+  selectedTab,
 }) {
   return (
     <AdminFormStyled onSubmit={onSubmit}>
       <ProductImage imageSource={product.imageSource} title={product.title} />
       <label htmlFor={product.name}></label>
       <AdminInputs ref={inputRef} productInfo={product} onChange={onChange} />
-      <FormFooter onSubmit={onSubmit} isProductAdded={isProductAdded} />
+      <FormFooter
+        onSubmit={onSubmit}
+        isProductAdded={isProductAdded}
+        onEdit={selectedProduct}
+      />
     </AdminFormStyled>
   );
 }

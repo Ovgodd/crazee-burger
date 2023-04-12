@@ -20,6 +20,7 @@ export default function AdminTabs() {
 
   const selectTab = (tabSelected) => {
     setSelectedTab(tabSelected);
+    console.log("selectedTab:", tabSelected);
     if (isCollapsed) setIsCollapsed(false);
     if (tabSelected === "add") {
       setSelectedProduct(false);

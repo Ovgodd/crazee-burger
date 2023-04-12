@@ -2,8 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import AdminForm from "../../../../reusable-ui/AdminForm";
-import styled from "styled-components";
-//A DIVISER EVENTUELLEMENT AVEC UN EDIT OU LE RENOMMER
+
 export default function AddForm() {
   const {
     productInfo,
@@ -15,7 +14,7 @@ export default function AddForm() {
   } = useContext(OrderContext);
 
   return (
-    <AddFormStyled>
+    <div>
       <AdminForm
         product={productInfo}
         inputRef={inputRef}
@@ -24,7 +23,6 @@ export default function AddForm() {
         onSubmit={handleSubmit}
         isProductAdded={isProductAdded}
       />
-    </AddFormStyled>
+    </div>
   );
 }
-const AddFormStyled = styled.div``;
