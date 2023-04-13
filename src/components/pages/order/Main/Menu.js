@@ -53,6 +53,7 @@ export default function Menu() {
     handleDelete(id);
     if (productInfo.id === id) {
       setProductInfo(DEFAULT_PRODUCT_INFO);
+      setSelectedProduct(null);
     }
   };
 
