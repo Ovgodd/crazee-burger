@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
-import { AiOutlineCheckCircle } from "react-icons/ai";
 
-export default function SubmitMessage() {
+export default function SubmitMessage({ label, Icon }) {
   return (
     <SubmitMessageStyled>
-      <AiOutlineCheckCircle className="icon" />
-      <span className="success">Ajouté avec succès !</span>
+      {Icon && Icon}
+      <span className="success">{label}</span>
     </SubmitMessageStyled>
   );
 }
@@ -24,6 +23,8 @@ const SubmitMessageStyled = styled.div`
   right: 80px;
 
   .icon {
+    display: flex;
+    align-items: center;
     width: 20px;
     height: 20px;
   }

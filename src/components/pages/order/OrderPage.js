@@ -53,7 +53,6 @@ export default function OrderPage() {
     });
     setMenuProducts(updatedProduct);
   };
-  console.log(productInfo);
   const adminContextValue = {
     isCollapsed,
     setIsCollapsed,

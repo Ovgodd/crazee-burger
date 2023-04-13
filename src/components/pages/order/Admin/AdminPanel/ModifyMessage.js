@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../../theme";
 
-export default function ModifyMessage() {
+export default function ModifyMessage({ label, underline }) {
   return (
     <ModifyMessageStyled>
-      Cliquer sur un produit du menu pour le modifier&nbsp;
-      <u>en temps réel</u>
+      {label}
+      <u>{underline}</u>
     </ModifyMessageStyled>
   );
 }
