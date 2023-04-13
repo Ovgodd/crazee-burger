@@ -10,7 +10,7 @@ export default function EditForm() {
     const { name, value } = event.target;
     const updatedProductInfo = { ...productInfo, [name]: value };
     setProductInfo(updatedProductInfo);
-    handleEdit(productInfo.id, { [name]: value });
+    handleEdit(updatedProductInfo);
   };
 
   return (

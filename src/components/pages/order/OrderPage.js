@@ -44,15 +44,18 @@ export default function OrderPage() {
     setSelectedProduct(null);
   };
 
-  const handleEdit = (id, updatedProductInfo) => {
-    const updatedProduct = menuProducts.map((product) => {
-      if (product.id === id) {
-        return { ...product, ...updatedProductInfo };
-      }
-      return product;
-    });
-    setMenuProducts(updatedProduct);
+  const handleEdit = (productBeingEdited) => {
+    const menuCopy = JSON.parse(JSON.stringify(menuProducts));
+
+    const indexOfProductToEdit = menuProducts.findIndex(
+      (product) => product.id === productBeingEdited.id
+    );
+
+    menuCopy[indexOfProductToEdit] = productBeingEdited;
+
+    setMenuProducts(menuCopy);
   };
+
   const adminContextValue = {
     isCollapsed,
     setIsCollapsed,
