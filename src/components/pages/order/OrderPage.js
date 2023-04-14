@@ -37,7 +37,7 @@ export default function OrderPage() {
 
   const handleReset = () => {
     setMenuProducts(fakeMenu.MEDIUM);
-    setSelectedProduct(DEFAULT_PRODUCT_INFO);
+    setProductInfo(DEFAULT_PRODUCT_INFO); //Delete if want to keep current adding product when reseting
   };
 
   const handleEdit = (productBeingEdited) => {
