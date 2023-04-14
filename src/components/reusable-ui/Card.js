@@ -90,7 +90,7 @@ const CardStyled = styled.div`
     min-height: 110px;
 
     h1 {
-      white-space: normal;
+      white-space: nowrap;
       overflow: hidden;
       width: 190px;
       margin-bottom: ${theme.spacing.xxs};
