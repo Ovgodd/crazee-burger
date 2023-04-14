@@ -14,14 +14,11 @@ export default function Menu() {
     handleDelete,
     handleReset,
     setSelectedTab,
-    isCardSelected,
     isAdmin,
     inputRef,
     productInfo,
     setProductInfo,
-    DEFAULT_PRODUCT_INFO,
     setSelectedProduct,
-    setIsCardSelected,
     selectedProduct,
   } = useContext(OrderContext);
 
@@ -43,7 +40,6 @@ export default function Menu() {
     console.log(productSelected);
     await setSelectedProduct(productSelected);
     await setSelectedTab("edit");
-    // await setIsCardSelected(id === isCardSelected ? false : id);
     await setIsCollapsed(false);
     await setProductInfo(productSelected);
     inputRef.current.focus();

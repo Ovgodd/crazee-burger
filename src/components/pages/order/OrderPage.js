@@ -6,6 +6,7 @@ import { theme } from "../../../theme";
 import Main from "./Main/Main";
 import NavBar from "./Navbar/NavBar";
 import { useRef } from "react";
+import { DEFAULT_PRODUCT_INFO } from "../../enums/product";
 
 export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -14,12 +15,7 @@ export default function OrderPage() {
   const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
   const [isCardSelected, setIsCardSelected] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const DEFAULT_PRODUCT_INFO = {
-    id: "",
-    imageSource: "",
-    title: "",
-    price: 0,
-  };
+
   const [productInfo, setProductInfo] = useState(DEFAULT_PRODUCT_INFO);
   const [isProductAdded, setIsProductAdded] = useState(false);
 
@@ -69,7 +65,6 @@ export default function OrderPage() {
     setSelectedProduct,
     productInfo,
     setProductInfo,
-    DEFAULT_PRODUCT_INFO,
     menuProducts,
     handleAdd,
     handleDelete,

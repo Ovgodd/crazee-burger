@@ -13,7 +13,6 @@ export default createContext({
   setSelectedProduct: () => {},
   productInfo: null,
   setProductInfo: () => {},
-  DEFAULT_PRODUCT_INFO: null,
   fakeMenus: {},
   inputRef: () => {},
   handleRef: () => {},

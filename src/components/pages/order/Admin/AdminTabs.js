@@ -6,6 +6,7 @@ import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
 import Tab from "../../../reusable-ui/Tab";
 import { getTabsConfig } from "./getTabsConfig";
+import { DEFAULT_PRODUCT_INFO } from "../../../enums/product";
 
 export default function AdminTabs() {
   const {
@@ -15,7 +16,6 @@ export default function AdminTabs() {
     setSelectedTab,
     setProductInfo,
     setSelectedProduct,
-    DEFAULT_PRODUCT_INFO,
   } = useContext(OrderContext);
 
   const selectTab = (tabSelected) => {

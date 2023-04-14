@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import AdminForm from "../../../../reusable-ui/AdminForm";
+import { DEFAULT_PRODUCT_INFO } from "../../../../enums/product";
 
 export default function AddForm() {
   const {
@@ -11,7 +12,6 @@ export default function AddForm() {
     isProductAdded,
     handleAdd,
     setProductInfo,
-    DEFAULT_PRODUCT_INFO,
     setIsProductAdded,
   } = useContext(OrderContext);
 
