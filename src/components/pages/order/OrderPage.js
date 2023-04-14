@@ -7,6 +7,7 @@ import Main from "./Main/Main";
 import NavBar from "./Navbar/NavBar";
 import { useRef } from "react";
 import { DEFAULT_PRODUCT_INFO } from "../../enums/product";
+import { deepClone } from "../../../utils/array";
 
 export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -39,7 +40,7 @@ export default function OrderPage() {
   };
 
   const handleEdit = (productBeingEdited) => {
-    const menuCopy = JSON.parse(JSON.stringify(menuProducts));
+    const menuCopy = deepClone(menuProducts);
 
     const indexOfProductToEdit = menuProducts.findIndex(
       (product) => product.id === productBeingEdited.id
