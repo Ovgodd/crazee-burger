@@ -16,8 +16,8 @@ export default function Menu() {
     setSelectedTab,
     isAdmin,
     inputRef,
-    productInfo,
-    setProductInfo,
+    newProductInfo,
+    setNewProductInfo,
     setSelectedProduct,
     selectedProduct,
   } = useContext(OrderContext);
@@ -41,15 +41,16 @@ export default function Menu() {
     await setSelectedProduct(productSelected);
     await setSelectedTab("edit");
     await setIsCollapsed(false);
-    await setProductInfo(productSelected);
+    await setNewProductInfo(productSelected);
     inputRef.current.focus();
   };
 
   const handleCardDelete = (id) => {
     handleDelete(id);
-    if (productInfo.id === id) {
+    if (newProductInfo.id === id) {
       setSelectedProduct(null);
     }
+    inputRef.current.focus();
   };
 
   return (

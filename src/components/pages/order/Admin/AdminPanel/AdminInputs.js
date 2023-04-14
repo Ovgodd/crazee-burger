@@ -6,9 +6,9 @@ import { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import React from "react";
 
-const AdminInputs = React.forwardRef(({ productInfo, onChange }, ref) => {
+const AdminInputs = React.forwardRef(({ newProductInfo, onChange }, ref) => {
   const { isCardSelected } = useContext(OrderContext);
-  const inputs = getInputsConfig(productInfo);
+  const inputs = getInputsConfig(newProductInfo);
 
   return (
     <AdminInputsStyled>

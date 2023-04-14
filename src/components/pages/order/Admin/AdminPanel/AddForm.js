@@ -6,25 +6,25 @@ import { DEFAULT_PRODUCT_INFO } from "../../../../enums/product";
 
 export default function AddForm() {
   const {
-    productInfo,
+    newProductInfo,
     selectedProduct,
     inputRef,
     isProductAdded,
     handleAdd,
-    setProductInfo,
+    setNewProductInfo,
     setIsProductAdded,
   } = useContext(OrderContext);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    const updatedProductInfo = { ...productInfo, [name]: value };
-    setProductInfo(updatedProductInfo);
+    const updatedNewProductInfo = { ...newProductInfo, [name]: value };
+    setNewProductInfo(updatedNewProductInfo);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleAdd({ ...productInfo, id: new Date().getTime() });
-    setProductInfo(DEFAULT_PRODUCT_INFO); // reset form
+    handleAdd({ ...newProductInfo, id: new Date().getTime() });
+    setNewProductInfo(DEFAULT_PRODUCT_INFO); // reset form
     displaySuccess();
   };
 
@@ -37,7 +37,7 @@ export default function AddForm() {
   return (
     <div>
       <AdminForm
-        product={productInfo}
+        product={newProductInfo}
         inputRef={inputRef}
         selectedProduct={selectedProduct}
         onChange={handleChange}

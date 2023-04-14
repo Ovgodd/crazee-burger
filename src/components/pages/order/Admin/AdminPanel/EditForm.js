@@ -3,20 +3,25 @@ import AdminForm from "../../../../reusable-ui/AdminForm";
 import OrderContext from "../../../../../context/OrderContext";
 
 export default function EditForm() {
-  const { handleEdit, setProductInfo, productInfo, inputRef, selectedProduct } =
-    useContext(OrderContext);
+  const {
+    handleEdit,
+    setNewProductInfo,
+    newProductInfo,
+    inputRef,
+    selectedProduct,
+  } = useContext(OrderContext);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    const updatedProductInfo = { ...productInfo, [name]: value };
-    setProductInfo(updatedProductInfo);
-    handleEdit(updatedProductInfo);
+    const updatednewProductInfo = { ...newProductInfo, [name]: value };
+    setNewProductInfo(updatednewProductInfo);
+    handleEdit(updatednewProductInfo);
   };
 
   return (
     <div>
       <AdminForm
-        product={productInfo}
+        product={newProductInfo}
         inputRef={inputRef}
         selectedProduct={selectedProduct}
         onChange={handleChange}

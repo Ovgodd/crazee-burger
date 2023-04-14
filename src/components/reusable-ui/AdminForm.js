@@ -15,7 +15,11 @@ export default function AdminForm({
     <AdminFormStyled onSubmit={onSubmit}>
       <ProductImage imageSource={product.imageSource} title={product.title} />
       <label htmlFor={product.name}></label>
-      <AdminInputs ref={inputRef} productInfo={product} onChange={onChange} />
+      <AdminInputs
+        ref={inputRef}
+        newProductInfo={product}
+        onChange={onChange}
+      />
       <FormFooter
         onSubmit={onSubmit}
         isProductAdded={isProductAdded}
