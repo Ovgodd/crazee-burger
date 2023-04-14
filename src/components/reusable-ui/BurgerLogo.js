@@ -19,7 +19,7 @@ const BurgerLogoStyled = styled.div`
   h1 {
     font-size: ${theme.fonts.size.P4};
     color: ${theme.colors.primary};
-    font-family: "Amatic SC", cursive;
+    font-family: ${theme.fonts.family.stylish};
     ::selection {
       color: none;
       background: none;

@@ -95,7 +95,7 @@ const CardStyled = styled.div`
       width: 190px;
       margin-bottom: ${theme.spacing.xxs};
       text-overflow: ellipsis;
-      font-family: "Amatic SC", cursive;
+      font-family: ${theme.fonts.family.stylish};
       font-size: ${theme.fonts.size.P4};
       margin: auto;
     }

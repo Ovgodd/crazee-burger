@@ -17,7 +17,7 @@ const WelcomeStyled = styled.div`
   flex-direction: column;
   align-items: center;
   color: ${theme.colors.white};
-  font-family: "Amatic SC", cursive;
+  font-family: ${theme.fonts.family.stylish};
 
   h1 {
     font-size: ${theme.fonts.size.P5};

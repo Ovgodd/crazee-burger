@@ -7,6 +7,7 @@ import TextInput from "../../reusable-ui/TextInput";
 import Button from "../../reusable-ui/Buttons/Button";
 import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForward } from "react-icons/io5";
+import { theme } from "../../../theme";
 
 export default function LoginForm() {
   const [inputName, setInputName] = useState("Cyril");
@@ -45,7 +46,7 @@ const LoginFormStyled = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: "Amatic SC", cursive;
+  font-family: ${theme.fonts.family.stylish};
   max-width: 500px;
   margin: 0px auto;
 
