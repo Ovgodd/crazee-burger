@@ -21,7 +21,7 @@ export default function AdminForm({
         onChange={onChange}
       />
       <FormFooter
-        onSubmit={onSubmit}
+        onSubmit={!selectedProduct && onSubmit}
         isProductAdded={isProductAdded}
         onEdit={selectedProduct}
       />

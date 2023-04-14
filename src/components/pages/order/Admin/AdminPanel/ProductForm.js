@@ -13,12 +13,14 @@ export default function AddForm() {
     handleAdd,
     setNewProductInfo,
     setIsProductAdded,
+    handleEdit,
   } = useContext(OrderContext);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     const updatedNewProductInfo = { ...newProductInfo, [name]: value };
     setNewProductInfo(updatedNewProductInfo);
+    handleEdit(updatedNewProductInfo);
   };
 
   const handleSubmit = (event) => {
