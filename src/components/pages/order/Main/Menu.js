@@ -43,7 +43,7 @@ export default function Menu() {
     console.log(productSelected);
     await setSelectedProduct(productSelected);
     await setSelectedTab("edit");
-    await setIsCardSelected(id === isCardSelected ? false : id);
+    // await setIsCardSelected(id === isCardSelected ? false : id);
     await setIsCollapsed(false);
     await setProductInfo(productSelected);
     inputRef.current.focus();
@@ -52,7 +52,6 @@ export default function Menu() {
   const handleCardDelete = (id) => {
     handleDelete(id);
     if (productInfo.id === id) {
-      setProductInfo(DEFAULT_PRODUCT_INFO);
       setSelectedProduct(null);
     }
   };
