@@ -9,7 +9,7 @@ export default createContext({
   setSelectedTab: () => {},
   isCardSelected: false,
   setIsCardSelected: () => {},
-  selectedProduct: {},
+  selectedProduct: null,
   setSelectedProduct: () => {},
   productInfo: null,
   setProductInfo: () => {},

@@ -14,7 +14,7 @@ export default function OrderPage() {
   const [selectedTab, setSelectedTab] = useState("add");
   const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
   const [isCardSelected, setIsCardSelected] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState({});
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const [productInfo, setProductInfo] = useState(DEFAULT_PRODUCT_INFO);
   const [isProductAdded, setIsProductAdded] = useState(false);
@@ -37,7 +37,7 @@ export default function OrderPage() {
 
   const handleReset = () => {
     setMenuProducts(fakeMenu.MEDIUM);
-    setSelectedProduct(null);
+    setSelectedProduct(DEFAULT_PRODUCT_INFO);
   };
 
   const handleEdit = (productBeingEdited) => {
