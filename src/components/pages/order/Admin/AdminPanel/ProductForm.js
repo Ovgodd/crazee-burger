@@ -4,7 +4,7 @@ import OrderContext from "../../../../../context/OrderContext";
 import AdminForm from "../../../../reusable-ui/AdminForm";
 import { DEFAULT_PRODUCT_INFO } from "../../../../enums/product";
 
-export default function AddForm() {
+export default function ProductForm() {
   const {
     newProductInfo,
     selectedProduct,
