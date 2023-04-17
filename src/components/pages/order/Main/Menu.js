@@ -47,10 +47,9 @@ export default function Menu() {
 
   const handleCardDelete = (id) => {
     handleDelete(id);
-    if (newProductInfo.id === id) {
-      setSelectedProduct(null);
-    }
-    inputRef.current.focus();
+    if (newProductInfo.id === id) return setSelectedProduct(null);
+
+    if (selectedProduct) return inputRef.current.focus();
   };
 
   return (
