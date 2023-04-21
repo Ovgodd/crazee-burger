@@ -37,7 +37,6 @@ export default function Menu() {
   const handleCardClick = async (id) => {
     if (!isAdmin) return;
     const productSelected = menuProducts.find((product) => product.id === id);
-    console.log(productSelected);
     await setSelectedProduct(productSelected);
     await setSelectedTab("edit");
     await setIsCollapsed(false);

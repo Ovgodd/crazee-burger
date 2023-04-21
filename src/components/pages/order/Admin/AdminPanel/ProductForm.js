@@ -36,6 +36,7 @@ export default function ProductForm() {
       setIsProductAdded(false);
     }, 2000);
   };
+
   return (
     <div>
       <AdminForm

@@ -11,6 +11,7 @@ export default function EditText() {
     </EditTextStyled>
   );
 }
+
 const EditTextStyled = styled.div`
   padding: 71px 81px 129px;
   font-family: "Amatic SC";
