@@ -25,13 +25,7 @@ export default function Card({
       className={selectedProduct ? "selected" : ""}
     >
       {hasButton && (
-        <DeleteButton
-          onClick={(e) => {
-            e.stopPropagation();
-            onDelete();
-          }}
-          className="delete-button"
-        />
+        <DeleteButton onClick={onDelete} className="delete-button" />
       )}
       <img src={image} alt="product" />
       <div className="interact-container">
@@ -39,8 +33,8 @@ export default function Card({
         <div className="description">
           <span className="price">{price}</span>
           <Button
-            onClick={(e) => {
-              e.stopPropagation();
+            onClick={(event) => {
+              event.stopPropagation();
             }}
             label="Ajouter"
             className="primary-button primary-selected"

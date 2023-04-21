@@ -45,11 +45,11 @@ export default function Menu() {
     inputRef.current.focus();
   };
 
-  const handleCardDelete = (id) => {
+  const handleCardDelete = (id, event) => {
+    event.stopPropagation();
     handleDelete(id);
-    if (newProductInfo.id === id) return setSelectedProduct(null);
-
-    if (selectedProduct) return inputRef.current.focus();
+    id === newProductInfo.id && setSelectedProduct(null);
+    inputRef.current.focus();
   };
 
   return (
@@ -66,7 +66,7 @@ export default function Menu() {
               ? selectedProduct
               : null
           }
-          onDelete={() => handleCardDelete(id)}
+          onDelete={(event) => handleCardDelete(id, event)}
           onClick={() => handleCardClick(id)}
           hasButton={isAdmin}
         />
