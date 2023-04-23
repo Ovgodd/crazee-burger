@@ -14,7 +14,6 @@ export default function AdminForm({
   return (
     <AdminFormStyled onSubmit={onSubmit}>
       <ProductImage imageSource={product.imageSource} title={product.title} />
-      <label htmlFor={product.name}></label>
       <AdminInputs
         ref={inputRef}
         newProductInfo={product}
