@@ -28,7 +28,7 @@ export default function OrderPage() {
   };
 
   const handleAdd = (productToAdd) => {
-    const menuCopy = [...menuProducts];
+    const menuCopy = deepClone(menuProducts);
     const updatedMenu = [productToAdd, ...menuCopy];
 
     setMenuProducts(updatedMenu);
