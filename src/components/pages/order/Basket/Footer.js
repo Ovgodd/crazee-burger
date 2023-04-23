@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { theme } from "../../../../theme";
 
 export default function Footer({ label }) {
   return (
@@ -14,13 +15,12 @@ const FooterStyled = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 0px 0px 0px 15px;
-  background: #292729;
-  font-family: "Amatic SC";
+  background: ${theme.colors.background_dark};
+
+  font-family: ${theme.fonts.family.stylish};
   font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
+  font-weight: ${theme.fonts.weights.bold};
+  font-size: ${theme.fonts.size.P2};
   line-height: 25px;
-  display: flex;
-  align-items: center;
-  color: #ffffff;
+  color: ${theme.colors.white};
 `;
