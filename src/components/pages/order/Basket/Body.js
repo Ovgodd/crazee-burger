@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { theme } from "../../../../theme";
 
 export default function Body({ label }) {
   return (
@@ -12,14 +13,14 @@ const BodyStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: red;
   flex: 1;
-  background: #f5f5f7;
   box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.2);
-  font-family: "Amatic SC";
+  background: ${theme.colors.background_white};
+
+  font-family: ${theme.fonts.family.stylish};
   font-style: normal;
-  font-weight: 400;
-  font-size: 36px;
+  font-weight: ${theme.fonts.weights.regular};
+  font-size: ${theme.fonts.size.P4};
   line-height: 72px;
-  color: #747b91;
+  color: ${theme.colors.greyBlue};
 `;

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { theme } from "../../../../theme";
 
 export default function Header({ price, label }) {
   return (
@@ -10,19 +11,18 @@ export default function Header({ price, label }) {
   );
 }
 const HeaderStyled = styled.div`
-  background: #292729;
+  background: ${theme.colors.background_dark};
   padding: 0px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 70px;
-  font-family: "Amatic SC";
+
+  font-family: ${theme.fonts.family.stylish};
   font-style: normal;
-  font-weight: 400;
-  font-size: 36px;
+  font-weight: ${theme.fonts.weights.regular};
+  font-size: ${theme.fonts.size.P4};
   line-height: 45px;
-  display: flex;
-  align-items: center;
   letter-spacing: 2px;
-  color: #ffa01b;
+  color: ${theme.colors.primary};
 `;
