@@ -1,20 +1,19 @@
-import React from "react";
 import { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import AdminForm from "../../../../reusable-ui/AdminForm";
 import { DEFAULT_PRODUCT_INFO } from "../../../../enums/product";
+import { useSuccessMessage } from "../../../../../hooks/useDisplaySuccess";
 
 export default function ProductForm() {
   const {
     newProductInfo,
     selectedProduct,
     inputRef,
-    isProductAdded,
     handleAdd,
     setNewProductInfo,
-    setIsProductAdded,
     handleEdit,
   } = useContext(OrderContext);
+  const { isSubmitted, displaySuccess } = useSuccessMessage();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -30,13 +29,6 @@ export default function ProductForm() {
     displaySuccess();
   };
 
-  const displaySuccess = () => {
-    setIsProductAdded(true);
-    setTimeout(() => {
-      setIsProductAdded(false);
-    }, 2000);
-  };
-
   return (
     <div>
       <AdminForm
@@ -45,7 +37,7 @@ export default function ProductForm() {
         selectedProduct={selectedProduct}
         onChange={handleChange}
         onSubmit={handleSubmit}
-        isProductAdded={isProductAdded}
+        isSubmitted={isSubmitted}
       />
     </div>
   );
