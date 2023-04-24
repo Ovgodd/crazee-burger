@@ -8,7 +8,7 @@ export default function AdminForm({
   onChange,
   product,
   inputRef,
-  isProductAdded,
+  isSubmitted,
   selectedProduct,
 }) {
   return (
@@ -21,7 +21,7 @@ export default function AdminForm({
       />
       <FormFooter
         onSubmit={!selectedProduct && onSubmit}
-        isProductAdded={isProductAdded}
+        isSubmitted={isSubmitted}
         onEdit={selectedProduct}
       />
     </AdminFormStyled>
