@@ -68,9 +68,8 @@ const normalStyle = css`
 const successStyle = css`
   padding: 10px 29px 9px 29px;
   width: 275px;
-  height: 35px;
-  bottom: 0;
-  position: absolute;
+  height: 40px;
+  position: relative;
   background: ${theme.colors.success};
   border: 1px solid ${theme.colors.success};
   color: ${theme.colors.white};

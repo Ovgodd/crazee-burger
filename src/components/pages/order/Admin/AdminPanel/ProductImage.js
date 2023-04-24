@@ -19,8 +19,8 @@ export default function ProductImage({ imageSource, title }) {
 const ProductImageStyled = styled.div`
   left: 0px;
   top: -1px;
-  height: 120px;
-  width: 215px;
+  height: 135px;
+  width: 160px;
   padding: 48px, 55px, 48px, 54px;
   box-sizing: border-box;
   display: flex;
@@ -34,8 +34,8 @@ const ProductImageStyled = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 120px;
-    width: 215px;
+    height: 135px;
+    width: 160px;
     border: 1px solid ${theme.colors.greyLight};
     border-radius: ${theme.borderRadius.round};
   }

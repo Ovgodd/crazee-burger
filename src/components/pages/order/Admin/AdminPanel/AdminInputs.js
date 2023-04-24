@@ -31,9 +31,8 @@ const AdminInputsStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: ${theme.spacing.xs};
+  gap: 8px;
   width: 645px;
-  height: 121px;
   margin-left: ${theme.spacing.md};
 `;
 

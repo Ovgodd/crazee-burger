@@ -31,8 +31,8 @@ export default function AdminForm({
 const AdminFormStyled = styled.form`
   position: relative;
   display: flex;
-  top: 31px;
+  top: 40px;
   left: 71px;
-  height: 164px;
+  height: 175px;
   width: 880px;
 `;
