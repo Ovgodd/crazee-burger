@@ -30,15 +30,13 @@ export default function ProductForm() {
   };
 
   return (
-    <div>
-      <AdminForm
-        product={newProductInfo}
-        inputRef={inputRef}
-        selectedProduct={selectedProduct}
-        onChange={handleChange}
-        onSubmit={handleSubmit}
-        isSubmitted={isSubmitted}
-      />
-    </div>
+    <AdminForm
+      product={newProductInfo}
+      inputRef={inputRef}
+      selectedProduct={selectedProduct}
+      onChange={handleChange}
+      onSubmit={handleSubmit}
+      isSubmitted={isSubmitted}
+    />
   );
 }
