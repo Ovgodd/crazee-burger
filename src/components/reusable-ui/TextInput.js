@@ -75,7 +75,7 @@ const minimalistStyle = css`
   padding: 8px 16px;
   box-sizing: border-box;
   width: 100%;
-  height: 35px;
+  height: 40px;
   background: ${theme.colors.background_white};
 
   input {

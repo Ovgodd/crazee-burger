@@ -44,6 +44,9 @@ export default function FormFooter({ onSubmit, isProductAdded, onEdit }) {
   );
 }
 const FormFooterStyled = styled.div`
+  position: absolute;
+  top: 145px;
+  left: -55px;
   .icon {
     display: flex;
     align-items: center;
