@@ -14,7 +14,6 @@ export default function OrderPage() {
   const [selectedTab, setSelectedTab] = useState("add");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [newProductInfo, setNewProductInfo] = useState(DEFAULT_PRODUCT_INFO);
-  const [isProductAdded, setIsProductAdded] = useState(false);
   const [isCardSelected, setIsCardSelected] = useState(false);
   const inputRef = useRef();
   const { handleAdd, handleReset, handleEdit, handleDelete, menuProducts } =
@@ -39,8 +38,6 @@ export default function OrderPage() {
     handleReset,
     handleEdit,
     inputRef,
-    isProductAdded,
-    setIsProductAdded,
   };
 
   return (
