@@ -3,11 +3,12 @@ import styled from "styled-components";
 import Header from "./Header";
 import Footer from "./Footer";
 import Body from "./Body";
+import { formatPrice } from "../../../../utils/maths";
 
 export default function Basket() {
   return (
     <BasketStyled>
-      <Header label="Total" price="0,00 €" />
+      <Header label="Total" amountToPay={formatPrice(0)} />
       <Body label="votre commande est vide." />
       <Footer label="Codé avec ❤️ et React.JS" />
     </BasketStyled>
