@@ -74,7 +74,7 @@ const normalStyle = css`
 const minimalistStyle = css`
   padding: 8px 16px;
   box-sizing: border-box;
-  width: 100%;
+  width: 80%;
   height: 40px;
   background: ${theme.colors.background_white};
 
