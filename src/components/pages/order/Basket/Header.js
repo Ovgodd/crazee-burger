@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 
-export default function Header({ price, label }) {
+export default function Header({ amountToPay, label }) {
   return (
     <HeaderStyled>
       <span>{label}</span>
-      <span>{price}</span>
+      <span>{amountToPay}</span>
     </HeaderStyled>
   );
 }
