@@ -53,6 +53,10 @@ export default function Menu() {
     id === newProductInfo.id && setSelectedProduct(null);
     inputRef.current.focus();
   };
+  const onClickAdd = (e, id, title, price, quantity) => {
+    e.stopPropagation();
+    handleAddToBasket({ id, title, price, quantity });
+  };
 
   return (
     <MenuStyled>
@@ -70,7 +74,7 @@ export default function Menu() {
               : null
           }
           onDelete={(e) => handleCardDelete(id, e)}
-          onAdd={(e) => handleAddToBasket(e, { id, title, price, quantity })}
+          onAdd={(e) => onClickAdd(e, id, title, price, quantity)}
           onClick={() => handleCardClick(id)}
           hasButton={isAdmin}
         />
