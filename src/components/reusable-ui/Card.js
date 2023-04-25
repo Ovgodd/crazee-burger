@@ -12,6 +12,7 @@ export default function Card({
   onDelete,
   hasButton,
   selectedProduct,
+  onAdd,
 }) {
   //state (vide)
 
@@ -33,9 +34,7 @@ export default function Card({
         <div className="description">
           <span className="price">{price}</span>
           <Button
-            onClick={(event) => {
-              event.stopPropagation();
-            }}
+            onClick={onAdd}
             label="Ajouter"
             className="primary-button primary-selected"
           />
