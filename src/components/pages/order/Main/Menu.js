@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Card from "../../../reusable-ui/Card";
 import { formatPrice } from "../../../../utils/maths";
@@ -6,7 +6,6 @@ import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
 import ComingSoon from "../../../../images/coming-soon.png";
-import { deepClone } from "../../../../utils/array";
 import { useBasket } from "../../../../hooks/useBasket";
 
 export default function Menu() {
@@ -57,10 +56,11 @@ export default function Menu() {
 
   return (
     <MenuStyled>
-      {menuProducts.map(({ id, title, imageSource, price }) => (
+      {menuProducts.map(({ id, title, imageSource, price, quantity }) => (
         <Card
           key={id}
           id={id}
+          quantity={quantity}
           title={title}
           image={imageSource ? imageSource : ComingSoon}
           price={formatPrice(price)}
@@ -70,7 +70,7 @@ export default function Menu() {
               : null
           }
           onDelete={(e) => handleCardDelete(id, e)}
-          onAdd={(e) => handleAddToBasket(e, { id, title, price })}
+          onAdd={(e) => handleAddToBasket(e, { id, title, price, quantity })}
           onClick={() => handleCardClick(id)}
           hasButton={isAdmin}
         />
