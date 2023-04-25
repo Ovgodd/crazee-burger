@@ -7,6 +7,7 @@ import OrderContext from "../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
 import ComingSoon from "../../../../images/coming-soon.png";
 import { deepClone } from "../../../../utils/array";
+import { useBasket } from "../../../../hooks/useBasket";
 
 export default function Menu() {
   const {
@@ -22,14 +23,7 @@ export default function Menu() {
     setSelectedProduct,
     selectedProduct,
   } = useContext(OrderContext);
-
-  const [basket, setBasket] = useState([]);
-
-  const handleAddToBasket = (e, productToAdd) => {
-    e.stopPropagation();
-    console.log(productToAdd);
-    setBasket(deepClone(menuProducts));
-  };
+  const { handleAddToBasket } = useBasket();
 
   const label = {
     question: isAdmin ? "Le menu est vide ?" : "Victime de notre succès ! :D",
