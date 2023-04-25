@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import Card from "../../../reusable-ui/Card";
 import { formatPrice } from "../../../../utils/maths";
@@ -6,6 +6,7 @@ import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
 import ComingSoon from "../../../../images/coming-soon.png";
+import { deepClone } from "../../../../utils/array";
 
 export default function Menu() {
   const {
@@ -21,6 +22,14 @@ export default function Menu() {
     setSelectedProduct,
     selectedProduct,
   } = useContext(OrderContext);
+
+  const [basket, setBasket] = useState([]);
+
+  const handleAddToBasket = (e, productToAdd) => {
+    e.stopPropagation();
+    console.log(productToAdd);
+    setBasket(deepClone(menuProducts));
+  };
 
   const label = {
     question: isAdmin ? "Le menu est vide ?" : "Victime de notre succès ! :D",
@@ -42,6 +51,7 @@ export default function Menu() {
     await setIsCollapsed(false);
     await setNewProductInfo(productSelected);
     inputRef.current.focus();
+    console.log(productSelected);
   };
 
   const handleCardDelete = (id, event) => {
@@ -65,7 +75,8 @@ export default function Menu() {
               ? selectedProduct
               : null
           }
-          onDelete={(event) => handleCardDelete(id, event)}
+          onDelete={(e) => handleCardDelete(id, e)}
+          onAdd={(e) => handleAddToBasket(e, { id, title, price })}
           onClick={() => handleCardClick(id)}
           hasButton={isAdmin}
         />
