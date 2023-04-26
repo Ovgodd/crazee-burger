@@ -40,25 +40,19 @@ const BasketCardStyled = styled.div`
   background-color: ${theme.colors.background_white};
   box-shadow: ${theme.shadows.medium};
   position: relative;
-  .icon {
-    width: ${theme.fonts.size.P3};
-    height: ${theme.fonts.size.P3};
-  }
 
   img {
     width: 85px;
     height: 60px;
     object-fit: contain;
     box-sizing: border-box;
-    height: 100%;
-    width: 100%;
   }
   .description {
     margin-left: 21px;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 
-    min-width: 0;
     .title {
       font-family: "Amatic SC";
       font-style: normal;
@@ -97,9 +91,15 @@ const BasketCardStyled = styled.div`
     top: 0px;
     bottom: 0px;
     background: #e25549;
-    &:hover {
-      background: blue;
-      cursor: pointer;
+    border-radius: 0px 5px 5px 0px;
+    border-color: transparent;
+    .icon {
+      width: ${theme.fonts.size.P3};
+      height: ${theme.fonts.size.P3};
+      &:hover {
+        color: white;
+        cursor: pointer;
+      }
     }
   }
 `;

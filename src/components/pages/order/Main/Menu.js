@@ -6,7 +6,6 @@ import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
 import ComingSoon from "../../../../images/coming-soon.png";
-import { useBasket } from "../../../../hooks/useBasket";
 
 export default function Menu() {
   const {
