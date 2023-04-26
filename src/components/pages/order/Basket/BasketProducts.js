@@ -1,17 +1,8 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import BasketCard from "../../../reusable-ui/BasketCard";
-import { useEffect } from "react";
 
 export default function BasketProducts({ basket }) {
-  // useEffect(() => {
-  //   console.log(
-  //     `product now in basket from basket products comp  ${JSON.stringify(
-  //       basket
-  //     )}`
-  //   );
-  // }, [basket]);
-
   return (
     <BasketProductsStyled>
       {basket.map(({ id, imageSource, title, price, quantity }) => (
@@ -23,7 +14,6 @@ export default function BasketProducts({ basket }) {
           quantity={quantity}
         />
       ))}
-      {/* <span>{label}</span> */}
     </BasketProductsStyled>
   );
 }
