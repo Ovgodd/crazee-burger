@@ -38,6 +38,6 @@ const BasketProductsStyled = styled.div`
   align-items: center;
   flex: 1;
   overflow-y: scroll;
-  box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: ${theme.shadows.basket};
   background: ${theme.colors.background_white};
 `;
