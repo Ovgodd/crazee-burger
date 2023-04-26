@@ -53,9 +53,14 @@ export default function Menu() {
     id === newProductInfo.id && setSelectedProduct(null);
     inputRef.current.focus();
   };
-  const onClickAdd = (e, id, title, price, quantity) => {
+
+  const onClickAdd = (e, idProductToAdd) => {
     e.stopPropagation();
-    handleAddToBasket({ id, title, price, quantity });
+    const productToAdd = menuProducts.find(
+      (menuProduct) => menuProduct.id === idProductToAdd
+    );
+    // console.log(productToAdd);
+    handleAddToBasket(productToAdd);
   };
 
   return (
@@ -74,7 +79,7 @@ export default function Menu() {
               : null
           }
           onDelete={(e) => handleCardDelete(id, e)}
-          onAdd={(e) => onClickAdd(e, id, title, price, quantity)}
+          onAdd={(e) => onClickAdd(e, id)}
           onClick={() => handleCardClick(id)}
           hasButton={isAdmin}
         />
