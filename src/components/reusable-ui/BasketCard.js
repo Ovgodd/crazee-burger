@@ -14,8 +14,8 @@ export default function BasketCard({
   return (
     <BasketCardStyled isAdmin={isAdmin}>
       {isAdmin && (
-        <button className="delete">
-          <MdDeleteForever onClick={onDelete} className="icon" />
+        <button onClick={onDelete} className="delete">
+          <MdDeleteForever className="icon" />
         </button>
       )}
       <img className="product-image" src={imageSource} alt="product" />
@@ -44,6 +44,7 @@ const BasketCardStyled = styled.div`
   background-color: ${theme.colors.background_white};
   box-shadow: ${theme.shadows.medium};
   position: relative;
+  cursor: ${({ isAdmin }) => (isAdmin ? "pointer" : "auto")};
 
   img {
     width: 85px;
@@ -93,17 +94,18 @@ const BasketCardStyled = styled.div`
     background: ${theme.colors.red};
     border-radius: 0px 5px 5px 0px;
     border-color: transparent;
+    &:hover .icon {
+      color: ${theme.colors.background_dark};
+    }
+    &:active .icon {
+      color: ${theme.colors.white};
+      transition: 0.3s;
+    }
+    cursor: pointer;
     .icon {
       width: ${theme.fonts.size.P3};
       height: ${theme.fonts.size.P3};
-      &:hover {
-        color: ${theme.colors.white};
-        cursor: pointer;
-      }
-      &:active {
-        color: ${theme.colors.redSecondary};
-        transition: 0.3s;
-      }
+      color: ${theme.colors.white};
     }
   }
 `;
