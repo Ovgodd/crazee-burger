@@ -1,11 +1,16 @@
-import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
-import OrderContext from "../../../../context/OrderContext";
 import BasketCard from "../../../reusable-ui/BasketCard";
+import { useEffect } from "react";
 
-export default function BasketProducts() {
-  const { basket } = useContext(OrderContext);
+export default function BasketProducts({ basket }) {
+  // useEffect(() => {
+  //   console.log(
+  //     `product now in basket from basket products comp  ${JSON.stringify(
+  //       basket
+  //     )}`
+  //   );
+  // }, [basket]);
 
   return (
     <BasketProductsStyled>

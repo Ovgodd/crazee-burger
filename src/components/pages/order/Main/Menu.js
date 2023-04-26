@@ -21,8 +21,8 @@ export default function Menu() {
     setNewProductInfo,
     setSelectedProduct,
     selectedProduct,
+    handleAddToBasket,
   } = useContext(OrderContext);
-  const { handleAddToBasket } = useBasket();
 
   const label = {
     question: isAdmin ? "Le menu est vide ?" : "Victime de notre succès ! :D",
@@ -54,12 +54,12 @@ export default function Menu() {
     inputRef.current.focus();
   };
 
-  const onClickAdd = (e, idProductToAdd) => {
+  const handleOnAdd = (e, idProductToAdd) => {
     e.stopPropagation();
     const productToAdd = menuProducts.find(
       (menuProduct) => menuProduct.id === idProductToAdd
     );
-    // console.log(productToAdd);
+    console.log(`menu product to add ${JSON.stringify(productToAdd)}`);
     handleAddToBasket(productToAdd);
   };
 
@@ -79,7 +79,7 @@ export default function Menu() {
               : null
           }
           onDelete={(e) => handleCardDelete(id, e)}
-          onAdd={(e) => onClickAdd(e, id)}
+          onAdd={(e) => handleOnAdd(e, id)}
           onClick={() => handleCardClick(id)}
           hasButton={isAdmin}
         />

@@ -12,21 +12,27 @@ export const useBasket = () => {
     const isProductAlreadyInBasket = basket.find(
       (product) => product.id === productToAdd.id
     );
-    console.log(isProductAlreadyInBasket);
+    console.log(
+      `product in basket ?  ${JSON.stringify(isProductAlreadyInBasket)}`
+    );
 
     if (!isProductAlreadyInBasket) {
       const newBasketProduct = {
         ...productToAdd,
         quantity: 1,
       };
-
       const basketUpdated = [newBasketProduct, ...basketCopy];
-
       setBasket(basketUpdated);
+    } else {
+      const updatedBasket = basket.map((product) => {
+        if (product.id === productToAdd.id) {
+          return { ...product, quantity: product.quantity + 1 };
+        }
+        return product;
+      });
+      setBasket(updatedBasket);
     }
-
-    const updatedBasket = [productToAdd, ...basketCopy];
-    setBasket(updatedBasket);
+    console.log(`product now in basket   ${JSON.stringify(basket)}`);
   };
 
   return {
