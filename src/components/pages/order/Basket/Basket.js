@@ -8,13 +8,21 @@ import OrderContext from "../../../../context/OrderContext";
 import EmptyBasket from "./EmptyBasket";
 
 export default function Basket() {
-  const { basket } = useContext(OrderContext);
+  const { basket, isAdmin, handleDeleteToBasket } = useContext(OrderContext);
 
   const isBasketEmpty = basket.length === 0;
   return (
     <BasketStyled>
       <Header label="Total" amountToPay={formatPrice(0)} />
-      {isBasketEmpty ? <EmptyBasket /> : <BasketProducts basket={basket} />}
+      {isBasketEmpty ? (
+        <EmptyBasket />
+      ) : (
+        <BasketProducts
+          basket={basket}
+          isAdmin={isAdmin}
+          handleDeleteToBasket={handleDeleteToBasket}
+        />
+      )}
       <Footer label="Codé avec ❤️ et React.JS" />
     </BasketStyled>
   );
@@ -23,5 +31,6 @@ const BasketStyled = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: hidden;
   border-radius: 0px 0px 0px 15px;
 `;

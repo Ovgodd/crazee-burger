@@ -1,17 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
+import { MdDeleteForever } from "react-icons/md";
 
-export default function BasketCard({ imageSource, title, price, quantity }) {
+export default function BasketCard({
+  imageSource,
+  title,
+  price,
+  quantity,
+  isAdmin,
+  onDelete,
+}) {
   return (
-    <BasketCardStyled>
+    <BasketCardStyled isAdmin={isAdmin}>
+      {isAdmin && (
+        <button onClick={onDelete} className="delete">
+          <MdDeleteForever className="icon" />
+        </button>
+      )}
       <img className="product-image" src={imageSource} alt="product" />
       <div className="description">
         <span className="title">{title}</span>
-        <span className="price">{price} €</span>
+        <span className="price">{price}</span>
       </div>
-      <span className="quantity">{quantity}</span>
-      {/* <button className="delete">X</button> */}
+      <span className="quantity">x {quantity}</span>
     </BasketCardStyled>
   );
 }
@@ -21,25 +33,32 @@ const BasketCardStyled = styled.div`
   align-items: center;
   box-sizing: border-box;
   width: 90%;
-  height: 85px;
+  min-height: 86px;
   padding: 8px 16px;
-  margin: 20px 0;
-  border-radius: ${theme.borderRadius.extraRound};
-  overflow: hidden;
+  margin-top: 20px;
+  border-radius: ${theme.borderRadius.round};
   background-color: ${theme.colors.background_white};
   box-shadow: ${theme.shadows.medium};
   position: relative;
+  .icon {
+    width: ${theme.fonts.size.P3};
+    height: ${theme.fonts.size.P3};
+  }
 
   img {
     width: 85px;
     height: 60px;
     object-fit: contain;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
   }
   .description {
     margin-left: 21px;
     display: flex;
     flex-direction: column;
-    justify-content: left;
+
+    min-width: 0;
     .title {
       font-family: "Amatic SC";
       font-style: normal;
@@ -47,6 +66,9 @@ const BasketCardStyled = styled.div`
       font-size: 24px;
       line-height: 32px;
       color: #17161a;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
     .price {
       font-family: "Open Sans";
@@ -75,5 +97,9 @@ const BasketCardStyled = styled.div`
     top: 0px;
     bottom: 0px;
     background: #e25549;
+    &:hover {
+      background: blue;
+      cursor: pointer;
+    }
   }
 `;

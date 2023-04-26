@@ -34,10 +34,17 @@ export const useBasket = () => {
     }
     console.log(`product now in basket   ${JSON.stringify(basket)}`);
   };
+  const handleDeleteToBasket = (productID) => {
+    const updatedBasket = basket.filter((product) => {
+      return product.id !== productID;
+    });
+    setBasket(updatedBasket);
+  };
 
   return {
     basket,
     setBasket,
     handleAddToBasket,
+    handleDeleteToBasket,
   };
 };
