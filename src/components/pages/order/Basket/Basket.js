@@ -14,7 +14,9 @@ export default function Basket() {
     (total, product) => total + product.price * product.quantity,
     0
   );
+
   const isBasketEmpty = basket.length === 0;
+
   return (
     <BasketStyled>
       <Header label="Total" amountToPay={formatPrice(totalToPay)} />

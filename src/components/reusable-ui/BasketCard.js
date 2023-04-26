@@ -31,6 +31,7 @@ export default function BasketCard({
     </BasketCardStyled>
   );
 }
+
 const BasketCardStyled = styled.div`
   display: grid;
   grid-template-columns: 35% 1fr;
@@ -59,6 +60,7 @@ const BasketCardStyled = styled.div`
     grid-template-columns: 70% 1fr;
     font-size: ${theme.fonts.size.P0};
     color: ${theme.colors.primary};
+
     .description {
       display: grid;
       grid-template-rows: 60% 40%;
@@ -74,10 +76,12 @@ const BasketCardStyled = styled.div`
         white-space: nowrap;
         text-overflow: ellipsis;
       }
+
       .price {
         font-family: "Open Sans";
       }
     }
+
     .quantity {
       display: flex;
       align-items: center;
