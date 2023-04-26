@@ -2,20 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export default function BasketProduct({ image, title, price, quantity }) {
+export default function BasketCard({ imageSource, title, price, quantity }) {
   return (
-    <BasketProductStyled>
-      <img className="product-image" src={image} alt="product" />
+    <BasketCardStyled>
+      <img className="product-image" src={imageSource} alt="product" />
       <div className="description">
         <span className="title">{title}</span>
         <span className="price">{price} €</span>
       </div>
       <span className="quantity">{quantity}</span>
       {/* <button className="delete">X</button> */}
-    </BasketProductStyled>
+    </BasketCardStyled>
   );
 }
-const BasketProductStyled = styled.div`
+const BasketCardStyled = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
