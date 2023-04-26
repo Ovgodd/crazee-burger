@@ -4,16 +4,28 @@ import BasketCard from "../../../reusable-ui/BasketCard";
 import ComingSoon from "../../../../images/coming-soon.png";
 import { formatPrice } from "../../../../utils/maths";
 
-export default function BasketProducts({ basket }) {
+export default function BasketProducts({
+  basket,
+  isAdmin,
+  handleDeleteToBasket,
+}) {
+  const handleOnDelete = (id) => {
+    handleDeleteToBasket(id);
+  };
+
   return (
     <BasketProductsStyled>
-      {basket.map(({ id, imageSource, title, price, quantity }) => (
+      {basket.map((basketProduct) => (
         <BasketCard
-          key={id}
-          title={title}
-          image={imageSource ? imageSource : ComingSoon}
-          price={formatPrice(price)}
-          quantity={quantity}
+          key={basketProduct.id}
+          title={basketProduct.title}
+          image={
+            basketProduct.imageSource ? basketProduct.imageSource : ComingSoon
+          }
+          price={formatPrice(basketProduct.price)}
+          quantity={basketProduct.quantity}
+          isAdmin={isAdmin}
+          onDelete={() => handleOnDelete(basketProduct.id)}
         />
       ))}
     </BasketProductsStyled>

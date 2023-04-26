@@ -22,6 +22,7 @@ export default function Menu() {
     setSelectedProduct,
     selectedProduct,
     handleAddToBasket,
+    handleDeleteToBasket,
   } = useContext(OrderContext);
 
   const label = {
@@ -50,6 +51,7 @@ export default function Menu() {
   const handleCardDelete = (id, event) => {
     event.stopPropagation();
     handleDelete(id);
+    handleDeleteToBasket(id);
     id === newProductInfo.id && setSelectedProduct(null);
     inputRef.current.focus();
   };

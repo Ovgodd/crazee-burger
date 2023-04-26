@@ -19,7 +19,8 @@ export default function OrderPage() {
   const inputRef = useRef();
   const { handleAdd, handleReset, handleEdit, handleDelete, menuProducts } =
     useMenu();
-  const { basket, setBasket, handleAddToBasket } = useBasket();
+  const { basket, setBasket, handleAddToBasket, handleDeleteToBasket } =
+    useBasket();
 
   const adminContextValue = {
     isCollapsed,
@@ -43,6 +44,7 @@ export default function OrderPage() {
     basket,
     setBasket,
     handleAddToBasket,
+    handleDeleteToBasket,
   };
 
   return (
