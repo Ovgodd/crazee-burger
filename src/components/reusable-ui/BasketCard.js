@@ -14,22 +14,26 @@ export default function BasketCard({
   return (
     <BasketCardStyled isAdmin={isAdmin}>
       {isAdmin && (
-        <button onClick={onDelete} className="delete">
-          <MdDeleteForever className="icon" />
+        <button className="delete">
+          <MdDeleteForever onClick={onDelete} className="icon" />
         </button>
       )}
       <img className="product-image" src={imageSource} alt="product" />
-      <div className="description">
-        <span className="title">{title}</span>
-        <span className="price">{price}</span>
+      <div className="info-container">
+        <div className="description">
+          <span className="title">{title}</span>
+          <span className="price">{price}</span>
+        </div>
+        <div className="quantity">
+          <span>x {quantity}</span>
+        </div>
       </div>
-      <span className="quantity">x {quantity}</span>
     </BasketCardStyled>
   );
 }
 const BasketCardStyled = styled.div`
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 35% 1fr;
   align-items: center;
   box-sizing: border-box;
   width: 90%;
@@ -47,58 +51,58 @@ const BasketCardStyled = styled.div`
     object-fit: contain;
     box-sizing: border-box;
   }
-  .description {
-    margin-left: 21px;
-    display: flex;
-    flex-direction: column;
+  .info-container {
+    user-select: none;
     box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 70% 1fr;
+    font-size: ${theme.fonts.size.P0};
+    color: ${theme.colors.primary};
+    .description {
+      display: grid;
+      grid-template-rows: 60% 40%;
+      margin-left: 21px;
 
-    .title {
-      font-family: "Amatic SC";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 24px;
-      line-height: 32px;
-      color: #17161a;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+      .title {
+        font-family: ${theme.fonts.family.stylish};
+        font-weight: ${theme.fonts.weights.bold};
+        font-size: ${theme.fonts.size.P3};
+        line-height: 32px;
+        color: ${theme.colors.dark};
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .price {
+        font-family: "Open Sans";
+      }
     }
-    .price {
-      font-family: "Open Sans";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 15px;
-      line-height: 20px;
-      color: #ffa01b;
+    .quantity {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
-  .quantity {
-    font-family: "Open Sans";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 20px;
-    margin-left: 4px;
-    display: flex;
-    justify-content: center;
-    color: #ffa01b;
-  }
+
   .delete {
     position: absolute;
     width: 76px;
     right: 0px;
     top: 0px;
     bottom: 0px;
-    background: #e25549;
+    background: ${theme.colors.red};
     border-radius: 0px 5px 5px 0px;
     border-color: transparent;
     .icon {
       width: ${theme.fonts.size.P3};
       height: ${theme.fonts.size.P3};
       &:hover {
-        color: white;
+        color: ${theme.colors.white};
         cursor: pointer;
+      }
+      &:active {
+        color: ${theme.colors.redSecondary};
+        transition: 0.3s;
       }
     }
   }
