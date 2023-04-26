@@ -116,7 +116,7 @@ const CardStyled = styled.div`
 
 const hoverStyle = css`
   background: rgba(255, 255, 255, 0.002);
-  box-shadow: 0px 0px 8px #ff9a23, ${theme.shadows.medium};
+  box-shadow: ${theme.shadows.orangeHighlight}, ${theme.shadows.medium};
   border-radius: 15px;
   background: ${theme.colors.white};
   transition: transform 0.3s ease-in-out;
