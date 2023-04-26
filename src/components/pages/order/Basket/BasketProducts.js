@@ -19,7 +19,7 @@ export default function BasketProducts({
         <BasketCard
           key={basketProduct.id}
           title={basketProduct.title}
-          image={
+          imageSource={
             basketProduct.imageSource ? basketProduct.imageSource : ComingSoon
           }
           price={formatPrice(basketProduct.price)}
