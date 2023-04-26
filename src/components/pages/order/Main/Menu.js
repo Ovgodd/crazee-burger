@@ -44,7 +44,6 @@ export default function Menu() {
     await setIsCollapsed(false);
     await setNewProductInfo(productSelected);
     inputRef.current.focus();
-    console.log(productSelected);
   };
 
   const handleCardDelete = (id, event) => {
@@ -60,7 +59,6 @@ export default function Menu() {
     const productToAdd = menuProducts.find(
       (menuProduct) => menuProduct.id === idProductToAdd
     );
-    console.log(`menu product to add ${JSON.stringify(productToAdd)}`);
     handleAddToBasket(productToAdd);
   };
 

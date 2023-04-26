@@ -9,6 +9,7 @@ export default function EmptyBasket() {
     </EmptyBasketStyled>
   );
 }
+
 const EmptyBasketStyled = styled.div`
   display: flex;
   flex-direction: column;

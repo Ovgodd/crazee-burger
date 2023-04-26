@@ -31,6 +31,7 @@ export default function BasketProducts({
     </BasketProductsStyled>
   );
 }
+
 const BasketProductsStyled = styled.div`
   display: flex;
   flex-direction: column;

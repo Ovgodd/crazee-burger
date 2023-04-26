@@ -6,15 +6,12 @@ export const useBasket = () => {
   const [basket, setBasket] = useState(fakeBasket.EMPTY);
   // add to basket
   const handleAddToBasket = (productToAdd) => {
-    console.log(productToAdd);
     const basketCopy = deepClone(basket);
 
     const isProductAlreadyInBasket = basket.find(
       (product) => product.id === productToAdd.id
     );
-    console.log(
-      `product in basket ?  ${JSON.stringify(isProductAlreadyInBasket)}`
-    );
+
     //if product is not in basket > update state with quantity of 1
     if (!isProductAlreadyInBasket) {
       const newBasketProduct = {
@@ -33,7 +30,6 @@ export const useBasket = () => {
       });
       setBasket(updatedBasket);
     }
-    console.log(`product now in basket   ${JSON.stringify(basket)}`);
   };
   //delete element from basket
   const handleDeleteToBasket = (productID) => {
