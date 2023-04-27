@@ -120,8 +120,6 @@ const BasketCardStyled = styled.div`
       align-items: center;
       justify-content: center;
       width: 76px;
-      right: 0px;
-      top: 0px;
       bottom: 0px;
       background: ${theme.colors.red};
       border-radius: 0px 5px 5px 0px;
@@ -131,7 +129,6 @@ const BasketCardStyled = styled.div`
         color: ${theme.colors.background_dark};
       }
       &:active .icon {
-        color: ${theme.colors.white};
         transition: 0.3s;
       }
       .icon {

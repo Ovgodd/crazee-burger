@@ -50,6 +50,11 @@ export default function BasketProducts({ basket, handleDeleteToBasket }) {
               ? selectedProduct
               : null
           }
+          isSelected={
+            selectedProduct && selectedProduct.id === basketProduct.id
+              ? selectedProduct
+              : null
+          }
         />
       ))}
     </BasketProductsStyled>
