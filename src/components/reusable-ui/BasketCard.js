@@ -12,7 +12,7 @@ export default function BasketCard({
   onDelete,
 }) {
   return (
-    <BasketCardStyled isAdmin={isAdmin}>
+    <BasketCardStyled>
       {isAdmin && (
         <button onClick={onDelete} className="delete">
           <MdDeleteForever className="icon" />
