@@ -3,20 +3,39 @@ import { theme } from "../../../../theme";
 import BasketCard from "../../../reusable-ui/BasketCard";
 import ComingSoon from "../../../../images/coming-soon.png";
 import { formatPrice } from "../../../../utils/maths";
+import OrderContext from "../../../../context/OrderContext";
+import { useContext } from "react";
+import { findInArray } from "../../../../utils/array";
 
-export default function BasketProducts({
-  basket,
-  isAdmin,
-  handleDeleteToBasket,
-}) {
+export default function BasketProducts({ basket, handleDeleteToBasket }) {
+  const {
+    setSelectedProduct,
+    setNewProductInfo,
+    setIsCollapsed,
+    selectedProduct,
+    setSelectedTab,
+    inputRef,
+    menuProducts,
+    isAdmin,
+  } = useContext(OrderContext);
   const handleOnDelete = (id) => {
     handleDeleteToBasket(id);
+  };
+  const handleCardProductClick = async (id) => {
+    if (!isAdmin) return;
+    const productSelected = findInArray(id, menuProducts);
+    await setSelectedProduct(productSelected);
+    await setSelectedTab("edit");
+    await setIsCollapsed(false);
+    await setNewProductInfo(productSelected);
+    inputRef.current.focus();
   };
 
   return (
     <BasketProductsStyled>
       {basket.map((basketProduct) => (
         <BasketCard
+          onClick={() => handleCardProductClick(basketProduct.id)}
           key={basketProduct.id}
           title={basketProduct.title}
           imageSource={
@@ -26,6 +45,11 @@ export default function BasketProducts({
           quantity={basketProduct.quantity}
           isAdmin={isAdmin}
           onDelete={() => handleOnDelete(basketProduct.id)}
+          isSelected={
+            selectedProduct && selectedProduct.id === basketProduct.id
+              ? selectedProduct
+              : null
+          }
         />
       ))}
     </BasketProductsStyled>
