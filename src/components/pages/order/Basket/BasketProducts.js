@@ -5,39 +5,53 @@ import COMING_SOON from "../../../../images/coming-soon.png";
 import { formatPrice } from "../../../../utils/maths";
 import OrderContext from "../../../../context/OrderContext";
 import { useContext } from "react";
-import { findObjectById } from "../../../../utils/array";
+import { findInArray } from "../../../../utils/array";
 
 export default function BasketProducts({ basket, handleDeleteToBasket }) {
-  const { selectedProduct, menuProducts, isAdmin, handleProductClick } =
-    useContext(OrderContext);
+  const {
+    setSelectedProduct,
+    setNewProductInfo,
+    setIsCollapsed,
+    selectedProduct,
+    setSelectedTab,
+    inputRef,
+    menuProducts,
+    isAdmin,
+  } = useContext(OrderContext);
   const handleOnDelete = (id) => {
     handleDeleteToBasket(id);
+  };
+  const handleCardProductClick = async (id) => {
+    if (!isAdmin) return;
+    const productSelected = findInArray(id, menuProducts);
+    await setSelectedProduct(productSelected);
+    await setSelectedTab("edit");
+    await setIsCollapsed(false);
+    await setNewProductInfo(productSelected);
+    inputRef.current.focus();
   };
 
   return (
     <BasketProductsStyled>
-      {basket.map((basketProduct) => {
-        const menuProduct = findObjectById(basketProduct.id, menuProducts);
-        return (
-          <BasketCard
-            onClick={() => handleProductClick(menuProduct.id)}
-            key={menuProduct.id}
-            title={menuProduct.title}
-            imageSource={
-              menuProduct.imageSource ? menuProduct.imageSource : COMING_SOON
-            }
-            price={formatPrice(menuProduct.price)}
-            quantity={basketProduct.quantity}
-            isAdmin={isAdmin}
-            onDelete={() => handleOnDelete(menuProduct.id)}
-            isSelected={
-              selectedProduct && selectedProduct.id === menuProduct.id
-                ? selectedProduct
-                : null
-            }
-          />
-        );
-      })}
+      {basket.map((basketProduct) => (
+        <BasketCard
+          onClick={() => handleCardProductClick(basketProduct.id)}
+          key={basketProduct.id}
+          title={basketProduct.title}
+          imageSource={
+            basketProduct.imageSource ? basketProduct.imageSource : ComingSoon
+          }
+          price={formatPrice(basketProduct.price)}
+          quantity={basketProduct.quantity}
+          isAdmin={isAdmin}
+          onDelete={() => handleOnDelete(basketProduct.id)}
+          isSelected={
+            selectedProduct && selectedProduct.id === basketProduct.id
+              ? selectedProduct
+              : null
+          }
+        />
+      ))}
     </BasketProductsStyled>
   );
 }
