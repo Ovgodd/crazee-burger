@@ -2,27 +2,18 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import Footer from "./Footer";
-import { formatPrice } from "../../../../utils/maths";
 import BasketProducts from "./BasketProducts";
 import OrderContext from "../../../../context/OrderContext";
 import EmptyBasket from "./EmptyBasket";
-import { findInArray } from "../../../../utils/array";
 
 export default function Basket() {
   const { basket, isAdmin, handleDeleteToBasket } = useContext(OrderContext);
-
-  const totalToPay = basket.reduce((total, basketProduct) => {
-    const menuProduct = findInArray(basketProduct.id, basket);
-    if (isNaN(menuProduct.price)) return total;
-    total += menuProduct.price * basketProduct.quantity;
-    return total;
-  }, 0);
 
   const isBasketEmpty = basket.length === 0;
 
   return (
     <BasketStyled>
-      <Header label="Total" amountToPay={formatPrice(totalToPay)} />
+      <Header label="Total" />
       {isBasketEmpty ? (
         <EmptyBasket />
       ) : (
