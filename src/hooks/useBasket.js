@@ -44,11 +44,21 @@ export const useBasket = () => {
     const basketUpdated = [newBasketProduct, ...basketCopy];
     setBasket(basketUpdated);
   };
+  //change element info in basket
+  const handleEditInBasket = (productBeingEdited) => {
+    const basketMenuCopy = deepClone(basket);
+
+    const productToEdit = findIndex(productBeingEdited.id, basket);
+
+    basketMenuCopy[productToEdit] = productBeingEdited;
+    setBasket(basketMenuCopy);
+  };
 
   return {
     basket,
     setBasket,
     handleAddToBasket,
     handleDeleteToBasket,
+    handleEditInBasket,
   };
 };
