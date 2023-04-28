@@ -6,12 +6,15 @@ import { formatPrice } from "../../../../utils/maths";
 import BasketProducts from "./BasketProducts";
 import OrderContext from "../../../../context/OrderContext";
 import EmptyBasket from "./EmptyBasket";
+import { findInArray } from "../../../../utils/array";
 
 export default function Basket() {
   const { basket, isAdmin, handleDeleteToBasket } = useContext(OrderContext);
 
   const totalToPay = basket.reduce((total, basketProduct) => {
-    total += basketProduct.price * basketProduct.quantity;
+    const menuProduct = findInArray(basketProduct.id, basket);
+    if (isNaN(menuProduct.price)) return total;
+    total += menuProduct.price * basketProduct.quantity;
     return total;
   }, 0);
 
