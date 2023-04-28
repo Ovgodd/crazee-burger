@@ -12,9 +12,14 @@ export default function BasketCard({
   onClick,
   isSelected,
   isAdmin,
+  isAdmin,
 }) {
   return (
-    <BasketCardStyled onClick={onClick} isSelected={isSelected}>
+    <BasketCardStyled
+      isAdmin={isAdmin}
+      onClick={onClick}
+      isSelected={isSelected}
+    >
       <button onClick={onDelete} className="delete">
         <MdDeleteForever className="icon" />
       </button>
