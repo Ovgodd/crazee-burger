@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
+import OrderContext from "../../../../context/OrderContext";
+import { findInArray } from "../../../../utils/array";
+import { formatPrice } from "../../../../utils/maths";
 
-export default function Header({ amountToPay, label }) {
+export default function Header({ label }) {
+  const { basket } = useContext(OrderContext);
+
+  const totalToPay = basket.reduce((total, basketProduct) => {
+    const menuProduct = findInArray(basketProduct.id, basket);
+    if (isNaN(menuProduct.price)) return total;
+    total += menuProduct.price * basketProduct.quantity;
+    return total;
+  }, 0);
+
   return (
     <HeaderStyled>
       <span>{label}</span>
-      <span className="total">{amountToPay}</span>
+      <span className="total">{formatPrice(totalToPay)}</span>
     </HeaderStyled>
   );
 }
