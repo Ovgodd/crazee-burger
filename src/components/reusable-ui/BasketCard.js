@@ -8,7 +8,6 @@ export default function BasketCard({
   title,
   price,
   quantity,
-  isAdmin,
   onDelete,
 }) {
   return (
