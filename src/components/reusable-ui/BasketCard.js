@@ -13,11 +13,10 @@ export default function BasketCard({
 }) {
   return (
     <BasketCardStyled>
-      {isAdmin && (
-        <button onClick={onDelete} className="delete">
-          <MdDeleteForever className="icon" />
-        </button>
-      )}
+      <button onClick={onDelete} className="delete">
+        <MdDeleteForever className="icon" />
+      </button>
+
       <img className="product-image" src={imageSource} alt="product" />
       <div className="info-container">
         <div className="description">
@@ -88,28 +87,39 @@ const BasketCardStyled = styled.div`
       justify-content: center;
     }
   }
-
   .delete {
-    position: absolute;
-    width: 76px;
-    right: 0px;
-    top: 0px;
-    bottom: 0px;
-    background: ${theme.colors.red};
-    border-radius: 0px 5px 5px 0px;
-    border-color: transparent;
-    &:hover .icon {
-      color: ${theme.colors.background_dark};
-    }
-    &:active .icon {
-      color: ${theme.colors.white};
-      transition: 0.3s;
-    }
+    display: none;
+    z-index: 1;
+  }
+
+  :hover {
     cursor: pointer;
-    .icon {
-      width: ${theme.fonts.size.P3};
-      height: ${theme.fonts.size.P3};
-      color: ${theme.colors.white};
+    .delete {
+      box-sizing: border-box;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 76px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+      background: ${theme.colors.red};
+      border-radius: 0px 5px 5px 0px;
+      border-color: transparent;
+      cursor: pointer;
+      &:hover .icon {
+        color: ${theme.colors.background_dark};
+      }
+      &:active .icon {
+        color: ${theme.colors.white};
+        transition: 0.3s;
+      }
+      .icon {
+        width: ${theme.fonts.size.P3};
+        height: ${theme.fonts.size.P3};
+        color: ${theme.colors.white};
+      }
     }
   }
 `;
