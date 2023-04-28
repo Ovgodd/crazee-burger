@@ -137,8 +137,12 @@ const BasketCardStyled = styled.div`
   }
 `;
 const selectedStyle = css`
-  background: red;
-`;
-const hoverStyle = css`
-  cursor: pointer;
+  background: ${theme.colors.primary};
+
+  .price {
+    color: ${theme.colors.white};
+  }
+  .quantity {
+    color: ${theme.colors.white};
+  }
 `;
