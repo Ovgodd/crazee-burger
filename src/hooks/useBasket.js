@@ -8,10 +8,6 @@ export const useBasket = () => {
   const handleAddToBasket = (productToAdd) => {
     const basketCopy = deepClone(basket);
 
-    // const isProductAlreadyInBasket = basket.find(
-    //   (product) => product.id === productToAdd.id
-    // );
-
     const isProductAlreadyInBasket = findInArray(productToAdd.id, basket);
 
     //if product is not in basket > update state with quantity of 1
