@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { deepClone, findInArray } from "../utils/array";
+import { deepClone, findInArray, findIndex } from "../utils/array";
 import { fakeBasket } from "../fakeData/fakeBasket";
 
 export const useBasket = () => {
@@ -29,12 +29,21 @@ export const useBasket = () => {
       setBasket(updatedBasket);
     }
   };
-  //delete element from basket
+  //delete element in basket
   const handleDeleteToBasket = (productID) => {
     const updatedBasket = basket.filter((product) => {
       return product.id !== productID;
     });
     setBasket(updatedBasket);
+  };
+  //change element info in basket
+  const handleEditInBasket = (productBeingEdited) => {
+    const basketMenuCopy = deepClone(basket);
+
+    const productToEdit = findIndex(productBeingEdited.id, basket);
+
+    basketMenuCopy[productToEdit] = productBeingEdited;
+    setBasket(basketMenuCopy);
   };
 
   return {
@@ -42,5 +51,6 @@ export const useBasket = () => {
     setBasket,
     handleAddToBasket,
     handleDeleteToBasket,
+    handleEditInBasket,
   };
 };

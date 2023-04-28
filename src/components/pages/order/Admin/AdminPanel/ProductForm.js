@@ -12,6 +12,7 @@ export default function ProductForm() {
     handleAdd,
     setNewProductInfo,
     handleEdit,
+    handleEditInBasket,
   } = useContext(OrderContext);
   const { isSubmitted, displaySuccess } = useSuccessMessage();
 
@@ -20,6 +21,7 @@ export default function ProductForm() {
     const updatedNewProductInfo = { ...newProductInfo, [name]: value };
     setNewProductInfo(updatedNewProductInfo);
     handleEdit(updatedNewProductInfo);
+    handleEditInBasket(updatedNewProductInfo);
   };
 
   const handleSubmit = (event) => {
