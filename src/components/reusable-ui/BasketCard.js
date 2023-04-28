@@ -17,7 +17,9 @@ export default function BasketCard({
         <MdDeleteForever className="icon" />
       </button>
 
-      <img className="product-image" src={imageSource} alt="product" />
+      <div className="image">
+        <img className="product-image" src={imageSource} alt="product" />
+      </div>
       <div className="info-container">
         <div className="description">
           <span className="title">{title}</span>
@@ -33,7 +35,7 @@ export default function BasketCard({
 
 const BasketCardStyled = styled.div`
   display: grid;
-  grid-template-columns: 35% 1fr;
+  grid-template-columns: 30% 1fr;
   align-items: center;
   box-sizing: border-box;
   width: 90%;
@@ -46,11 +48,16 @@ const BasketCardStyled = styled.div`
   position: relative;
   cursor: ${({ isAdmin }) => (isAdmin ? "pointer" : "auto")};
 
-  img {
-    width: 85px;
-    height: 60px;
-    object-fit: contain;
+  .image {
     box-sizing: border-box;
+    height: 70px;
+    img {
+      padding: 5px;
+      box-sizing: border-box;
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
   }
   .info-container {
     user-select: none;
@@ -78,6 +85,7 @@ const BasketCardStyled = styled.div`
 
       .price {
         font-family: "Open Sans";
+        font-size: ${theme.fonts.size.SM};
       }
     }
 
@@ -93,7 +101,6 @@ const BasketCardStyled = styled.div`
   }
 
   :hover {
-    cursor: pointer;
     .delete {
       box-sizing: border-box;
       position: absolute;

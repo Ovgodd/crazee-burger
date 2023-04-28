@@ -6,7 +6,7 @@ export default function Header({ amountToPay, label }) {
   return (
     <HeaderStyled>
       <span>{label}</span>
-      <span>{amountToPay}</span>
+      <span className="total">{amountToPay}</span>
     </HeaderStyled>
   );
 }
@@ -25,4 +25,7 @@ const HeaderStyled = styled.div`
   line-height: 45px;
   letter-spacing: 2px;
   color: ${theme.colors.primary};
+  .total {
+    font-weight: ${theme.fonts.weights.bold};
+  }
 `;
