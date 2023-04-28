@@ -11,9 +11,14 @@ export default function BasketCard({
   onDelete,
   onClick,
   isSelected,
+  isAdmin,
 }) {
   return (
-    <BasketCardStyled onClick={onClick} isSelected={isSelected}>
+    <BasketCardStyled
+      isAdmin={isAdmin}
+      onClick={onClick}
+      isSelected={isSelected}
+    >
       <button onClick={onDelete} className="delete">
         <MdDeleteForever className="icon" />
       </button>
@@ -48,7 +53,7 @@ const BasketCardStyled = styled.div`
   box-shadow: ${theme.shadows.medium};
   position: relative;
 
-  ${({ isSelected }) => isSelected && selectedStyle}
+  ${({ isSelected, isAdmin }) => isSelected && isAdmin && selectedStyle}
 
   .image-container {
     box-sizing: border-box;
