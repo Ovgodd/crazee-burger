@@ -5,11 +5,12 @@ import Footer from "./Footer";
 import BasketProducts from "./BasketProducts";
 import OrderContext from "../../../../context/OrderContext";
 import EmptyBasket from "./EmptyBasket";
+import { isEmpty } from "../../../../utils/array";
 
 export default function Basket() {
   const { basket, isAdmin, handleDeleteToBasket } = useContext(OrderContext);
 
-  const isBasketEmpty = basket.length === 0;
+  const isBasketEmpty = isEmpty(basket);
 
   return (
     <BasketStyled>

@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { deepClone, findInArray, findIndex } from "../utils/array";
+import {
+  deepClone,
+  findObjectById,
+  findIndex,
+  removeObjectById,
+} from "../utils/array";
 import { fakeBasket } from "../fakeData/fakeBasket";
 
 export const useBasket = () => {
@@ -8,7 +13,7 @@ export const useBasket = () => {
   const handleAddToBasket = (productToAdd) => {
     const basketCopy = deepClone(basket);
 
-    const isProductAlreadyInBasket = findInArray(productToAdd.id, basket);
+    const isProductAlreadyInBasket = findObjectById(productToAdd.id, basket);
 
     //if product is not in basket > update state with quantity of 1
     if (!isProductAlreadyInBasket) {
@@ -31,9 +36,10 @@ export const useBasket = () => {
   };
   //delete element in basket
   const handleDeleteToBasket = (productID) => {
-    const updatedBasket = basket.filter((product) => {
-      return product.id !== productID;
-    });
+    const basketProductCopy = deepClone(basket);
+
+    const updatedBasket = removeObjectById(productID, basketProductCopy);
+
     setBasket(updatedBasket);
   };
   //change element info in basket
