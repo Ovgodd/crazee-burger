@@ -5,7 +5,7 @@ import ComingSoon from "../../../../images/coming-soon.png";
 import { formatPrice } from "../../../../utils/maths";
 import OrderContext from "../../../../context/OrderContext";
 import { useContext } from "react";
-import { findInArray } from "../../../../utils/array";
+import { findObjectById } from "../../../../utils/array";
 
 export default function BasketProducts({ basket, handleDeleteToBasket }) {
   const {
@@ -23,7 +23,7 @@ export default function BasketProducts({ basket, handleDeleteToBasket }) {
   };
   const handleCardProductClick = async (id) => {
     if (!isAdmin) return;
-    const productSelected = findInArray(id, menuProducts);
+    const productSelected = findObjectById(id, menuProducts);
     await setSelectedProduct(productSelected);
     await setSelectedTab("edit");
     await setIsCollapsed(false);

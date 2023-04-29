@@ -6,8 +6,11 @@ export const useMenu = () => {
   const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
 
   const handleDelete = (id) => {
-    const updatedMenu = removeObjectById(id, menuProducts);
-    setMenuProducts(updatedMenu);
+    const menuCopy = deepClone(menuProducts);
+
+    const menuUpdated = removeObjectById(id, menuCopy);
+
+    setMenuProducts(menuUpdated);
   };
 
   const handleAdd = (productToAdd) => {
