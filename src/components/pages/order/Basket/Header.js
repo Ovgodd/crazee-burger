@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import { formatPrice } from "../../../../utils/maths";
+import { totalSumToPay } from "./helper";
 
 export default function Header({ label, totalToPay }) {
   return (
