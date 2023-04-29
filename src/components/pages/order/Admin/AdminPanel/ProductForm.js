@@ -3,6 +3,7 @@ import OrderContext from "../../../../../context/OrderContext";
 import AdminForm from "../../../../reusable-ui/AdminForm";
 import { DEFAULT_PRODUCT_INFO } from "../../../../enums/product";
 import { useSuccessMessage } from "../../../../../hooks/useDisplaySuccess";
+import { replaceFrenchCommaWithDot } from "../../../../../utils/maths";
 
 export default function ProductForm() {
   const {
@@ -26,7 +27,11 @@ export default function ProductForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleAdd({ ...newProductInfo, id: new Date().getTime() });
+    handleAdd({
+      ...newProductInfo,
+      id: new Date().getTime(),
+      price: replaceFrenchCommaWithDot(newProductInfo.price),
+    });
     setNewProductInfo(DEFAULT_PRODUCT_INFO); // reset form
     displaySuccess();
   };
