@@ -7,7 +7,6 @@ import OrderContext from "../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
 import ComingSoon from "../../../../images/coming-soon.png";
 import { findObjectById, isEmpty } from "../../../../utils/array";
-import { findObjectById, isEmpty } from "../../../../utils/array";
 
 export default function Menu() {
   const {
@@ -36,8 +35,7 @@ export default function Menu() {
   };
 
   if (isEmpty(menuProducts))
-    if (isEmpty(menuProducts))
-      return <EmptyMenu onClick={handleReset} label={label} />;
+    return <EmptyMenu onClick={handleReset} label={label} />;
 
   const handleCardClick = async (id) => {
     if (!isAdmin) return;

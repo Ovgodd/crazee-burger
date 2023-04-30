@@ -11,11 +11,6 @@ export const useMenu = () => {
     const menuUpdated = removeObjectById(id, menuCopy);
 
     setMenuProducts(menuUpdated);
-    const menuCopy = deepClone(menuProducts);
-
-    const menuUpdated = removeObjectById(id, menuCopy);
-
-    setMenuProducts(menuUpdated);
   };
 
   const handleAdd = (productToAdd) => {
