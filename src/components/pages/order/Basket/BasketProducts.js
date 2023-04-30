@@ -33,25 +33,28 @@ export default function BasketProducts({ basket, handleDeleteToBasket }) {
 
   return (
     <BasketProductsStyled>
-      {basket.map((basketProduct) => (
-        <BasketCard
-          onClick={() => handleCardProductClick(basketProduct.id)}
-          key={basketProduct.id}
-          title={basketProduct.title}
-          imageSource={
-            basketProduct.imageSource ? basketProduct.imageSource : ComingSoon
-          }
-          price={formatPrice(basketProduct.price)}
-          quantity={basketProduct.quantity}
-          isAdmin={isAdmin}
-          onDelete={() => handleOnDelete(basketProduct.id)}
-          isSelected={
-            selectedProduct && selectedProduct.id === basketProduct.id
-              ? selectedProduct
-              : null
-          }
-        />
-      ))}
+      {basket.map((basketProduct) => {
+        const menuProduct = findObjectById(basketProduct.id, menuProducts);
+        return (
+          <BasketCard
+            onClick={() => handleCardProductClick(menuProduct.id)}
+            key={menuProduct.id}
+            title={menuProduct.title}
+            imageSource={
+              menuProduct.imageSource ? menuProduct.imageSource : ComingSoon
+            }
+            price={formatPrice(menuProduct.price)}
+            quantity={basketProduct.quantity}
+            isAdmin={isAdmin}
+            onDelete={() => handleOnDelete(menuProduct.id)}
+            isSelected={
+              selectedProduct && selectedProduct.id === menuProduct.id
+                ? selectedProduct
+                : null
+            }
+          />
+        );
+      })}
     </BasketProductsStyled>
   );
 }
