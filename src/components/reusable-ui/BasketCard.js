@@ -15,7 +15,7 @@ export default function BasketCard({
 }) {
   return (
     <BasketCardStyled
-      isAdmin={isAdmin}
+      isSelectable={isAdmin}
       onClick={onClick}
       isSelected={isSelected}
     >
@@ -52,9 +52,11 @@ const BasketCardStyled = styled.div`
   background-color: ${theme.colors.background_white};
   box-shadow: ${theme.shadows.medium};
   position: relative;
-  cursor: pointer;
 
-  ${({ isSelected, isAdmin }) => isSelected && isAdmin && selectedStyle}
+  cursor: ${({ isSelectable }) => (isSelectable ? "pointer" : "auto")};
+
+  ${({ isSelected, isSelectable }) =>
+    isSelected && isSelectable && selectedStyle}
 
   .image {
     box-sizing: border-box;
