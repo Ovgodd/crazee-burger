@@ -6,7 +6,7 @@ import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
 import ComingSoon from "../../../../images/coming-soon.png";
-import { findInArray } from "../../../../utils/array";
+import { findObjectById } from "../../../../utils/array";
 
 export default function Menu() {
   const {
@@ -39,7 +39,7 @@ export default function Menu() {
 
   const handleCardClick = async (id) => {
     if (!isAdmin) return;
-    const productSelected = findInArray(id, menuProducts);
+    const productSelected = findObjectById(id, menuProducts);
     await setSelectedProduct(productSelected);
     await setSelectedTab("edit");
     await setIsCollapsed(false);
@@ -57,7 +57,7 @@ export default function Menu() {
 
   const handleOnAdd = (e, idProductToAdd) => {
     e.stopPropagation();
-    const productToAdd = findInArray(idProductToAdd, menuProducts);
+    const productToAdd = findObjectById(idProductToAdd, menuProducts);
     handleAddToBasket(productToAdd);
   };
 
