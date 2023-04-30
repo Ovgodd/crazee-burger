@@ -81,6 +81,8 @@ const BasketCardStyled = styled.div`
       display: grid;
       grid-template-rows: 60% 40%;
       margin-left: 21px;
+      min-width: 119.14px;
+      min-height: 70px;
 
       .title {
         font-family: ${theme.fonts.family.stylish};
@@ -96,6 +98,7 @@ const BasketCardStyled = styled.div`
       .price {
         font-family: "Open Sans";
         font-size: ${theme.fonts.size.SM};
+        font-weight: ${theme.fonts.weights.regular};
       }
     }
 
