@@ -139,6 +139,7 @@ const BasketCardStyled = styled.div`
     }
   }
 `;
+
 const selectedStyle = css`
   background: ${theme.colors.primary};
 

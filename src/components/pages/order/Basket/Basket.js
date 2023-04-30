@@ -13,6 +13,7 @@ export default function Basket() {
     useContext(OrderContext);
 
   const totalToPay = totalSumToPay(basket, menuProducts);
+
   const isBasketEmpty = isEmpty(basket);
 
   return (
