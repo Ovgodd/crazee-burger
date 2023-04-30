@@ -33,6 +33,7 @@ export default function ProductForm() {
     handleAdd(newProductToAdd);
     setNewProductInfo(DEFAULT_PRODUCT_INFO); // reset form
     displaySuccess();
+    console.log(typeof newProductInfo.price, "price :", newProductInfo.price);
   };
 
   return (
