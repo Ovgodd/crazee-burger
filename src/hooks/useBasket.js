@@ -44,7 +44,7 @@ export const useBasket = () => {
     const basketUpdated = [newBasketProduct, ...basketCopy];
     setBasket(basketUpdated);
   };
-  //change element info in basket
+  // change element info in basket
   const handleEditInBasket = (productBeingEdited) => {
     const basketMenuCopy = deepClone(basket);
 
