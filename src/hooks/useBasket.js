@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { deepClone, findInArray } from "../utils/array";
+import { deepClone, findIndex, findObjectById } from "../utils/array";
 import { fakeBasket } from "../fakeData/fakeBasket";
 
 export const useBasket = () => {
@@ -8,26 +8,15 @@ export const useBasket = () => {
   const handleAddToBasket = (productToAdd) => {
     const basketCopy = deepClone(basket);
 
-    const isProductAlreadyInBasket = findInArray(productToAdd.id, basket);
+    const isProductAlreadyInBasket = findObjectById(productToAdd.id, basket);
 
     //if product is not in basket > update state with quantity of 1
     if (!isProductAlreadyInBasket) {
-      const newBasketProduct = {
-        ...productToAdd,
-        quantity: 1,
-      };
-      const basketUpdated = [newBasketProduct, ...basketCopy];
-      setBasket(basketUpdated);
-      //if product is  in basket > update state with quantity+1
-    } else {
-      const updatedBasket = basket.map((product) => {
-        if (product.id === productToAdd.id) {
-          return { ...product, quantity: product.quantity + 1 };
-        }
-        return product;
-      });
-      setBasket(updatedBasket);
+      AddProductThatIsNotInBasket(productToAdd, basketCopy, setBasket);
+      return;
     }
+    //if product is  in basket > update state with quantity+1
+    incrementProductAlreadyInBasket(productToAdd, basketCopy);
   };
   //delete element from basket
   const handleDeleteToBasket = (productID) => {
@@ -36,7 +25,19 @@ export const useBasket = () => {
     });
     setBasket(updatedBasket);
   };
-
+  const incrementProductAlreadyInBasket = (productToAdd, basketCopy) => {
+    const basketProductToIncrement = findIndex(productToAdd.id, basketCopy);
+    basketCopy[basketProductToIncrement].quantity += 1;
+    setBasket(basketCopy);
+  };
+  const AddProductThatIsNotInBasket = (productToAdd, basketCopy, setBasket) => {
+    const newBasketProduct = {
+      ...productToAdd,
+      quantity: 1,
+    };
+    const basketUpdated = [newBasketProduct, ...basketCopy];
+    setBasket(basketUpdated);
+  };
   return {
     basket,
     setBasket,
