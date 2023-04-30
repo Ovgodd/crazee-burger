@@ -60,6 +60,5 @@ export const useBasket = () => {
     handleAddToBasket,
     handleDeleteToBasket,
     handleEditInBasket,
-    handleEditInBasket,
   };
 };
