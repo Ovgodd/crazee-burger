@@ -24,5 +24,4 @@ export default createContext({
   setBasket: () => {},
   handleAddToBasket: () => {},
   handleDeleteToBasket: () => {},
-  handleEditInBasket: () => {},
 });
