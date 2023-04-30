@@ -5,15 +5,19 @@ import Footer from "./Footer";
 import BasketProducts from "./BasketProducts";
 import OrderContext from "../../../../context/OrderContext";
 import EmptyBasket from "./EmptyBasket";
+import { isEmpty } from "../../../../utils/array";
+import { totalSumToPay } from "./helper";
 
 export default function Basket() {
-  const { basket, isAdmin, handleDeleteToBasket } = useContext(OrderContext);
+  const { basket, menuProducts, isAdmin, handleDeleteToBasket } =
+    useContext(OrderContext);
 
-  const isBasketEmpty = basket.length === 0;
+  const totalToPay = totalSumToPay(basket, menuProducts);
+  const isBasketEmpty = isEmpty(basket);
 
   return (
     <BasketStyled>
-      <Header label="Total" />
+      <Header totalToPay={totalToPay} label="Total" />
       {isBasketEmpty ? (
         <EmptyBasket />
       ) : (
