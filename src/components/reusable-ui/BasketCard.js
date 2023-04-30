@@ -81,8 +81,7 @@ const BasketCardStyled = styled.div`
       display: grid;
       grid-template-rows: 60% 40%;
       margin-left: 21px;
-      min-width: 119.14px;
-      min-height: 70px;
+      min-height: 60px;
 
       .title {
         font-family: ${theme.fonts.family.stylish};
