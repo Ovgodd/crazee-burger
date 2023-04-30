@@ -56,10 +56,6 @@ const BasketCardStyled = styled.div`
 
   ${({ isSelected, isAdmin }) => isSelected && isAdmin && selectedStyle}
 
-  &:hover {
-    ${({ isAdmin }) => isAdmin && hoverStyle};
-  }
-
   .image {
     box-sizing: border-box;
     height: 70px;
