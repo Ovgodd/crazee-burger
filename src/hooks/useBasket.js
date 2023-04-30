@@ -1,8 +1,8 @@
 import { useState } from "react";
 import {
   deepClone,
-  findIndex,
   findObjectById,
+  findIndex,
   removeObjectById,
 } from "../utils/array";
 import { fakeBasket } from "../fakeData/fakeBasket";
@@ -53,12 +53,22 @@ export const useBasket = () => {
     basketMenuCopy[productToEdit] = productBeingEdited;
     setBasket(basketMenuCopy);
   };
+  // change element info in basket
+  const handleEditInBasket = (productBeingEdited) => {
+    const basketMenuCopy = deepClone(basket);
+
+    const productToEdit = findIndex(productBeingEdited.id, basket);
+
+    basketMenuCopy[productToEdit] = productBeingEdited;
+    setBasket(basketMenuCopy);
+  };
 
   return {
     basket,
     setBasket,
     handleAddToBasket,
     handleDeleteToBasket,
+    handleEditInBasket,
     handleEditInBasket,
   };
 };

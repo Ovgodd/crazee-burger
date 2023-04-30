@@ -7,6 +7,7 @@ import OrderContext from "../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
 import ComingSoon from "../../../../images/coming-soon.png";
 import { findObjectById, isEmpty } from "../../../../utils/array";
+import { findObjectById, isEmpty } from "../../../../utils/array";
 
 export default function Menu() {
   const {
@@ -35,11 +36,11 @@ export default function Menu() {
   };
 
   if (isEmpty(menuProducts))
-    return <EmptyMenu onClick={handleReset} label={label} />;
+    if (isEmpty(menuProducts))
+      return <EmptyMenu onClick={handleReset} label={label} />;
 
   const handleCardClick = async (id) => {
     if (!isAdmin) return;
-    const productSelected = findObjectById(id, menuProducts);
     const productSelected = findObjectById(id, menuProducts);
     await setSelectedProduct(productSelected);
     await setSelectedTab("edit");
@@ -58,7 +59,6 @@ export default function Menu() {
 
   const handleOnAdd = (e, idProductToAdd) => {
     e.stopPropagation();
-    const productToAdd = findObjectById(idProductToAdd, menuProducts);
     const productToAdd = findObjectById(idProductToAdd, menuProducts);
     handleAddToBasket(productToAdd);
   };

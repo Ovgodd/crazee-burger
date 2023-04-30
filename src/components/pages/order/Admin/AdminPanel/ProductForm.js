@@ -4,6 +4,7 @@ import AdminForm from "../../../../reusable-ui/AdminForm";
 import { DEFAULT_PRODUCT_INFO } from "../../../../enums/product";
 import { useSuccessMessage } from "../../../../../hooks/useDisplaySuccess";
 import { replaceFrenchCommaWithDot } from "../../../../../utils/maths";
+import { replaceFrenchCommaWithDot } from "../../../../../utils/maths";
 
 export default function ProductForm() {
   const {
@@ -14,6 +15,7 @@ export default function ProductForm() {
     setNewProductInfo,
     handleEdit,
     handleEditInBasket,
+    handleEditInBasket,
   } = useContext(OrderContext);
   const { isSubmitted, displaySuccess } = useSuccessMessage();
 
@@ -22,6 +24,7 @@ export default function ProductForm() {
     const updatedNewProductInfo = { ...newProductInfo, [name]: value };
     setNewProductInfo(updatedNewProductInfo);
     handleEdit(updatedNewProductInfo);
+    handleEditInBasket(updatedNewProductInfo);
     handleEditInBasket(updatedNewProductInfo);
   };
 
