@@ -15,11 +15,7 @@ export function formatPrice(priceToFormat) {
 export function replaceFrenchCommaWithDot(price) {
   if (typeof price === "string") {
     const parsedPrice = parseFloat(price.replace(",", "."));
-    if (isNaN(parsedPrice)) {
-      return "NaN";
-    } else {
-      return parsedPrice;
-    }
+    return isNaN(parsedPrice) ? "NaN" : parsedPrice;
   }
   return price;
 }
