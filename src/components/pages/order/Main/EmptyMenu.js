@@ -4,8 +4,17 @@ import { theme } from "../../../../theme";
 import Button from "../../../reusable-ui/Buttons/Button";
 import OrderContext from "../../../../context/OrderContext";
 
-export default function EmptyMenu({ onClick, label }) {
+export default function EmptyMenu({ onClick }) {
   const { isAdmin } = useContext(OrderContext);
+
+  const label = {
+    question: isAdmin ? "Le menu est vide ?" : "Victime de notre succès ! :D",
+    message: isAdmin
+      ? "Cliquez ci-dessous pour le réinitialiser"
+      : "De nouvelles recettes sont en cours de préparation.",
+    button: "Générer de nouveaux produits",
+    bottomMessage: "À très vite",
+  };
 
   return (
     <EmptyMenuStyled>
