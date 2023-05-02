@@ -24,8 +24,16 @@ export default function Menu() {
     selectedProduct,
     handleAddToBasket,
     handleDeleteToBasket,
+    setBasket,
     basket,
   } = useContext(OrderContext);
+
+  // useEffect(() => {
+  //   const basketFromLocalStorage = JSON.parse(localStorage.getItem("basket"));
+  //   if (basketFromLocalStorage) {
+  //     setBasket(basketFromLocalStorage);
+  //   }
+  // }, [setBasket]);
 
   useEffect(() => {
     localStorage.setItem("basket", JSON.stringify(basket));
