@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import BasketCard from "../../../reusable-ui/BasketCard";
-import ComingSoon from "../../../../images/coming-soon.png";
+import COMING_SOON from "../../../../images/coming-soon.png";
 import { formatPrice } from "../../../../utils/maths";
 import OrderContext from "../../../../context/OrderContext";
 import { useContext } from "react";
@@ -41,7 +41,7 @@ export default function BasketProducts({ basket, handleDeleteToBasket }) {
             key={menuProduct.id}
             title={menuProduct.title}
             imageSource={
-              menuProduct.imageSource ? menuProduct.imageSource : ComingSoon
+              menuProduct.imageSource ? menuProduct.imageSource : COMING_SOON
             }
             price={formatPrice(menuProduct.price)}
             quantity={basketProduct.quantity}

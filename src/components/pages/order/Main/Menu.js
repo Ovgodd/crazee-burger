@@ -5,7 +5,7 @@ import { formatPrice } from "../../../../utils/maths";
 import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
-import ComingSoon from "../../../../images/coming-soon.png";
+import COMING_SOON from "../../../../images/coming-soon.png";
 import { findObjectById, isEmpty } from "../../../../utils/array";
 
 export default function Menu() {
@@ -69,7 +69,7 @@ export default function Menu() {
           id={id}
           quantity={quantity}
           title={title}
-          image={imageSource ? imageSource : ComingSoon}
+          image={imageSource ? imageSource : COMING_SOON}
           price={formatPrice(price)}
           selectedProduct={
             selectedProduct && selectedProduct.id === id
