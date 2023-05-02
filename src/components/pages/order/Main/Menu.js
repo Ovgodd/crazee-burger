@@ -31,17 +31,7 @@ export default function Menu() {
     localStorage.setItem("basket", JSON.stringify(basket));
   }, [basket]);
 
-  const label = {
-    question: isAdmin ? "Le menu est vide ?" : "Victime de notre succès ! :D",
-    message: isAdmin
-      ? "Cliquez ci-dessous pour le réinitialiser"
-      : "De nouvelles recettes sont en cours de préparation.",
-    button: "Générer de nouveaux produits",
-    bottomMessage: "À très vite",
-  };
-
-  if (isEmpty(menuProducts))
-    return <EmptyMenu onClick={handleReset} label={label} />;
+  if (isEmpty(menuProducts)) return <EmptyMenu onClick={handleReset} />;
 
   const handleCardClick = async (id) => {
     if (!isAdmin) return;
