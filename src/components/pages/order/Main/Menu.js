@@ -21,6 +21,7 @@ export default function Menu() {
     selectedProduct,
     handleAddToBasket,
     handleDeleteToBasket,
+    setBasket,
     basket,
   } = useContext(OrderContext);
 
