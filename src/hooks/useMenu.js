@@ -31,12 +31,11 @@ export const useMenu = () => {
 
     const indexOfProductToEdit = findIndex(productBeingEdited.id, menuCopy);
 
-    // const editedProduct = {
-    //   ...productBeingEdited,
-    //   price: replaceFrenchCommaWithDot(formatPrice(productBeingEdited.price)),
-    // }; // si on rajoute replaceFrenchCommaWithDot > le NaN ne fonctionne plus
-    // mais les chiffres a virgule fonctionnent en edit
-    menuCopy[indexOfProductToEdit] = productBeingEdited;
+    const editedProduct = {
+      ...productBeingEdited,
+      price: replaceFrenchCommaWithDot(formatPrice(productBeingEdited.price)),
+    };
+    menuCopy[indexOfProductToEdit] = editedProduct;
 
     setMenuProducts(menuCopy);
   };
