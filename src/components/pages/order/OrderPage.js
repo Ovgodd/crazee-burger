@@ -17,6 +17,8 @@ export default function OrderPage() {
   const [newProductInfo, setNewProductInfo] = useState(DEFAULT_PRODUCT_INFO);
   const [selectedProduct, setSelectedProduct] = useState(DEFAULT_PRODUCT_INFO);
   const [isCardSelected, setIsCardSelected] = useState(false);
+  const [isPageRefresh, setIsPageRefresh] = useState(false);
+
   const inputRef = useRef();
   const { handleAdd, handleReset, handleEdit, handleDelete, menuProducts } =
     useMenu();
@@ -55,7 +57,8 @@ export default function OrderPage() {
     setBasket,
     handleAddToBasket,
     handleDeleteToBasket,
-    handleProductClick,
+    isPageRefresh,
+    setIsPageRefresh,
   };
 
   return (
