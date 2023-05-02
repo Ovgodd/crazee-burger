@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { refreshPage } from "../../../../utils/Window";
 import BurgerLogo from "../../../reusable-ui/BurgerLogo";
+import OrderContext from "../../../../context/OrderContext";
 
 export default function LeftSide() {
+  const { setIsPageRefresh } = useContext(OrderContext);
+
+  const handleRefreshPage = () => {
+    refreshPage();
+    setIsPageRefresh(true);
+  };
+
   return (
-    <LeftSideStyled onClick={refreshPage}>
+    <LeftSideStyled onClick={handleRefreshPage}>
       <BurgerLogo className={"logo-order-page"} />
     </LeftSideStyled>
   );

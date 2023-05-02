@@ -24,4 +24,6 @@ export default createContext({
   setBasket: () => {},
   handleAddToBasket: () => {},
   handleDeleteToBasket: () => {},
+  isPageRefresh: false,
+  setIsPageRefresh: () => {},
 });

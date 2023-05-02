@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import Card from "../../../reusable-ui/Card";
 import { formatPrice } from "../../../../utils/maths";
@@ -7,6 +7,7 @@ import OrderContext from "../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
 import COMING_SOON from "../../../../images/coming-soon.png";
 import { findObjectById, isEmpty } from "../../../../utils/array";
+import { refreshPage } from "../../../../utils/Window";
 
 export default function Menu() {
   const {
@@ -23,7 +24,12 @@ export default function Menu() {
     selectedProduct,
     handleAddToBasket,
     handleDeleteToBasket,
+    basket,
   } = useContext(OrderContext);
+
+  useEffect(() => {
+    localStorage.setItem("basket", JSON.stringify(basket));
+  }, [basket]);
 
   const label = {
     question: isAdmin ? "Le menu est vide ?" : "Victime de notre succès ! :D",

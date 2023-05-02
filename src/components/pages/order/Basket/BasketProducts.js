@@ -4,7 +4,7 @@ import BasketCard from "../../../reusable-ui/BasketCard";
 import COMING_SOON from "../../../../images/coming-soon.png";
 import { formatPrice } from "../../../../utils/maths";
 import OrderContext from "../../../../context/OrderContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { findObjectById } from "../../../../utils/array";
 
 export default function BasketProducts({ basket, handleDeleteToBasket }) {
@@ -18,12 +18,15 @@ export default function BasketProducts({ basket, handleDeleteToBasket }) {
     menuProducts,
     isAdmin,
   } = useContext(OrderContext);
+
   const handleOnDelete = (id) => {
     handleDeleteToBasket(id);
   };
+
   const handleCardProductClick = async (id) => {
     if (!isAdmin) return;
     const productSelected = findObjectById(id, menuProducts);
+
     await setSelectedProduct(productSelected);
     await setSelectedTab("edit");
     await setIsCollapsed(false);
