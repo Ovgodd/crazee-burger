@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { fakeMenu } from "../fakeData/fakeMenu";
 import { deepClone, findIndex, removeObjectById } from "../utils/array";
+import { formatPrice, replaceFrenchCommaWithDot } from "../utils/maths";
 
 export const useMenu = () => {
   const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
@@ -30,6 +31,11 @@ export const useMenu = () => {
 
     const indexOfProductToEdit = findIndex(productBeingEdited.id, menuCopy);
 
+    // const editedProduct = {
+    //   ...productBeingEdited,
+    //   price: replaceFrenchCommaWithDot(formatPrice(productBeingEdited.price)),
+    // }; // si on rajoute replaceFrenchCommaWithDot > le NaN ne fonctionne plus
+    // mais les chiffres a virgule fonctionnent en edit
     menuCopy[indexOfProductToEdit] = productBeingEdited;
 
     setMenuProducts(menuCopy);
