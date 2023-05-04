@@ -1,12 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
+import { formatPrice } from "../../../../utils/maths";
+import { useContext } from "react";
+import OrderContext from "../../../../context/OrderContext";
+import { totalSumToPay } from "./helper";
 
-export default function Header({ amountToPay, label }) {
+export default function Header({ label }) {
+  const { basket, menuProducts } = useContext(OrderContext);
+  const totalToPay = totalSumToPay(basket, menuProducts);
+
   return (
     <HeaderStyled>
       <span>{label}</span>
-      <span>{amountToPay}</span>
+      <span className="total">{formatPrice(totalToPay)}</span>
     </HeaderStyled>
   );
 }
@@ -25,4 +32,7 @@ const HeaderStyled = styled.div`
   line-height: 45px;
   letter-spacing: 2px;
   color: ${theme.colors.primary};
+  .total {
+    font-weight: ${theme.fonts.weights.bold};
+  }
 `;

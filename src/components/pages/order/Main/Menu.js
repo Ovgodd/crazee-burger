@@ -6,6 +6,7 @@ import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
 import ComingSoon from "../../../../images/coming-soon.png";
+import { findObjectById } from "../../../../utils/array";
 
 export default function Menu() {
   const {
@@ -20,6 +21,8 @@ export default function Menu() {
     setNewProductInfo,
     setSelectedProduct,
     selectedProduct,
+    handleAddToBasket,
+    handleDeleteToBasket,
   } = useContext(OrderContext);
 
   const label = {
@@ -36,7 +39,7 @@ export default function Menu() {
 
   const handleCardClick = async (id) => {
     if (!isAdmin) return;
-    const productSelected = menuProducts.find((product) => product.id === id);
+    const productSelected = findObjectById(id, menuProducts);
     await setSelectedProduct(productSelected);
     await setSelectedTab("edit");
     await setIsCollapsed(false);
@@ -47,16 +50,24 @@ export default function Menu() {
   const handleCardDelete = (id, event) => {
     event.stopPropagation();
     handleDelete(id);
+    handleDeleteToBasket(id);
     id === newProductInfo.id && setSelectedProduct(null);
     inputRef.current.focus();
   };
 
+  const handleOnAdd = (e, idProductToAdd) => {
+    e.stopPropagation();
+    const productToAdd = findObjectById(idProductToAdd, menuProducts);
+    handleAddToBasket(productToAdd);
+  };
+
   return (
     <MenuStyled>
-      {menuProducts.map(({ id, title, imageSource, price }) => (
+      {menuProducts.map(({ id, title, imageSource, price, quantity }) => (
         <Card
           key={id}
           id={id}
+          quantity={quantity}
           title={title}
           image={imageSource ? imageSource : ComingSoon}
           price={formatPrice(price)}
@@ -65,7 +76,8 @@ export default function Menu() {
               ? selectedProduct
               : null
           }
-          onDelete={(event) => handleCardDelete(id, event)}
+          onDelete={(e) => handleCardDelete(id, e)}
+          onAdd={(e) => handleOnAdd(e, id)}
           onClick={() => handleCardClick(id)}
           hasButton={isAdmin}
         />

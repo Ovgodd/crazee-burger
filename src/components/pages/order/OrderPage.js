@@ -7,6 +7,7 @@ import NavBar from "./Navbar/NavBar";
 import { useRef } from "react";
 import { DEFAULT_PRODUCT_INFO } from "../../enums/product";
 import { useMenu } from "../../../hooks/useMenu";
+import { useBasket } from "../../../hooks/useBasket";
 
 export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -18,6 +19,8 @@ export default function OrderPage() {
   const inputRef = useRef();
   const { handleAdd, handleReset, handleEdit, handleDelete, menuProducts } =
     useMenu();
+  const { basket, setBasket, handleAddToBasket, handleDeleteToBasket } =
+    useBasket();
 
   const adminContextValue = {
     isCollapsed,
@@ -38,6 +41,10 @@ export default function OrderPage() {
     handleReset,
     handleEdit,
     inputRef,
+    basket,
+    setBasket,
+    handleAddToBasket,
+    handleDeleteToBasket,
   };
 
   return (

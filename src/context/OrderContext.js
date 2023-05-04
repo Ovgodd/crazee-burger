@@ -20,4 +20,8 @@ export default createContext({
   handleDelete: () => {},
   handleReset: () => {},
   handleEdit: () => {},
+  basket: [],
+  setBasket: () => {},
+  handleAddToBasket: () => {},
+  handleDeleteToBasket: () => {},
 });
