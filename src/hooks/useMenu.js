@@ -31,11 +31,11 @@ export const useMenu = () => {
 
     const indexOfProductToEdit = findIndex(productBeingEdited.id, menuCopy);
 
-    const editedProduct = {
-      ...productBeingEdited,
-      price: replaceFrenchCommaWithDot(formatPrice(productBeingEdited.price)),
-    };
-    menuCopy[indexOfProductToEdit] = editedProduct;
+    // const editedProduct = {
+    //   ...productBeingEdited,
+    //   price: replaceFrenchCommaWithDot(formatPrice(productBeingEdited.price)),
+    // }; a ne pas mettre ICI ()
+    menuCopy[indexOfProductToEdit] = productBeingEdited;
 
     setMenuProducts(menuCopy);
   };
