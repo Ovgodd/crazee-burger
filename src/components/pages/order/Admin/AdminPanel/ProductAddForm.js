@@ -3,17 +3,17 @@ import OrderContext from "../../../../../context/OrderContext";
 import { DEFAULT_PRODUCT_INFO } from "../../../../enums/product";
 import AdminForm from "../../../../reusable-ui/AdminForm";
 import { replaceFrenchCommaWithDot } from "../../../../../utils/maths";
+import { useSuccessMessage } from "../../../../../hooks/useDisplaySuccess";
 
 export default function ProductAddForm() {
   const {
     newProductInfo,
     selectedProduct,
     inputRef,
-    isProductAdded,
     handleAdd,
     setNewProductInfo,
-    setIsProductAdded,
   } = useContext(OrderContext);
+  const { displaySuccess, isSubmitted } = useSuccessMessage();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -33,12 +33,6 @@ export default function ProductAddForm() {
     displaySuccess();
   };
 
-  const displaySuccess = () => {
-    setIsProductAdded(true);
-    setTimeout(() => {
-      setIsProductAdded(false);
-    }, 2000);
-  };
   return (
     <AdminForm
       product={newProductInfo}
@@ -46,7 +40,7 @@ export default function ProductAddForm() {
       selectedProduct={selectedProduct}
       onChange={handleChange}
       onSubmit={handleSubmit}
-      isProductAdded={isProductAdded}
+      isSubmitted={isSubmitted}
     />
   );
 }
