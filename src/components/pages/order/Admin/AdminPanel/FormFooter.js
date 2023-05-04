@@ -5,7 +5,7 @@ import SubmitMessage from "./SubmitMessage";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import styled from "styled-components";
 
-export default function FormFooter({ onSubmit, isProductAdded, onEdit }) {
+export default function FormFooter({ isSubmitted, onSubmit, onEdit }) {
   // const addButton = (
   //   <Button variant="success" label="Ajouter un nouveau produit au menu" />
   // );
@@ -34,7 +34,7 @@ export default function FormFooter({ onSubmit, isProductAdded, onEdit }) {
           underline="en temps réel"
         />
       )}
-      {isProductAdded && (
+      {isSubmitted && (
         <SubmitMessage
           Icon={<AiOutlineCheckCircle className="icon" />}
           label="Ajouté avec succès !"
@@ -44,6 +44,9 @@ export default function FormFooter({ onSubmit, isProductAdded, onEdit }) {
   );
 }
 const FormFooterStyled = styled.div`
+  position: absolute;
+  top: 145px;
+  left: -55px;
   .icon {
     display: flex;
     align-items: center;

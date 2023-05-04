@@ -1,55 +1,23 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../context/OrderContext";
-import { fakeMenu } from "../../../fakeData/fakeMenu";
 import { theme } from "../../../theme";
 import Main from "./Main/Main";
 import NavBar from "./Navbar/NavBar";
 import { useRef } from "react";
 import { DEFAULT_PRODUCT_INFO } from "../../enums/product";
-import { deepClone } from "../../../utils/array";
+import { useMenu } from "../../../hooks/useMenu";
 
 export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedTab, setSelectedTab] = useState("add");
-  const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [newProductInfo, setNewProductInfo] = useState(DEFAULT_PRODUCT_INFO);
-  const [isProductAdded, setIsProductAdded] = useState(false);
   const [isCardSelected, setIsCardSelected] = useState(false);
   const inputRef = useRef();
-
-  const handleDelete = (id) => {
-    const updatedMenu = menuProducts.filter((menu) => {
-      return menu.id !== id;
-    });
-    setMenuProducts(updatedMenu);
-  };
-
-  const handleAdd = (productToAdd) => {
-    const menuCopy = deepClone(menuProducts);
-    const updatedMenu = [productToAdd, ...menuCopy];
-
-    setMenuProducts(updatedMenu);
-  };
-
-  const handleReset = () => {
-    setMenuProducts(fakeMenu.MEDIUM);
-    setNewProductInfo(DEFAULT_PRODUCT_INFO); //Delete if want to keep current adding product when reseting
-  };
-
-  const handleEdit = (productBeingEdited) => {
-    const menuCopy = deepClone(menuProducts);
-
-    const indexOfProductToEdit = menuProducts.findIndex(
-      (product) => product.id === productBeingEdited.id
-    );
-
-    menuCopy[indexOfProductToEdit] = productBeingEdited;
-
-    setMenuProducts(menuCopy);
-  };
+  const { handleAdd, handleReset, handleEdit, handleDelete, menuProducts } =
+    useMenu();
 
   const adminContextValue = {
     isCollapsed,
@@ -70,8 +38,6 @@ export default function OrderPage() {
     handleReset,
     handleEdit,
     inputRef,
-    isProductAdded,
-    setIsProductAdded,
   };
 
   return (

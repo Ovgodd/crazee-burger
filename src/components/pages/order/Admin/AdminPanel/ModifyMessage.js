@@ -13,9 +13,9 @@ export default function ModifyMessage({ label, underline }) {
 
 const ModifyMessageStyled = styled.div`
   color: ${theme.colors.greySemiDark};
-  position: absolute;
-  bottom: 10px;
+  position: relative;
   left: 235px;
+  bottom: 0px;
   font-family: "Open Sans";
   font-style: normal;
   font-weight: ${theme.fonts.weights.regular};

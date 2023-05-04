@@ -16,11 +16,9 @@ const SubmitMessageStyled = styled.div`
   justify-content: flex-start;
   align-items: center;
   color: ${theme.colors.success};
-  position: absolute;
-  bottom: 0px;
-  width: 275px;
-  height: 34px;
-  right: 80px;
+  position: relative;
+  left: 520px;
+  bottom: 30px;
 
   .icon {
     display: flex;
