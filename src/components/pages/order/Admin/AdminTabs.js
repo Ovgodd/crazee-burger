@@ -6,18 +6,29 @@ import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
 import Tab from "../../../reusable-ui/Tab";
 import { getTabsConfig } from "./getTabsConfig";
+import { DEFAULT_PRODUCT_INFO } from "../../../enums/product";
 
 export default function AdminTabs() {
-  const { isCollapsed, setisCollapsed, selectedTab, setselectedTab } =
-    useContext(OrderContext);
+  const {
+    isCollapsed,
+    setIsCollapsed,
+    selectedTab,
+    setSelectedTab,
+    setNewProductInfo,
+    setSelectedProduct,
+  } = useContext(OrderContext);
 
   const selectTab = (tabSelected) => {
-    setselectedTab(tabSelected);
-    if (isCollapsed) setisCollapsed(false);
+    setSelectedTab(tabSelected);
+    if (isCollapsed) setIsCollapsed(false);
+    if (tabSelected === "add") {
+      setSelectedProduct(null);
+      setNewProductInfo(DEFAULT_PRODUCT_INFO);
+    }
   };
 
   const openPanel = () => {
-    setisCollapsed(!isCollapsed);
+    setIsCollapsed(!isCollapsed);
   };
   const tabs = getTabsConfig();
 
@@ -46,6 +57,7 @@ const AdminTabsStyled = styled.div`
   position: absolute;
   top: -43px;
   left: 5%;
+
   .is-selected {
     background-color: ${theme.colors.background_dark};
     color: ${theme.colors.white};

@@ -5,12 +5,20 @@ import { fakeMenu } from "../../../fakeData/fakeMenu";
 import { theme } from "../../../theme";
 import Main from "./Main/Main";
 import NavBar from "./Navbar/NavBar";
+import { useRef } from "react";
+import { DEFAULT_PRODUCT_INFO } from "../../enums/product";
+import { deepClone } from "../../../utils/array";
 
 export default function OrderPage() {
-  const [isCollapsed, setisCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [selectedTab, setselectedTab] = useState("add");
+  const [selectedTab, setSelectedTab] = useState("add");
   const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [newProductInfo, setNewProductInfo] = useState(DEFAULT_PRODUCT_INFO);
+  const [isProductAdded, setIsProductAdded] = useState(false);
+  const [isCardSelected, setIsCardSelected] = useState(false);
+  const inputRef = useRef();
 
   const handleDelete = (id) => {
     const updatedMenu = menuProducts.filter((menu) => {
@@ -20,8 +28,7 @@ export default function OrderPage() {
   };
 
   const handleAdd = (productToAdd) => {
-    const menuCopy = [...menuProducts];
-
+    const menuCopy = deepClone(menuProducts);
     const updatedMenu = [productToAdd, ...menuCopy];
 
     setMenuProducts(updatedMenu);
@@ -29,19 +36,42 @@ export default function OrderPage() {
 
   const handleReset = () => {
     setMenuProducts(fakeMenu.MEDIUM);
+    setNewProductInfo(DEFAULT_PRODUCT_INFO); //Delete if want to keep current adding product when reseting
+  };
+
+  const handleEdit = (productBeingEdited) => {
+    const menuCopy = deepClone(menuProducts);
+
+    const indexOfProductToEdit = menuProducts.findIndex(
+      (product) => product.id === productBeingEdited.id
+    );
+
+    menuCopy[indexOfProductToEdit] = productBeingEdited;
+
+    setMenuProducts(menuCopy);
   };
 
   const adminContextValue = {
     isCollapsed,
-    setisCollapsed,
+    setIsCollapsed,
     isAdmin,
     setIsAdmin,
     selectedTab,
-    setselectedTab,
+    setSelectedTab,
+    isCardSelected,
+    setIsCardSelected,
+    selectedProduct,
+    setSelectedProduct,
+    newProductInfo,
+    setNewProductInfo,
     menuProducts,
     handleAdd,
     handleDelete,
     handleReset,
+    handleEdit,
+    inputRef,
+    isProductAdded,
+    setIsProductAdded,
   };
 
   return (

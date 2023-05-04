@@ -1,22 +1,44 @@
-import { useContext } from "react";
-import styled from "styled-components";
-import OrderContext from "../../context/OrderContext";
+import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 import DeleteButton from "./Buttons/DeleteButton";
 import Button from "./Buttons/Button";
 
-export default function Card({ title, image, price, onDelete }) {
-  const { isAdmin } = useContext(OrderContext);
+export default function Card({
+  onClick,
+  id,
+  title,
+  image,
+  price,
+  onDelete,
+  hasButton,
+  selectedProduct,
+}) {
+  //state (vide)
 
+  //comportements (vide)
+
+  //affichage
   return (
-    <CardStyled>
-      {isAdmin && <DeleteButton onClick={onDelete} />}
+    <CardStyled
+      hasButton={hasButton}
+      onClick={onClick}
+      className={selectedProduct ? "selected" : ""}
+    >
+      {hasButton && (
+        <DeleteButton onClick={onDelete} className="delete-button" />
+      )}
       <img src={image} alt="product" />
       <div className="interact-container">
         <h1>{title}</h1>
         <div className="description">
-          <span>{price}</span>
-          <Button label="Ajouter" className="primary-button" />
+          <span className="price">{price}</span>
+          <Button
+            onClick={(event) => {
+              event.stopPropagation();
+            }}
+            label="Ajouter"
+            className="primary-button primary-selected"
+          />
         </div>
       </div>
       {/* <div className="admin-panel">ajouter un produit</div> */}
@@ -38,6 +60,14 @@ const CardStyled = styled.div`
   background: ${theme.colors.white};
   position: relative;
 
+  &:hover {
+    ${({ hasButton }) => hasButton && cardStyled.hover};
+  }
+
+  &.selected {
+    ${({ hasButton }) => hasButton && cardStyled.selected};
+  }
+
   img {
     margin-top: 10px;
     width: 200px;
@@ -54,24 +84,27 @@ const CardStyled = styled.div`
     min-height: 110px;
 
     h1 {
-      white-space: normal;
+      white-space: nowrap;
       overflow: hidden;
       width: 190px;
       margin-bottom: ${theme.spacing.xxs};
       text-overflow: ellipsis;
-      font-family: "Amatic SC", cursive;
+      font-family: ${theme.fonts.family.stylish};
       font-size: ${theme.fonts.size.P4};
       margin: auto;
     }
+
     .description {
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 190px;
+
       span {
         color: ${theme.colors.primary};
         font-weight: ${theme.fonts.weights.regular};
       }
+
       .primary-button {
         width: 95px;
         height: 38px;
@@ -81,3 +114,55 @@ const CardStyled = styled.div`
     }
   }
 `;
+
+const hoverStyle = css`
+  background: rgba(255, 255, 255, 0.002);
+  box-shadow: 0px 0px 8px #ff9a23, ${theme.shadows.medium};
+  border-radius: 15px;
+  background: ${theme.colors.white};
+  transition: transform 0.3s ease-in-out;
+  transform: scale(1.05);
+  cursor: pointer;
+`;
+
+const selectedStyle = css`
+  background-color: ${theme.colors.primary};
+
+  .primary-selected {
+    background-color: ${theme.colors.white};
+    color: ${theme.colors.primary};
+    &:hover {
+      color: ${theme.colors.white};
+      background: ${theme.colors.primary};
+      border-color: ${theme.colors.white};
+    }
+    &:active {
+      color: ${theme.colors.primary};
+      background: ${theme.colors.white};
+      border-color: ${theme.colors.primary};
+      transition: 0.3s;
+    }
+  }
+
+  .description .price {
+    color: ${theme.colors.white};
+  }
+
+  .delete-button {
+    color: ${theme.colors.white};
+
+    &:hover {
+      color: ${theme.colors.red};
+    }
+
+    &:active {
+      color: ${theme.colors.white};
+      transition: 0.3s;
+    }
+  }
+`;
+
+const cardStyled = {
+  hover: hoverStyle,
+  selected: selectedStyle,
+};

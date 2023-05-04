@@ -7,7 +7,7 @@ export default function ProductImage({ imageSource, title }) {
     <ProductImageStyled>
       {imageSource === "" ? (
         <div className="empty-image">
-          <span>Aucune Image</span>
+          <span className="empty">Aucune Image</span>
         </div>
       ) : (
         <img src={imageSource} alt={title} />
@@ -44,5 +44,9 @@ const ProductImageStyled = styled.div`
     object-fit: contain;
     height: 100px;
     width: 100px;
+  }
+
+  .empty {
+    color: ${theme.colors.greySemiDark};
   }
 `;

@@ -8,9 +8,48 @@ import EmptyMenu from "./EmptyMenu";
 import ComingSoon from "../../../../images/coming-soon.png";
 
 export default function Menu() {
-  const { menuProducts, handleDelete, handleReset } = useContext(OrderContext);
+  const {
+    setIsCollapsed,
+    menuProducts,
+    handleDelete,
+    handleReset,
+    setSelectedTab,
+    isAdmin,
+    inputRef,
+    newProductInfo,
+    setNewProductInfo,
+    setSelectedProduct,
+    selectedProduct,
+  } = useContext(OrderContext);
 
-  if (menuProducts.length === 0) return <EmptyMenu onClick={handleReset} />;
+  const label = {
+    question: isAdmin ? "Le menu est vide ?" : "Victime de notre succès ! :D",
+    message: isAdmin
+      ? "Cliquez ci-dessous pour le réinitialiser"
+      : "De nouvelles recettes sont en cours de préparation.",
+    button: "Générer de nouveaux produits",
+    bottomMessage: "À très vite",
+  };
+
+  if (menuProducts.length === 0)
+    return <EmptyMenu onClick={handleReset} label={label} />;
+
+  const handleCardClick = async (id) => {
+    if (!isAdmin) return;
+    const productSelected = menuProducts.find((product) => product.id === id);
+    await setSelectedProduct(productSelected);
+    await setSelectedTab("edit");
+    await setIsCollapsed(false);
+    await setNewProductInfo(productSelected);
+    inputRef.current.focus();
+  };
+
+  const handleCardDelete = (id, event) => {
+    event.stopPropagation();
+    handleDelete(id);
+    id === newProductInfo.id && setSelectedProduct(null);
+    inputRef.current.focus();
+  };
 
   return (
     <MenuStyled>
@@ -21,7 +60,14 @@ export default function Menu() {
           title={title}
           image={imageSource ? imageSource : ComingSoon}
           price={formatPrice(price)}
-          onDelete={() => handleDelete(id)}
+          selectedProduct={
+            selectedProduct && selectedProduct.id === id
+              ? selectedProduct
+              : null
+          }
+          onDelete={(event) => handleCardDelete(id, event)}
+          onClick={() => handleCardClick(id)}
+          hasButton={isAdmin}
         />
       ))}
     </MenuStyled>

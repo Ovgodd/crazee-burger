@@ -2,20 +2,34 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 
-export default function TextInput({
-  variant = "normal",
-  value,
-  onChange,
-  Icon,
-  ...extraProps
-}) {
-  return (
-    <TextInputStyled variant={variant}>
-      {Icon && <div className="icon">{Icon}</div>}
-      <input value={value} onChange={onChange} type="text" {...extraProps} />
-    </TextInputStyled>
-  );
-}
+const TextInput = React.forwardRef(
+  (
+    {
+      variant = "normal",
+      value,
+      onChange,
+      Icon,
+      isCardSelected,
+      inputIndex,
+      handleRef,
+      ...extraProps
+    },
+    ref
+  ) => {
+    return (
+      <TextInputStyled variant={variant}>
+        {Icon && <div className="icon">{Icon}</div>}
+        <input
+          ref={ref}
+          value={value}
+          onChange={onChange}
+          type="text"
+          {...extraProps}
+        />
+      </TextInputStyled>
+    );
+  }
+);
 
 const TextInputStyled = styled.div`
   align-items: center;
@@ -28,6 +42,7 @@ const TextInputStyled = styled.div`
     display: flex;
     color: ${theme.colors.greyBlue};
   }
+
   input {
     width: 100%;
     border-radius: ${theme.borderRadius.round};
@@ -81,3 +96,4 @@ const extraStyle = {
   normal: normalStyle,
   minimalist: minimalistStyle,
 };
+export default TextInput;

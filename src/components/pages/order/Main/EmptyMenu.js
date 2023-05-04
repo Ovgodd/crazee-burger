@@ -1,23 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import Button from "../../../reusable-ui/Buttons/Button";
+import OrderContext from "../../../../context/OrderContext";
 
-export default function EmptyMenu({ onClick }) {
+export default function EmptyMenu({ onClick, label }) {
+  const { isAdmin } = useContext(OrderContext);
+
   return (
     <EmptyMenuStyled>
-      <span className="question">le menu est vide ?</span>
-      <span className="generate-message">
-        cliquez-ci dessous pour le réinitialiser
-      </span>
-      <Button
-        className="generate-button"
-        label="Générer de nouveaux produits"
-        onClick={onClick}
-      />
+      <span className="question">{label.question}</span>
+      <span className="generate-message">{label.message}</span>
+      {isAdmin ? (
+        <Button
+          className="generate-button"
+          label="Générer de nouveaux produits"
+          onClick={onClick}
+        />
+      ) : (
+        <span className="see-you">{label.bottomMessage}</span>
+      )}
     </EmptyMenuStyled>
   );
 }
+
 const EmptyMenuStyled = styled.div`
   box-shadow: ${theme.shadows.strong};
   background: ${theme.colors.background_white};
@@ -37,7 +43,7 @@ const EmptyMenuStyled = styled.div`
   }
 
   .generate-message {
-    margin-top: 21px;
+    margin-top: 29px;
     margin-bottom: 31px;
     font-weight: 400;
     font-size: 36px;
@@ -48,5 +54,10 @@ const EmptyMenuStyled = styled.div`
     width: 224px;
     height: 50px;
     white-space: nowrap;
+  }
+
+  .see-you {
+    font-weight: 400;
+    font-size: 36px;
   }
 `;
