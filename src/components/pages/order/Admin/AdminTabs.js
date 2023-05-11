@@ -6,23 +6,14 @@ import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
 import Tab from "../../../reusable-ui/Tab";
 import { getTabsConfig } from "./getTabsConfig";
-import { DEFAULT_PRODUCT_INFO } from "../../../enums/product";
 
 export default function AdminTabs() {
-  const {
-    isCollapsed,
-    setIsCollapsed,
-    selectedTab,
-    setSelectedTab,
-    setNewProductInfo,
-  } = useContext(OrderContext);
+  const { isCollapsed, setIsCollapsed, selectedTab, setSelectedTab } =
+    useContext(OrderContext);
 
   const selectTab = (tabSelected) => {
+    setIsCollapsed(false);
     setSelectedTab(tabSelected);
-    if (isCollapsed) setIsCollapsed(false);
-    if (tabSelected === "add") {
-      setNewProductInfo(DEFAULT_PRODUCT_INFO);
-    }
   };
 
   const openPanel = () => {

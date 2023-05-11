@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import Form from "../../../../reusable-ui/Form";
-import HintMessage from "./EditPanel/HintMessage";
 import EditInfoMessage from "./EditInfoMessage";
 
 export default function ProductEditForm() {
@@ -10,23 +9,23 @@ export default function ProductEditForm() {
     selectedProduct,
     inputRef,
     isProductAdded,
-    setNewProductInfo,
+    setSelectedProduct,
+
     handleEdit,
   } = useContext(OrderContext);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    const updatedNewProductInfo = { ...newProductInfo, [name]: value };
+    const productBeingUpdated = { ...selectedProduct, [name]: value };
+    setSelectedProduct(productBeingUpdated);
+    console.log("productBeingUpdated", selectedProduct);
 
-    setNewProductInfo(updatedNewProductInfo);
-
-    handleEdit(updatedNewProductInfo);
+    handleEdit(productBeingUpdated, event);
   };
   return (
     <Form
-      product={newProductInfo}
+      product={selectedProduct}
       inputRef={inputRef}
-      selectedProduct={selectedProduct}
       onChange={handleChange}
       isProductAdded={isProductAdded}
     >

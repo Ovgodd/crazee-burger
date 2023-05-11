@@ -14,8 +14,8 @@ export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedTab, setSelectedTab] = useState("add");
-  const [selectedProduct, setSelectedProduct] = useState(null);
   const [newProductInfo, setNewProductInfo] = useState(DEFAULT_PRODUCT_INFO);
+  const [selectedProduct, setSelectedProduct] = useState(DEFAULT_PRODUCT_INFO);
   const [isCardSelected, setIsCardSelected] = useState(false);
   const inputRef = useRef();
   const { handleAdd, handleReset, handleEdit, handleDelete, menuProducts } =
@@ -23,14 +23,13 @@ export default function OrderPage() {
   const { basket, setBasket, handleAddToBasket, handleDeleteToBasket } =
     useBasket();
 
-  const handleProductClick = async (id) => {
-    if (!isAdmin) return;
-    const productSelected = findObjectById(id, menuProducts);
-    await setSelectedProduct(productSelected);
+  const handleProductClick = async (idProductCliked) => {
+    const productClickedOn = findObjectById(idProductCliked, menuProducts);
+    await setSelectedProduct(productClickedOn);
     await setSelectedTab("edit");
     await setIsCollapsed(false);
-    await setNewProductInfo(productSelected);
     inputRef.current.focus();
+    console.log("products clicked on : ", selectedProduct); // OK
   };
 
   const adminContextValue = {
