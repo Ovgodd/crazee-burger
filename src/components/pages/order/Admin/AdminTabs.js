@@ -15,7 +15,6 @@ export default function AdminTabs() {
     selectedTab,
     setSelectedTab,
     setNewProductInfo,
-    setSelectedProduct,
   } = useContext(OrderContext);
 
   const selectTab = (tabSelected) => {
