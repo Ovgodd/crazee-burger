@@ -8,6 +8,7 @@ import { useRef } from "react";
 import { DEFAULT_PRODUCT_INFO } from "../../enums/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
+import { findObjectById } from "../../../utils/array";
 
 export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -21,6 +22,16 @@ export default function OrderPage() {
     useMenu();
   const { basket, setBasket, handleAddToBasket, handleDeleteToBasket } =
     useBasket();
+
+  const handleProductClick = async (id) => {
+    if (!isAdmin) return;
+    const productSelected = findObjectById(id, menuProducts);
+    await setSelectedProduct(productSelected);
+    await setSelectedTab("edit");
+    await setIsCollapsed(false);
+    await setNewProductInfo(productSelected);
+    inputRef.current.focus();
+  };
 
   const adminContextValue = {
     isCollapsed,
@@ -45,6 +56,7 @@ export default function OrderPage() {
     setBasket,
     handleAddToBasket,
     handleDeleteToBasket,
+    handleProductClick,
   };
 
   return (

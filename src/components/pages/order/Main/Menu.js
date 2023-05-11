@@ -10,33 +10,21 @@ import { findObjectById, isEmpty } from "../../../../utils/array";
 
 export default function Menu() {
   const {
-    setIsCollapsed,
     menuProducts,
     handleDelete,
     handleReset,
-    setSelectedTab,
     isAdmin,
     inputRef,
     newProductInfo,
-    setNewProductInfo,
     setSelectedProduct,
     selectedProduct,
     handleAddToBasket,
     handleDeleteToBasket,
+    handleProductClick,
   } = useContext(OrderContext);
 
   if (isEmpty(menuProducts))
     return <EmptyMenu isAdmin={isAdmin} onClick={handleReset} />;
-
-  const handleCardClick = async (id) => {
-    if (!isAdmin) return;
-    const productSelected = findObjectById(id, menuProducts);
-    await setSelectedProduct(productSelected);
-    await setSelectedTab("edit");
-    await setIsCollapsed(false);
-    await setNewProductInfo(productSelected);
-    inputRef.current.focus();
-  };
 
   const handleCardDelete = (id, event) => {
     event.stopPropagation();
@@ -69,7 +57,7 @@ export default function Menu() {
           }
           onDelete={(e) => handleCardDelete(id, e)}
           onAdd={(e) => handleOnAdd(e, id)}
-          onClick={() => handleCardClick(id)}
+          onClick={() => handleProductClick(id)}
           hasButton={isAdmin}
         />
       ))}
