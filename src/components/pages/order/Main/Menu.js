@@ -25,17 +25,8 @@ export default function Menu() {
     handleDeleteToBasket,
   } = useContext(OrderContext);
 
-  const label = {
-    question: isAdmin ? "Le menu est vide ?" : "Victime de notre succès ! :D",
-    message: isAdmin
-      ? "Cliquez ci-dessous pour le réinitialiser"
-      : "De nouvelles recettes sont en cours de préparation.",
-    button: "Générer de nouveaux produits",
-    bottomMessage: "À très vite",
-  };
-
   if (isEmpty(menuProducts))
-    return <EmptyMenu onClick={handleReset} label={label} />;
+    return <EmptyMenu isAdmin={isAdmin} onClick={handleReset} />;
 
   const handleCardClick = async (id) => {
     if (!isAdmin) return;
@@ -71,7 +62,7 @@ export default function Menu() {
           title={title}
           image={imageSource ? imageSource : COMING_SOON}
           price={formatPrice(price)}
-          selectedProduct={
+          isSelected={
             selectedProduct && selectedProduct.id === id
               ? selectedProduct
               : null
