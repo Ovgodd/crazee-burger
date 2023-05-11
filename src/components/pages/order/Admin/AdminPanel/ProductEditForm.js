@@ -1,10 +1,6 @@
 import React, { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
-import AdminForm from "../../../../reusable-ui/AdminForm";
-import {
-  formatPrice,
-  replaceFrenchCommaWithDot,
-} from "../../../../../utils/maths";
+import Form from "../../../../reusable-ui/Form";
 
 export default function ProductEditForm() {
   const {
@@ -16,7 +12,7 @@ export default function ProductEditForm() {
     handleEdit,
   } = useContext(OrderContext);
 
-  const handleChange = (event, productBeingEdited) => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
     const updatedNewProductInfo = { ...newProductInfo, [name]: value };
 
@@ -25,7 +21,7 @@ export default function ProductEditForm() {
     handleEdit(updatedNewProductInfo);
   };
   return (
-    <AdminForm
+    <Form
       product={newProductInfo}
       inputRef={inputRef}
       selectedProduct={selectedProduct}

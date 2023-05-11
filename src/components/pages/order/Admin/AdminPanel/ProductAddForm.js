@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import { DEFAULT_PRODUCT_INFO } from "../../../../enums/product";
-import AdminForm from "../../../../reusable-ui/AdminForm";
+import Form from "../../../../reusable-ui/Form";
 import { replaceFrenchCommaWithDot } from "../../../../../utils/maths";
 import { useSuccessMessage } from "../../../../../hooks/useDisplaySuccess";
 
@@ -34,7 +34,7 @@ export default function ProductAddForm() {
   };
 
   return (
-    <AdminForm
+    <Form
       product={newProductInfo}
       inputRef={inputRef}
       selectedProduct={selectedProduct}

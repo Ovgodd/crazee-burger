@@ -3,7 +3,7 @@ import AdminInputs from "../pages/order/Admin/AdminPanel/AdminInputs";
 import ProductImage from "../pages/order/Admin/AdminPanel/ProductImage";
 import FormFooter from "../pages/order/Admin/AdminPanel/FormFooter";
 
-export default function AdminForm({
+export default function Form({
   onSubmit,
   onChange,
   product,
@@ -12,7 +12,7 @@ export default function AdminForm({
   selectedProduct,
 }) {
   return (
-    <AdminFormStyled onSubmit={onSubmit}>
+    <FormStyled onSubmit={onSubmit}>
       <ProductImage imageSource={product.imageSource} title={product.title} />
       <AdminInputs
         ref={inputRef}
@@ -24,11 +24,11 @@ export default function AdminForm({
         isSubmitted={isSubmitted}
         onEdit={selectedProduct}
       />
-    </AdminFormStyled>
+    </FormStyled>
   );
 }
 
-const AdminFormStyled = styled.form`
+const FormStyled = styled.form`
   position: relative;
   display: flex;
   top: 40px;
