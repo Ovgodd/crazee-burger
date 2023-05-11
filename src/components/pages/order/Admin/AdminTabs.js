@@ -22,7 +22,6 @@ export default function AdminTabs() {
     setSelectedTab(tabSelected);
     if (isCollapsed) setIsCollapsed(false);
     if (tabSelected === "add") {
-      setSelectedProduct(null);
       setNewProductInfo(DEFAULT_PRODUCT_INFO);
     }
   };

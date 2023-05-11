@@ -3,16 +3,16 @@ import { HiCursorClick } from "react-icons/hi";
 import { theme } from "../../../../../../theme";
 import styled from "styled-components";
 
-export default function EditMessage() {
+export default function HintMessage() {
   return (
-    <EditMessageStyled>
+    <HintMessageStyled>
       <span>Cliquer sur un produit du menu pour le modifier</span>
       <HiCursorClick className="icon" />
-    </EditMessageStyled>
+    </HintMessageStyled>
   );
 }
 
-const EditMessageStyled = styled.div`
+const HintMessageStyled = styled.div`
   padding: 71px 81px 129px;
   font-family: "Amatic SC";
   font-style: normal;

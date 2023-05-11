@@ -4,6 +4,7 @@ import { DEFAULT_PRODUCT_INFO } from "../../../../enums/product";
 import Form from "../../../../reusable-ui/Form";
 import { replaceFrenchCommaWithDot } from "../../../../../utils/maths";
 import { useSuccessMessage } from "../../../../../hooks/useDisplaySuccess";
+import SubmittButton from "./SubmittButton";
 
 export default function ProductAddForm() {
   const {
@@ -40,7 +41,8 @@ export default function ProductAddForm() {
       selectedProduct={selectedProduct}
       onChange={handleChange}
       onSubmit={handleSubmit}
-      isSubmitted={isSubmitted}
-    />
+    >
+      <SubmittButton isSubmitted={isSubmitted} />
+    </Form>
   );
 }

@@ -1,15 +1,13 @@
 import styled from "styled-components";
 import AdminInputs from "../pages/order/Admin/AdminPanel/AdminInputs";
 import ProductImage from "../pages/order/Admin/AdminPanel/ProductImage";
-import FormFooter from "../pages/order/Admin/AdminPanel/FormFooter";
 
 export default function Form({
   onSubmit,
   onChange,
   product,
   inputRef,
-  isSubmitted,
-  selectedProduct,
+  children,
 }) {
   return (
     <FormStyled onSubmit={onSubmit}>
@@ -19,11 +17,7 @@ export default function Form({
         newProductInfo={product}
         onChange={onChange}
       />
-      <FormFooter
-        onSubmit={!selectedProduct && onSubmit}
-        isSubmitted={isSubmitted}
-        onEdit={selectedProduct}
-      />
+      <div className="form-footer">{children}</div>
     </FormStyled>
   );
 }
@@ -35,4 +29,9 @@ const FormStyled = styled.form`
   left: 71px;
   height: 175px;
   width: 880px;
+  .form-footer {
+    position: absolute;
+    top: 145px;
+    left: -55px;
+  }
 `;
