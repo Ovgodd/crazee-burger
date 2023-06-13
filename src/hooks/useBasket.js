@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   deepClone,
   findIndex,
@@ -8,7 +8,15 @@ import {
 import { fakeBasket } from "../fakeData/fakeBasket";
 
 export const useBasket = () => {
-  const [basket, setBasket] = useState(fakeBasket.EMPTY);
+  const [basket, setBasket] = useState(() => {
+    const storedBasket = localStorage.getItem("items");
+    return storedBasket ? JSON.parse(storedBasket) : fakeBasket.EMPTY;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(basket));
+    console.log(basket);
+  }, [basket]);
 
   // add product in basket
   const handleAddToBasket = (productToAdd) => {
