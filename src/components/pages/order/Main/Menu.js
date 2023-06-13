@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Card from "../../../reusable-ui/Card";
 import { formatPrice } from "../../../../utils/maths";
@@ -7,30 +7,36 @@ import OrderContext from "../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
 import COMING_SOON from "../../../../images/coming-soon.png";
 import { findObjectById, isEmpty } from "../../../../utils/array";
-import { refreshPage } from "../../../../utils/Window";
 
 export default function Menu() {
   const {
+    setIsCollapsed,
     menuProducts,
     handleDelete,
     handleReset,
+    setSelectedTab,
     isAdmin,
     inputRef,
     newProductInfo,
+    setNewProductInfo,
     setSelectedProduct,
     selectedProduct,
     handleAddToBasket,
     handleDeleteToBasket,
-    setBasket,
-    basket,
-    handleAddToBasket,
-    handleDeleteToBasket,
-    setBasket,
-    basket,
   } = useContext(OrderContext);
 
   if (isEmpty(menuProducts))
     return <EmptyMenu isAdmin={isAdmin} onClick={handleReset} />;
+
+  const handleCardClick = async (id) => {
+    if (!isAdmin) return;
+    const productSelected = findObjectById(id, menuProducts);
+    await setSelectedProduct(productSelected);
+    await setSelectedTab("edit");
+    await setIsCollapsed(false);
+    await setNewProductInfo(productSelected);
+    inputRef.current.focus();
+  };
 
   const handleCardDelete = (id, event) => {
     event.stopPropagation();
@@ -63,7 +69,7 @@ export default function Menu() {
           }
           onDelete={(e) => handleCardDelete(id, e)}
           onAdd={(e) => handleOnAdd(e, id)}
-          onClick={() => handleProductClick(id)}
+          onClick={() => handleCardClick(id)}
           hasButton={isAdmin}
         />
       ))}

@@ -25,15 +25,13 @@ export default function ProductAddForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const newProductToAdd = {
+    handleAdd({
       ...newProductInfo,
       id: new Date().getTime(),
       price: replaceFrenchCommaWithDot(newProductInfo.price),
-    };
-    handleAdd(newProductToAdd);
+    });
     setNewProductInfo(DEFAULT_PRODUCT_INFO); // reset form
     displaySuccess();
-    console.log(typeof newProductInfo.price, "price :", newProductInfo.price);
   };
 
   return (

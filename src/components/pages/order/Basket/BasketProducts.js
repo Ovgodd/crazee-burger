@@ -4,34 +4,14 @@ import BasketCard from "../../../reusable-ui/BasketCard";
 import COMING_SOON from "../../../../images/coming-soon.png";
 import { formatPrice } from "../../../../utils/maths";
 import OrderContext from "../../../../context/OrderContext";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { findObjectById } from "../../../../utils/array";
 
 export default function BasketProducts({ basket, handleDeleteToBasket }) {
-  const {
-    setSelectedProduct,
-    setNewProductInfo,
-    setIsCollapsed,
-    selectedProduct,
-    setSelectedTab,
-    inputRef,
-    menuProducts,
-    isAdmin,
-  } = useContext(OrderContext);
-
+  const { selectedProduct, menuProducts, isAdmin, handleProductClick } =
+    useContext(OrderContext);
   const handleOnDelete = (id) => {
     handleDeleteToBasket(id);
-  };
-
-  const handleCardProductClick = async (id) => {
-    if (!isAdmin) return;
-    const productSelected = findObjectById(id, menuProducts);
-
-    await setSelectedProduct(productSelected);
-    await setSelectedTab("edit");
-    await setIsCollapsed(false);
-    await setNewProductInfo(productSelected);
-    inputRef.current.focus();
   };
 
   return (
@@ -40,7 +20,7 @@ export default function BasketProducts({ basket, handleDeleteToBasket }) {
         const menuProduct = findObjectById(basketProduct.id, menuProducts);
         return (
           <BasketCard
-            onClick={() => handleCardProductClick(menuProduct.id)}
+            onClick={() => handleProductClick(menuProduct.id)}
             key={menuProduct.id}
             title={menuProduct.title}
             imageSource={
