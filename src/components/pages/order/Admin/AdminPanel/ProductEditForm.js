@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import Form from "../../../../reusable-ui/Form";
-import HintMessage from "./EditPanel/HintMessage";
 import EditInfoMessage from "./EditInfoMessage";
 
 export default function ProductEditForm() {
