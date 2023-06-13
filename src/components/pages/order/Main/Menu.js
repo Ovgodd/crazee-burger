@@ -23,6 +23,10 @@ export default function Menu() {
     handleDeleteToBasket,
     setBasket,
     basket,
+    handleAddToBasket,
+    handleDeleteToBasket,
+    setBasket,
+    basket,
   } = useContext(OrderContext);
 
   if (isEmpty(menuProducts))

@@ -44,7 +44,7 @@ export default function BasketProducts({ basket, handleDeleteToBasket }) {
             key={menuProduct.id}
             title={menuProduct.title}
             imageSource={
-              menuProduct.imageSource ? menuProduct.imageSource : ComingSoon
+              menuProduct.imageSource ? menuProduct.imageSource : COMING_SOON
             }
             price={formatPrice(menuProduct.price)}
             quantity={basketProduct.quantity}

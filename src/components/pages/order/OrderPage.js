@@ -8,15 +8,15 @@ import { useRef } from "react";
 import { DEFAULT_PRODUCT_INFO } from "../../enums/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
-import { findObjectById } from "../../../utils/array";
 
 export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedTab, setSelectedTab] = useState("add");
   const [newProductInfo, setNewProductInfo] = useState(DEFAULT_PRODUCT_INFO);
-  const [selectedProduct, setSelectedProduct] = useState(DEFAULT_PRODUCT_INFO);
   const [isCardSelected, setIsCardSelected] = useState(false);
+  const [isPageRefresh, setIsPageRefresh] = useState(false);
+
   const [isPageRefresh, setIsPageRefresh] = useState(false);
 
   const inputRef = useRef();
@@ -24,15 +24,6 @@ export default function OrderPage() {
     useMenu();
   const { basket, setBasket, handleAddToBasket, handleDeleteToBasket } =
     useBasket();
-
-  const handleProductClick = async (idProductCliked) => {
-    const productClickedOn = findObjectById(idProductCliked, menuProducts);
-    await setSelectedProduct(productClickedOn);
-    await setSelectedTab("edit");
-    await setIsCollapsed(false);
-    inputRef.current.focus();
-    console.log("products clicked on : ", selectedProduct); // OK
-  };
 
   const adminContextValue = {
     isCollapsed,

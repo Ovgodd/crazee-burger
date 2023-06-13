@@ -12,11 +12,10 @@ export default function BasketCard({
   onClick,
   isSelected,
   isAdmin,
-  isAdmin,
 }) {
   return (
     <BasketCardStyled
-      isAdmin={isAdmin}
+      isSelectable={isAdmin}
       onClick={onClick}
       isSelected={isSelected}
     >
@@ -24,7 +23,7 @@ export default function BasketCard({
         <MdDeleteForever className="icon" />
       </button>
 
-      <div className="image-container">
+      <div className="image">
         <img className="product-image" src={imageSource} alt="product" />
       </div>
       <div className="info-container">
@@ -109,39 +108,6 @@ const BasketCardStyled = styled.div`
     }
   }
   .delete {
-    display: none;
-    z-index: 1;
-  }
-
-  :hover {
-    .delete {
-      box-sizing: border-box;
-      position: absolute;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 76px;
-      right: 0px;
-      top: 0px;
-      bottom: 0px;
-      background: ${theme.colors.red};
-      border-radius: 0px 5px 5px 0px;
-      border-color: transparent;
-      cursor: pointer;
-      &:hover .icon {
-        color: ${theme.colors.background_dark};
-      }
-      &:active .icon {
-        color: ${theme.colors.white};
-        transition: 0.3s;
-      }
-      .icon {
-        width: ${theme.fonts.size.P3};
-        height: ${theme.fonts.size.P3};
-        color: ${theme.colors.white};
-      }
-    }
-  }
     display: none;
     z-index: 1;
   }

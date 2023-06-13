@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { fakeMenu } from "../fakeData/fakeMenu";
 import { deepClone, findIndex, removeObjectById } from "../utils/array";
+import { formatPrice, replaceFrenchCommaWithDot } from "../utils/maths";
 
 export const useMenu = () => {
   const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
@@ -33,7 +34,7 @@ export const useMenu = () => {
     // const editedProduct = {
     //   ...productBeingEdited,
     //   price: replaceFrenchCommaWithDot(formatPrice(productBeingEdited.price)),
-    // }; a ne pas mettre ICI ()
+    // }; rien a faire ici.( pas a mettre dans useMenu >> to EditProductForm)
     menuCopy[indexOfProductToEdit] = productBeingEdited;
 
     setMenuProducts(menuCopy);
