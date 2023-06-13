@@ -3,7 +3,7 @@ import { fakeMenu } from "../fakeData/fakeMenu";
 import { deepClone, findIndex, removeObjectById } from "../utils/array";
 
 export const useMenu = () => {
-  const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
+  const [menuProducts, setMenuProducts] = useState(fakeMenu.LARGE);
 
   const handleDelete = (id) => {
     const menuCopy = deepClone(menuProducts);

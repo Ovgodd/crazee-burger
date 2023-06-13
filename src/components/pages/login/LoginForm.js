@@ -8,12 +8,14 @@ import Button from "../../reusable-ui/Buttons/Button";
 import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForward } from "react-icons/io5";
 import { theme } from "../../../theme";
-import { createUser } from "../../../api/user";
+import { createUser, getUser } from "../../../api/user";
 
 export default function LoginForm() {
   const [inputName, setInputName] = useState("Cyril");
 
   const navigate = useNavigate();
+
+  getUser(inputName);
 
   const handleChange = (event) => {
     const inputUser = event.target.value;
@@ -21,12 +23,18 @@ export default function LoginForm() {
       setInputName(inputUser);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    createUser(inputName);
 
-    setInputName("");
+    const userExists = await getUser(inputName);
+    if (userExists) {
+      console.log(userExists, "Exist");
+    } else {
+      createUser(inputName);
+      console.log(userExists, "Dont exist");
+    }
     navigate(`order/${inputName}`);
+    setInputName("");
   };
 
   return (

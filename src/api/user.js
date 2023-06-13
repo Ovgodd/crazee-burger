@@ -9,9 +9,13 @@ export const getUser = async (idUser) => {
   console.log("docSnapshot: ", docSnapshot);
   if (docSnapshot.exists()) {
     const userReceived = docSnapshot.data();
-    console.log(userReceived);
+    console.log("user received: ", userReceived);
+    return userReceived;
   }
+  localStorage.clear();
+  return null;
 };
+
 export const createUser = (userId) => {
   const docRef = doc(db, "users", userId);
 
@@ -21,4 +25,5 @@ export const createUser = (userId) => {
   };
 
   setDoc(docRef, newDoc);
+  localStorage.clear();
 };

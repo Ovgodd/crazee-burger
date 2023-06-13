@@ -15,6 +15,7 @@ export const useBasket = () => {
   useEffect(() => {
     localStorage.setItem("basket", JSON.stringify(basket));
   }, [basket]);
+
   // add product in basket
   const handleAddToBasket = (productToAdd) => {
     const basketCopy = deepClone(basket);
