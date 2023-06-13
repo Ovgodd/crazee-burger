@@ -15,9 +15,6 @@ export default function OrderPage() {
   const [selectedTab, setSelectedTab] = useState("add");
   const [newProductInfo, setNewProductInfo] = useState(DEFAULT_PRODUCT_INFO);
   const [isCardSelected, setIsCardSelected] = useState(false);
-  const [isPageRefresh, setIsPageRefresh] = useState(false);
-
-  const [isPageRefresh, setIsPageRefresh] = useState(false);
 
   const inputRef = useRef();
   const { handleAdd, handleReset, handleEdit, handleDelete, menuProducts } =
@@ -34,8 +31,7 @@ export default function OrderPage() {
     setSelectedTab,
     isCardSelected,
     setIsCardSelected,
-    selectedProduct,
-    setSelectedProduct,
+
     newProductInfo,
     setNewProductInfo,
     menuProducts,
@@ -48,8 +44,6 @@ export default function OrderPage() {
     setBasket,
     handleAddToBasket,
     handleDeleteToBasket,
-    isPageRefresh,
-    setIsPageRefresh,
   };
 
   return (
