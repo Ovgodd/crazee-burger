@@ -5,19 +5,16 @@ import {
   findObjectById,
   removeObjectById,
 } from "../utils/array";
-import { fakeBasket } from "../fakeData/fakeBasket";
 
 export const useBasket = () => {
   const [basket, setBasket] = useState(() => {
-    const storedBasket = localStorage.getItem("items");
-    return storedBasket ? JSON.parse(storedBasket) : fakeBasket.EMPTY;
+    const savedBasket = localStorage.getItem("basket");
+    return savedBasket ? JSON.parse(savedBasket) : [];
   });
 
   useEffect(() => {
-    localStorage.setItem("items", JSON.stringify(basket));
-    console.log(basket);
+    localStorage.setItem("basket", JSON.stringify(basket));
   }, [basket]);
-
   // add product in basket
   const handleAddToBasket = (productToAdd) => {
     const basketCopy = deepClone(basket);

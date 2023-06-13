@@ -1,6 +1,6 @@
-export const EMPTY = [];
+const EMPTY = [];
 
-export const SMALL = [
+const SMALL = [
   {
     id: "1",
     title: "Burger Meal",
@@ -9,7 +9,7 @@ export const SMALL = [
   },
 ];
 
-export const MEDIUM = [
+const MEDIUM = [
   {
     id: "1",
     imageSource: "images/burger1.png",
@@ -41,7 +41,7 @@ export const MEDIUM = [
   },
 ];
 
-export const LARGE = [
+const LARGE = [
   {
     id: "1",
     imageSource: "/images/fries3.png",
@@ -134,7 +134,7 @@ export const LARGE = [
   },
 ];
 
-export const LARGE_WEIRD = [
+const LARGE_WEIRD = [
   {
     id: "1",
     imageSource: "/images/fries3.png",
