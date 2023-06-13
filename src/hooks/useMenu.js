@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { fakeMenu } from "../fakeData/fakeMenu";
 import { deepClone, findIndex, removeObjectById } from "../utils/array";
-import { formatPrice, replaceFrenchCommaWithDot } from "../utils/maths";
 
 export const useMenu = () => {
   const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
