@@ -8,6 +8,7 @@ import Button from "../../reusable-ui/Buttons/Button";
 import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForward } from "react-icons/io5";
 import { theme } from "../../../theme";
+import { createUser } from "../../../api/user";
 
 export default function LoginForm() {
   const [inputName, setInputName] = useState("Cyril");
@@ -20,7 +21,11 @@ export default function LoginForm() {
       setInputName(inputUser);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    createUser(inputName);
+
+    setInputName("");
     navigate(`order/${inputName}`);
   };
 
