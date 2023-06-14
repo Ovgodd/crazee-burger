@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useLayoutEffect } from "react";
 import styled from "styled-components";
 import Card from "../../../reusable-ui/Card";
 import { formatPrice } from "../../../../utils/maths";
@@ -54,25 +54,29 @@ export default function Menu() {
 
   return (
     <MenuStyled>
-      {menuProducts.map(({ id, title, imageSource, price, quantity }) => (
-        <Card
-          key={id}
-          id={id}
-          quantity={quantity}
-          title={title}
-          image={imageSource ? imageSource : COMING_SOON}
-          price={formatPrice(price)}
-          isSelected={
-            selectedProduct && selectedProduct.id === id
-              ? selectedProduct
-              : null
-          }
-          onDelete={(e) => handleCardDelete(id, e)}
-          onAdd={(e) => handleOnAdd(e, id)}
-          onClick={() => handleCardClick(id)}
-          hasButton={isAdmin}
-        />
-      ))}
+      {menuProducts.length === 0 ? (
+        <div>loading...</div>
+      ) : (
+        menuProducts.map(({ id, title, imageSource, price, quantity }) => (
+          <Card
+            key={id}
+            id={id}
+            quantity={quantity}
+            title={title}
+            image={imageSource ? imageSource : COMING_SOON}
+            price={formatPrice(price)}
+            isSelected={
+              selectedProduct && selectedProduct.id === id
+                ? selectedProduct
+                : null
+            }
+            onDelete={(e) => handleCardDelete(id, e)}
+            onAdd={(e) => handleOnAdd(e, id)}
+            onClick={() => handleCardClick(id)}
+            hasButton={isAdmin}
+          />
+        ))
+      )}
     </MenuStyled>
   );
 }
