@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { fakeMenu } from "../fakeData/fakeMenu";
 import { deepClone, findIndex, removeObjectById } from "../utils/array";
 
 export const useMenu = () => {
-  const [menuProducts, setMenuProducts] = useState(fakeMenu.LARGE);
+  const [menuProducts, setMenuProducts] = useState(fakeMenu.EMPTY);
+
+  //vide et ne prends pas en compte les changements menuProducts de LoginForm avec le useEffect qui fonctionne
+  useEffect(() => {
+    console.log(menuProducts);
+  }, [menuProducts]);
 
   const handleDelete = (id) => {
     const menuCopy = deepClone(menuProducts);

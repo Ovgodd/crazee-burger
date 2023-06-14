@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Welcome from "./Welcome";
@@ -9,13 +9,27 @@ import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForward } from "react-icons/io5";
 import { theme } from "../../../theme";
 import { createUser, getUser } from "../../../api/user";
+import { useMenu } from "../../../hooks/useMenu";
 
 export default function LoginForm() {
   const [inputName, setInputName] = useState("Cyril");
+  const { setMenuProducts } = useMenu();
 
   const navigate = useNavigate();
 
-  getUser(inputName);
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const userExists = await getUser(inputName);
+      if (userExists) {
+        const user = await getUser(inputName);
+        console.log(user, "User data from getUser"); // Ajouter cette ligne
+        const userMenuProducts = user.menu;
+        console.log(userMenuProducts, " are products");
+        setMenuProducts(userMenuProducts);
+      }
+    };
+    fetchUserData();
+  }, [inputName, setMenuProducts]);
 
   const handleChange = (event) => {
     const inputUser = event.target.value;
@@ -27,12 +41,14 @@ export default function LoginForm() {
     event.preventDefault();
 
     const userExists = await getUser(inputName);
+
     if (userExists) {
       console.log(userExists, "Exist");
     } else {
       createUser(inputName);
       console.log(userExists, "Dont exist");
     }
+
     navigate(`order/${inputName}`);
     setInputName("");
   };
