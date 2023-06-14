@@ -9,6 +9,7 @@ import { DEFAULT_PRODUCT_INFO } from "../../enums/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { findObjectById } from "../../../utils/array";
+import { useParams } from "react-router-dom";
 
 export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -18,8 +19,15 @@ export default function OrderPage() {
   const [selectedProduct, setSelectedProduct] = useState(DEFAULT_PRODUCT_INFO);
   const [isCardSelected, setIsCardSelected] = useState(false);
   const inputRef = useRef();
-  const { handleAdd, handleReset, handleEdit, handleDelete, menuProducts } =
-    useMenu();
+  const {
+    handleAdd,
+    handleReset,
+    handleEdit,
+    handleDelete,
+    menuProducts,
+    setMenuProducts,
+    loadMenuProducts,
+  } = useMenu();
   const { basket, setBasket, handleAddToBasket, handleDeleteToBasket } =
     useBasket();
 
@@ -46,6 +54,8 @@ export default function OrderPage() {
     newProductInfo,
     setNewProductInfo,
     menuProducts,
+    setMenuProducts,
+
     handleAdd,
     handleDelete,
     handleReset,
@@ -56,6 +66,7 @@ export default function OrderPage() {
     handleAddToBasket,
     handleDeleteToBasket,
     handleProductClick,
+    loadMenuProducts,
   };
 
   return (

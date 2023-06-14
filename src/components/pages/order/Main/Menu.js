@@ -25,6 +25,10 @@ export default function Menu() {
     handleDeleteToBasket,
   } = useContext(OrderContext);
 
+  useEffect(() => {
+    console.log("menuProducts a changé : ", menuProducts);
+  }, [menuProducts]);
+
   if (isEmpty(menuProducts))
     return <EmptyMenu isAdmin={isAdmin} onClick={handleReset} />;
 
@@ -54,29 +58,25 @@ export default function Menu() {
 
   return (
     <MenuStyled>
-      {menuProducts.length === 0 ? (
-        <div>loading...</div>
-      ) : (
-        menuProducts.map(({ id, title, imageSource, price, quantity }) => (
-          <Card
-            key={id}
-            id={id}
-            quantity={quantity}
-            title={title}
-            image={imageSource ? imageSource : COMING_SOON}
-            price={formatPrice(price)}
-            isSelected={
-              selectedProduct && selectedProduct.id === id
-                ? selectedProduct
-                : null
-            }
-            onDelete={(e) => handleCardDelete(id, e)}
-            onAdd={(e) => handleOnAdd(e, id)}
-            onClick={() => handleCardClick(id)}
-            hasButton={isAdmin}
-          />
-        ))
-      )}
+      {menuProducts.map(({ id, title, imageSource, price, quantity }) => (
+        <Card
+          key={id}
+          id={id}
+          quantity={quantity}
+          title={title}
+          image={imageSource ? imageSource : COMING_SOON}
+          price={formatPrice(price)}
+          isSelected={
+            selectedProduct && selectedProduct.id === id
+              ? selectedProduct
+              : null
+          }
+          onDelete={(e) => handleCardDelete(id, e)}
+          onAdd={(e) => handleOnAdd(e, id)}
+          onClick={() => handleCardClick(id)}
+          hasButton={isAdmin}
+        />
+      ))}
     </MenuStyled>
   );
 }

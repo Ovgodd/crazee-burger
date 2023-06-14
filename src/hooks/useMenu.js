@@ -3,16 +3,14 @@ import { fakeMenu } from "../fakeData/fakeMenu";
 import { deepClone, findIndex, removeObjectById } from "../utils/array";
 
 export const useMenu = () => {
-  const [menuProducts, setMenuProducts] = useState(fakeMenu.EMPTY);
+  const [menuProducts, setMenuProducts] = useState(fakeMenu.LARGE);
 
-  //vide et ne prends pas en compte les changements menuProducts de LoginForm avec le useEffect qui fonctionne
-  useEffect(() => {
-    console.log(menuProducts);
-  }, [menuProducts]);
+  // const loadMenuProducts = async (userId) => {
+  //   await setMenuProducts(userId);
+  // };
 
   const handleDelete = (id) => {
     const menuCopy = deepClone(menuProducts);
-
     const menuUpdated = removeObjectById(id, menuCopy);
 
     setMenuProducts(menuUpdated);
@@ -51,5 +49,6 @@ export const useMenu = () => {
     handleDelete,
     setMenuProducts,
     menuProducts,
+    // loadMenuProducts,
   };
 };

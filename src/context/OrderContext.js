@@ -1,6 +1,8 @@
 import { createContext } from "react";
 
 export default createContext({
+  menuProducts: [],
+  setMenuProducts: () => {},
   isCollapsed: false,
   setIsCollapsed: () => {},
   isAdmin: false,
@@ -25,4 +27,5 @@ export default createContext({
   handleAddToBasket: () => {},
   handleDeleteToBasket: () => {},
   handleProductClick: () => {},
+  loadMenuProducts: () => {},
 });

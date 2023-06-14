@@ -12,6 +12,7 @@ export const useBasket = () => {
     return savedBasket ? JSON.parse(savedBasket) : [];
   });
 
+  // const [basket, setBasket] = useState([]);
   useEffect(() => {
     localStorage.setItem("basket", JSON.stringify(basket));
   }, [basket]);

@@ -9,27 +9,16 @@ import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForward } from "react-icons/io5";
 import { theme } from "../../../theme";
 import { createUser, getUser } from "../../../api/user";
-import { useMenu } from "../../../hooks/useMenu";
+import { useContext } from "react";
+import OrderContext from "../../../context/OrderContext";
+import { fakeMenu } from "../../../fakeData/fakeMenu";
 
 export default function LoginForm() {
   const [inputName, setInputName] = useState("Cyril");
-  const { setMenuProducts } = useMenu();
+  const { menuProducts, setMenuProducts, loadMenuProducts } =
+    useContext(OrderContext);
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchUserData = async () => {
-      const userExists = await getUser(inputName);
-      if (userExists) {
-        const user = await getUser(inputName);
-        console.log(user, "User data from getUser"); // Ajouter cette ligne
-        const userMenuProducts = user.menu;
-        console.log(userMenuProducts, " are products");
-        setMenuProducts(userMenuProducts);
-      }
-    };
-    fetchUserData();
-  }, [inputName, setMenuProducts]);
 
   const handleChange = (event) => {
     const inputUser = event.target.value;
@@ -40,13 +29,14 @@ export default function LoginForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const userExists = await getUser(inputName);
+    const user = await getUser(inputName);
 
-    if (userExists) {
-      console.log(userExists, "Exist");
+    if (user) {
+      loadMenuProducts(user);
+      console.log(user.menu, "userExists menu");
+      console.log(menuProducts, "menuProduct AFTER setting in loginform");
     } else {
       createUser(inputName);
-      console.log(userExists, "Dont exist");
     }
 
     navigate(`order/${inputName}`);
