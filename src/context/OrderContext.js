@@ -28,4 +28,6 @@ export default createContext({
   handleDeleteToBasket: () => {},
   handleProductClick: () => {},
   loadMenuProducts: () => {},
+  userValue: "",
+  setUserValue: () => {},
 });

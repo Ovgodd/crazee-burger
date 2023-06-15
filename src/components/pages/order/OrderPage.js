@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../context/OrderContext";
 import { theme } from "../../../theme";
@@ -30,6 +30,9 @@ export default function OrderPage() {
   } = useMenu();
   const { basket, setBasket, handleAddToBasket, handleDeleteToBasket } =
     useBasket();
+
+  const userName = useParams();
+  const [userValue, setUserValue] = useState(userName);
 
   const handleProductClick = async (idProductCliked) => {
     const productClickedOn = findObjectById(idProductCliked, menuProducts);
@@ -67,6 +70,8 @@ export default function OrderPage() {
     handleDeleteToBasket,
     handleProductClick,
     loadMenuProducts,
+    userValue,
+    setUserValue,
   };
 
   return (
