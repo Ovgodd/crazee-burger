@@ -10,6 +10,7 @@ import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { findObjectById } from "../../../utils/array";
 import { useLocation, useParams } from "react-router-dom";
+import { getUser } from "../../../api/user";
 
 export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -30,6 +31,21 @@ export default function OrderPage() {
   } = useMenu();
   const { basket, setBasket, handleAddToBasket, handleDeleteToBasket } =
     useBasket();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const user = await getUser(userValue.username);
+      if (user) {
+        setUserValue(user);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("basket", JSON.stringify(basket));
+  }, [basket]);
 
   const userName = useParams();
   const location = useLocation();

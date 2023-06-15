@@ -7,15 +7,7 @@ import {
 } from "../utils/array";
 
 export const useBasket = () => {
-  const [basket, setBasket] = useState(() => {
-    const savedBasket = localStorage.getItem("basket");
-    return savedBasket ? JSON.parse(savedBasket) : [];
-  });
-
-  // const [basket, setBasket] = useState([]);
-  useEffect(() => {
-    localStorage.setItem("basket", JSON.stringify(basket));
-  }, [basket]);
+  const [basket, setBasket] = useState([]);
 
   // add product in basket
   const handleAddToBasket = (productToAdd) => {

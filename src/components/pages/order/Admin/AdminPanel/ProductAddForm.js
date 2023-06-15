@@ -5,6 +5,7 @@ import Form from "../../../../reusable-ui/Form";
 import { replaceFrenchCommaWithDot } from "../../../../../utils/maths";
 import { useSuccessMessage } from "../../../../../hooks/useDisplaySuccess";
 import SubmittButton from "./SubmittButton";
+import { addItem } from "../../../../../api/user";
 
 export default function ProductAddForm() {
   const {
@@ -13,6 +14,7 @@ export default function ProductAddForm() {
     inputRef,
     handleAdd,
     setNewProductInfo,
+    userValue,
   } = useContext(OrderContext);
   const { displaySuccess, isSubmitted } = useSuccessMessage();
 
@@ -23,9 +25,15 @@ export default function ProductAddForm() {
     setNewProductInfo(updatedNewProductInfo);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     handleAdd({
+      ...newProductInfo,
+      id: new Date().getTime(),
+      price: replaceFrenchCommaWithDot(newProductInfo.price),
+    });
+
+    await addItem(userValue.username, {
       ...newProductInfo,
       id: new Date().getTime(),
       price: replaceFrenchCommaWithDot(newProductInfo.price),

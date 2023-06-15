@@ -7,7 +7,7 @@ import OrderContext from "../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
 import COMING_SOON from "../../../../images/coming-soon.png";
 import { findObjectById, isEmpty } from "../../../../utils/array";
-import { deleteItem } from "../../../../api/user";
+import { addItem, deleteItem } from "../../../../api/user";
 import { fakeMenu } from "../../../../fakeData/fakeMenu";
 
 export default function Menu() {
@@ -61,6 +61,7 @@ export default function Menu() {
   const handleOnAdd = (e, idProductToAdd) => {
     e.stopPropagation();
     const productToAdd = findObjectById(idProductToAdd, menuProducts);
+    console.log(userValue, "userValue from menu");
     handleAddToBasket(productToAdd);
   };
 
