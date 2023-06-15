@@ -12,6 +12,15 @@ export default function Basket() {
   const { basket, menuProducts, isAdmin, handleDeleteToBasket } =
     useContext(OrderContext);
 
+  // const [basket, setBasket] = useState(() => {
+  //   const savedBasket = localStorage.getItem("basket");
+  //   return savedBasket ? JSON.parse(savedBasket) : [];
+  // });
+
+  // useEffect(() => {
+  //   localStorage.setItem("basket", JSON.stringify(basket));
+  // }, [basket]);
+
   const totalToPay = totalSumToPay(basket, menuProducts);
 
   const isBasketEmpty = isEmpty(basket);

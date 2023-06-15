@@ -1,4 +1,4 @@
-export const deepClone = (array) => {
+export const deepClone = (array, item) => {
   return JSON.parse(JSON.stringify(array));
 };
 

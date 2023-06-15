@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { fakeMenu } from "../fakeData/fakeMenu";
 import { deepClone, findIndex, removeObjectById } from "../utils/array";
+import { addItem } from "../api/user";
 
 export const useMenu = () => {
   const [menuProducts, setMenuProducts] = useState(fakeMenu.LARGE);
@@ -21,7 +22,7 @@ export const useMenu = () => {
   };
 
   const handleReset = () => {
-    setMenuProducts(fakeMenu.MEDIUM);
+    setMenuProducts(fakeMenu.LARGE);
   };
 
   const handleEdit = (productBeingEdited) => {
