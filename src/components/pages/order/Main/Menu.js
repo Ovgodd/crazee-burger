@@ -7,6 +7,7 @@ import OrderContext from "../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
 import COMING_SOON from "../../../../images/coming-soon.png";
 import { findObjectById, isEmpty } from "../../../../utils/array";
+import { deleteItem } from "../../../../api/user";
 
 export default function Menu() {
   const {
@@ -23,11 +24,8 @@ export default function Menu() {
     selectedProduct,
     handleAddToBasket,
     handleDeleteToBasket,
+    userValue,
   } = useContext(OrderContext);
-
-  useEffect(() => {
-    console.log("menuProducts a changé : ", menuProducts);
-  }, [menuProducts]);
 
   if (isEmpty(menuProducts))
     return <EmptyMenu isAdmin={isAdmin} onClick={handleReset} />;
@@ -48,6 +46,8 @@ export default function Menu() {
     handleDeleteToBasket(id);
     id === newProductInfo.id && setSelectedProduct(null);
     inputRef.current.focus();
+    console.log(userValue, "userValue from menu");
+    deleteItem(userValue, id);
   };
 
   const handleOnAdd = (e, idProductToAdd) => {

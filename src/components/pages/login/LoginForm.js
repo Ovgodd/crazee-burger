@@ -9,15 +9,11 @@ import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForward } from "react-icons/io5";
 import { theme } from "../../../theme";
 import { createUser, getUser } from "../../../api/user";
-import { useContext } from "react";
-import OrderContext from "../../../context/OrderContext";
-import { fakeMenu } from "../../../fakeData/fakeMenu";
 
 export default function LoginForm() {
   const [inputName, setInputName] = useState("Cyril");
-  const { menuProducts, setMenuProducts, loadMenuProducts } =
-    useContext(OrderContext);
 
+  getUser(inputName);
   const navigate = useNavigate();
 
   const handleChange = (event) => {
@@ -29,15 +25,7 @@ export default function LoginForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const user = await getUser(inputName);
-
-    if (user) {
-      loadMenuProducts(user);
-      console.log(user.menu, "userExists menu");
-      console.log(menuProducts, "menuProduct AFTER setting in loginform");
-    } else {
-      createUser(inputName);
-    }
+    createUser(inputName);
 
     navigate(`order/${inputName}`);
     setInputName("");

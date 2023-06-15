@@ -1,13 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { fakeMenu } from "../fakeData/fakeMenu";
 import { deepClone, findIndex, removeObjectById } from "../utils/array";
 
 export const useMenu = () => {
   const [menuProducts, setMenuProducts] = useState(fakeMenu.LARGE);
-
-  // const loadMenuProducts = async (userId) => {
-  //   await setMenuProducts(userId);
-  // };
 
   const handleDelete = (id) => {
     const menuCopy = deepClone(menuProducts);
