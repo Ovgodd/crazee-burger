@@ -9,7 +9,7 @@ import { DEFAULT_PRODUCT_INFO } from "../../enums/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { findObjectById } from "../../../utils/array";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -32,7 +32,9 @@ export default function OrderPage() {
     useBasket();
 
   const userName = useParams();
-  const [userValue, setUserValue] = useState(userName);
+  const location = useLocation();
+
+  const [userValue, setUserValue] = useState(location.state?.user || userName);
 
   const handleProductClick = async (idProductCliked) => {
     const productClickedOn = findObjectById(idProductCliked, menuProducts);

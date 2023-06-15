@@ -13,7 +13,6 @@ import { createUser, getUser } from "../../../api/user";
 export default function LoginForm() {
   const [inputName, setInputName] = useState("Cyril");
 
-  getUser(inputName);
   const navigate = useNavigate();
 
   const handleChange = (event) => {
@@ -27,7 +26,8 @@ export default function LoginForm() {
 
     createUser(inputName);
 
-    navigate(`order/${inputName}`);
+    const userReceived = await getUser(inputName);
+    navigate(`order/${inputName}`, { state: { user: userReceived } });
     setInputName("");
   };
 

@@ -8,11 +8,13 @@ import EmptyMenu from "./EmptyMenu";
 import COMING_SOON from "../../../../images/coming-soon.png";
 import { findObjectById, isEmpty } from "../../../../utils/array";
 import { deleteItem } from "../../../../api/user";
+import { fakeMenu } from "../../../../fakeData/fakeMenu";
 
 export default function Menu() {
   const {
     setIsCollapsed,
     menuProducts,
+    setMenuProducts,
     handleDelete,
     handleReset,
     setSelectedTab,
@@ -26,6 +28,12 @@ export default function Menu() {
     handleDeleteToBasket,
     userValue,
   } = useContext(OrderContext);
+
+  useEffect(() => {
+    if (userValue) {
+      setMenuProducts(userValue.menu || fakeMenu.LARGE);
+    }
+  }, [userValue]);
 
   if (isEmpty(menuProducts))
     return <EmptyMenu isAdmin={isAdmin} onClick={handleReset} />;

@@ -12,20 +12,21 @@ export const getUser = async (idUser) => {
     console.log("user received: ", userReceived);
     return userReceived;
   }
-  localStorage.clear();
   return null;
 };
 
-export const createUser = (userId) => {
+export const createUser = async (userId) => {
   const docRef = doc(db, "users", userId);
+  const docSnapshot = await getDoc(docRef);
+  if (docSnapshot.exists()) {
+    return;
+  }
 
   const newDoc = {
     username: userId,
     menu: fakeMenu.LARGE,
   };
-
   setDoc(docRef, newDoc);
-  localStorage.clear();
 };
 
 export const updateItem = (userId, menu) => {
