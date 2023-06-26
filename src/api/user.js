@@ -12,7 +12,6 @@ export const getUser = async (idUser) => {
     console.log("user received: ", userReceived);
     return userReceived;
   }
-  return null;
 };
 
 export const createUser = async (userId) => {

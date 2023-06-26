@@ -6,11 +6,12 @@ import { syncBothMenu } from "../api/product";
 export const useMenu = () => {
   const [menuProducts, setMenuProducts] = useState(fakeMenu.LARGE);
 
-  const handleDelete = (id) => {
+  const handleDelete = (idProductToDelete, username, updatedMenu) => {
     const menuCopy = deepClone(menuProducts);
-    const menuUpdated = removeObjectById(id, menuCopy);
+    const menuUpdated = removeObjectById(idProductToDelete, menuCopy);
 
     setMenuProducts(menuUpdated);
+    syncBothMenu(username, updatedMenu);
   };
 
   const handleAdd = (productToAdd, username) => {
@@ -47,6 +48,5 @@ export const useMenu = () => {
     handleDelete,
     setMenuProducts,
     menuProducts,
-    // loadMenuProducts,
   };
 };

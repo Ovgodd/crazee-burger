@@ -1,46 +1,23 @@
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "./firebase-config";
 
 export const syncBothMenu = (userId, menuUpdated) => {
-  const cachette = doc(db, "users", userId);
+  const chest = doc(db, "users", userId);
 
-  const nourriture = {
+  const treasure = {
     username: userId,
     menu: menuUpdated,
   };
-  setDoc(cachette, nourriture);
+  setDoc(chest, treasure);
 };
 
-// export const deleteItem = async (userId, itemId) => {
-//   const docRef = doc(db, "users", userId.username);
+export const getMenu = async (idUser) => {
+  const docRef = doc(db, "users", idUser);
 
-//   const docSnapshot = await getDoc(docRef);
-//   if (docSnapshot.exists()) {
-//     const user = docSnapshot.data();
-//     const updatedMenu = user.menu.filter((item) => item.id !== itemId);
-//     //user Array utils
-//     try {
-//       await updateDoc(docRef, { menu: updatedMenu });
-//       console.log("Document deleted successfully in Firestore.");
-//     } catch (error) {
-//       console.log("Error updating document:", error);
-//     }
-//   }
-// };
-
-// export const addItem = async (userId, newItem) => {
-//   const docRef = doc(db, "users", userId);
-
-//   const docSnapshot = await getDoc(docRef);
-//   if (docSnapshot.exists()) {
-//     const user = docSnapshot.data();
-//     const updatedMenu = [...user.menu, newItem];
-//     //user Array utils ( deepClone )
-//     try {
-//       await updateDoc(docRef, { menu: updatedMenu });
-//       console.log("Document updated successfully in Firestore.");
-//     } catch (error) {
-//       console.log("Error updating document:", error);
-//     }
-//   }
-// };
+  const docSnapshot = await getDoc(docRef);
+  if (docSnapshot.exists()) {
+    const { menu } = docSnapshot.data();
+    console.log("user received: ", menu);
+    return menu;
+  }
+};

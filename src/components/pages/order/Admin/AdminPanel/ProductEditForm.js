@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import Form from "../../../../reusable-ui/Form";
 import EditInfoMessage from "./EditInfoMessage";
-import { updateItem } from "../../../../../api/user";
 
 export default function ProductEditForm() {
   const {
@@ -12,7 +11,6 @@ export default function ProductEditForm() {
     isProductAdded,
     setNewProductInfo,
     handleEdit,
-    userValue,
   } = useContext(OrderContext);
 
   const handleChange = async (event) => {

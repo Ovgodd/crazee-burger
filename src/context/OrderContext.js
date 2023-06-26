@@ -28,7 +28,5 @@ export default createContext({
   handleAddToBasket: () => {},
   handleDeleteToBasket: () => {},
   handleProductClick: () => {},
-  loadMenuProducts: () => {},
-  userValue: "",
   setUserValue: () => {},
 });

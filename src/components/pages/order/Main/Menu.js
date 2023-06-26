@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Card from "../../../reusable-ui/Card";
 import { formatPrice } from "../../../../utils/maths";
@@ -7,10 +7,10 @@ import OrderContext from "../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
 import COMING_SOON from "../../../../images/coming-soon.png";
 import { findObjectById, isEmpty } from "../../../../utils/array";
-import { fakeMenu } from "../../../../fakeData/fakeMenu";
 
 export default function Menu() {
   const {
+    username,
     setIsCollapsed,
     menuProducts,
     setMenuProducts,
@@ -25,14 +25,7 @@ export default function Menu() {
     selectedProduct,
     handleAddToBasket,
     handleDeleteToBasket,
-    userValue,
   } = useContext(OrderContext);
-
-  useEffect(() => {
-    if (userValue) {
-      setMenuProducts(userValue.menu || fakeMenu.LARGE);
-    }
-  }, [userValue]);
 
   if (isEmpty(menuProducts))
     return <EmptyMenu isAdmin={isAdmin} onClick={handleReset} />;
@@ -49,18 +42,15 @@ export default function Menu() {
 
   const handleCardDelete = (id, event) => {
     event.stopPropagation();
-    handleDelete(id);
+    handleDelete(id, username);
     handleDeleteToBasket(id);
     id === newProductInfo.id && setSelectedProduct(null);
     inputRef.current.focus();
-    console.log(userValue, "userValue from menu");
-    // deleteItem(userValue, id);
   };
 
   const handleOnAdd = (e, idProductToAdd) => {
     e.stopPropagation();
     const productToAdd = findObjectById(idProductToAdd, menuProducts);
-    console.log(userValue, "userValue from menu");
     handleAddToBasket(productToAdd);
   };
 
