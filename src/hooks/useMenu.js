@@ -8,10 +8,11 @@ export const useMenu = () => {
 
   const handleDelete = (idProductToDelete, username, updatedMenu) => {
     const menuCopy = deepClone(menuProducts);
+
     const menuUpdated = removeObjectById(idProductToDelete, menuCopy);
 
     setMenuProducts(menuUpdated);
-    syncBothMenu(username, updatedMenu);
+    syncBothMenu(username, menuUpdated);
   };
 
   const handleAdd = (productToAdd, username) => {
@@ -23,8 +24,9 @@ export const useMenu = () => {
     syncBothMenu(username, updatedMenu);
   };
 
-  const handleReset = () => {
-    setMenuProducts(fakeMenu.LARGE);
+  const handleReset = (username) => {
+    setMenuProducts(fakeMenu.SMALL);
+    syncBothMenu(username, fakeMenu.SMALL);
   };
 
   const handleEdit = (productBeingEdited) => {

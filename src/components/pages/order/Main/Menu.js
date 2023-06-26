@@ -31,7 +31,9 @@ export default function Menu() {
 
   if (isEmpty(menuProducts)) {
     if (!isAdmin) return <EmptyMenu />;
-    return <EmptyMenu isAdmin={isAdmin} onClick={handleReset} />;
+    return (
+      <EmptyMenu isAdmin={isAdmin} onClick={() => handleReset(username)} />
+    );
   }
 
   const handleCardClick = async (id) => {
