@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Welcome from "./Welcome";
@@ -11,24 +11,23 @@ import { theme } from "../../../theme";
 import { createUser, getUser } from "../../../api/user";
 
 export default function LoginForm() {
-  const [inputName, setInputName] = useState("Cyril");
+  const [username, setUsername] = useState("Cyril");
 
   const navigate = useNavigate();
 
   const handleChange = (event) => {
     const inputUser = event.target.value;
-    if (inputUser === "" || isValidName.test(inputUser))
-      setInputName(inputUser);
+    if (inputUser === "" || isValidName.test(inputUser)) setUsername(inputUser);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    createUser(username);
+    const userReceived = await getUser(username);
+    // authenticateUser(username);
 
-    createUser(inputName);
-
-    const userReceived = await getUser(inputName);
-    navigate(`order/${inputName}`, { state: { user: userReceived } });
-    setInputName("");
+    navigate(`order/${username}`, { state: { user: userReceived } });
+    setUsername("");
   };
 
   return (
@@ -36,7 +35,7 @@ export default function LoginForm() {
       <Welcome />
       <div className="input-login">
         <TextInput
-          value={inputName}
+          value={username}
           onChange={handleChange}
           placeholder={"Entrez votre prénom"}
           required

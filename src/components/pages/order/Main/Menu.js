@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useLayoutEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import Card from "../../../reusable-ui/Card";
 import { formatPrice } from "../../../../utils/maths";
@@ -7,7 +7,6 @@ import OrderContext from "../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
 import COMING_SOON from "../../../../images/coming-soon.png";
 import { findObjectById, isEmpty } from "../../../../utils/array";
-import { addItem, deleteItem } from "../../../../api/user";
 import { fakeMenu } from "../../../../fakeData/fakeMenu";
 
 export default function Menu() {
@@ -55,7 +54,7 @@ export default function Menu() {
     id === newProductInfo.id && setSelectedProduct(null);
     inputRef.current.focus();
     console.log(userValue, "userValue from menu");
-    deleteItem(userValue, id);
+    // deleteItem(userValue, id);
   };
 
   const handleOnAdd = (e, idProductToAdd) => {

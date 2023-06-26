@@ -20,6 +20,8 @@ export default function OrderPage() {
   const [selectedProduct, setSelectedProduct] = useState(DEFAULT_PRODUCT_INFO);
   const [isCardSelected, setIsCardSelected] = useState(false);
   const inputRef = useRef();
+  const { username } = useParams();
+
   const {
     handleAdd,
     handleReset,
@@ -62,6 +64,7 @@ export default function OrderPage() {
   };
 
   const adminContextValue = {
+    username,
     isCollapsed,
     setIsCollapsed,
     isAdmin,

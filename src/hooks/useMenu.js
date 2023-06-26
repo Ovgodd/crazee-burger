@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { fakeMenu } from "../fakeData/fakeMenu";
 import { deepClone, findIndex, removeObjectById } from "../utils/array";
-import { addItem } from "../api/user";
+import { syncBothMenu } from "../api/product";
 
 export const useMenu = () => {
   const [menuProducts, setMenuProducts] = useState(fakeMenu.LARGE);
@@ -13,12 +13,13 @@ export const useMenu = () => {
     setMenuProducts(menuUpdated);
   };
 
-  const handleAdd = (productToAdd) => {
+  const handleAdd = (productToAdd, username) => {
     const menuCopy = deepClone(menuProducts);
 
     const updatedMenu = [productToAdd, ...menuCopy];
 
     setMenuProducts(updatedMenu);
+    syncBothMenu(username, updatedMenu);
   };
 
   const handleReset = () => {
