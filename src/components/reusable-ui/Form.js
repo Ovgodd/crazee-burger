@@ -8,6 +8,8 @@ export default function Form({
   product,
   inputRef,
   children,
+  onFocus,
+  onBlur,
 }) {
   return (
     <FormStyled onSubmit={onSubmit}>
@@ -16,6 +18,8 @@ export default function Form({
         ref={inputRef}
         newProductInfo={product}
         onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
       />
       <div className="form-footer">{children}</div>
     </FormStyled>
