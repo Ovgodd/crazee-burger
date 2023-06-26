@@ -5,6 +5,7 @@ import EditInfoMessage from "./EditInfoMessage";
 
 export default function ProductEditForm() {
   const {
+    username,
     newProductInfo,
     selectedProduct,
     inputRef,
@@ -19,7 +20,7 @@ export default function ProductEditForm() {
 
     setNewProductInfo(updatedNewProductInfo);
 
-    handleEdit(updatedNewProductInfo);
+    handleEdit(updatedNewProductInfo, username);
   };
   return (
     <Form

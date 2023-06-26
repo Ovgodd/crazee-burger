@@ -13,9 +13,9 @@ import { useParams } from "react-router-dom";
 import { getMenu } from "../../../api/product";
 
 export default function OrderPage() {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [selectedTab, setSelectedTab] = useState("add");
+  const [selectedTab, setSelectedTab] = useState("edit");
   const [newProductInfo, setNewProductInfo] = useState(DEFAULT_PRODUCT_INFO);
   const [selectedProduct, setSelectedProduct] = useState(DEFAULT_PRODUCT_INFO);
   const [isCardSelected, setIsCardSelected] = useState(false);
