@@ -7,13 +7,13 @@ import OrderContext from "../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
 import COMING_SOON from "../../../../images/coming-soon.png";
 import { findObjectById, isEmpty } from "../../../../utils/array";
+import Loader from "./Loader";
 
 export default function Menu() {
   const {
     username,
     setIsCollapsed,
     menuProducts,
-    setMenuProducts,
     handleDelete,
     handleReset,
     setSelectedTab,
@@ -27,8 +27,12 @@ export default function Menu() {
     handleDeleteToBasket,
   } = useContext(OrderContext);
 
-  if (isEmpty(menuProducts))
+  if (menuProducts === undefined) return <Loader />;
+
+  if (isEmpty(menuProducts)) {
+    if (!isAdmin) return <EmptyMenu />;
     return <EmptyMenu isAdmin={isAdmin} onClick={handleReset} />;
+  }
 
   const handleCardClick = async (id) => {
     if (!isAdmin) return;

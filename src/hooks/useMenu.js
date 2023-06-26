@@ -4,7 +4,7 @@ import { deepClone, findIndex, removeObjectById } from "../utils/array";
 import { syncBothMenu } from "../api/product";
 
 export const useMenu = () => {
-  const [menuProducts, setMenuProducts] = useState(fakeMenu.LARGE);
+  const [menuProducts, setMenuProducts] = useState(undefined);
 
   const handleDelete = (idProductToDelete, username, updatedMenu) => {
     const menuCopy = deepClone(menuProducts);
