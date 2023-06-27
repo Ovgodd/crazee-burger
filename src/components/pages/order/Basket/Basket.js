@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -11,16 +11,19 @@ import { totalSumToPay } from "./helper";
 export default function Basket() {
   const { basket, menuProducts } = useContext(OrderContext);
 
-  if (menuProducts === undefined) return <span>chargement...</span>;
-
-  const totalToPay = totalSumToPay(basket, menuProducts);
+  const [isLoading, setIsLoading] = useState(false);
+  if (menuProducts === undefined) return isLoading === true;
 
   const isBasketEmpty = isEmpty(basket);
 
   return (
     <BasketStyled>
-      <Header totalToPay={totalToPay} label="Total" />
-      {isBasketEmpty ? <EmptyBasket /> : <BasketProducts />}
+      <Header label="Total" />
+      {isBasketEmpty ? (
+        <EmptyBasket isLoading={isLoading} />
+      ) : (
+        <BasketProducts />
+      )}
       <Footer label="Codé avec ❤️ et React.JS" />
     </BasketStyled>
   );

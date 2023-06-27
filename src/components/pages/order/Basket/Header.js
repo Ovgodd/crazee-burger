@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 import { formatPrice } from "../../../../utils/maths";
+import { totalSumToPay } from "./helper";
+import OrderContext from "../../../../context/OrderContext";
 
-export default function Header({ label, totalToPay }) {
+export default function Header({ label }) {
+  const { basket, menuProducts } = useContext(OrderContext);
+  const totalToPay = totalSumToPay(basket, menuProducts);
+
   return (
     <HeaderStyled>
       <span>{label}</span>

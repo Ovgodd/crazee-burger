@@ -14,9 +14,9 @@ import { getMenu } from "../../../api/product";
 import { getLocalStorage } from "../../../utils/Window";
 
 export default function OrderPage() {
-  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [selectedTab, setSelectedTab] = useState("edit");
+  const [selectedTab, setSelectedTab] = useState("add");
   const [newProductInfo, setNewProductInfo] = useState(DEFAULT_PRODUCT_INFO);
   const [selectedProduct, setSelectedProduct] = useState(DEFAULT_PRODUCT_INFO);
   const [isCardSelected, setIsCardSelected] = useState(false);
