@@ -43,7 +43,7 @@ export default function OrderPage() {
   const initialiseBasket = () => {
     const basketReceived = getLocalStorage(username);
     console.log("basketReceived", basketReceived);
-    setBasket(basketReceived);
+    if (basketReceived) setBasket(basketReceived);
   };
 
   useEffect(() => {
