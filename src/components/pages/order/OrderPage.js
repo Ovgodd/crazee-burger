@@ -10,8 +10,7 @@ import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { findObjectById } from "../../../utils/array";
 import { useParams } from "react-router-dom";
-import { getMenu } from "../../../api/product";
-import { getLocalStorage } from "../../../utils/Window";
+import { initialiseUserSession } from "./helpers.js/initialiseUserSession";
 
 export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -34,24 +33,9 @@ export default function OrderPage() {
   const { basket, setBasket, handleAddToBasket, handleDeleteToBasket } =
     useBasket();
 
-  const initialiseMenu = async () => {
-    const menuReceived = await getMenu(username);
-    setMenuProducts(menuReceived);
-  };
-
-  const initialiseBasket = () => {
-    const basketReceived = getLocalStorage(username);
-    if (basketReceived) setBasket(basketReceived);
-  };
-
-  const initaliseUserSession = async () => {
-    await initialiseMenu();
-    initialiseBasket();
-  };
-
   useEffect(() => {
-    initaliseUserSession();
-  }, []);
+    initialiseUserSession(username, setMenuProducts, setBasket);
+  });
 
   const handleProductClick = async (idProductCliked) => {
     const productClickedOn = findObjectById(idProductCliked, menuProducts);
