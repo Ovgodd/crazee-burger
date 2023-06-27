@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -9,17 +9,13 @@ import { isEmpty } from "../../../../utils/array";
 
 export default function Basket() {
   const { basket, menuProducts } = useContext(OrderContext);
-
-  const [isLoading, setIsLoading] = useState(false);
-  if (menuProducts === undefined) return isLoading === true;
-
   const isBasketEmpty = isEmpty(basket);
 
   return (
     <BasketStyled>
       <Header label="Total" />
       {isBasketEmpty ? (
-        <EmptyBasket isLoading={isLoading} />
+        <EmptyBasket isLoading={menuProducts === undefined} />
       ) : (
         <BasketProducts />
       )}

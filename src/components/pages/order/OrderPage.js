@@ -36,22 +36,21 @@ export default function OrderPage() {
 
   const initialiseMenu = async () => {
     const menuReceived = await getMenu(username);
-    console.log("menuReceived", menuReceived);
     setMenuProducts(menuReceived);
   };
 
   const initialiseBasket = () => {
     const basketReceived = getLocalStorage(username);
-    console.log("basketReceived", basketReceived);
     if (basketReceived) setBasket(basketReceived);
   };
 
-  useEffect(() => {
-    initialiseMenu();
-  }, []);
+  const initaliseUserSession = async () => {
+    await initialiseMenu();
+    initialiseBasket();
+  };
 
   useEffect(() => {
-    initialiseBasket();
+    initaliseUserSession();
   }, []);
 
   const handleProductClick = async (idProductCliked) => {
