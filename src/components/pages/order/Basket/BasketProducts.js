@@ -9,6 +9,7 @@ import { findObjectById } from "../../../../utils/array";
 
 export default function BasketProducts() {
   const {
+    username,
     basket,
     handleDeleteToBasket,
     selectedProduct,
@@ -17,7 +18,7 @@ export default function BasketProducts() {
     handleProductClick,
   } = useContext(OrderContext);
   const handleOnDelete = (id) => {
-    handleDeleteToBasket(id);
+    handleDeleteToBasket(id, username);
   };
 
   return (

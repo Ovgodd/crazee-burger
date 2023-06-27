@@ -6,7 +6,6 @@ import BasketProducts from "./BasketProducts";
 import OrderContext from "../../../../context/OrderContext";
 import EmptyBasket from "./EmptyBasket";
 import { isEmpty } from "../../../../utils/array";
-import { totalSumToPay } from "./helper";
 
 export default function Basket() {
   const { basket, menuProducts } = useContext(OrderContext);

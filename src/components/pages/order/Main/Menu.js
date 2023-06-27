@@ -49,7 +49,7 @@ export default function Menu() {
   const handleCardDelete = (id, event) => {
     event.stopPropagation();
     handleDelete(id, username);
-    handleDeleteToBasket(id);
+    handleDeleteToBasket(id, username);
     id === newProductInfo.id && setSelectedProduct(null);
     inputRef.current.focus();
   };

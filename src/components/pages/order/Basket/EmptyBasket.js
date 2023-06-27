@@ -7,7 +7,7 @@ export default function EmptyBasket({ isLoading }) {
   return (
     <EmptyBasketStyled>
       <span className="empty-message">
-        {isLoading ? BASKET_MESSAGE.EMPTY : BASKET_MESSAGE.LOADING}
+        {isLoading ? BASKET_MESSAGE.LOADING : BASKET_MESSAGE.EMPTY}
       </span>
     </EmptyBasketStyled>
   );
