@@ -9,8 +9,7 @@ import { isEmpty } from "../../../../utils/array";
 import { totalSumToPay } from "./helper";
 
 export default function Basket() {
-  const { basket, menuProducts, isAdmin, handleDeleteToBasket } =
-    useContext(OrderContext);
+  const { basket, menuProducts } = useContext(OrderContext);
 
   if (menuProducts === undefined) return <span>chargement...</span>;
 
@@ -21,15 +20,7 @@ export default function Basket() {
   return (
     <BasketStyled>
       <Header totalToPay={totalToPay} label="Total" />
-      {isBasketEmpty ? (
-        <EmptyBasket />
-      ) : (
-        <BasketProducts
-          basket={basket}
-          isAdmin={isAdmin}
-          handleDeleteToBasket={handleDeleteToBasket}
-        />
-      )}
+      {isBasketEmpty ? <EmptyBasket /> : <BasketProducts />}
       <Footer label="Codé avec ❤️ et React.JS" />
     </BasketStyled>
   );

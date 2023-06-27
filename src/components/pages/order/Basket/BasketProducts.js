@@ -7,9 +7,15 @@ import OrderContext from "../../../../context/OrderContext";
 import { useContext } from "react";
 import { findObjectById } from "../../../../utils/array";
 
-export default function BasketProducts({ basket, handleDeleteToBasket }) {
-  const { selectedProduct, menuProducts, isAdmin, handleProductClick } =
-    useContext(OrderContext);
+export default function BasketProducts() {
+  const {
+    basket,
+    handleDeleteToBasket,
+    selectedProduct,
+    menuProducts,
+    isAdmin,
+    handleProductClick,
+  } = useContext(OrderContext);
   const handleOnDelete = (id) => {
     handleDeleteToBasket(id);
   };
