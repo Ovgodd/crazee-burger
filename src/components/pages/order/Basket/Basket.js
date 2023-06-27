@@ -12,14 +12,7 @@ export default function Basket() {
   const { basket, menuProducts, isAdmin, handleDeleteToBasket } =
     useContext(OrderContext);
 
-  // const [basket, setBasket] = useState(() => {
-  //   const savedBasket = localStorage.getItem("basket");
-  //   return savedBasket ? JSON.parse(savedBasket) : [];
-  // });
-
-  // useEffect(() => {
-  //   localStorage.setItem("basket", JSON.stringify(basket));
-  // }, [basket]);
+  if (menuProducts === undefined) return <span>chargement...</span>;
 
   const totalToPay = totalSumToPay(basket, menuProducts);
 

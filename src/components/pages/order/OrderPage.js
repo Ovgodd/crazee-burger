@@ -11,6 +11,7 @@ import { useBasket } from "../../../hooks/useBasket";
 import { findObjectById } from "../../../utils/array";
 import { useParams } from "react-router-dom";
 import { getMenu } from "../../../api/product";
+import { getLocalStorage } from "../../../utils/Window";
 
 export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(true);
@@ -39,8 +40,18 @@ export default function OrderPage() {
     setMenuProducts(menuReceived);
   };
 
+  const initialiseBasket = () => {
+    const basketReceived = getLocalStorage(username);
+    console.log("basketReceived", basketReceived);
+    setBasket(basketReceived);
+  };
+
   useEffect(() => {
     initialiseMenu();
+  }, []);
+
+  useEffect(() => {
+    initialiseBasket();
   }, []);
 
   const handleProductClick = async (idProductCliked) => {
