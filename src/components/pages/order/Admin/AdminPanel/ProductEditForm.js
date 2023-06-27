@@ -33,7 +33,6 @@ export default function ProductEditForm() {
       displaySuccess();
     }
   };
-  // create one function handleOnInput(event,onChoice) with switch case
   return (
     <Form
       product={newProductInfo}
