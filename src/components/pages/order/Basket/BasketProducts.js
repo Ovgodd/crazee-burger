@@ -30,9 +30,10 @@ export default function BasketProducts() {
           const menuProduct = findObjectById(basketProduct.id, menuProducts);
           return (
             <CSSTransition
+              appear={true}
               classNames={"global-cards"}
               key={menuProduct.id}
-              timeout={{ enter: 5000, exit: 5000 }}
+              timeout={1000}
             >
               <div className="basket-card">
                 <BasketCard
@@ -80,20 +81,44 @@ const BasketProductsStyled = styled.div`
       margin-bottom: 20px;
     }
   }
+  .global-cards-appear {
+    .unique-card {
+      transform: translateX(100px);
+      opacity: 0%;
+    }
+  }
+  .global-cards-appear-active {
+    .unique-card {
+      transition: 1s;
+      transform: translateX(0px);
+      opacity: 100%;
+    }
+  }
+
   .global-cards-enter {
     .unique-card {
-      background: green;
+      transform: translateX(100px);
+      opacity: 0%;
     }
   }
   .global-cards-enter-active {
     .unique-card {
-      background: blue;
-      transition: 2s;
+      transition: 1s;
+      transform: translateX(0px);
+      opacity: 100%;
     }
   }
-  .global-cards-enter-done {
+  .global-cards-exit {
     .unique-card {
-      background: pink;
+      transform: translateX(0px);
+      opacity: 100%;
+    }
+  }
+  .global-cards-exit-active {
+    .unique-card {
+      transition: 1s;
+      transform: translateX(-100px);
+      opacity: 0%;
     }
   }
 `;
