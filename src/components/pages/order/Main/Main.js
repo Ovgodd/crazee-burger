@@ -17,7 +17,7 @@ export default function Main() {
         <Menu />
         <CSSTransition
           in={isAdmin}
-          timeout={1000}
+          timeout={700}
           classNames="admin-panel"
           unmountOnExit
         >
@@ -47,7 +47,7 @@ const MainStyled = styled.div`
   }
   .admin-panel-enter-active {
     opacity: 100%;
-    transition: 1s;
+    transition: 700ms;
     transform: translateY(0px);
   }
   .admin-panel-exit {
@@ -57,7 +57,7 @@ const MainStyled = styled.div`
   }
   .admin-panel-exit-active {
     opacity: 0%;
-    transition: 1s;
+    transition: 700ms;
     transform: translateY(251px);
   }
 `;
