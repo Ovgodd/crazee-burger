@@ -71,7 +71,11 @@ export default function Menu() {
           title={title}
           image={imageSource ? imageSource : COMING_SOON}
           price={formatPrice(price)}
-          isSelected={checkIfProductIsSelected(id, selectedProduct.id)}
+          isSelected={
+            selectedProduct && selectedProduct.id === id
+              ? selectedProduct
+              : null
+          }
           onDelete={(e) => handleCardDelete(id, e)}
           onAdd={(e) => handleOnAdd(e, id)}
           onClick={() => handleCardClick(id)}
