@@ -9,6 +9,7 @@ import COMING_SOON from "../../../../images/coming-soon.png";
 import { findObjectById, isEmpty } from "../../../../utils/array";
 import Loader from "./Loader";
 import { checkIfProductIsSelected } from "./helper";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 export default function Menu() {
   const {
@@ -63,25 +64,32 @@ export default function Menu() {
 
   return (
     <MenuStyled>
-      {menuProducts.map(({ id, title, imageSource, price, quantity }) => (
-        <Card
-          key={id}
-          id={id}
-          quantity={quantity}
-          title={title}
-          image={imageSource ? imageSource : COMING_SOON}
-          price={formatPrice(price)}
-          isSelected={
-            selectedProduct && selectedProduct.id === id
-              ? selectedProduct
-              : null
-          }
-          onDelete={(e) => handleCardDelete(id, e)}
-          onAdd={(e) => handleOnAdd(e, id)}
-          onClick={() => handleCardClick(id)}
-          hasButton={isAdmin}
-        />
-      ))}
+      <TransitionGroup component={null}>
+        {menuProducts.map(({ id, title, imageSource, price, quantity }) => (
+          <CSSTransition
+            key={id}
+            timeout={500} // Durée de l'animation
+            classNames={"global-cards"} // Nom de la classe de base pour l'animation
+          >
+            <Card
+              id={id}
+              quantity={quantity}
+              title={title}
+              image={imageSource ? imageSource : COMING_SOON}
+              price={formatPrice(price)}
+              isSelected={
+                selectedProduct && selectedProduct.id === id
+                  ? selectedProduct
+                  : null
+              }
+              onDelete={(e) => handleCardDelete(id, e)}
+              onAdd={(e) => handleOnAdd(e, id)}
+              onClick={() => handleCardClick(id)}
+              hasButton={isAdmin}
+            />
+          </CSSTransition>
+        ))}
+      </TransitionGroup>
     </MenuStyled>
   );
 }
@@ -97,4 +105,20 @@ const MenuStyled = styled.div`
   overflow-y: auto;
   /* border-bottom-left-radius: ${theme.borderRadius.extraRound}; */
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
+  .global-cards-enter {
+    transform: translateX(-100px);
+    opacity: 0%;
+  }
+  .global-cards-enter-active {
+    transform: translateX(0px);
+    opacity: 100%;
+    transition: 500ms;
+  }
+  .global-cards-exit {
+    opacity: 100%;
+  }
+  .global-cards-exit-active {
+    opacity: 0%;
+    transition: 500ms;
+  }
 `;

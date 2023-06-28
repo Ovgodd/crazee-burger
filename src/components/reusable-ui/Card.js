@@ -15,11 +15,6 @@ export default function Card({
   isSelected,
   onAdd,
 }) {
-  //state (vide)
-
-  //comportements (vide)
-
-  //affichage
   return (
     <CardStyled
       hasButton={hasButton}
@@ -34,7 +29,6 @@ export default function Card({
       >
         <DeleteButton onClick={onDelete} className="delete-button" />
       </CSSTransition>
-
       <img src={image} alt="product" />
       <div className="interact-container">
         <h1>{title}</h1>
@@ -47,7 +41,6 @@ export default function Card({
           />
         </div>
       </div>
-      {/* <div className="admin-panel">ajouter un produit</div> */}
     </CardStyled>
   );
 }
