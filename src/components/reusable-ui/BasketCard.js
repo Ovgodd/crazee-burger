@@ -12,12 +12,14 @@ export default function BasketCard({
   onClick,
   isSelected,
   isAdmin,
+  className,
 }) {
   return (
     <BasketCardStyled
       isSelectable={isAdmin}
       onClick={onClick}
       isSelected={isSelected}
+      className={className}
     >
       <button onClick={onDelete} className="delete">
         <MdDeleteForever className="icon" />
@@ -44,7 +46,6 @@ const BasketCardStyled = styled.div`
   grid-template-columns: 30% 1fr;
   align-items: center;
   box-sizing: border-box;
-  width: 90%;
   min-height: 86px;
   padding: 8px 16px;
   margin-top: 20px;
