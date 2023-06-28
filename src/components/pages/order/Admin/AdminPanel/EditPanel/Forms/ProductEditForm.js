@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
-import OrderContext from "../../../../../context/OrderContext";
-import Form from "../../../../reusable-ui/Form";
-import EditInfoMessage from "./EditInfoMessage";
-import SavingMessage from "./SavingMessage";
-import { useSuccessMessage } from "../../../../../hooks/useDisplaySuccess";
+import OrderContext from "../../../../../../../context/OrderContext";
+import Form from "../../../../../../reusable-ui/Form";
+import EditInfoMessage from "../Messages/EditInfoMessage";
+import SavingMessage from "../Messages/SavingMessage";
+import { useSuccessMessage } from "../../../../../../../hooks/useDisplaySuccess";
 
 export default function ProductEditForm() {
   const { username, newProductInfo, inputRef, setNewProductInfo, handleEdit } =

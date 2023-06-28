@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../../../../reusable-ui/Buttons/Button";
-import SubmitMessage from "./SubmitMessage";
+import SubmitMessage from "./EditPanel/Messages/SubmitMessage";
 
 export default function SubmittButton({ isSubmitted }) {
   return (
