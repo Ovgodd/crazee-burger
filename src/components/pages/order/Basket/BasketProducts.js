@@ -30,7 +30,7 @@ export default function BasketProducts() {
           const menuProduct = findObjectById(basketProduct.id, menuProducts);
           return (
             <CSSTransition
-              classNames={"abricot"}
+              classNames={"global-cards"}
               key={menuProduct.id}
               timeout={{ enter: 5000, exit: 5000 }}
             >
@@ -51,7 +51,7 @@ export default function BasketProducts() {
                     selectedProduct.id,
                     basketProduct.id
                   )}
-                  className="pomme"
+                  className="unique-card"
                 />
               </div>
             </CSSTransition>
@@ -80,19 +80,19 @@ const BasketProductsStyled = styled.div`
       margin-bottom: 20px;
     }
   }
-  .abricot-enter {
-    .pomme {
+  .global-cards-enter {
+    .unique-card {
       background: green;
     }
   }
-  .abricot-enter-active {
-    .pomme {
+  .global-cards-enter-active {
+    .unique-card {
       background: blue;
       transition: 2s;
     }
   }
-  .abricot-enter-done {
-    .pomme {
+  .global-cards-enter-done {
+    .unique-card {
       background: pink;
     }
   }
