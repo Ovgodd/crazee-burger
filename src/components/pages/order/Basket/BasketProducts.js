@@ -32,8 +32,8 @@ export default function BasketProducts() {
             <CSSTransition
               appear={true}
               classNames={"global-cards"}
-              key={basketProduct.id}
               timeout={700}
+              key={basketProduct.id}
             >
               <div className="basket-card">
                 <BasketCard
@@ -48,10 +48,13 @@ export default function BasketProducts() {
                   quantity={basketProduct.quantity}
                   isAdmin={isAdmin}
                   onDelete={() => handleOnDelete(menuProduct.id)}
-                  isSelected={checkIfProductIsSelected(
-                    selectedProduct.id,
-                    basketProduct.id
-                  )}
+                  isSelected={
+                    selectedProduct &&
+                    checkIfProductIsSelected(
+                      selectedProduct.id,
+                      basketProduct.id
+                    )
+                  }
                   className="unique-card"
                 />
               </div>
