@@ -42,7 +42,7 @@ const MainStyled = styled.div`
     overflow-y: hidden;
   }
   .admin-panel-enter {
-    transform: translateY(100px);
+    transform: translateY(251px);
     opacity: 0%;
   }
   .admin-panel-enter-active {
@@ -58,6 +58,6 @@ const MainStyled = styled.div`
   .admin-panel-exit-active {
     opacity: 0%;
     transition: 1s;
-    transform: translateY(100px);
+    transform: translateY(251px);
   }
 `;
