@@ -8,20 +8,26 @@ import Button from "../../reusable-ui/Buttons/Button";
 import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForward } from "react-icons/io5";
 import { theme } from "../../../theme";
+import { createUser, getUser } from "../../../api/user";
 
 export default function LoginForm() {
-  const [inputName, setInputName] = useState("Cyril");
+  const [username, setUsername] = useState("Cyril");
 
   const navigate = useNavigate();
 
   const handleChange = (event) => {
     const inputUser = event.target.value;
-    if (inputUser === "" || isValidName.test(inputUser))
-      setInputName(inputUser);
+    if (inputUser === "" || isValidName.test(inputUser)) setUsername(inputUser);
   };
 
-  const handleSubmit = () => {
-    navigate(`order/${inputName}`);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    createUser(username);
+    const userReceived = await getUser(username);
+    // authenticateUser(username);
+
+    navigate(`order/${username}`, { state: { user: userReceived } });
+    setUsername("");
   };
 
   return (
@@ -29,7 +35,7 @@ export default function LoginForm() {
       <Welcome />
       <div className="input-login">
         <TextInput
-          value={inputName}
+          value={username}
           onChange={handleChange}
           placeholder={"Entrez votre prénom"}
           required

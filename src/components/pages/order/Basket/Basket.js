@@ -6,29 +6,20 @@ import BasketProducts from "./BasketProducts";
 import OrderContext from "../../../../context/OrderContext";
 import EmptyBasket from "./EmptyBasket";
 import { isEmpty } from "../../../../utils/array";
-import { totalSumToPay } from "./helper";
 
 export default function Basket() {
-  const { basket, menuProducts, isAdmin, handleDeleteToBasket } =
-    useContext(OrderContext);
-
-  const totalToPay = totalSumToPay(basket, menuProducts);
-
+  const { basket, menuProducts } = useContext(OrderContext);
   const isBasketEmpty = isEmpty(basket);
 
   return (
     <BasketStyled>
-      <Header totalToPay={totalToPay} label="Total" />
+      <Header label="Total" />
       {isBasketEmpty ? (
-        <EmptyBasket />
+        <EmptyBasket isLoading={menuProducts === undefined} />
       ) : (
-        <BasketProducts
-          basket={basket}
-          isAdmin={isAdmin}
-          handleDeleteToBasket={handleDeleteToBasket}
-        />
+        <BasketProducts />
       )}
-      <Footer label="Codé avec ❤️ et React.JS" />
+      <Footer label="Codé avec ❤️ et React.JS" demo="version démo" />
     </BasketStyled>
   );
 }

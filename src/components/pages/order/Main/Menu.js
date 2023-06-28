@@ -7,29 +7,50 @@ import OrderContext from "../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
 import COMING_SOON from "../../../../images/coming-soon.png";
 import { findObjectById, isEmpty } from "../../../../utils/array";
+import Loader from "./Loader";
+import { checkIfProductIsSelected } from "./helper";
 
 export default function Menu() {
   const {
+    username,
+    setIsCollapsed,
     menuProducts,
     handleDelete,
     handleReset,
+    setSelectedTab,
     isAdmin,
     inputRef,
     newProductInfo,
+    setNewProductInfo,
     setSelectedProduct,
     selectedProduct,
     handleAddToBasket,
     handleDeleteToBasket,
-    handleProductClick,
   } = useContext(OrderContext);
 
-  if (isEmpty(menuProducts))
-    return <EmptyMenu isAdmin={isAdmin} onClick={handleReset} />;
+  if (menuProducts === undefined) return <Loader />;
+
+  if (isEmpty(menuProducts)) {
+    if (!isAdmin) return <EmptyMenu />;
+    return (
+      <EmptyMenu isAdmin={isAdmin} onClick={() => handleReset(username)} />
+    );
+  }
+
+  const handleCardClick = async (id) => {
+    if (!isAdmin) return;
+    const productSelected = findObjectById(id, menuProducts);
+    await setSelectedProduct(productSelected);
+    await setSelectedTab("edit");
+    await setIsCollapsed(false);
+    await setNewProductInfo(productSelected);
+    inputRef.current.focus();
+  };
 
   const handleCardDelete = (id, event) => {
     event.stopPropagation();
-    handleDelete(id);
-    handleDeleteToBasket(id);
+    handleDelete(id, username);
+    handleDeleteToBasket(id, username);
     id === newProductInfo.id && setSelectedProduct(null);
     inputRef.current.focus();
   };
@@ -37,7 +58,7 @@ export default function Menu() {
   const handleOnAdd = (e, idProductToAdd) => {
     e.stopPropagation();
     const productToAdd = findObjectById(idProductToAdd, menuProducts);
-    handleAddToBasket(productToAdd);
+    handleAddToBasket(productToAdd, username);
   };
 
   return (
@@ -50,14 +71,10 @@ export default function Menu() {
           title={title}
           image={imageSource ? imageSource : COMING_SOON}
           price={formatPrice(price)}
-          isSelected={
-            selectedProduct && selectedProduct.id === id
-              ? selectedProduct
-              : null
-          }
+          isSelected={checkIfProductIsSelected(id, selectedProduct.id)}
           onDelete={(e) => handleCardDelete(id, e)}
           onAdd={(e) => handleOnAdd(e, id)}
-          onClick={() => handleProductClick(id)}
+          onClick={() => handleCardClick(id)}
           hasButton={isAdmin}
         />
       ))}

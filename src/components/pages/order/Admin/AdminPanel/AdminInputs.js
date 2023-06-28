@@ -5,23 +5,27 @@ import { getInputsConfig } from "./getInputsConfig";
 
 import React from "react";
 
-const AdminInputs = React.forwardRef(({ newProductInfo, onChange }, ref) => {
-  const inputs = getInputsConfig(newProductInfo);
+const AdminInputs = React.forwardRef(
+  ({ newProductInfo, onChange, onFocus, onBlur }, ref) => {
+    const inputs = getInputsConfig(newProductInfo);
 
-  return (
-    <AdminInputsStyled>
-      {inputs.map((input, index) => (
-        <TextInput
-          key={input.id}
-          {...input}
-          onChange={onChange}
-          variant="minimalist"
-          ref={index === 0 ? ref : null}
-        />
-      ))}
-    </AdminInputsStyled>
-  );
-});
+    return (
+      <AdminInputsStyled>
+        {inputs.map((input, index) => (
+          <TextInput
+            key={input.id}
+            {...input}
+            onChange={onChange}
+            variant="minimalist"
+            onFocus={onFocus}
+            onBlur={onBlur}
+            ref={index === 0 ? ref : null}
+          />
+        ))}
+      </AdminInputsStyled>
+    );
+  }
+);
 
 const AdminInputsStyled = styled.div`
   display: flex;

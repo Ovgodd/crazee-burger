@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import OrderContext from "../../../context/OrderContext";
 import { theme } from "../../../theme";
@@ -9,6 +9,8 @@ import { DEFAULT_PRODUCT_INFO } from "../../enums/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasket } from "../../../hooks/useBasket";
 import { findObjectById } from "../../../utils/array";
+import { useParams } from "react-router-dom";
+import { initialiseUserSession } from "./helpers.js/initialiseUserSession";
 
 export default function OrderPage() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -18,10 +20,22 @@ export default function OrderPage() {
   const [selectedProduct, setSelectedProduct] = useState(DEFAULT_PRODUCT_INFO);
   const [isCardSelected, setIsCardSelected] = useState(false);
   const inputRef = useRef();
-  const { handleAdd, handleReset, handleEdit, handleDelete, menuProducts } =
-    useMenu();
+  const { username } = useParams();
+
+  const {
+    handleAdd,
+    handleReset,
+    handleEdit,
+    handleDelete,
+    menuProducts,
+    setMenuProducts,
+  } = useMenu();
   const { basket, setBasket, handleAddToBasket, handleDeleteToBasket } =
     useBasket();
+
+  useEffect(() => {
+    initialiseUserSession(username, setMenuProducts, setBasket);
+  });
 
   const handleProductClick = async (idProductCliked) => {
     const productClickedOn = findObjectById(idProductCliked, menuProducts);
@@ -29,10 +43,10 @@ export default function OrderPage() {
     await setSelectedTab("edit");
     await setIsCollapsed(false);
     inputRef.current.focus();
-    console.log("products clicked on : ", selectedProduct); // OK
   };
 
   const adminContextValue = {
+    username,
     isCollapsed,
     setIsCollapsed,
     isAdmin,
@@ -46,6 +60,8 @@ export default function OrderPage() {
     newProductInfo,
     setNewProductInfo,
     menuProducts,
+    setMenuProducts,
+
     handleAdd,
     handleDelete,
     handleReset,
