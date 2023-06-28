@@ -19,7 +19,7 @@ export default function Basket() {
       ) : (
         <BasketProducts />
       )}
-      <Footer label="Codé avec ❤️ et React.JS" />
+      <Footer label="Codé avec ❤️ et React.JS" demo="version démo" />
     </BasketStyled>
   );
 }
