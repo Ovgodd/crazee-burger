@@ -6,8 +6,11 @@ export const useMenu = () => {
   const [menuProducts, setMenuProducts] = useState(fakeMenu.MEDIUM);
 
   const handleDelete = (id) => {
-    const updatedMenu = removeObjectById(id, menuProducts);
-    setMenuProducts(updatedMenu);
+    const menuCopy = deepClone(menuProducts);
+
+    const menuUpdated = removeObjectById(id, menuCopy);
+
+    setMenuProducts(menuUpdated);
   };
 
   const handleAdd = (productToAdd) => {
@@ -27,6 +30,10 @@ export const useMenu = () => {
 
     const indexOfProductToEdit = findIndex(productBeingEdited.id, menuCopy);
 
+    // const editedProduct = {
+    //   ...productBeingEdited,
+    //   price: replaceFrenchCommaWithDot(formatPrice(productBeingEdited.price)),
+    // }; a ne pas mettre ICI ()
     menuCopy[indexOfProductToEdit] = productBeingEdited;
 
     setMenuProducts(menuCopy);

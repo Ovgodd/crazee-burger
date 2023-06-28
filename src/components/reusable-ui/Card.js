@@ -11,7 +11,7 @@ export default function Card({
   price,
   onDelete,
   hasButton,
-  selectedProduct,
+  isSelected,
   onAdd,
 }) {
   //state (vide)
@@ -23,7 +23,7 @@ export default function Card({
     <CardStyled
       hasButton={hasButton}
       onClick={onClick}
-      className={selectedProduct ? "selected" : ""}
+      className={isSelected ? "selected" : ""}
     >
       {hasButton && (
         <DeleteButton onClick={onDelete} className="delete-button" />

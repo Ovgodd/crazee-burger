@@ -44,7 +44,6 @@ export const useBasket = () => {
     const basketUpdated = [newBasketProduct, ...basketCopy];
     setBasket(basketUpdated);
   };
-
   return {
     basket,
     setBasket,

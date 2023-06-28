@@ -3,13 +3,17 @@ import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext";
 import { theme } from "../../../../../theme";
 import { getTabsConfig, getTabSelected } from "../getTabsConfig";
+import { DEFAULT_PRODUCT_INFO } from "../../../../enums/product";
 
 export default function AdminPanel() {
-  const { selectedTab } = useContext(OrderContext);
-  const tabs = getTabsConfig(selectedTab);
+  const { selectedTab, selectedProduct } = useContext(OrderContext);
+  const hasAlreadyBeenClicked = selectedProduct !== DEFAULT_PRODUCT_INFO;
+  const tabs = getTabsConfig(hasAlreadyBeenClicked);
   const tabSelected = getTabSelected(tabs, selectedTab);
 
-  return <AdminPanelStyled>{tabSelected.Panel}</AdminPanelStyled>;
+  return (
+    <AdminPanelStyled>{tabSelected && tabSelected.Panel}</AdminPanelStyled>
+  );
 }
 
 const AdminPanelStyled = styled.div`

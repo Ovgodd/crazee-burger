@@ -2,12 +2,10 @@ import styled from "styled-components";
 import { theme } from "../../../../../theme";
 import TextInput from "../../../../reusable-ui/TextInput";
 import { getInputsConfig } from "./getInputsConfig";
-import { useContext } from "react";
-import OrderContext from "../../../../../context/OrderContext";
+
 import React from "react";
 
 const AdminInputs = React.forwardRef(({ newProductInfo, onChange }, ref) => {
-  const { isCardSelected } = useContext(OrderContext);
   const inputs = getInputsConfig(newProductInfo);
 
   return (
@@ -18,8 +16,6 @@ const AdminInputs = React.forwardRef(({ newProductInfo, onChange }, ref) => {
           {...input}
           onChange={onChange}
           variant="minimalist"
-          isCardSelected={isCardSelected}
-          inputIndex={index}
           ref={index === 0 ? ref : null}
         />
       ))}

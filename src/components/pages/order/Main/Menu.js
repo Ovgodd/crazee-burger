@@ -5,47 +5,26 @@ import { formatPrice } from "../../../../utils/maths";
 import { theme } from "../../../../theme";
 import OrderContext from "../../../../context/OrderContext";
 import EmptyMenu from "./EmptyMenu";
-import ComingSoon from "../../../../images/coming-soon.png";
-import { findObjectById } from "../../../../utils/array";
+import COMING_SOON from "../../../../images/coming-soon.png";
+import { findObjectById, isEmpty } from "../../../../utils/array";
 
 export default function Menu() {
   const {
-    setIsCollapsed,
     menuProducts,
     handleDelete,
     handleReset,
-    setSelectedTab,
     isAdmin,
     inputRef,
     newProductInfo,
-    setNewProductInfo,
     setSelectedProduct,
     selectedProduct,
     handleAddToBasket,
     handleDeleteToBasket,
+    handleProductClick,
   } = useContext(OrderContext);
 
-  const label = {
-    question: isAdmin ? "Le menu est vide ?" : "Victime de notre succès ! :D",
-    message: isAdmin
-      ? "Cliquez ci-dessous pour le réinitialiser"
-      : "De nouvelles recettes sont en cours de préparation.",
-    button: "Générer de nouveaux produits",
-    bottomMessage: "À très vite",
-  };
-
-  if (menuProducts.length === 0)
-    return <EmptyMenu onClick={handleReset} label={label} />;
-
-  const handleCardClick = async (id) => {
-    if (!isAdmin) return;
-    const productSelected = findObjectById(id, menuProducts);
-    await setSelectedProduct(productSelected);
-    await setSelectedTab("edit");
-    await setIsCollapsed(false);
-    await setNewProductInfo(productSelected);
-    inputRef.current.focus();
-  };
+  if (isEmpty(menuProducts))
+    return <EmptyMenu isAdmin={isAdmin} onClick={handleReset} />;
 
   const handleCardDelete = (id, event) => {
     event.stopPropagation();
@@ -69,16 +48,16 @@ export default function Menu() {
           id={id}
           quantity={quantity}
           title={title}
-          image={imageSource ? imageSource : ComingSoon}
+          image={imageSource ? imageSource : COMING_SOON}
           price={formatPrice(price)}
-          selectedProduct={
+          isSelected={
             selectedProduct && selectedProduct.id === id
               ? selectedProduct
               : null
           }
           onDelete={(e) => handleCardDelete(id, e)}
           onAdd={(e) => handleOnAdd(e, id)}
-          onClick={() => handleCardClick(id)}
+          onClick={() => handleProductClick(id)}
           hasButton={isAdmin}
         />
       ))}
