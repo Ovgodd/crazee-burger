@@ -7,5 +7,5 @@ export const DEFAULT_PRODUCT_INFO = Object.freeze({
 
 export const BASKET_MESSAGE = {
   EMPTY: "Votre commande est vide",
-  LOADING: "Chargement...",
+  LOADING: "Chargement en cours...",
 };

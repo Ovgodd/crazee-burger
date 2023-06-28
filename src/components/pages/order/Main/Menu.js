@@ -8,6 +8,7 @@ import EmptyMenu from "./EmptyMenu";
 import COMING_SOON from "../../../../images/coming-soon.png";
 import { findObjectById, isEmpty } from "../../../../utils/array";
 import Loader from "./Loader";
+import { checkIfProductIsSelected } from "./helper";
 
 export default function Menu() {
   const {
@@ -70,11 +71,7 @@ export default function Menu() {
           title={title}
           image={imageSource ? imageSource : COMING_SOON}
           price={formatPrice(price)}
-          isSelected={
-            selectedProduct && selectedProduct.id === id
-              ? selectedProduct
-              : null
-          }
+          isSelected={checkIfProductIsSelected(id, selectedProduct.id)}
           onDelete={(e) => handleCardDelete(id, e)}
           onAdd={(e) => handleOnAdd(e, id)}
           onClick={() => handleCardClick(id)}

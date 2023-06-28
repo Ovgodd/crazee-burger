@@ -43,7 +43,6 @@ export default function OrderPage() {
     await setSelectedTab("edit");
     await setIsCollapsed(false);
     inputRef.current.focus();
-    console.log("products clicked on : ", selectedProduct); // OK
   };
 
   const adminContextValue = {
