@@ -1,6 +1,6 @@
-# Crazee Burger - Application MVP de Foodtech
+# Crazee Burger - Application de Foodtech(MVP)
 
-Crazee Burger est une application MVP de foodtech qui permet aux utilisateurs de commander des burgers délicieux en ligne. Cette application a été développée dans le but de fournir une expérience de commande pratique et intuitive pour les amateurs de burgers.
+Crazee Burger est une application de foodtech qui permet aux utilisateurs de commander des burgers délicieux en ligne. Cette application a été développée dans le but de fournir une expérience de commande pratique et intuitive pour les amateurs de burgers.
 
 ## Instructions de démarrage
 
