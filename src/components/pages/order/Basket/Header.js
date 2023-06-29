@@ -4,6 +4,7 @@ import { theme } from "../../../../theme";
 import { formatPrice } from "../../../../utils/maths";
 import { totalSumToPay } from "./helper";
 import OrderContext from "../../../../context/OrderContext";
+import CasinoEffects from "../../../reusable-ui/CasinoEffects";
 
 export default function Header({ label }) {
   const { basket, menuProducts } = useContext(OrderContext);
@@ -12,7 +13,7 @@ export default function Header({ label }) {
   return (
     <HeaderStyled>
       <span>{label}</span>
-      <span className="total">{formatPrice(totalToPay)}</span>
+      <CasinoEffects className={"total"} count={formatPrice(totalToPay)} />
     </HeaderStyled>
   );
 }

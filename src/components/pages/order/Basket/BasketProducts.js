@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { theme } from "../../../../theme";
 import BasketCard from "../../../reusable-ui/BasketCard";
 import COMING_SOON from "../../../../images/coming-soon.png";
 import { formatPrice } from "../../../../utils/maths";
