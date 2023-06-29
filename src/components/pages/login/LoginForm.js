@@ -8,7 +8,7 @@ import Button from "../../reusable-ui/Buttons/Button";
 import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForward } from "react-icons/io5";
 import { theme } from "../../../theme";
-// import { createUser, getUser } from "../../../api/user";
+import { authenticateUser } from "../../../api/user";
 
 export default function LoginForm() {
   const [username, setUsername] = useState("");
@@ -22,13 +22,9 @@ export default function LoginForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // createUser(username);
-    // const userReceived = await getUser(username);
-
-    // navigate(`order/${username}`, { state: { user: userReceived } });
-    navigate(`order/${username}`);
-
+    authenticateUser(username);
     setUsername("");
+    navigate(`order/${username}`);
   };
 
   return (

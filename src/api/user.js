@@ -24,9 +24,9 @@ export const createUser = async (userId) => {
   };
   setDoc(docRef, newDoc);
 };
-// export const authenticateUser = async (userId) => {
-//   const existingUser = await getUser(userId);
-//   if (!existingUser) {
-//     createUser(userId);
-//   }
-// };
+export const authenticateUser = async (userId) => {
+  const existingUser = await getUser(userId);
+  if (!existingUser) {
+    createUser(userId);
+  }
+};
