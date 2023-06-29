@@ -6,7 +6,7 @@ export default function CasinoEffects({ count, className }) {
   return (
     <CasinoEffectsStyled>
       <TransitionGroup>
-        <CSSTransition classNames={"count-animated"} timeout={5000} key={count}>
+        <CSSTransition classNames={"count-animated"} timeout={300} key={count}>
           <span className={className}>{count}</span>
         </CSSTransition>
       </TransitionGroup>
@@ -14,22 +14,27 @@ export default function CasinoEffects({ count, className }) {
   );
 }
 const CasinoEffectsStyled = styled.div`
+  position: relative;
+  overflow-y: hidden;
+  span {
+    display: inline-block;
+  }
   .count-animated-enter {
-    background: green;
+    transform: translateY(100%);
   }
   .count-animated-enter-active {
-    background: blue;
-    transition: 2s;
-  }
-  .count-animated-enter-done {
-    background: pink;
+    transform: translateY(0%);
+    transition: 300ms;
   }
 
   .count-animated-exit {
-    background: yellow;
+    transform: translateY(0%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
   .count-animated-exit-active {
-    background: red;
-    transition: 2s;
+    transform: translateY(-100%);
+    transition: 300ms;
   }
 `;
