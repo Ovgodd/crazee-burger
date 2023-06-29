@@ -16,36 +16,34 @@ export default function Card({
   onAdd,
 }) {
   return (
-    <TransitionGroup>
-      <CardStyled
-        hasButton={hasButton}
-        onClick={onClick}
-        className={isSelected ? "selected" : ""}
-      >
-        <TransitionGroup>
-          <CSSTransition
-            in={hasButton}
-            timeout={1000}
-            classNames="global-buttons"
-            unmountOnExit
-          >
-            <DeleteButton onClick={onDelete} className="delete-button" />
-          </CSSTransition>
-          <img src={image} alt="product" />
-          <div className="interact-container">
-            <h1>{title}</h1>
-            <div className="description">
-              <span className="price">{price}</span>
-              <Button
-                onClick={onAdd}
-                label="Ajouter"
-                className="primary-button primary-selected"
-              />
-            </div>
+    <CardStyled
+      hasButton={hasButton}
+      onClick={onClick}
+      className={isSelected ? "selected" : ""}
+    >
+      <TransitionGroup>
+        <CSSTransition
+          in={hasButton}
+          timeout={1000}
+          classNames="global-buttons"
+          unmountOnExit
+        >
+          <DeleteButton onClick={onDelete} className="delete-button" />
+        </CSSTransition>
+        <img src={image} alt="product" />
+        <div className="interact-container">
+          <h1>{title}</h1>
+          <div className="description">
+            <span className="price">{price}</span>
+            <Button
+              onClick={onAdd}
+              label="Ajouter"
+              className="primary-button primary-selected"
+            />
           </div>
-        </TransitionGroup>
-      </CardStyled>
-    </TransitionGroup>
+        </div>
+      </TransitionGroup>
+    </CardStyled>
   );
 }
 
