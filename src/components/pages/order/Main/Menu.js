@@ -8,7 +8,6 @@ import EmptyMenu from "./EmptyMenu";
 import COMING_SOON from "../../../../images/coming-soon.png";
 import { findObjectById, isEmpty } from "../../../../utils/array";
 import Loader from "./Loader";
-import { checkIfProductIsSelected } from "./helper";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 export default function Menu() {

@@ -6,7 +6,7 @@ import { syncBothMenu } from "../api/product";
 export const useMenu = () => {
   const [menuProducts, setMenuProducts] = useState();
 
-  const handleDelete = (idProductToDelete, username, updatedMenu) => {
+  const handleDelete = (idProductToDelete, username) => {
     const menuCopy = deepClone(menuProducts);
 
     const menuUpdated = removeObjectById(idProductToDelete, menuCopy);
