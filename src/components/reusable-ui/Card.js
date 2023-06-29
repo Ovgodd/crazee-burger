@@ -16,12 +16,12 @@ export default function Card({
   onAdd,
 }) {
   return (
-    <CardStyled
-      hasButton={hasButton}
-      onClick={onClick}
-      className={isSelected ? "selected" : ""}
-    >
-      <TransitionGroup>
+    <TransitionGroup>
+      <CardStyled
+        hasButton={hasButton}
+        onClick={onClick}
+        className={isSelected ? "selected" : ""}
+      >
         <CSSTransition
           in={hasButton}
           timeout={1000}
@@ -42,8 +42,8 @@ export default function Card({
             />
           </div>
         </div>
-      </TransitionGroup>
-    </CardStyled>
+      </CardStyled>
+    </TransitionGroup>
   );
 }
 
