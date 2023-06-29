@@ -63,34 +63,27 @@ export default function Menu() {
   };
 
   return (
-    <MenuStyled>
-      <TransitionGroup component={null}>
-        {menuProducts.map(({ id, title, imageSource, price, quantity }) => (
-          <CSSTransition
-            key={id}
-            timeout={500} // Durée de l'animation
-            classNames={"global-cards"} // Nom de la classe de base pour l'animation
-          >
-            <Card
-              id={id}
-              quantity={quantity}
-              title={title}
-              image={imageSource ? imageSource : COMING_SOON}
-              price={formatPrice(price)}
-              isSelected={
-                selectedProduct && selectedProduct.id === id
-                  ? selectedProduct
-                  : null
-              }
-              onDelete={(e) => handleCardDelete(id, e)}
-              onAdd={(e) => handleOnAdd(e, id)}
-              onClick={() => handleCardClick(id)}
-              hasButton={isAdmin}
-            />
-          </CSSTransition>
-        ))}
-      </TransitionGroup>
-    </MenuStyled>
+    <TransitionGroup component={MenuStyled}>
+      {menuProducts.map(({ id, title, imageSource, price, quantity }) => (
+        <CSSTransition key={id} timeout={500} classNames={"global-cards"}>
+          <Card
+            quantity={quantity}
+            title={title}
+            image={imageSource ? imageSource : COMING_SOON}
+            price={formatPrice(price)}
+            isSelected={
+              selectedProduct && selectedProduct.id === id
+                ? selectedProduct
+                : null
+            }
+            onDelete={(e) => handleCardDelete(id, e)}
+            onAdd={(e) => handleOnAdd(e, id)}
+            onClick={() => handleCardClick(id)}
+            hasButton={isAdmin}
+          />
+        </CSSTransition>
+      ))}
+    </TransitionGroup>
   );
 }
 
