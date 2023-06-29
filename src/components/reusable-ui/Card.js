@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 import DeleteButton from "./Buttons/DeleteButton";
 import Button from "./Buttons/Button";
-import { CSSTransition } from "react-transition-group";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 export default function Card({
   onClick,
@@ -21,26 +21,28 @@ export default function Card({
       onClick={onClick}
       className={isSelected ? "selected" : ""}
     >
-      <CSSTransition
-        in={hasButton}
-        timeout={1000}
-        classNames="global-buttons"
-        unmountOnExit
-      >
-        <DeleteButton onClick={onDelete} className="delete-button" />
-      </CSSTransition>
-      <img src={image} alt="product" />
-      <div className="interact-container">
-        <h1>{title}</h1>
-        <div className="description">
-          <span className="price">{price}</span>
-          <Button
-            onClick={onAdd}
-            label="Ajouter"
-            className="primary-button primary-selected"
-          />
+      <TransitionGroup component={null}>
+        <CSSTransition
+          in={hasButton}
+          timeout={1000}
+          classNames="global-buttons"
+          unmountOnExit
+        >
+          <DeleteButton onClick={onDelete} className="delete-button" />
+        </CSSTransition>
+        <img src={image} alt="product" />
+        <div className="interact-container">
+          <h1>{title}</h1>
+          <div className="description">
+            <span className="price">{price}</span>
+            <Button
+              onClick={onAdd}
+              label="Ajouter"
+              className="primary-button primary-selected"
+            />
+          </div>
         </div>
-      </div>
+      </TransitionGroup>
     </CardStyled>
   );
 }
