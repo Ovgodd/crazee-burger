@@ -65,7 +65,7 @@ export default function Menu() {
   return (
     <TransitionGroup component={MenuStyled}>
       {menuProducts.map(({ id, title, imageSource, price, quantity }) => (
-        <CSSTransition key={id} timeout={500} classNames={"global-cards"}>
+        <CSSTransition key={id} timeout={300} classNames={"global-cards"}>
           <Card
             quantity={quantity}
             title={title}

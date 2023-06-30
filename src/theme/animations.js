@@ -9,6 +9,7 @@ export const cardAnimation = css`
   .global-buttons-enter-active {
     transform: translateX(0px);
     opacity: 100%;
+
     transition: ${theme.animations.speed.quick};
   }
 
