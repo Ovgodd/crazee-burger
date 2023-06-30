@@ -2,11 +2,12 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import Footer from "./Footer";
-import BasketProducts from "./BasketProducts";
+import BasketProducts from "./BasketBody/BasketProducts";
 import OrderContext from "../../../../context/OrderContext";
-import EmptyBasket from "./EmptyBasket";
+import EmptyBasket from "./BasketBody/EmptyBasket";
 import { isEmpty } from "../../../../utils/array";
 import { theme } from "../../../../theme";
+import BasketBody from "./BasketBody/BasketBody";
 
 export default function Basket() {
   const { basket, menuProducts } = useContext(OrderContext);
@@ -15,11 +16,7 @@ export default function Basket() {
   return (
     <BasketStyled>
       <Header label="Total" />
-      {isBasketEmpty ? (
-        <EmptyBasket isLoading={menuProducts === undefined} />
-      ) : (
-        <BasketProducts />
-      )}
+      <BasketBody isBasketEmpty={isBasketEmpty} menuProducts={menuProducts} />
       <Footer label="Codé avec ❤️ et React.JS" demo="version démo" />
     </BasketStyled>
   );

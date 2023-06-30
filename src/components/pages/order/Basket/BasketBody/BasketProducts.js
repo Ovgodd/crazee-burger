@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import BasketCard from "../../../reusable-ui/BasketCard";
-import COMING_SOON from "../../../../images/coming-soon.png";
-import { formatPrice } from "../../../../utils/maths";
-import OrderContext from "../../../../context/OrderContext";
+import BasketCard from "../../../../reusable-ui/BasketCard";
+import COMING_SOON from "../../../../../images/coming-soon.png";
+import { formatPrice } from "../../../../../utils/maths";
+import OrderContext from "../../../../../context/OrderContext";
 import { useContext } from "react";
-import { findObjectById } from "../../../../utils/array";
+import { findObjectById } from "../../../../../utils/array";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import { checkIfProductIsSelected } from "../Main/helper";
-import { basketAnimation } from "../../../../theme/animations";
+import { checkIfProductIsSelected } from "../../Main/helper";
+import { basketAnimation } from "../../../../../theme/animations";
 
 export default function BasketProducts() {
   const {
