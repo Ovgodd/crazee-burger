@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { findObjectById } from "../../../../utils/array";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { checkIfProductIsSelected } from "../Main/helper";
+import { basketAnimation } from "../../../../theme/animations";
 
 export default function BasketProducts() {
   const {
@@ -71,56 +72,16 @@ const BasketProductsStyled = styled.div`
   flex-direction: column;
   overflow-y: scroll;
   .basket-card {
-    /* border: 1px solid blue; */
     margin: 10px 16px;
     height: 86px;
     box-sizing: border-box;
     :first-child {
       margin-top: 20px;
-      /* border: 1px solid red; */
     }
     :last-child {
       margin-bottom: 20px;
     }
   }
-  .global-cards-appear {
-    .unique-card {
-      transform: translateX(100px);
-      opacity: 0%;
-    }
-  }
-  .global-cards-appear-active {
-    .unique-card {
-      transition: 300ms;
-      transform: translateX(0px);
-      opacity: 100%;
-    }
-  }
 
-  .global-cards-enter {
-    .unique-card {
-      transform: translateX(100px);
-      opacity: 0%;
-    }
-  }
-  .global-cards-enter-active {
-    .unique-card {
-      transition: 300ms;
-      transform: translateX(0px);
-      opacity: 100%;
-    }
-  }
-  .global-cards-exit {
-    .unique-card {
-      transform: translateX(0px);
-      opacity: 100%;
-    }
-  }
-  .global-cards-exit-active {
-    .unique-card {
-      transition: 300ms;
-      transform: translateX(-100px);
-      opacity: 0%;
-    }
-  }
+  ${basketAnimation}
 `;

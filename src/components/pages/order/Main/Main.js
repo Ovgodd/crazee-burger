@@ -6,6 +6,7 @@ import Admin from "../Admin/Admin";
 import Menu from "./Menu";
 import Basket from "../Basket/Basket";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { adminAnimation } from "../../../../theme/animations";
 
 export default function Main() {
   const { isAdmin } = useContext(OrderContext);
@@ -40,23 +41,5 @@ const MainStyled = styled.div`
     display: grid;
     overflow-y: hidden;
   }
-  .admin-panel-enter {
-    transform: translateY(251px);
-    opacity: 0%;
-  }
-  .admin-panel-enter-active {
-    opacity: 100%;
-    transition: 300ms;
-    transform: translateY(0px);
-  }
-  .admin-panel-exit {
-    opacity: 100%;
-
-    transform: translateY(0px);
-  }
-  .admin-panel-exit-active {
-    opacity: 0%;
-    transition: 300ms;
-    transform: translateY(251px);
-  }
+  ${adminAnimation}
 `;

@@ -3,6 +3,7 @@ import { theme } from "../../theme";
 import DeleteButton from "./Buttons/DeleteButton";
 import Button from "./Buttons/Button";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { cardAnimation } from "../../theme/animations";
 
 export default function Card({
   onClick,
@@ -60,25 +61,7 @@ const CardStyled = styled.div`
   border-radius: ${theme.borderRadius.extraRound};
   background: ${theme.colors.white};
   position: relative;
-  .global-buttons-enter {
-    transform: translateX(20px);
-    opacity: 0%;
-  }
-  .global-buttons-enter-active {
-    transform: translateX(0px);
-    opacity: 100%;
-    transition: 300ms;
-  }
-
-  .global-buttons-exit {
-    transform: translateX(0px);
-    opacity: 100%;
-  }
-  .global-buttons-exit-active {
-    transform: translateX(20px);
-    opacity: 0%;
-    transition: 300ms;
-  }
+  ${cardAnimation};
 
   &:hover {
     ${({ hasButton }) => hasButton && cardStyled.hover};

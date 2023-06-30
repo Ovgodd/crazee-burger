@@ -9,6 +9,7 @@ import COMING_SOON from "../../../../images/coming-soon.png";
 import { findObjectById, isEmpty } from "../../../../utils/array";
 import Loader from "./Loader";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { menuAnimation } from "../../../../theme/animations";
 
 export default function Menu() {
   const {
@@ -97,20 +98,5 @@ const MenuStyled = styled.div`
   overflow-y: auto;
   /* border-bottom-left-radius: ${theme.borderRadius.extraRound}; */
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
-  .global-cards-enter {
-    transform: translateX(-100px);
-    opacity: 0%;
-  }
-  .global-cards-enter-active {
-    transform: translateX(0px);
-    opacity: 100%;
-    transition: 500ms;
-  }
-  .global-cards-exit {
-    opacity: 100%;
-  }
-  .global-cards-exit-active {
-    opacity: 0%;
-    transition: 500ms;
-  }
+  ${menuAnimation}
 `;
