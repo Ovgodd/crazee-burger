@@ -4,13 +4,13 @@ import { theme } from "../../../../theme";
 
 export default function Footer({ label, demo }) {
   return (
-    <FooterStyled>
+    <BasketFooterStyled>
       <span>{label}</span>
       <span className="demo">{demo}</span>
-    </FooterStyled>
+    </BasketFooterStyled>
   );
 }
-const FooterStyled = styled.div`
+const BasketFooterStyled = styled.div`
   height: 70px;
   display: flex;
   flex-direction: column;

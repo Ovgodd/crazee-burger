@@ -1,10 +1,8 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import Header from "./Header";
-import Footer from "./Footer";
-import BasketProducts from "./BasketBody/BasketProducts";
+import BasketFooter from "./BasketFooter";
 import OrderContext from "../../../../context/OrderContext";
-import EmptyBasket from "./BasketBody/EmptyBasket";
 import { isEmpty } from "../../../../utils/array";
 import { theme } from "../../../../theme";
 import BasketBody from "./BasketBody/BasketBody";
@@ -17,7 +15,7 @@ export default function Basket() {
     <BasketStyled>
       <Header label="Total" />
       <BasketBody isBasketEmpty={isBasketEmpty} menuProducts={menuProducts} />
-      <Footer label="Codé avec ❤️ et React.JS" demo="version démo" />
+      <BasketFooter label="Codé avec ❤️ et React.JS" demo="version démo" />
     </BasketStyled>
   );
 }
