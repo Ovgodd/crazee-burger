@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import Header from "./Header";
 import BasketFooter from "./BasketFooter";
 import OrderContext from "../../../../context/OrderContext";
 import { isEmpty } from "../../../../utils/array";
 import { theme } from "../../../../theme";
 import BasketBody from "./BasketBody/BasketBody";
+import BasketHeader from "./BasketHeader/BasketHeader";
 
 export default function Basket() {
   const { basket, menuProducts } = useContext(OrderContext);
@@ -13,7 +13,7 @@ export default function Basket() {
 
   return (
     <BasketStyled>
-      <Header label="Total" />
+      <BasketHeader label="Total" />
       <BasketBody isBasketEmpty={isBasketEmpty} menuProducts={menuProducts} />
       <BasketFooter label="Codé avec ❤️ et React.JS" demo="version démo" />
     </BasketStyled>

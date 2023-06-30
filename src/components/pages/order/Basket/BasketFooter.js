@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { theme } from "../../../../theme";
 
-export default function Footer({ label, demo }) {
+export default function BasketFooter({ label, demo }) {
   return (
     <BasketFooterStyled>
       <span>{label}</span>
