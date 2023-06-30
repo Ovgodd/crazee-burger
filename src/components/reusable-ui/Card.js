@@ -24,7 +24,7 @@ export default function Card({
       >
         <CSSTransition
           in={hasButton}
-          timeout={1000}
+          timeout={300}
           classNames="global-buttons"
           unmountOnExit
         >
@@ -67,7 +67,7 @@ const CardStyled = styled.div`
   .global-buttons-enter-active {
     transform: translateX(0px);
     opacity: 100%;
-    transition: 1s;
+    transition: 300ms;
   }
 
   .global-buttons-exit {
@@ -77,7 +77,7 @@ const CardStyled = styled.div`
   .global-buttons-exit-active {
     transform: translateX(20px);
     opacity: 0%;
-    transition: 1s;
+    transition: 300ms;
   }
 
   &:hover {

@@ -31,7 +31,7 @@ export default function BasketProducts() {
             <CSSTransition
               appear={true}
               classNames={"global-cards"}
-              timeout={700}
+              timeout={300}
               key={basketProduct.id}
             >
               <div className="basket-card">
@@ -91,7 +91,7 @@ const BasketProductsStyled = styled.div`
   }
   .global-cards-appear-active {
     .unique-card {
-      transition: 700ms;
+      transition: 300ms;
       transform: translateX(0px);
       opacity: 100%;
     }
@@ -105,7 +105,7 @@ const BasketProductsStyled = styled.div`
   }
   .global-cards-enter-active {
     .unique-card {
-      transition: 700ms;
+      transition: 300ms;
       transform: translateX(0px);
       opacity: 100%;
     }
@@ -118,7 +118,7 @@ const BasketProductsStyled = styled.div`
   }
   .global-cards-exit-active {
     .unique-card {
-      transition: 700ms;
+      transition: 300ms;
       transform: translateX(-100px);
       opacity: 0%;
     }
