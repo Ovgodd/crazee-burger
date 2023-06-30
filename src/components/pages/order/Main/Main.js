@@ -18,7 +18,7 @@ export default function Main() {
         <Menu />
         <CSSTransition
           in={isAdmin}
-          timeout={300}
+          timeout={theme.animations.speed.quick}
           classNames="admin-panel"
           unmountOnExit
         >

@@ -8,6 +8,7 @@ import { findObjectById } from "../../../../../utils/array";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { checkIfProductIsSelected } from "../../Main/helper";
 import { basketAnimation } from "../../../../../theme/animations";
+import { theme } from "../../../../../theme";
 
 export default function BasketProducts() {
   const {
@@ -19,9 +20,6 @@ export default function BasketProducts() {
     isAdmin,
     handleProductClick,
   } = useContext(OrderContext);
-  const handleOnDelete = (id) => {
-    handleDeleteToBasket(id, username);
-  };
 
   return (
     <BasketProductsStyled>
@@ -32,7 +30,7 @@ export default function BasketProducts() {
             <CSSTransition
               appear={true}
               classNames={"global-cards"}
-              timeout={300}
+              timeout={theme.animations.speed.quick}
               key={basketProduct.id}
             >
               <div className="basket-card">
@@ -47,7 +45,10 @@ export default function BasketProducts() {
                   price={formatPrice(menuProduct.price)}
                   quantity={basketProduct.quantity}
                   isAdmin={isAdmin}
-                  onDelete={() => handleOnDelete(menuProduct.id)}
+                  onDelete={() =>
+                    handleDeleteToBasket(menuProduct.id, username)
+                  }
+                  yarn
                   isSelected={
                     selectedProduct &&
                     checkIfProductIsSelected(

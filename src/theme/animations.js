@@ -26,7 +26,7 @@ export const cardAnimation = css`
 
 export const adminAnimation = css`
   .admin-panel-enter {
-    transform: translateY(251px);
+    transform: translateY(100%);
     opacity: 0%;
   }
   .admin-panel-enter-active {
@@ -42,7 +42,7 @@ export const adminAnimation = css`
   .admin-panel-exit-active {
     opacity: 0%;
     transition: ${theme.animations.speed.quick};
-    transform: translateY(251px);
+    transform: translateY(100%);
   }
 `;
 export const menuAnimation = css`
@@ -103,5 +103,25 @@ export const basketAnimation = css`
       transform: translateX(-100px);
       opacity: 0%;
     }
+  }
+`;
+export const casinoAnimation = css`
+  .count-animated-enter {
+    transform: translateY(100%);
+  }
+  .count-animated-enter-active {
+    transform: translateY(0%);
+    transition: 300ms;
+  }
+
+  .count-animated-exit {
+    transform: translateY(0%);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  .count-animated-exit-active {
+    transform: translateY(-100%);
+    transition: 300ms;
   }
 `;

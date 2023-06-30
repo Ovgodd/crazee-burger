@@ -7,7 +7,6 @@ import { cardAnimation } from "../../theme/animations";
 
 export default function Card({
   onClick,
-  id,
   title,
   image,
   price,
@@ -25,7 +24,7 @@ export default function Card({
       >
         <CSSTransition
           in={hasButton}
-          timeout={300}
+          timeout={theme.animations.speed.quick}
           classNames="global-buttons"
           unmountOnExit
         >
