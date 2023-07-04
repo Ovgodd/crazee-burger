@@ -2,10 +2,11 @@ import styled, { css } from "styled-components";
 import { theme } from "../../theme";
 import DeleteButton from "./Buttons/DeleteButton";
 import Button from "./Buttons/Button";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { cardAnimation } from "../../theme/animations";
 
 export default function Card({
   onClick,
-  id,
   title,
   image,
   price,
@@ -14,34 +15,35 @@ export default function Card({
   isSelected,
   onAdd,
 }) {
-  //state (vide)
-
-  //comportements (vide)
-
-  //affichage
   return (
-    <CardStyled
-      hasButton={hasButton}
-      onClick={onClick}
-      className={isSelected ? "selected" : ""}
-    >
-      {hasButton && (
-        <DeleteButton onClick={onDelete} className="delete-button" />
-      )}
-      <img src={image} alt="product" />
-      <div className="interact-container">
-        <h1>{title}</h1>
-        <div className="description">
-          <span className="price">{price}</span>
-          <Button
-            onClick={onAdd}
-            label="Ajouter"
-            className="primary-button primary-selected"
-          />
+    <TransitionGroup>
+      <CardStyled
+        hasButton={hasButton}
+        onClick={onClick}
+        className={isSelected ? "selected" : ""}
+      >
+        <CSSTransition
+          in={hasButton}
+          timeout={theme.animations.speed.quick}
+          classNames="global-buttons"
+          unmountOnExit
+        >
+          <DeleteButton onClick={onDelete} className="delete-button" />
+        </CSSTransition>
+        <img src={image} alt="product" />
+        <div className="interact-container">
+          <h1>{title}</h1>
+          <div className="description">
+            <span className="price">{price}</span>
+            <Button
+              onClick={onAdd}
+              label="Ajouter"
+              className="primary-button primary-selected"
+            />
+          </div>
         </div>
-      </div>
-      {/* <div className="admin-panel">ajouter un produit</div> */}
-    </CardStyled>
+      </CardStyled>
+    </TransitionGroup>
   );
 }
 
@@ -58,6 +60,7 @@ const CardStyled = styled.div`
   border-radius: ${theme.borderRadius.extraRound};
   background: ${theme.colors.white};
   position: relative;
+  ${cardAnimation};
 
   &:hover {
     ${({ hasButton }) => hasButton && cardStyled.hover};

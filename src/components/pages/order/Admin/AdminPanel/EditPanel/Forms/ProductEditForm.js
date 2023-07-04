@@ -15,16 +15,13 @@ export default function ProductEditForm() {
   const handleChange = async (event) => {
     const { name, value } = event.target;
     const updatedNewProductInfo = { ...newProductInfo, [name]: value };
-
     setNewProductInfo(updatedNewProductInfo);
-
     handleEdit(updatedNewProductInfo, username);
   };
 
   const handleOnFocus = (event) => {
     const inputValueOnFocus = event.target.value;
     setValueOnFocus(inputValueOnFocus);
-    console.log(inputValueOnFocus, "inputValueOnFocus");
   };
 
   const handleOnBlur = (event) => {

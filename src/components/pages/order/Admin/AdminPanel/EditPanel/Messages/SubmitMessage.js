@@ -4,7 +4,6 @@ import { theme } from "../../../../../../../theme";
 import { FiCheck } from "react-icons/fi";
 
 export default function SubmitMessage({ label, Icon }) {
-  console.log("SUBMITMESSAGE");
   return (
     <SubmitMessageStyled>
       <FiCheck className="icon" />

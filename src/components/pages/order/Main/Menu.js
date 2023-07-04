@@ -8,7 +8,8 @@ import EmptyMenu from "./EmptyMenu";
 import COMING_SOON from "../../../../images/coming-soon.png";
 import { findObjectById, isEmpty } from "../../../../utils/array";
 import Loader from "./Loader";
-import { checkIfProductIsSelected } from "./helper";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { menuAnimation } from "../../../../theme/animations";
 
 export default function Menu() {
   const {
@@ -62,23 +63,27 @@ export default function Menu() {
   };
 
   return (
-    <MenuStyled>
+    <TransitionGroup component={MenuStyled}>
       {menuProducts.map(({ id, title, imageSource, price, quantity }) => (
-        <Card
-          key={id}
-          id={id}
-          quantity={quantity}
-          title={title}
-          image={imageSource ? imageSource : COMING_SOON}
-          price={formatPrice(price)}
-          isSelected={checkIfProductIsSelected(id, selectedProduct.id)}
-          onDelete={(e) => handleCardDelete(id, e)}
-          onAdd={(e) => handleOnAdd(e, id)}
-          onClick={() => handleCardClick(id)}
-          hasButton={isAdmin}
-        />
+        <CSSTransition key={id} timeout={300} classNames={"global-cards"}>
+          <Card
+            quantity={quantity}
+            title={title}
+            image={imageSource ? imageSource : COMING_SOON}
+            price={formatPrice(price)}
+            isSelected={
+              selectedProduct && selectedProduct.id === id
+                ? selectedProduct
+                : null
+            }
+            onDelete={(e) => handleCardDelete(id, e)}
+            onAdd={(e) => handleOnAdd(e, id)}
+            onClick={() => handleCardClick(id)}
+            hasButton={isAdmin}
+          />
+        </CSSTransition>
       ))}
-    </MenuStyled>
+    </TransitionGroup>
   );
 }
 
@@ -93,4 +98,5 @@ const MenuStyled = styled.div`
   overflow-y: auto;
   /* border-bottom-left-radius: ${theme.borderRadius.extraRound}; */
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
+  ${menuAnimation}
 `;

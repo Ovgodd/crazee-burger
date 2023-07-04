@@ -5,24 +5,32 @@ import { theme } from "../../../../theme";
 import Admin from "../Admin/Admin";
 import Menu from "./Menu";
 import Basket from "../Basket/Basket";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { adminAnimation } from "../../../../theme/animations";
 
 export default function Main() {
   const { isAdmin } = useContext(OrderContext);
 
   return (
-    <MainStyled>
+    <TransitionGroup component={MainStyled}>
       <Basket />
       <div className="menu-and-admin">
         <Menu />
-        {isAdmin && <Admin />}
+        <CSSTransition
+          in={isAdmin}
+          timeout={theme.animations.speed.quick}
+          classNames="admin-panel"
+          unmountOnExit
+        >
+          <Admin />
+        </CSSTransition>
       </div>
-    </MainStyled>
+    </TransitionGroup>
   );
 }
 
 const MainStyled = styled.div`
   height: 85vh;
-  /* border-bottom-left-radius: ${theme.borderRadius.extraRound}; */
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   position: relative;
   display: grid;
@@ -33,4 +41,5 @@ const MainStyled = styled.div`
     display: grid;
     overflow-y: hidden;
   }
+  ${adminAnimation}
 `;

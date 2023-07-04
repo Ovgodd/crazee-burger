@@ -1,23 +1,24 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { theme } from "../../../../theme";
-import { formatPrice } from "../../../../utils/maths";
+import { theme } from "../../../../../theme";
+import { formatPrice } from "../../../../../utils/maths";
 import { totalSumToPay } from "./helper";
-import OrderContext from "../../../../context/OrderContext";
+import OrderContext from "../../../../../context/OrderContext";
+import CasinoEffects from "../../../../reusable-ui/CasinoEffects";
 
-export default function Header({ label }) {
+export default function BasketHeader({ label }) {
   const { basket, menuProducts } = useContext(OrderContext);
   const totalToPay = totalSumToPay(basket, menuProducts);
 
   return (
-    <HeaderStyled>
+    <BasketHeaderStyled>
       <span>{label}</span>
-      <span className="total">{formatPrice(totalToPay)}</span>
-    </HeaderStyled>
+      <CasinoEffects className={"total"} count={formatPrice(totalToPay)} />
+    </BasketHeaderStyled>
   );
 }
 
-const HeaderStyled = styled.div`
+const BasketHeaderStyled = styled.div`
   background: ${theme.colors.background_dark};
   padding: 0px 16px;
   display: flex;
